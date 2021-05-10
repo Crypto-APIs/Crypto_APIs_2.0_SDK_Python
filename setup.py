@@ -31,7 +31,7 @@ setup(
     description="CryptoAPIs",
     author="CryptoAPIs Team",
     author_email="developers@cryptoapis.io",
-    url="",
+    url="https://github.com/Crypto-APIs/Crypto_APIs_2.0_SDK_Python",
     keywords=["OpenAPI", "OpenAPI-Generator", "CryptoAPIs"],
     python_requires=">=3.6",
     install_requires=REQUIRES,
