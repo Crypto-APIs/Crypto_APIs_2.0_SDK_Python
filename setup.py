@@ -28,7 +28,7 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="CryptoAPIs",
+    description="CryptoAPIs Python client",
     author="CryptoAPIs Team",
     author_email="developers@cryptoapis.io",
     url="https://github.com/Crypto-APIs/Crypto_APIs_2.0_SDK_Python",
