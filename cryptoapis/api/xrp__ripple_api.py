@@ -23,18 +23,19 @@ from cryptoapis.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.get_latest_mined_xrp_ripple_block_response import GetLatestMinedXRPRippleBlockResponse
-from cryptoapis.model.get_xrp_ripple_address_details_response import GetXRPRippleAddressDetailsResponse
-from cryptoapis.model.get_xrp_ripple_block_details_by_block_hash_response import GetXRPRippleBlockDetailsByBlockHashResponse
-from cryptoapis.model.get_xrp_ripple_block_details_by_block_height_response import GetXRPRippleBlockDetailsByBlockHeightResponse
-from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id_response import GetXRPRippleTransactionDetailsByTransactionIDResponse
+from cryptoapis.model.get_latest_mined_xrp_ripple_block_r import GetLatestMinedXRPRippleBlockR
+from cryptoapis.model.get_xrp_ripple_address_details_r import GetXRPRippleAddressDetailsR
+from cryptoapis.model.get_xrp_ripple_block_details_by_block_hash_r import GetXRPRippleBlockDetailsByBlockHashR
+from cryptoapis.model.get_xrp_ripple_block_details_by_block_height_r import GetXRPRippleBlockDetailsByBlockHeightR
+from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_idr import GetXRPRippleTransactionDetailsByTransactionIDR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.list_xrp_ripple_transactions_by_address_response import ListXRPRippleTransactionsByAddressResponse
-from cryptoapis.model.list_xrp_ripple_transactions_by_block_hash_response import ListXRPRippleTransactionsByBlockHashResponse
+from cryptoapis.model.list_xrp_ripple_transactions_by_address_r import ListXRPRippleTransactionsByAddressR
+from cryptoapis.model.list_xrp_ripple_transactions_by_block_hash_r import ListXRPRippleTransactionsByBlockHashR
+from cryptoapis.model.list_xrp_ripple_transactions_by_block_height_r import ListXRPRippleTransactionsByBlockHeightR
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.resource_not_found import ResourceNotFound
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
@@ -77,8 +78,8 @@ class XRPRippleApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -93,7 +94,7 @@ class XRPRippleApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GetLatestMinedXRPRippleBlockResponse
+                GetLatestMinedXRPRippleBlockR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -122,11 +123,11 @@ class XRPRippleApi(object):
 
         self.get_latest_mined_xrp__ripple_block = _Endpoint(
             settings={
-                'response_type': (GetLatestMinedXRPRippleBlockResponse,),
+                'response_type': (GetLatestMinedXRPRippleBlockR,),
                 'auth': [
                     'ApiKey'
                 ],
-                'endpoint_path': '/blockchain-data/xrp/{network}/blocks/last',
+                'endpoint_path': '/blockchain-data/xrp-specific/{network}/blocks/last',
                 'operation_id': 'get_latest_mined_xrp__ripple_block',
                 'http_method': 'GET',
                 'servers': None,
@@ -210,8 +211,8 @@ class XRPRippleApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -226,7 +227,7 @@ class XRPRippleApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GetXRPRippleAddressDetailsResponse
+                GetXRPRippleAddressDetailsR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -257,11 +258,11 @@ class XRPRippleApi(object):
 
         self.get_xrp__ripple_address_details = _Endpoint(
             settings={
-                'response_type': (GetXRPRippleAddressDetailsResponse,),
+                'response_type': (GetXRPRippleAddressDetailsR,),
                 'auth': [
                     'ApiKey'
                 ],
-                'endpoint_path': '/blockchain-data/xrp/{network}/addresses/{address}',
+                'endpoint_path': '/blockchain-data/xrp-specific/{network}/addresses/{address}',
                 'operation_id': 'get_xrp__ripple_address_details',
                 'http_method': 'GET',
                 'servers': None,
@@ -351,8 +352,8 @@ class XRPRippleApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -367,7 +368,7 @@ class XRPRippleApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GetXRPRippleBlockDetailsByBlockHashResponse
+                GetXRPRippleBlockDetailsByBlockHashR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -398,11 +399,11 @@ class XRPRippleApi(object):
 
         self.get_xrp__ripple_block_details_by_block_hash = _Endpoint(
             settings={
-                'response_type': (GetXRPRippleBlockDetailsByBlockHashResponse,),
+                'response_type': (GetXRPRippleBlockDetailsByBlockHashR,),
                 'auth': [
                     'ApiKey'
                 ],
-                'endpoint_path': '/blockchain-data/xrp/{network}/blocks/hash/{blockHash}',
+                'endpoint_path': '/blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash}',
                 'operation_id': 'get_xrp__ripple_block_details_by_block_hash',
                 'http_method': 'GET',
                 'servers': None,
@@ -469,7 +470,7 @@ class XRPRippleApi(object):
         def __get_xrp__ripple_block_details_by_block_height(
             self,
             network,
-            height,
+            block_height,
             **kwargs
         ):
             """Get XRP (Ripple) Block Details By Block Height  # noqa: E501
@@ -478,12 +479,12 @@ class XRPRippleApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.get_xrp__ripple_block_details_by_block_height(network, height, async_req=True)
+            >>> thread = api.get_xrp__ripple_block_details_by_block_height(network, block_height, async_req=True)
             >>> result = thread.get()
 
             Args:
                 network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\",  are test networks.
-                height (str): Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
+                block_height (str): Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
 
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
@@ -492,8 +493,8 @@ class XRPRippleApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -508,7 +509,7 @@ class XRPRippleApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GetXRPRippleBlockDetailsByBlockHeightResponse
+                GetXRPRippleBlockDetailsByBlockHeightR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -533,17 +534,17 @@ class XRPRippleApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['network'] = \
                 network
-            kwargs['height'] = \
-                height
+            kwargs['block_height'] = \
+                block_height
             return self.call_with_http_info(**kwargs)
 
         self.get_xrp__ripple_block_details_by_block_height = _Endpoint(
             settings={
-                'response_type': (GetXRPRippleBlockDetailsByBlockHeightResponse,),
+                'response_type': (GetXRPRippleBlockDetailsByBlockHeightR,),
                 'auth': [
                     'ApiKey'
                 ],
-                'endpoint_path': '/blockchain-data/xrp/{network}/blocks/height/{height}',
+                'endpoint_path': '/blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight}',
                 'operation_id': 'get_xrp__ripple_block_details_by_block_height',
                 'http_method': 'GET',
                 'servers': None,
@@ -551,12 +552,12 @@ class XRPRippleApi(object):
             params_map={
                 'all': [
                     'network',
-                    'height',
+                    'block_height',
                     'context',
                 ],
                 'required': [
                     'network',
-                    'height',
+                    'block_height',
                 ],
                 'nullable': [
                 ],
@@ -579,19 +580,19 @@ class XRPRippleApi(object):
                 'openapi_types': {
                     'network':
                         (str,),
-                    'height':
+                    'block_height':
                         (str,),
                     'context':
                         (str,),
                 },
                 'attribute_map': {
                     'network': 'network',
-                    'height': 'height',
+                    'block_height': 'blockHeight',
                     'context': 'context',
                 },
                 'location_map': {
                     'network': 'path',
-                    'height': 'path',
+                    'block_height': 'path',
                     'context': 'query',
                 },
                 'collection_format_map': {
@@ -633,8 +634,8 @@ class XRPRippleApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -649,7 +650,7 @@ class XRPRippleApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GetXRPRippleTransactionDetailsByTransactionIDResponse
+                GetXRPRippleTransactionDetailsByTransactionIDR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -680,11 +681,11 @@ class XRPRippleApi(object):
 
         self.get_xrp__ripple_transaction_details_by_transaction_id = _Endpoint(
             settings={
-                'response_type': (GetXRPRippleTransactionDetailsByTransactionIDResponse,),
+                'response_type': (GetXRPRippleTransactionDetailsByTransactionIDR,),
                 'auth': [
                     'ApiKey'
                 ],
-                'endpoint_path': '/blockchain-data/xrp/{network}/transactions/{transactionHash}',
+                'endpoint_path': '/blockchain-data/xrp-specific/{network}/transactions/{transactionHash}',
                 'operation_id': 'get_xrp__ripple_transaction_details_by_transaction_id',
                 'http_method': 'GET',
                 'servers': None,
@@ -756,7 +757,7 @@ class XRPRippleApi(object):
         ):
             """List XRP (Ripple) Transactions by Address  # noqa: E501
 
-            This endpoint will list XRP transactions by a attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.  # noqa: E501
+            This endpoint will list XRP transactions by a attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -776,8 +777,8 @@ class XRPRippleApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -792,7 +793,7 @@ class XRPRippleApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListXRPRippleTransactionsByAddressResponse
+                ListXRPRippleTransactionsByAddressR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -823,11 +824,11 @@ class XRPRippleApi(object):
 
         self.list_xrp__ripple_transactions_by_address = _Endpoint(
             settings={
-                'response_type': (ListXRPRippleTransactionsByAddressResponse,),
+                'response_type': (ListXRPRippleTransactionsByAddressR,),
                 'auth': [
                     'ApiKey'
                 ],
-                'endpoint_path': '/blockchain-data/xrp/{network}/addresses/{address}/transactions',
+                'endpoint_path': '/blockchain-data/xrp-specific/{network}/addresses/{address}/transactions',
                 'operation_id': 'list_xrp__ripple_transactions_by_address',
                 'http_method': 'GET',
                 'servers': None,
@@ -909,7 +910,7 @@ class XRPRippleApi(object):
         ):
             """List XRP (Ripple) Transactions By Block Hash  # noqa: E501
 
-            This endpoint will list transactions by an attribute `blockHash`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.  # noqa: E501
+            This endpoint will list transactions by an attribute `blockHash`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -929,8 +930,8 @@ class XRPRippleApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -945,7 +946,7 @@ class XRPRippleApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListXRPRippleTransactionsByBlockHashResponse
+                ListXRPRippleTransactionsByBlockHashR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -976,11 +977,11 @@ class XRPRippleApi(object):
 
         self.list_xrp__ripple_transactions_by_block_hash = _Endpoint(
             settings={
-                'response_type': (ListXRPRippleTransactionsByBlockHashResponse,),
+                'response_type': (ListXRPRippleTransactionsByBlockHashR,),
                 'auth': [
                     'ApiKey'
                 ],
-                'endpoint_path': '/blockchain-data/xrp/{network}/blocks/hash/{blockHash}/transactions',
+                'endpoint_path': '/blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash}/transactions',
                 'operation_id': 'list_xrp__ripple_transactions_by_block_hash',
                 'http_method': 'GET',
                 'servers': None,
@@ -1052,4 +1053,157 @@ class XRPRippleApi(object):
             },
             api_client=api_client,
             callable=__list_xrp__ripple_transactions_by_block_hash
+        )
+
+        def __list_xrp__ripple_transactions_by_block_height(
+            self,
+            network,
+            block_height,
+            **kwargs
+        ):
+            """List XRP (Ripple) Transactions By Block Height  # noqa: E501
+
+            This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.list_xrp__ripple_transactions_by_block_height(network, block_height, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+                block_height (int):
+
+            Keyword Args:
+                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+                limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
+                offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                ListXRPRippleTransactionsByBlockHeightR
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['network'] = \
+                network
+            kwargs['block_height'] = \
+                block_height
+            return self.call_with_http_info(**kwargs)
+
+        self.list_xrp__ripple_transactions_by_block_height = _Endpoint(
+            settings={
+                'response_type': (ListXRPRippleTransactionsByBlockHeightR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight}/transactions',
+                'operation_id': 'list_xrp__ripple_transactions_by_block_height',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'network',
+                    'block_height',
+                    'context',
+                    'limit',
+                    'offset',
+                ],
+                'required': [
+                    'network',
+                    'block_height',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'network',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('network',): {
+
+                        "MAINNET": "mainnet",
+                        "TESTNET": "testnet"
+                    },
+                },
+                'openapi_types': {
+                    'network':
+                        (str,),
+                    'block_height':
+                        (int,),
+                    'context':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'network': 'network',
+                    'block_height': 'blockHeight',
+                    'context': 'context',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'network': 'path',
+                    'block_height': 'path',
+                    'context': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__list_xrp__ripple_transactions_by_block_height
         )

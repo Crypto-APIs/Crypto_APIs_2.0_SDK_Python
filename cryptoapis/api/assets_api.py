@@ -28,7 +28,7 @@ from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.list_assets_details_response import ListAssetsDetailsResponse
+from cryptoapis.model.list_assets_details_r import ListAssetsDetailsR
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
@@ -52,7 +52,7 @@ class AssetsApi(object):
         ):
             """List Assets Details  # noqa: E501
 
-            This endpoint will return details on a requested asset. The asset could be a cryptocurrency or FIAT asset that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".    The details returned could include information on the latest rate and rate fluctuation of different periods of time - 24 hours, a week, one hour, the encoding of the logo, and more.  # noqa: E501
+            This endpoint will return details on a requested asset. The asset could be a cryptocurrency or FIAT asset that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".    The details returned could include information on the latest rate and rate fluctuation of different periods of time - 24 hours, a week, one hour, the encoding of the logo, and more.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -63,15 +63,17 @@ class AssetsApi(object):
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
                 asset_type (str): Defines the type of the supported asset. This could be either \"crypto\" or \"fiat\".. [optional]
+                crypto_type (str): Subtype of the crypto assets. Could be COIN or TOKEN. [optional]
                 limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
                 offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
+                waas_enabled (bool): Show only if WaaS is/not enabled. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -86,7 +88,7 @@ class AssetsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListAssetsDetailsResponse
+                ListAssetsDetailsR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -113,7 +115,7 @@ class AssetsApi(object):
 
         self.list_assets_details = _Endpoint(
             settings={
-                'response_type': (ListAssetsDetailsResponse,),
+                'response_type': (ListAssetsDetailsR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -126,14 +128,17 @@ class AssetsApi(object):
                 'all': [
                     'context',
                     'asset_type',
+                    'crypto_type',
                     'limit',
                     'offset',
+                    'waas_enabled',
                 ],
                 'required': [],
                 'nullable': [
                 ],
                 'enum': [
                     'asset_type',
+                    'crypto_type',
                 ],
                 'validation': [
                 ]
@@ -147,28 +152,41 @@ class AssetsApi(object):
                         "FIAT": "fiat",
                         "CRYPTO": "crypto"
                     },
+                    ('crypto_type',): {
+
+                        "COIN": "coin",
+                        "TOKEN": "token"
+                    },
                 },
                 'openapi_types': {
                     'context':
                         (str,),
                     'asset_type':
                         (str,),
+                    'crypto_type':
+                        (str,),
                     'limit':
                         (int,),
                     'offset':
                         (int,),
+                    'waas_enabled':
+                        (bool,),
                 },
                 'attribute_map': {
                     'context': 'context',
                     'asset_type': 'assetType',
+                    'crypto_type': 'cryptoType',
                     'limit': 'limit',
                     'offset': 'offset',
+                    'waas_enabled': 'waasEnabled',
                 },
                 'location_map': {
                     'context': 'query',
                     'asset_type': 'query',
+                    'crypto_type': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                    'waas_enabled': 'query',
                 },
                 'collection_format_map': {
                 }

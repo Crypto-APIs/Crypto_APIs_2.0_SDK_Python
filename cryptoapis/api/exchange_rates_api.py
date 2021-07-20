@@ -24,8 +24,8 @@ from cryptoapis.model_utils import (  # noqa: F401
 )
 from cryptoapis.model.could_not_calculate_rate_for_pair import CouldNotCalculateRateForPair
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.get_exchange_rate_by_asset_symbols_response import GetExchangeRateByAssetSymbolsResponse
-from cryptoapis.model.get_exchange_rate_by_assets_ids_response import GetExchangeRateByAssetsIDsResponse
+from cryptoapis.model.get_exchange_rate_by_asset_symbols_r import GetExchangeRateByAssetSymbolsR
+from cryptoapis.model.get_exchange_rate_by_assets_ids_r import GetExchangeRateByAssetsIDsR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
@@ -68,13 +68,14 @@ class ExchangeRatesApi(object):
 
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+                calculation_timestamp (int): Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -89,7 +90,7 @@ class ExchangeRatesApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GetExchangeRateByAssetSymbolsResponse
+                GetExchangeRateByAssetSymbolsR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -120,7 +121,7 @@ class ExchangeRatesApi(object):
 
         self.get_exchange_rate_by_asset_symbols = _Endpoint(
             settings={
-                'response_type': (GetExchangeRateByAssetSymbolsResponse,),
+                'response_type': (GetExchangeRateByAssetSymbolsR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -134,6 +135,7 @@ class ExchangeRatesApi(object):
                     'from_asset_symbol',
                     'to_asset_symbol',
                     'context',
+                    'calculation_timestamp',
                 ],
                 'required': [
                     'from_asset_symbol',
@@ -158,16 +160,20 @@ class ExchangeRatesApi(object):
                         (str,),
                     'context':
                         (str,),
+                    'calculation_timestamp':
+                        (int,),
                 },
                 'attribute_map': {
                     'from_asset_symbol': 'fromAssetSymbol',
                     'to_asset_symbol': 'toAssetSymbol',
                     'context': 'context',
+                    'calculation_timestamp': 'calculationTimestamp',
                 },
                 'location_map': {
                     'from_asset_symbol': 'path',
                     'to_asset_symbol': 'path',
                     'context': 'query',
+                    'calculation_timestamp': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -203,13 +209,14 @@ class ExchangeRatesApi(object):
 
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+                calculation_timestamp (int): Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -224,7 +231,7 @@ class ExchangeRatesApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GetExchangeRateByAssetsIDsResponse
+                GetExchangeRateByAssetsIDsR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -255,7 +262,7 @@ class ExchangeRatesApi(object):
 
         self.get_exchange_rate_by_assets_ids = _Endpoint(
             settings={
-                'response_type': (GetExchangeRateByAssetsIDsResponse,),
+                'response_type': (GetExchangeRateByAssetsIDsR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -269,6 +276,7 @@ class ExchangeRatesApi(object):
                     'from_asset_id',
                     'to_asset_id',
                     'context',
+                    'calculation_timestamp',
                 ],
                 'required': [
                     'from_asset_id',
@@ -293,16 +301,20 @@ class ExchangeRatesApi(object):
                         (str,),
                     'context':
                         (str,),
+                    'calculation_timestamp':
+                        (int,),
                 },
                 'attribute_map': {
                     'from_asset_id': 'fromAssetId',
                     'to_asset_id': 'toAssetId',
                     'context': 'context',
+                    'calculation_timestamp': 'calculationTimestamp',
                 },
                 'location_map': {
                     'from_asset_id': 'path',
                     'to_asset_id': 'path',
                     'context': 'query',
+                    'calculation_timestamp': 'query',
                 },
                 'collection_format_map': {
                 }

@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **forwarding_transaction_id** | **str** | Defines the unique Transaction ID that forwarded the tokens. | 
 **token_type** | **str** | Defines the type of token sent with the transaction, e.g. ERC 20. | 
 **token** | [**TokensForwardingSuccessToken**](TokensForwardingSuccessToken.md) |  | 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

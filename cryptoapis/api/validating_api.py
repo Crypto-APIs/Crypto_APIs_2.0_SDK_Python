@@ -31,8 +31,8 @@ from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodySt
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
-from cryptoapis.model.validate_address_request_body import ValidateAddressRequestBody
-from cryptoapis.model.validate_address_response import ValidateAddressResponse
+from cryptoapis.model.validate_address_r import ValidateAddressR
+from cryptoapis.model.validate_address_rb import ValidateAddressRB
 
 
 class ValidatingApi(object):
@@ -68,14 +68,14 @@ class ValidatingApi(object):
 
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                validate_address_request_body (ValidateAddressRequestBody): [optional]
+                validate_address_rb (ValidateAddressRB): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -90,7 +90,7 @@ class ValidatingApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ValidateAddressResponse
+                ValidateAddressR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -121,7 +121,7 @@ class ValidatingApi(object):
 
         self.validate_address = _Endpoint(
             settings={
-                'response_type': (ValidateAddressResponse,),
+                'response_type': (ValidateAddressR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -135,7 +135,7 @@ class ValidatingApi(object):
                     'blockchain',
                     'network',
                     'context',
-                    'validate_address_request_body',
+                    'validate_address_rb',
                 ],
                 'required': [
                     'blockchain',
@@ -182,8 +182,8 @@ class ValidatingApi(object):
                         (str,),
                     'context':
                         (str,),
-                    'validate_address_request_body':
-                        (ValidateAddressRequestBody,),
+                    'validate_address_rb':
+                        (ValidateAddressRB,),
                 },
                 'attribute_map': {
                     'blockchain': 'blockchain',
@@ -194,7 +194,7 @@ class ValidatingApi(object):
                     'blockchain': 'path',
                     'network': 'path',
                     'context': 'query',
-                    'validate_address_request_body': 'body',
+                    'validate_address_rb': 'body',
                 },
                 'collection_format_map': {
                 }

@@ -52,6 +52,20 @@ class TestCreateSubscriptionsForApi(unittest.TestCase):
         """
         pass
 
+    def test_new_confirmed_internal_transactions(self):
+        """Test case for new_confirmed_internal_transactions
+
+        New confirmed internal transactions  # noqa: E501
+        """
+        pass
+
+    def test_new_confirmed_internal_transactions_and_each_confirmation(self):
+        """Test case for new_confirmed_internal_transactions_and_each_confirmation
+
+        New confirmed internal transactions and each confirmation  # noqa: E501
+        """
+        pass
+
     def test_new_confirmed_tokens_transactions(self):
         """Test case for new_confirmed_tokens_transactions
 

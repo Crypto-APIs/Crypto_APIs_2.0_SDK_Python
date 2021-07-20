@@ -28,22 +28,26 @@ from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.mined_transaction_request_body import MinedTransactionRequestBody
-from cryptoapis.model.mined_transaction_response import MinedTransactionResponse
-from cryptoapis.model.new_block_request_body import NewBlockRequestBody
-from cryptoapis.model.new_block_response import NewBlockResponse
-from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation_request_body import NewConfirmedCoinsTransactionsAndEachConfirmationRequestBody
-from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation_response import NewConfirmedCoinsTransactionsAndEachConfirmationResponse
-from cryptoapis.model.new_confirmed_coins_transactions_request_body import NewConfirmedCoinsTransactionsRequestBody
-from cryptoapis.model.new_confirmed_coins_transactions_response import NewConfirmedCoinsTransactionsResponse
-from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_request_body import NewConfirmedTokensTransactionsAndEachConfirmationRequestBody
-from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_response import NewConfirmedTokensTransactionsAndEachConfirmationResponse
-from cryptoapis.model.new_confirmed_tokens_transactions_request_body import NewConfirmedTokensTransactionsRequestBody
-from cryptoapis.model.new_confirmed_tokens_transactions_response import NewConfirmedTokensTransactionsResponse
-from cryptoapis.model.new_unconfirmed_coins_transactions_request_body import NewUnconfirmedCoinsTransactionsRequestBody
-from cryptoapis.model.new_unconfirmed_coins_transactions_response import NewUnconfirmedCoinsTransactionsResponse
-from cryptoapis.model.new_unconfirmed_tokens_transactions_request_body import NewUnconfirmedTokensTransactionsRequestBody
-from cryptoapis.model.new_unconfirmed_tokens_transactions_response import NewUnconfirmedTokensTransactionsResponse
+from cryptoapis.model.mined_transaction_r import MinedTransactionR
+from cryptoapis.model.mined_transaction_rb import MinedTransactionRB
+from cryptoapis.model.new_block_r import NewBlockR
+from cryptoapis.model.new_block_rb import NewBlockRB
+from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation_r import NewConfirmedCoinsTransactionsAndEachConfirmationR
+from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation_rb import NewConfirmedCoinsTransactionsAndEachConfirmationRB
+from cryptoapis.model.new_confirmed_coins_transactions_r import NewConfirmedCoinsTransactionsR
+from cryptoapis.model.new_confirmed_coins_transactions_rb import NewConfirmedCoinsTransactionsRB
+from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation_r import NewConfirmedInternalTransactionsAndEachConfirmationR
+from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation_rb import NewConfirmedInternalTransactionsAndEachConfirmationRB
+from cryptoapis.model.new_confirmed_internal_transactions_r import NewConfirmedInternalTransactionsR
+from cryptoapis.model.new_confirmed_internal_transactions_rb import NewConfirmedInternalTransactionsRB
+from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_r import NewConfirmedTokensTransactionsAndEachConfirmationR
+from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_rb import NewConfirmedTokensTransactionsAndEachConfirmationRB
+from cryptoapis.model.new_confirmed_tokens_transactions_r import NewConfirmedTokensTransactionsR
+from cryptoapis.model.new_confirmed_tokens_transactions_rb import NewConfirmedTokensTransactionsRB
+from cryptoapis.model.new_unconfirmed_coins_transactions_r import NewUnconfirmedCoinsTransactionsR
+from cryptoapis.model.new_unconfirmed_coins_transactions_rb import NewUnconfirmedCoinsTransactionsRB
+from cryptoapis.model.new_unconfirmed_tokens_transactions_r import NewUnconfirmedTokensTransactionsR
+from cryptoapis.model.new_unconfirmed_tokens_transactions_rb import NewUnconfirmedTokensTransactionsRB
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
@@ -82,14 +86,14 @@ class CreateSubscriptionsForApi(object):
 
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                mined_transaction_request_body (MinedTransactionRequestBody): [optional]
+                mined_transaction_rb (MinedTransactionRB): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -104,7 +108,7 @@ class CreateSubscriptionsForApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                MinedTransactionResponse
+                MinedTransactionR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -135,7 +139,7 @@ class CreateSubscriptionsForApi(object):
 
         self.mined_transaction = _Endpoint(
             settings={
-                'response_type': (MinedTransactionResponse,),
+                'response_type': (MinedTransactionR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -149,7 +153,7 @@ class CreateSubscriptionsForApi(object):
                     'blockchain',
                     'network',
                     'context',
-                    'mined_transaction_request_body',
+                    'mined_transaction_rb',
                 ],
                 'required': [
                     'blockchain',
@@ -177,7 +181,8 @@ class CreateSubscriptionsForApi(object):
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
                         "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "XRP": "xrp"
+                        "XRP": "xrp",
+                        "ZILLIQA": "zilliqa"
                     },
                     ('network',): {
 
@@ -196,8 +201,8 @@ class CreateSubscriptionsForApi(object):
                         (str,),
                     'context':
                         (str,),
-                    'mined_transaction_request_body':
-                        (MinedTransactionRequestBody,),
+                    'mined_transaction_rb':
+                        (MinedTransactionRB,),
                 },
                 'attribute_map': {
                     'blockchain': 'blockchain',
@@ -208,7 +213,7 @@ class CreateSubscriptionsForApi(object):
                     'blockchain': 'path',
                     'network': 'path',
                     'context': 'query',
-                    'mined_transaction_request_body': 'body',
+                    'mined_transaction_rb': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -246,14 +251,14 @@ class CreateSubscriptionsForApi(object):
 
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                new_block_request_body (NewBlockRequestBody): [optional]
+                new_block_rb (NewBlockRB): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -268,7 +273,7 @@ class CreateSubscriptionsForApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                NewBlockResponse
+                NewBlockR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -299,7 +304,7 @@ class CreateSubscriptionsForApi(object):
 
         self.new_block = _Endpoint(
             settings={
-                'response_type': (NewBlockResponse,),
+                'response_type': (NewBlockR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -313,7 +318,7 @@ class CreateSubscriptionsForApi(object):
                     'blockchain',
                     'network',
                     'context',
-                    'new_block_request_body',
+                    'new_block_rb',
                 ],
                 'required': [
                     'blockchain',
@@ -341,7 +346,8 @@ class CreateSubscriptionsForApi(object):
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
                         "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "XRP": "xrp"
+                        "XRP": "xrp",
+                        "ZILLIQA": "zilliqa"
                     },
                     ('network',): {
 
@@ -360,8 +366,8 @@ class CreateSubscriptionsForApi(object):
                         (str,),
                     'context':
                         (str,),
-                    'new_block_request_body':
-                        (NewBlockRequestBody,),
+                    'new_block_rb':
+                        (NewBlockRB,),
                 },
                 'attribute_map': {
                     'blockchain': 'blockchain',
@@ -372,7 +378,7 @@ class CreateSubscriptionsForApi(object):
                     'blockchain': 'path',
                     'network': 'path',
                     'context': 'query',
-                    'new_block_request_body': 'body',
+                    'new_block_rb': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -410,14 +416,14 @@ class CreateSubscriptionsForApi(object):
 
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                new_confirmed_coins_transactions_request_body (NewConfirmedCoinsTransactionsRequestBody): [optional]
+                new_confirmed_coins_transactions_rb (NewConfirmedCoinsTransactionsRB): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -432,7 +438,7 @@ class CreateSubscriptionsForApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                NewConfirmedCoinsTransactionsResponse
+                NewConfirmedCoinsTransactionsR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -463,7 +469,7 @@ class CreateSubscriptionsForApi(object):
 
         self.new_confirmed_coins_transactions = _Endpoint(
             settings={
-                'response_type': (NewConfirmedCoinsTransactionsResponse,),
+                'response_type': (NewConfirmedCoinsTransactionsR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -477,7 +483,7 @@ class CreateSubscriptionsForApi(object):
                     'blockchain',
                     'network',
                     'context',
-                    'new_confirmed_coins_transactions_request_body',
+                    'new_confirmed_coins_transactions_rb',
                 ],
                 'required': [
                     'blockchain',
@@ -505,7 +511,8 @@ class CreateSubscriptionsForApi(object):
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
                         "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "XRP": "xrp"
+                        "XRP": "xrp",
+                        "ZILLIQA": "zilliqa"
                     },
                     ('network',): {
 
@@ -524,8 +531,8 @@ class CreateSubscriptionsForApi(object):
                         (str,),
                     'context':
                         (str,),
-                    'new_confirmed_coins_transactions_request_body':
-                        (NewConfirmedCoinsTransactionsRequestBody,),
+                    'new_confirmed_coins_transactions_rb':
+                        (NewConfirmedCoinsTransactionsRB,),
                 },
                 'attribute_map': {
                     'blockchain': 'blockchain',
@@ -536,7 +543,7 @@ class CreateSubscriptionsForApi(object):
                     'blockchain': 'path',
                     'network': 'path',
                     'context': 'query',
-                    'new_confirmed_coins_transactions_request_body': 'body',
+                    'new_confirmed_coins_transactions_rb': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -574,14 +581,14 @@ class CreateSubscriptionsForApi(object):
 
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                new_confirmed_coins_transactions_and_each_confirmation_request_body (NewConfirmedCoinsTransactionsAndEachConfirmationRequestBody): [optional]
+                new_confirmed_coins_transactions_and_each_confirmation_rb (NewConfirmedCoinsTransactionsAndEachConfirmationRB): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -596,7 +603,7 @@ class CreateSubscriptionsForApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                NewConfirmedCoinsTransactionsAndEachConfirmationResponse
+                NewConfirmedCoinsTransactionsAndEachConfirmationR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -627,7 +634,7 @@ class CreateSubscriptionsForApi(object):
 
         self.new_confirmed_coins_transactions_and_each_confirmation = _Endpoint(
             settings={
-                'response_type': (NewConfirmedCoinsTransactionsAndEachConfirmationResponse,),
+                'response_type': (NewConfirmedCoinsTransactionsAndEachConfirmationR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -641,7 +648,7 @@ class CreateSubscriptionsForApi(object):
                     'blockchain',
                     'network',
                     'context',
-                    'new_confirmed_coins_transactions_and_each_confirmation_request_body',
+                    'new_confirmed_coins_transactions_and_each_confirmation_rb',
                 ],
                 'required': [
                     'blockchain',
@@ -669,7 +676,8 @@ class CreateSubscriptionsForApi(object):
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
                         "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "XRP": "xrp"
+                        "XRP": "xrp",
+                        "ZILLIQA": "zilliqa"
                     },
                     ('network',): {
 
@@ -688,8 +696,8 @@ class CreateSubscriptionsForApi(object):
                         (str,),
                     'context':
                         (str,),
-                    'new_confirmed_coins_transactions_and_each_confirmation_request_body':
-                        (NewConfirmedCoinsTransactionsAndEachConfirmationRequestBody,),
+                    'new_confirmed_coins_transactions_and_each_confirmation_rb':
+                        (NewConfirmedCoinsTransactionsAndEachConfirmationRB,),
                 },
                 'attribute_map': {
                     'blockchain': 'blockchain',
@@ -700,7 +708,7 @@ class CreateSubscriptionsForApi(object):
                     'blockchain': 'path',
                     'network': 'path',
                     'context': 'query',
-                    'new_confirmed_coins_transactions_and_each_confirmation_request_body': 'body',
+                    'new_confirmed_coins_transactions_and_each_confirmation_rb': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -715,6 +723,336 @@ class CreateSubscriptionsForApi(object):
             },
             api_client=api_client,
             callable=__new_confirmed_coins_transactions_and_each_confirmation
+        )
+
+        def __new_confirmed_internal_transactions(
+            self,
+            blockchain,
+            network,
+            **kwargs
+        ):
+            """New confirmed internal transactions  # noqa: E501
+
+            Through this endpoint customers can create callback subscriptions for a specific event. In this case the event is when there are new confirmed internal transactions. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs.    Being confirmed means that the transactions are verified by miners and added to the next block.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.new_confirmed_internal_transactions(blockchain, network, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+
+            Keyword Args:
+                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+                new_confirmed_internal_transactions_rb (NewConfirmedInternalTransactionsRB): [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                NewConfirmedInternalTransactionsR
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['blockchain'] = \
+                blockchain
+            kwargs['network'] = \
+                network
+            return self.call_with_http_info(**kwargs)
+
+        self.new_confirmed_internal_transactions = _Endpoint(
+            settings={
+                'response_type': (NewConfirmedInternalTransactionsR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/blockchain-events/{blockchain}/{network}/subscriptions/address-internal-transactions-confirmed',
+                'operation_id': 'new_confirmed_internal_transactions',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'blockchain',
+                    'network',
+                    'context',
+                    'new_confirmed_internal_transactions_rb',
+                ],
+                'required': [
+                    'blockchain',
+                    'network',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'blockchain',
+                    'network',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('blockchain',): {
+
+                        "BITCOIN": "bitcoin",
+                        "BITCOIN-CASH": "bitcoin-cash",
+                        "LITECOIN": "litecoin",
+                        "DOGECOIN": "dogecoin",
+                        "DASH": "dash",
+                        "ETHEREUM": "ethereum",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "XRP": "xrp",
+                        "ZILLIQA": "zilliqa"
+                    },
+                    ('network',): {
+
+                        "MAINNET": "mainnet",
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten",
+                        "RINKEBY": "rinkeby",
+                        "MORDOR": "mordor",
+                        "KOTTI": "kotti"
+                    },
+                },
+                'openapi_types': {
+                    'blockchain':
+                        (str,),
+                    'network':
+                        (str,),
+                    'context':
+                        (str,),
+                    'new_confirmed_internal_transactions_rb':
+                        (NewConfirmedInternalTransactionsRB,),
+                },
+                'attribute_map': {
+                    'blockchain': 'blockchain',
+                    'network': 'network',
+                    'context': 'context',
+                },
+                'location_map': {
+                    'blockchain': 'path',
+                    'network': 'path',
+                    'context': 'query',
+                    'new_confirmed_internal_transactions_rb': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client,
+            callable=__new_confirmed_internal_transactions
+        )
+
+        def __new_confirmed_internal_transactions_and_each_confirmation(
+            self,
+            blockchain,
+            network,
+            **kwargs
+        ):
+            """New confirmed internal transactions and each confirmation  # noqa: E501
+
+            Through this endpoint customers can create callback subscriptions for a specific event. In this case the event is when there are new confirmed internal transactions. Includes also a response at each confirmation the transaction receives until the specified confirmations limit is reached. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs.     Being confirmed means that the transactions are verified by miners and added to the next block.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.new_confirmed_internal_transactions_and_each_confirmation(blockchain, network, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+
+            Keyword Args:
+                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+                new_confirmed_internal_transactions_and_each_confirmation_rb (NewConfirmedInternalTransactionsAndEachConfirmationRB): [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                NewConfirmedInternalTransactionsAndEachConfirmationR
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['blockchain'] = \
+                blockchain
+            kwargs['network'] = \
+                network
+            return self.call_with_http_info(**kwargs)
+
+        self.new_confirmed_internal_transactions_and_each_confirmation = _Endpoint(
+            settings={
+                'response_type': (NewConfirmedInternalTransactionsAndEachConfirmationR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/blockchain-events/{blockchain}/{network}/subscriptions/address-internal-transactions-confirmed-each-confirmation',
+                'operation_id': 'new_confirmed_internal_transactions_and_each_confirmation',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'blockchain',
+                    'network',
+                    'context',
+                    'new_confirmed_internal_transactions_and_each_confirmation_rb',
+                ],
+                'required': [
+                    'blockchain',
+                    'network',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'blockchain',
+                    'network',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('blockchain',): {
+
+                        "BITCOIN": "bitcoin",
+                        "BITCOIN-CASH": "bitcoin-cash",
+                        "LITECOIN": "litecoin",
+                        "DOGECOIN": "dogecoin",
+                        "DASH": "dash",
+                        "ETHEREUM": "ethereum",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "XRP": "xrp",
+                        "ZILLIQA": "zilliqa"
+                    },
+                    ('network',): {
+
+                        "MAINNET": "mainnet",
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten",
+                        "RINKEBY": "rinkeby",
+                        "MORDOR": "mordor",
+                        "KOTTI": "kotti"
+                    },
+                },
+                'openapi_types': {
+                    'blockchain':
+                        (str,),
+                    'network':
+                        (str,),
+                    'context':
+                        (str,),
+                    'new_confirmed_internal_transactions_and_each_confirmation_rb':
+                        (NewConfirmedInternalTransactionsAndEachConfirmationRB,),
+                },
+                'attribute_map': {
+                    'blockchain': 'blockchain',
+                    'network': 'network',
+                    'context': 'context',
+                },
+                'location_map': {
+                    'blockchain': 'path',
+                    'network': 'path',
+                    'context': 'query',
+                    'new_confirmed_internal_transactions_and_each_confirmation_rb': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client,
+            callable=__new_confirmed_internal_transactions_and_each_confirmation
         )
 
         def __new_confirmed_tokens_transactions(
@@ -738,14 +1076,14 @@ class CreateSubscriptionsForApi(object):
 
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                new_confirmed_tokens_transactions_request_body (NewConfirmedTokensTransactionsRequestBody): [optional]
+                new_confirmed_tokens_transactions_rb (NewConfirmedTokensTransactionsRB): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -760,7 +1098,7 @@ class CreateSubscriptionsForApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                NewConfirmedTokensTransactionsResponse
+                NewConfirmedTokensTransactionsR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -791,7 +1129,7 @@ class CreateSubscriptionsForApi(object):
 
         self.new_confirmed_tokens_transactions = _Endpoint(
             settings={
-                'response_type': (NewConfirmedTokensTransactionsResponse,),
+                'response_type': (NewConfirmedTokensTransactionsR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -805,7 +1143,7 @@ class CreateSubscriptionsForApi(object):
                     'blockchain',
                     'network',
                     'context',
-                    'new_confirmed_tokens_transactions_request_body',
+                    'new_confirmed_tokens_transactions_rb',
                 ],
                 'required': [
                     'blockchain',
@@ -833,7 +1171,8 @@ class CreateSubscriptionsForApi(object):
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
                         "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "XRP": "xrp"
+                        "XRP": "xrp",
+                        "ZILLIQA": "zilliqa"
                     },
                     ('network',): {
 
@@ -852,8 +1191,8 @@ class CreateSubscriptionsForApi(object):
                         (str,),
                     'context':
                         (str,),
-                    'new_confirmed_tokens_transactions_request_body':
-                        (NewConfirmedTokensTransactionsRequestBody,),
+                    'new_confirmed_tokens_transactions_rb':
+                        (NewConfirmedTokensTransactionsRB,),
                 },
                 'attribute_map': {
                     'blockchain': 'blockchain',
@@ -864,7 +1203,7 @@ class CreateSubscriptionsForApi(object):
                     'blockchain': 'path',
                     'network': 'path',
                     'context': 'query',
-                    'new_confirmed_tokens_transactions_request_body': 'body',
+                    'new_confirmed_tokens_transactions_rb': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -902,14 +1241,14 @@ class CreateSubscriptionsForApi(object):
 
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                new_confirmed_tokens_transactions_and_each_confirmation_request_body (NewConfirmedTokensTransactionsAndEachConfirmationRequestBody): [optional]
+                new_confirmed_tokens_transactions_and_each_confirmation_rb (NewConfirmedTokensTransactionsAndEachConfirmationRB): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -924,7 +1263,7 @@ class CreateSubscriptionsForApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                NewConfirmedTokensTransactionsAndEachConfirmationResponse
+                NewConfirmedTokensTransactionsAndEachConfirmationR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -955,7 +1294,7 @@ class CreateSubscriptionsForApi(object):
 
         self.new_confirmed_tokens_transactions_and_each_confirmation = _Endpoint(
             settings={
-                'response_type': (NewConfirmedTokensTransactionsAndEachConfirmationResponse,),
+                'response_type': (NewConfirmedTokensTransactionsAndEachConfirmationR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -969,7 +1308,7 @@ class CreateSubscriptionsForApi(object):
                     'blockchain',
                     'network',
                     'context',
-                    'new_confirmed_tokens_transactions_and_each_confirmation_request_body',
+                    'new_confirmed_tokens_transactions_and_each_confirmation_rb',
                 ],
                 'required': [
                     'blockchain',
@@ -997,7 +1336,8 @@ class CreateSubscriptionsForApi(object):
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
                         "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "XRP": "xrp"
+                        "XRP": "xrp",
+                        "ZILLIQA": "zilliqa"
                     },
                     ('network',): {
 
@@ -1016,8 +1356,8 @@ class CreateSubscriptionsForApi(object):
                         (str,),
                     'context':
                         (str,),
-                    'new_confirmed_tokens_transactions_and_each_confirmation_request_body':
-                        (NewConfirmedTokensTransactionsAndEachConfirmationRequestBody,),
+                    'new_confirmed_tokens_transactions_and_each_confirmation_rb':
+                        (NewConfirmedTokensTransactionsAndEachConfirmationRB,),
                 },
                 'attribute_map': {
                     'blockchain': 'blockchain',
@@ -1028,7 +1368,7 @@ class CreateSubscriptionsForApi(object):
                     'blockchain': 'path',
                     'network': 'path',
                     'context': 'query',
-                    'new_confirmed_tokens_transactions_and_each_confirmation_request_body': 'body',
+                    'new_confirmed_tokens_transactions_and_each_confirmation_rb': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1053,7 +1393,7 @@ class CreateSubscriptionsForApi(object):
         ):
             """New unconfirmed coins transactions  # noqa: E501
 
-            Through this endpoint customers can create callback subscriptions for a specific event. In this case the event is when there are new unconfirmed coins transactions for the user. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs. The information is returned per specified address.    Unconfirmed coins transactions remain in the mempool (memory pool) until they are confirmed by miners and added to the next block. Sometimes spikes in transaction activity can cause delays in confirmations.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {note}It is also **important to note** that just because pending unconfirmed transactions are in the mempool, **doesn't necessarily** mean they will get confirmed.{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}  # noqa: E501
+            Through this endpoint customers can create callback subscriptions for a specific event. In this case the event is when there are new unconfirmed coins transactions for the user. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs. The information is returned per specified address.    Unconfirmed coins transactions remain in the mempool (memory pool) until they are confirmed by miners and added to the next block. Sometimes spikes in transaction activity can cause delays in confirmations.    {warning}We cannot guarantee at 100% that webhooks for unconfirmed transactions will always be received. Some may **not get received** due to the possibility of some nodes not being updated with that information. This can occur in networks with low activity and/or not many nodes, e.g. Testnet networks and rarely Mainnets.{/warning}    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {note}It is also **important to note** that just because pending unconfirmed transactions are in the mempool, **doesn't necessarily** mean they will get confirmed.{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -1066,14 +1406,14 @@ class CreateSubscriptionsForApi(object):
 
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                new_unconfirmed_coins_transactions_request_body (NewUnconfirmedCoinsTransactionsRequestBody): [optional]
+                new_unconfirmed_coins_transactions_rb (NewUnconfirmedCoinsTransactionsRB): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -1088,7 +1428,7 @@ class CreateSubscriptionsForApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                NewUnconfirmedCoinsTransactionsResponse
+                NewUnconfirmedCoinsTransactionsR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -1119,7 +1459,7 @@ class CreateSubscriptionsForApi(object):
 
         self.new_unconfirmed_coins_transactions = _Endpoint(
             settings={
-                'response_type': (NewUnconfirmedCoinsTransactionsResponse,),
+                'response_type': (NewUnconfirmedCoinsTransactionsR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -1133,7 +1473,7 @@ class CreateSubscriptionsForApi(object):
                     'blockchain',
                     'network',
                     'context',
-                    'new_unconfirmed_coins_transactions_request_body',
+                    'new_unconfirmed_coins_transactions_rb',
                 ],
                 'required': [
                     'blockchain',
@@ -1161,7 +1501,8 @@ class CreateSubscriptionsForApi(object):
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
                         "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "XRP": "xrp"
+                        "XRP": "xrp",
+                        "ZILLIQA": "zilliqa"
                     },
                     ('network',): {
 
@@ -1180,8 +1521,8 @@ class CreateSubscriptionsForApi(object):
                         (str,),
                     'context':
                         (str,),
-                    'new_unconfirmed_coins_transactions_request_body':
-                        (NewUnconfirmedCoinsTransactionsRequestBody,),
+                    'new_unconfirmed_coins_transactions_rb':
+                        (NewUnconfirmedCoinsTransactionsRB,),
                 },
                 'attribute_map': {
                     'blockchain': 'blockchain',
@@ -1192,7 +1533,7 @@ class CreateSubscriptionsForApi(object):
                     'blockchain': 'path',
                     'network': 'path',
                     'context': 'query',
-                    'new_unconfirmed_coins_transactions_request_body': 'body',
+                    'new_unconfirmed_coins_transactions_rb': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1217,7 +1558,7 @@ class CreateSubscriptionsForApi(object):
         ):
             """New unconfirmed tokens transactions  # noqa: E501
 
-            Through this endpoint customers can create callback subscriptions for a specific event. In this case the event is when there are new unconfirmed tokens transactions for the user. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs. The information is returned per specified address.    Unconfirmed tokens transactions remain in the mempool (memory pool) until they are confirmed by miners and added to the next block. Sometimes spikes in transaction activity can cause delays in confirmations.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {note}It is also **important to note** that just because pending unconfirmed transactions are in the mempool, **doesn't necessarily** mean they will get confirmed.{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}  # noqa: E501
+            Through this endpoint customers can create callback subscriptions for a specific event. In this case the event is when there are new unconfirmed tokens transactions for the user. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs. The information is returned per specified address.    Unconfirmed tokens transactions remain in the mempool (memory pool) until they are confirmed by miners and added to the next block. Sometimes spikes in transaction activity can cause delays in confirmations.    {warning}We cannot guarantee at 100% that webhooks for unconfirmed transactions will always be received. Some may **not get received** due to the possibility of some nodes not being updated with that information. This can occur in networks with low activity and/or not many nodes, e.g. Testnet networks and rarely Mainnets.{/warning}    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {note}It is also **important to note** that just because pending unconfirmed transactions are in the mempool, **doesn't necessarily** mean they will get confirmed.{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -1230,14 +1571,14 @@ class CreateSubscriptionsForApi(object):
 
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                new_unconfirmed_tokens_transactions_request_body (NewUnconfirmedTokensTransactionsRequestBody): [optional]
+                new_unconfirmed_tokens_transactions_rb (NewUnconfirmedTokensTransactionsRB): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -1252,7 +1593,7 @@ class CreateSubscriptionsForApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                NewUnconfirmedTokensTransactionsResponse
+                NewUnconfirmedTokensTransactionsR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -1283,7 +1624,7 @@ class CreateSubscriptionsForApi(object):
 
         self.new_unconfirmed_tokens_transactions = _Endpoint(
             settings={
-                'response_type': (NewUnconfirmedTokensTransactionsResponse,),
+                'response_type': (NewUnconfirmedTokensTransactionsR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -1297,7 +1638,7 @@ class CreateSubscriptionsForApi(object):
                     'blockchain',
                     'network',
                     'context',
-                    'new_unconfirmed_tokens_transactions_request_body',
+                    'new_unconfirmed_tokens_transactions_rb',
                 ],
                 'required': [
                     'blockchain',
@@ -1325,7 +1666,8 @@ class CreateSubscriptionsForApi(object):
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
                         "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "XRP": "xrp"
+                        "XRP": "xrp",
+                        "ZILLIQA": "zilliqa"
                     },
                     ('network',): {
 
@@ -1344,8 +1686,8 @@ class CreateSubscriptionsForApi(object):
                         (str,),
                     'context':
                         (str,),
-                    'new_unconfirmed_tokens_transactions_request_body':
-                        (NewUnconfirmedTokensTransactionsRequestBody,),
+                    'new_unconfirmed_tokens_transactions_rb':
+                        (NewUnconfirmedTokensTransactionsRB,),
                 },
                 'attribute_map': {
                     'blockchain': 'blockchain',
@@ -1356,7 +1698,7 @@ class CreateSubscriptionsForApi(object):
                     'blockchain': 'path',
                     'network': 'path',
                     'context': 'query',
-                    'new_unconfirmed_tokens_transactions_request_body': 'body',
+                    'new_unconfirmed_tokens_transactions_rb': 'body',
                 },
                 'collection_format_map': {
                 }

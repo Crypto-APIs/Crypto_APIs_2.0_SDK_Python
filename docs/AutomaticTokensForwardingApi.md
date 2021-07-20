@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **add_tokens_to_existing_from_address**
-> AddTokensToExistingFromAddressResponse add_tokens_to_existing_from_address(blockchain, network)
+> AddTokensToExistingFromAddressR add_tokens_to_existing_from_address(blockchain, network)
 
 Add Tokens To Existing fromAddress
 
@@ -26,17 +26,17 @@ import time
 import cryptoapis
 from cryptoapis.api import automatic_tokens_forwarding_api
 from cryptoapis.model.insufficient_credits import InsufficientCredits
+from cryptoapis.model.add_tokens_to_existing_from_address_rb import AddTokensToExistingFromAddressRB
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.add_tokens_to_existing_from_address_response import AddTokensToExistingFromAddressResponse
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.tokens_forwarding_automations_limit_reached import TokensForwardingAutomationsLimitReached
-from cryptoapis.model.add_tokens_to_existing_from_address_request_body import AddTokensToExistingFromAddressRequestBody
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.resource_not_found import ResourceNotFound
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.add_tokens_to_existing_from_address_r import AddTokensToExistingFromAddressR
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,10 +62,10 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Network
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    add_tokens_to_existing_from_address_request_body = AddTokensToExistingFromAddressRequestBody(
+    add_tokens_to_existing_from_address_rb = AddTokensToExistingFromAddressRB(
         context="context_example",
-        data=AddTokensToExistingFromAddressRequestBodyData(
-            item=AddTokensToExistingFromAddressRequestBodyDataItem(
+        data=AddTokensToExistingFromAddressRBData(
+            item=AddTokensToExistingFromAddressRBDataItem(
                 callback_secret_key="yourSecretString",
                 callback_url="https://example.com",
                 confirmations_count=3,
@@ -73,10 +73,10 @@ with cryptoapis.ApiClient(configuration) as api_client:
                 from_address="mizRduUBKEbJ6uzYJUegPh78gEGgM3WjAr",
                 minimum_transfer_amount="0.00001",
                 to_address="mnumE76iEKN47bUsdni85oped5D1fRwKWi",
-                token_data=AddTokensToExistingFromAddressRequestBodyTokenData(),
+                token_data=AddTokensToExistingFromAddressRBTokenData(),
             ),
         ),
-    ) # AddTokensToExistingFromAddressRequestBody |  (optional)
+    ) # AddTokensToExistingFromAddressRB |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -90,7 +90,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Add Tokens To Existing fromAddress
-        api_response = api_instance.add_tokens_to_existing_from_address(blockchain, network, context=context, add_tokens_to_existing_from_address_request_body=add_tokens_to_existing_from_address_request_body)
+        api_response = api_instance.add_tokens_to_existing_from_address(blockchain, network, context=context, add_tokens_to_existing_from_address_rb=add_tokens_to_existing_from_address_rb)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling AutomaticTokensForwardingApi->add_tokens_to_existing_from_address: %s\n" % e)
@@ -104,11 +104,11 @@ Name | Type | Description  | Notes
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
  **network** | **str**| Network |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **add_tokens_to_existing_from_address_request_body** | [**AddTokensToExistingFromAddressRequestBody**](AddTokensToExistingFromAddressRequestBody.md)|  | [optional]
+ **add_tokens_to_existing_from_address_rb** | [**AddTokensToExistingFromAddressRB**](AddTokensToExistingFromAddressRB.md)|  | [optional]
 
 ### Return type
 
-[**AddTokensToExistingFromAddressResponse**](AddTokensToExistingFromAddressResponse.md)
+[**AddTokensToExistingFromAddressR**](AddTokensToExistingFromAddressR.md)
 
 ### Authorization
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_automatic_tokens_forwarding**
-> CreateAutomaticTokensForwardingResponse create_automatic_tokens_forwarding(blockchain, network)
+> CreateAutomaticTokensForwardingR create_automatic_tokens_forwarding(blockchain, network)
 
 Create Automatic Tokens Forwarding
 
@@ -151,16 +151,16 @@ Through this endpoint customers can set up an automatic forwarding function spec
 import time
 import cryptoapis
 from cryptoapis.api import automatic_tokens_forwarding_api
+from cryptoapis.model.create_automatic_tokens_forwarding_rb import CreateAutomaticTokensForwardingRB
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.create_automatic_tokens_forwarding_response import CreateAutomaticTokensForwardingResponse
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.tokens_forwarding_automations_limit_reached import TokensForwardingAutomationsLimitReached
-from cryptoapis.model.create_automatic_tokens_forwarding_request_body import CreateAutomaticTokensForwardingRequestBody
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
+from cryptoapis.model.create_automatic_tokens_forwarding_r import CreateAutomaticTokensForwardingR
 from cryptoapis.model.resource_not_found import ResourceNotFound
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
@@ -188,20 +188,20 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    create_automatic_tokens_forwarding_request_body = CreateAutomaticTokensForwardingRequestBody(
+    create_automatic_tokens_forwarding_rb = CreateAutomaticTokensForwardingRB(
         context="context_example",
-        data=CreateAutomaticTokensForwardingRequestBodyData(
-            item=CreateAutomaticTokensForwardingRequestBodyDataItem(
+        data=CreateAutomaticTokensForwardingRBData(
+            item=CreateAutomaticTokensForwardingRBDataItem(
                 callback_secret_key="yourSecretString",
                 callback_url="https://example.com",
                 confirmations_count="3",
-                fee_priority="slow",
+                fee_priority="standard",
                 minimum_transfer_amount="0.00002",
                 to_address="tb1q54j7qcu7kgsrx87yn0r9zjdvsxrnvxg4qua2z6",
-                token_data=CreateAutomaticTokensForwardingRequestBodyTokenData(),
+                token_data=CreateAutomaticTokensForwardingRBTokenData(),
             ),
         ),
-    ) # CreateAutomaticTokensForwardingRequestBody |  (optional)
+    ) # CreateAutomaticTokensForwardingRB |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -215,7 +215,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create Automatic Tokens Forwarding
-        api_response = api_instance.create_automatic_tokens_forwarding(blockchain, network, context=context, create_automatic_tokens_forwarding_request_body=create_automatic_tokens_forwarding_request_body)
+        api_response = api_instance.create_automatic_tokens_forwarding(blockchain, network, context=context, create_automatic_tokens_forwarding_rb=create_automatic_tokens_forwarding_rb)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling AutomaticTokensForwardingApi->create_automatic_tokens_forwarding: %s\n" % e)
@@ -229,11 +229,11 @@ Name | Type | Description  | Notes
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **create_automatic_tokens_forwarding_request_body** | [**CreateAutomaticTokensForwardingRequestBody**](CreateAutomaticTokensForwardingRequestBody.md)|  | [optional]
+ **create_automatic_tokens_forwarding_rb** | [**CreateAutomaticTokensForwardingRB**](CreateAutomaticTokensForwardingRB.md)|  | [optional]
 
 ### Return type
 
-[**CreateAutomaticTokensForwardingResponse**](CreateAutomaticTokensForwardingResponse.md)
+[**CreateAutomaticTokensForwardingR**](CreateAutomaticTokensForwardingR.md)
 
 ### Authorization
 
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_automatic_tokens_forwarding**
-> DeleteAutomaticTokensForwardingResponse delete_automatic_tokens_forwarding(blockchain, network, reference_id)
+> DeleteAutomaticTokensForwardingR delete_automatic_tokens_forwarding(blockchain, network, reference_id)
 
 Delete Automatic Tokens Forwarding
 
@@ -276,8 +276,8 @@ Through this endpoint customers can delete a forwarding function they have set f
 import time
 import cryptoapis
 from cryptoapis.api import automatic_tokens_forwarding_api
-from cryptoapis.model.delete_automatic_tokens_forwarding_response import DeleteAutomaticTokensForwardingResponse
 from cryptoapis.model.insufficient_credits import InsufficientCredits
+from cryptoapis.model.delete_automatic_tokens_forwarding_r import DeleteAutomaticTokensForwardingR
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
@@ -344,7 +344,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAutomaticTokensForwardingResponse**](DeleteAutomaticTokensForwardingResponse.md)
+[**DeleteAutomaticTokensForwardingR**](DeleteAutomaticTokensForwardingR.md)
 
 ### Authorization
 
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_fee_address_details**
-> GetFeeAddressDetailsResponse get_fee_address_details(blockchain, network)
+> GetFeeAddressDetailsR get_fee_address_details(blockchain, network)
 
 Get Fee Address Details
 
@@ -393,7 +393,7 @@ from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.get_fee_address_details_response import GetFeeAddressDetailsResponse
+from cryptoapis.model.get_fee_address_details_r import GetFeeAddressDetailsR
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.resource_not_found import ResourceNotFound
@@ -453,7 +453,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetFeeAddressDetailsResponse**](GetFeeAddressDetailsResponse.md)
+[**GetFeeAddressDetailsR**](GetFeeAddressDetailsR.md)
 
 ### Authorization
 
@@ -483,11 +483,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_tokens_forwarding_automations**
-> ListTokensForwardingAutomationsResponse list_tokens_forwarding_automations(blockchain, network)
+> ListTokensForwardingAutomationsR list_tokens_forwarding_automations(blockchain, network)
 
 List Tokens Forwarding Automations
 
-Through this endpoint customers can list all of their **tokens** forwarding automations (**not** coins).    Customers can set up automatic forwarding functions for tokens by setting a `fromAddress` and a `toAddress`, and specifying the amount that can be transferred between addresses.     A `feePriority` will be returned which represents the fee priority of the automation whether it is \"SLOW\", \"STANDARD\" OR \"FAST\".     {warning}The subscription will work for all incoming transactions until it is deleted. There is no need to do that for every transaction.{/warning}
+Through this endpoint customers can list all of their **tokens** forwarding automations (**not** coins).    Customers can set up automatic forwarding functions for tokens by setting a `fromAddress` and a `toAddress`, and specifying the amount that can be transferred between addresses.     A `feePriority` will be returned which represents the fee priority of the automation whether it is \"SLOW\", \"STANDARD\" OR \"FAST\".     {warning}The subscription will work for all incoming transactions until it is deleted. There is no need to do that for every transaction.{/warning}    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -496,7 +496,7 @@ Through this endpoint customers can list all of their **tokens** forwarding auto
 import time
 import cryptoapis
 from cryptoapis.api import automatic_tokens_forwarding_api
-from cryptoapis.model.list_tokens_forwarding_automations_response import ListTokensForwardingAutomationsResponse
+from cryptoapis.model.list_tokens_forwarding_automations_r import ListTokensForwardingAutomationsR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
@@ -566,7 +566,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListTokensForwardingAutomationsResponse**](ListTokensForwardingAutomationsResponse.md)
+[**ListTokensForwardingAutomationsR**](ListTokensForwardingAutomationsR.md)
 
 ### Authorization
 

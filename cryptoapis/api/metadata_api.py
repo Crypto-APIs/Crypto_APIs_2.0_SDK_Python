@@ -28,7 +28,7 @@ from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.list_supported_assets_response import ListSupportedAssetsResponse
+from cryptoapis.model.list_supported_assets_r import ListSupportedAssetsR
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
@@ -52,7 +52,7 @@ class MetadataApi(object):
         ):
             """List Supported Assets  # noqa: E501
 
-            This endpoint will return a list of supported assets. The asset could be a cryptocurrency or FIAT assets that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".  # noqa: E501
+            This endpoint will return a list of supported assets. The asset could be a cryptocurrency or FIAT assets that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -70,8 +70,8 @@ class MetadataApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -86,7 +86,7 @@ class MetadataApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListSupportedAssetsResponse
+                ListSupportedAssetsR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -113,7 +113,7 @@ class MetadataApi(object):
 
         self.list_supported_assets = _Endpoint(
             settings={
-                'response_type': (ListSupportedAssetsResponse,),
+                'response_type': (ListSupportedAssetsR,),
                 'auth': [
                     'ApiKey'
                 ],

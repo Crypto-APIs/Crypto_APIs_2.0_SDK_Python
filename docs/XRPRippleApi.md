@@ -4,17 +4,18 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_latest_mined_xrp__ripple_block**](XRPRippleApi.md#get_latest_mined_xrp__ripple_block) | **GET** /blockchain-data/xrp/{network}/blocks/last | Get Latest Mined XRP (Ripple) Block
-[**get_xrp__ripple_address_details**](XRPRippleApi.md#get_xrp__ripple_address_details) | **GET** /blockchain-data/xrp/{network}/addresses/{address} | Get XRP (Ripple) Address Details
-[**get_xrp__ripple_block_details_by_block_hash**](XRPRippleApi.md#get_xrp__ripple_block_details_by_block_hash) | **GET** /blockchain-data/xrp/{network}/blocks/hash/{blockHash} | Get XRP (Ripple) Block Details By Block Hash
-[**get_xrp__ripple_block_details_by_block_height**](XRPRippleApi.md#get_xrp__ripple_block_details_by_block_height) | **GET** /blockchain-data/xrp/{network}/blocks/height/{height} | Get XRP (Ripple) Block Details By Block Height
-[**get_xrp__ripple_transaction_details_by_transaction_id**](XRPRippleApi.md#get_xrp__ripple_transaction_details_by_transaction_id) | **GET** /blockchain-data/xrp/{network}/transactions/{transactionHash} | Get XRP (Ripple) Transaction Details By Transaction ID
-[**list_xrp__ripple_transactions_by_address**](XRPRippleApi.md#list_xrp__ripple_transactions_by_address) | **GET** /blockchain-data/xrp/{network}/addresses/{address}/transactions | List XRP (Ripple) Transactions by Address
-[**list_xrp__ripple_transactions_by_block_hash**](XRPRippleApi.md#list_xrp__ripple_transactions_by_block_hash) | **GET** /blockchain-data/xrp/{network}/blocks/hash/{blockHash}/transactions | List XRP (Ripple) Transactions By Block Hash
+[**get_latest_mined_xrp__ripple_block**](XRPRippleApi.md#get_latest_mined_xrp__ripple_block) | **GET** /blockchain-data/xrp-specific/{network}/blocks/last | Get Latest Mined XRP (Ripple) Block
+[**get_xrp__ripple_address_details**](XRPRippleApi.md#get_xrp__ripple_address_details) | **GET** /blockchain-data/xrp-specific/{network}/addresses/{address} | Get XRP (Ripple) Address Details
+[**get_xrp__ripple_block_details_by_block_hash**](XRPRippleApi.md#get_xrp__ripple_block_details_by_block_hash) | **GET** /blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash} | Get XRP (Ripple) Block Details By Block Hash
+[**get_xrp__ripple_block_details_by_block_height**](XRPRippleApi.md#get_xrp__ripple_block_details_by_block_height) | **GET** /blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight} | Get XRP (Ripple) Block Details By Block Height
+[**get_xrp__ripple_transaction_details_by_transaction_id**](XRPRippleApi.md#get_xrp__ripple_transaction_details_by_transaction_id) | **GET** /blockchain-data/xrp-specific/{network}/transactions/{transactionHash} | Get XRP (Ripple) Transaction Details By Transaction ID
+[**list_xrp__ripple_transactions_by_address**](XRPRippleApi.md#list_xrp__ripple_transactions_by_address) | **GET** /blockchain-data/xrp-specific/{network}/addresses/{address}/transactions | List XRP (Ripple) Transactions by Address
+[**list_xrp__ripple_transactions_by_block_hash**](XRPRippleApi.md#list_xrp__ripple_transactions_by_block_hash) | **GET** /blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash}/transactions | List XRP (Ripple) Transactions By Block Hash
+[**list_xrp__ripple_transactions_by_block_height**](XRPRippleApi.md#list_xrp__ripple_transactions_by_block_height) | **GET** /blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight}/transactions | List XRP (Ripple) Transactions By Block Height
 
 
 # **get_latest_mined_xrp__ripple_block**
-> GetLatestMinedXRPRippleBlockResponse get_latest_mined_xrp__ripple_block(network)
+> GetLatestMinedXRPRippleBlockR get_latest_mined_xrp__ripple_block(network)
 
 Get Latest Mined XRP (Ripple) Block
 
@@ -27,8 +28,8 @@ Through this endpoint customers can fetch the last mined XRP block in the blockc
 import time
 import cryptoapis
 from cryptoapis.api import xrp__ripple_api
+from cryptoapis.model.get_latest_mined_xrp_ripple_block_r import GetLatestMinedXRPRippleBlockR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.get_latest_mined_xrp_ripple_block_response import GetLatestMinedXRPRippleBlockResponse
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
@@ -91,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetLatestMinedXRPRippleBlockResponse**](GetLatestMinedXRPRippleBlockResponse.md)
+[**GetLatestMinedXRPRippleBlockR**](GetLatestMinedXRPRippleBlockR.md)
 
 ### Authorization
 
@@ -121,7 +122,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_xrp__ripple_address_details**
-> GetXRPRippleAddressDetailsResponse get_xrp__ripple_address_details(network, address)
+> GetXRPRippleAddressDetailsR get_xrp__ripple_address_details(network, address)
 
 Get XRP (Ripple) Address Details
 
@@ -134,13 +135,13 @@ Through this endpoint the customer can receive basic information about a given X
 import time
 import cryptoapis
 from cryptoapis.api import xrp__ripple_api
+from cryptoapis.model.get_xrp_ripple_address_details_r import GetXRPRippleAddressDetailsR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.get_xrp_ripple_address_details_response import GetXRPRippleAddressDetailsResponse
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
@@ -199,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetXRPRippleAddressDetailsResponse**](GetXRPRippleAddressDetailsResponse.md)
+[**GetXRPRippleAddressDetailsR**](GetXRPRippleAddressDetailsR.md)
 
 ### Authorization
 
@@ -228,7 +229,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_xrp__ripple_block_details_by_block_hash**
-> GetXRPRippleBlockDetailsByBlockHashResponse get_xrp__ripple_block_details_by_block_hash(network, block_hash)
+> GetXRPRippleBlockDetailsByBlockHashR get_xrp__ripple_block_details_by_block_hash(network, block_hash)
 
 Get XRP (Ripple) Block Details By Block Hash
 
@@ -241,12 +242,12 @@ Through this endpoint customers can obtain basic information about a given XRP b
 import time
 import cryptoapis
 from cryptoapis.api import xrp__ripple_api
+from cryptoapis.model.get_xrp_ripple_block_details_by_block_hash_r import GetXRPRippleBlockDetailsByBlockHashR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.get_xrp_ripple_block_details_by_block_hash_response import GetXRPRippleBlockDetailsByBlockHashResponse
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
@@ -307,7 +308,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetXRPRippleBlockDetailsByBlockHashResponse**](GetXRPRippleBlockDetailsByBlockHashResponse.md)
+[**GetXRPRippleBlockDetailsByBlockHashR**](GetXRPRippleBlockDetailsByBlockHashR.md)
 
 ### Authorization
 
@@ -337,7 +338,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_xrp__ripple_block_details_by_block_height**
-> GetXRPRippleBlockDetailsByBlockHeightResponse get_xrp__ripple_block_details_by_block_height(network, height)
+> GetXRPRippleBlockDetailsByBlockHeightR get_xrp__ripple_block_details_by_block_height(network, block_height)
 
 Get XRP (Ripple) Block Details By Block Height
 
@@ -350,13 +351,13 @@ Through this endpoint customers can obtain basic information about a given XRP b
 import time
 import cryptoapis
 from cryptoapis.api import xrp__ripple_api
+from cryptoapis.model.get_xrp_ripple_block_details_by_block_height_r import GetXRPRippleBlockDetailsByBlockHeightR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.get_xrp_ripple_block_details_by_block_height_response import GetXRPRippleBlockDetailsByBlockHeightResponse
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.resource_not_found import ResourceNotFound
@@ -384,13 +385,13 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = xrp__ripple_api.XRPRippleApi(api_client)
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\",  are test networks.
-    height = "15886156" # str | Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
+    block_height = "15886156" # str | Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get XRP (Ripple) Block Details By Block Height
-        api_response = api_instance.get_xrp__ripple_block_details_by_block_height(network, height)
+        api_response = api_instance.get_xrp__ripple_block_details_by_block_height(network, block_height)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling XRPRippleApi->get_xrp__ripple_block_details_by_block_height: %s\n" % e)
@@ -399,7 +400,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get XRP (Ripple) Block Details By Block Height
-        api_response = api_instance.get_xrp__ripple_block_details_by_block_height(network, height, context=context)
+        api_response = api_instance.get_xrp__ripple_block_details_by_block_height(network, block_height, context=context)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling XRPRippleApi->get_xrp__ripple_block_details_by_block_height: %s\n" % e)
@@ -411,12 +412,12 @@ with cryptoapis.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;,  are test networks. |
- **height** | **str**| Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \&quot;Genesis block\&quot;. |
+ **block_height** | **str**| Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \&quot;Genesis block\&quot;. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
 
 ### Return type
 
-[**GetXRPRippleBlockDetailsByBlockHeightResponse**](GetXRPRippleBlockDetailsByBlockHeightResponse.md)
+[**GetXRPRippleBlockDetailsByBlockHeightR**](GetXRPRippleBlockDetailsByBlockHeightR.md)
 
 ### Authorization
 
@@ -446,7 +447,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_xrp__ripple_transaction_details_by_transaction_id**
-> GetXRPRippleTransactionDetailsByTransactionIDResponse get_xrp__ripple_transaction_details_by_transaction_id(network, transaction_hash)
+> GetXRPRippleTransactionDetailsByTransactionIDR get_xrp__ripple_transaction_details_by_transaction_id(network, transaction_hash)
 
 Get XRP (Ripple) Transaction Details By Transaction ID
 
@@ -459,13 +460,13 @@ Through this endpoint customers can obtain details about a XRP transaction by th
 import time
 import cryptoapis
 from cryptoapis.api import xrp__ripple_api
-from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id_response import GetXRPRippleTransactionDetailsByTransactionIDResponse
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_idr import GetXRPRippleTransactionDetailsByTransactionIDR
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.resource_not_found import ResourceNotFound
@@ -525,7 +526,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetXRPRippleTransactionDetailsByTransactionIDResponse**](GetXRPRippleTransactionDetailsByTransactionIDResponse.md)
+[**GetXRPRippleTransactionDetailsByTransactionIDR**](GetXRPRippleTransactionDetailsByTransactionIDR.md)
 
 ### Authorization
 
@@ -555,11 +556,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_xrp__ripple_transactions_by_address**
-> ListXRPRippleTransactionsByAddressResponse list_xrp__ripple_transactions_by_address(network, address)
+> ListXRPRippleTransactionsByAddressR list_xrp__ripple_transactions_by_address(network, address)
 
 List XRP (Ripple) Transactions by Address
 
-This endpoint will list XRP transactions by a attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
+This endpoint will list XRP transactions by a attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -568,7 +569,6 @@ This endpoint will list XRP transactions by a attribute `address`. The transacti
 import time
 import cryptoapis
 from cryptoapis.api import xrp__ripple_api
-from cryptoapis.model.list_xrp_ripple_transactions_by_address_response import ListXRPRippleTransactionsByAddressResponse
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
@@ -576,6 +576,7 @@ from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodySt
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
+from cryptoapis.model.list_xrp_ripple_transactions_by_address_r import ListXRPRippleTransactionsByAddressR
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
@@ -637,7 +638,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListXRPRippleTransactionsByAddressResponse**](ListXRPRippleTransactionsByAddressResponse.md)
+[**ListXRPRippleTransactionsByAddressR**](ListXRPRippleTransactionsByAddressR.md)
 
 ### Authorization
 
@@ -666,11 +667,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_xrp__ripple_transactions_by_block_hash**
-> ListXRPRippleTransactionsByBlockHashResponse list_xrp__ripple_transactions_by_block_hash(network, block_hash)
+> ListXRPRippleTransactionsByBlockHashR list_xrp__ripple_transactions_by_block_hash(network, block_hash)
 
 List XRP (Ripple) Transactions By Block Hash
 
-This endpoint will list transactions by an attribute `blockHash`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
+This endpoint will list transactions by an attribute `blockHash`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -685,8 +686,8 @@ from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.list_xrp_ripple_transactions_by_block_hash_response import ListXRPRippleTransactionsByBlockHashResponse
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
+from cryptoapis.model.list_xrp_ripple_transactions_by_block_hash_r import ListXRPRippleTransactionsByBlockHashR
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
@@ -748,7 +749,118 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListXRPRippleTransactionsByBlockHashResponse**](ListXRPRippleTransactionsByBlockHashResponse.md)
+[**ListXRPRippleTransactionsByBlockHashR**](ListXRPRippleTransactionsByBlockHashR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The request has been successful. |  -  |
+**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
+**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
+**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
+**409** | Invalid data |  -  |
+**415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
+**422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
+**429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
+**500** | An unexpected server error was encountered, we are working on fixing this. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_xrp__ripple_transactions_by_block_height**
+> ListXRPRippleTransactionsByBlockHeightR list_xrp__ripple_transactions_by_block_height(network, block_height)
+
+List XRP (Ripple) Transactions By Block Height
+
+This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+
+### Example
+
+* Api Key Authentication (ApiKey):
+```python
+import time
+import cryptoapis
+from cryptoapis.api import xrp__ripple_api
+from cryptoapis.model.insufficient_credits import InsufficientCredits
+from cryptoapis.model.invalid_api_key import InvalidApiKey
+from cryptoapis.model.invalid_data import InvalidData
+from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
+from cryptoapis.model.request_limit_reached import RequestLimitReached
+from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
+from cryptoapis.model.list_xrp_ripple_transactions_by_block_height_r import ListXRPRippleTransactionsByBlockHeightR
+from cryptoapis.model.unexpected_server_error import UnexpectedServerError
+from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from pprint import pprint
+# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cryptoapis.Configuration(
+    host = "https://rest.cryptoapis.io/v2"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with cryptoapis.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xrp__ripple_api.XRPRippleApi(api_client)
+    network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+    block_height = 15971358 # int | 
+    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
+    offset = 10 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+
+    # example passing only required values which don't have defaults set
+    try:
+        # List XRP (Ripple) Transactions By Block Height
+        api_response = api_instance.list_xrp__ripple_transactions_by_block_height(network, block_height)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling XRPRippleApi->list_xrp__ripple_transactions_by_block_height: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # List XRP (Ripple) Transactions By Block Height
+        api_response = api_instance.list_xrp__ripple_transactions_by_block_height(network, block_height, context=context, limit=limit, offset=offset)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling XRPRippleApi->list_xrp__ripple_transactions_by_block_height: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. |
+ **block_height** | **int**|  |
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] if omitted the server will use the default value of 50
+ **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] if omitted the server will use the default value of 0
+
+### Return type
+
+[**ListXRPRippleTransactionsByBlockHeightR**](ListXRPRippleTransactionsByBlockHeightR.md)
 
 ### Authorization
 

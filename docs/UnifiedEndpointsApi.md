@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **get_address_details**
-> GetAddressDetailsResponse get_address_details(blockchain, network, address)
+> GetAddressDetailsR get_address_details(blockchain, network, address)
 
 Get Address Details
 
@@ -29,6 +29,7 @@ Through this endpoint the customer can receive basic information about a given a
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
+from cryptoapis.model.get_address_details_r import GetAddressDetailsR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
@@ -38,7 +39,6 @@ from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
-from cryptoapis.model.get_address_details_response import GetAddressDetailsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetAddressDetailsResponse**](GetAddressDetailsResponse.md)
+[**GetAddressDetailsR**](GetAddressDetailsR.md)
 
 ### Authorization
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_block_details_by_block_hash**
-> GetBlockDetailsByBlockHashResponse get_block_details_by_block_hash(blockchain, network, block_hash)
+> GetBlockDetailsByBlockHashR get_block_details_by_block_hash(blockchain, network, block_hash)
 
 Get Block Details By Block Hash
 
@@ -146,8 +146,8 @@ from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodySt
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.get_block_details_by_block_hash_response import GetBlockDetailsByBlockHashResponse
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
+from cryptoapis.model.get_block_details_by_block_hash_r import GetBlockDetailsByBlockHashR
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetBlockDetailsByBlockHashResponse**](GetBlockDetailsByBlockHashResponse.md)
+[**GetBlockDetailsByBlockHashR**](GetBlockDetailsByBlockHashR.md)
 
 ### Authorization
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_block_details_by_block_height**
-> GetBlockDetailsByBlockHeightResponse get_block_details_by_block_height(blockchain, network, height)
+> GetBlockDetailsByBlockHeightR get_block_details_by_block_height(blockchain, network, height)
 
 Get Block Details By Block Height
 
@@ -256,8 +256,8 @@ from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.get_block_details_by_block_height_response import GetBlockDetailsByBlockHeightResponse
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
+from cryptoapis.model.get_block_details_by_block_height_r import GetBlockDetailsByBlockHeightR
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetBlockDetailsByBlockHeightResponse**](GetBlockDetailsByBlockHeightResponse.md)
+[**GetBlockDetailsByBlockHeightR**](GetBlockDetailsByBlockHeightR.md)
 
 ### Authorization
 
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_fee_recommendations**
-> GetFeeRecommendationsResponse get_fee_recommendations(blockchain, network)
+> GetFeeRecommendationsR get_fee_recommendations(blockchain, network)
 
 Get Fee Recommendations
 
@@ -360,6 +360,7 @@ Through this endpoint customers can obtain fee recommendations. Our fees recomme
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
+from cryptoapis.model.get_fee_recommendations_r import GetFeeRecommendationsR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
@@ -367,7 +368,6 @@ from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodySt
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.get_fee_recommendations_response import GetFeeRecommendationsResponse
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.resource_not_found import ResourceNotFound
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
@@ -426,7 +426,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetFeeRecommendationsResponse**](GetFeeRecommendationsResponse.md)
+[**GetFeeRecommendationsR**](GetFeeRecommendationsR.md)
 
 ### Authorization
 
@@ -456,7 +456,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_latest_mined_block**
-> GetLatestMinedBlockResponse get_latest_mined_block(blockchain, network)
+> GetLatestMinedBlockR get_latest_mined_block(blockchain, network)
 
 Get Latest Mined Block
 
@@ -476,8 +476,8 @@ from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.get_latest_mined_block_r import GetLatestMinedBlockR
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.get_latest_mined_block_response import GetLatestMinedBlockResponse
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetLatestMinedBlockResponse**](GetLatestMinedBlockResponse.md)
+[**GetLatestMinedBlockR**](GetLatestMinedBlockR.md)
 
 ### Authorization
 
@@ -565,7 +565,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_transaction_details_by_transaction_id**
-> GetTransactionDetailsByTransactionIDResponse get_transaction_details_by_transaction_id(blockchain, network, transaction_id)
+> GetTransactionDetailsByTransactionIDR get_transaction_details_by_transaction_id(blockchain, network, transaction_id)
 
 Get Transaction Details By Transaction ID
 
@@ -584,8 +584,8 @@ from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.get_transaction_details_by_transaction_idr import GetTransactionDetailsByTransactionIDR
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.get_transaction_details_by_transaction_id_response import GetTransactionDetailsByTransactionIDResponse
 from cryptoapis.model.blockchain_data_transaction_not_found import BlockchainDataTransactionNotFound
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
@@ -646,7 +646,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTransactionDetailsByTransactionIDResponse**](GetTransactionDetailsByTransactionIDResponse.md)
+[**GetTransactionDetailsByTransactionIDR**](GetTransactionDetailsByTransactionIDR.md)
 
 ### Authorization
 
@@ -676,11 +676,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_transactions_by_address**
-> ListTransactionsByAddressResponse list_transactions_by_address(blockchain, network, address)
+> ListTransactionsByAddressR list_transactions_by_address(blockchain, network, address)
 
 List Transactions By Address
 
-This endpoint will list transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
+This endpoint will list transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -689,12 +689,12 @@ This endpoint will list transactions by an attribute `address`. The transactions
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
+from cryptoapis.model.list_transactions_by_address_r import ListTransactionsByAddressR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.list_transactions_by_address_response import ListTransactionsByAddressResponse
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
@@ -760,7 +760,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListTransactionsByAddressResponse**](ListTransactionsByAddressResponse.md)
+[**ListTransactionsByAddressR**](ListTransactionsByAddressR.md)
 
 ### Authorization
 
@@ -789,11 +789,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_transactions_by_block_hash**
-> ListTransactionsByBlockHashResponse list_transactions_by_block_hash(blockchain, network, block_hash)
+> ListTransactionsByBlockHashR list_transactions_by_block_hash(blockchain, network, block_hash)
 
 List Transactions by Block Hash
 
-This endpoint will list transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.
+This endpoint will list transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -804,8 +804,8 @@ import cryptoapis
 from cryptoapis.api import unified_endpoints_api
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
+from cryptoapis.model.list_transactions_by_block_hash_r import ListTransactionsByBlockHashR
 from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.list_transactions_by_block_hash_response import ListTransactionsByBlockHashResponse
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
@@ -873,7 +873,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListTransactionsByBlockHashResponse**](ListTransactionsByBlockHashResponse.md)
+[**ListTransactionsByBlockHashR**](ListTransactionsByBlockHashR.md)
 
 ### Authorization
 
@@ -902,11 +902,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_transactions_by_block_height**
-> ListTransactionsByBlockHeightResponse list_transactions_by_block_height(blockchain, network, height)
+> ListTransactionsByBlockHeightR list_transactions_by_block_height(blockchain, network, height)
 
 List Transactions by Block Height
 
-This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
+This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -922,8 +922,8 @@ from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.list_transactions_by_block_height_r import ListTransactionsByBlockHeightR
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.list_transactions_by_block_height_response import ListTransactionsByBlockHeightResponse
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
@@ -987,7 +987,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListTransactionsByBlockHeightResponse**](ListTransactionsByBlockHeightResponse.md)
+[**ListTransactionsByBlockHeightR**](ListTransactionsByBlockHeightR.md)
 
 ### Authorization
 

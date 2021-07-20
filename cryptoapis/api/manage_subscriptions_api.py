@@ -22,14 +22,14 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from cryptoapis.model.delete_blockchain_event_subscription_response import DeleteBlockchainEventSubscriptionResponse
+from cryptoapis.model.delete_blockchain_event_subscription_r import DeleteBlockchainEventSubscriptionR
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.list_blockchain_events_subscriptions_response import ListBlockchainEventsSubscriptionsResponse
+from cryptoapis.model.list_blockchain_events_subscriptions_r import ListBlockchainEventsSubscriptionsR
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.resource_not_found import ResourceNotFound
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
@@ -76,8 +76,8 @@ class ManageSubscriptionsApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -92,7 +92,7 @@ class ManageSubscriptionsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                DeleteBlockchainEventSubscriptionResponse
+                DeleteBlockchainEventSubscriptionR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -125,7 +125,7 @@ class ManageSubscriptionsApi(object):
 
         self.delete_blockchain_event_subscription = _Endpoint(
             settings={
-                'response_type': (DeleteBlockchainEventSubscriptionResponse,),
+                'response_type': (DeleteBlockchainEventSubscriptionR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -168,7 +168,8 @@ class ManageSubscriptionsApi(object):
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
                         "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "XRP": "xrp"
+                        "XRP": "xrp",
+                        "ZILLIQA": "zilliqa"
                     },
                     ('network',): {
 
@@ -223,7 +224,7 @@ class ManageSubscriptionsApi(object):
         ):
             """List Blockchain Events Subscriptions  # noqa: E501
 
-            Through this endpoint the customer can obtain a list of their callback subscriptions for the available Blockchain events.    Currently Crypto APIs 2.0 offers certain Blockchain event endpoints which allow the user to subscribe for one/a few/all and receive callback notifications when the specific event occurs.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}  # noqa: E501
+            Through this endpoint the customer can obtain a list of their callback subscriptions for the available Blockchain events.    Currently Crypto APIs 2.0 offers certain Blockchain event endpoints which allow the user to subscribe for one/a few/all and receive callback notifications when the specific event occurs.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -243,8 +244,8 @@ class ManageSubscriptionsApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -259,7 +260,7 @@ class ManageSubscriptionsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListBlockchainEventsSubscriptionsResponse
+                ListBlockchainEventsSubscriptionsR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -290,7 +291,7 @@ class ManageSubscriptionsApi(object):
 
         self.list_blockchain_events_subscriptions = _Endpoint(
             settings={
-                'response_type': (ListBlockchainEventsSubscriptionsResponse,),
+                'response_type': (ListBlockchainEventsSubscriptionsR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -333,7 +334,8 @@ class ManageSubscriptionsApi(object):
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
                         "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "XRP": "xrp"
+                        "XRP": "xrp",
+                        "ZILLIQA": "zilliqa"
                     },
                     ('network',): {
 

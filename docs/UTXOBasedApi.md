@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **get_hd_wallet__x_pub_y_pub_z_pub_details**
-> GetHDWalletxPubYPubZPubDetailsResponse get_hd_wallet__x_pub_y_pub_z_pub_details(blockchain, extended_public_key, network)
+> GetHDWalletXPubYPubZPubDetailsR get_hd_wallet__x_pub_y_pub_z_pub_details(blockchain, extended_public_key, network)
 
 Get HD Wallet (xPub, yPub, zPub) Details
 
@@ -25,10 +25,10 @@ import cryptoapis
 from cryptoapis.api import utxo_based_api
 from cryptoapis.model.xpub_sync_in_progress import XpubSyncInProgress
 from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.get_hd_walletx_pub_y_pub_z_pub_details_response import GetHDWalletxPubYPubZPubDetailsResponse
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.request_limit_reached import RequestLimitReached
+from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_details_r import GetHDWalletXPubYPubZPubDetailsR
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.xpub_not_synced import XpubNotSynced
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetHDWalletxPubYPubZPubDetailsResponse**](GetHDWalletxPubYPubZPubDetailsResponse.md)
+[**GetHDWalletXPubYPubZPubDetailsR**](GetHDWalletXPubYPubZPubDetailsR.md)
 
 ### Authorization
 
@@ -121,11 +121,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_hd_wallet__x_pub_y_pub_z_pub_transactions**
-> ListHDWalletxPubYPubZPubTransactionsResponse list_hd_wallet__x_pub_y_pub_z_pub_transactions(blockchain, extended_public_key, network)
+> ListHDWalletXPubYPubZPubTransactionsR list_hd_wallet__x_pub_y_pub_z_pub_transactions(blockchain, extended_public_key, network)
 
 List HD Wallet (xPub, yPub, zPub) Transactions
 
-This endpoint will list HD Wallet transactions.
+This endpoint will list HD Wallet transactions.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -134,7 +134,7 @@ This endpoint will list HD Wallet transactions.
 import time
 import cryptoapis
 from cryptoapis.api import utxo_based_api
-from cryptoapis.model.list_hd_walletx_pub_y_pub_z_pub_transactions_response import ListHDWalletxPubYPubZPubTransactionsResponse
+from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_transactions_r import ListHDWalletXPubYPubZPubTransactionsR
 from cryptoapis.model.xpub_sync_in_progress import XpubSyncInProgress
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListHDWalletxPubYPubZPubTransactionsResponse**](ListHDWalletxPubYPubZPubTransactionsResponse.md)
+[**ListHDWalletXPubYPubZPubTransactionsR**](ListHDWalletXPubYPubZPubTransactionsR.md)
 
 ### Authorization
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **sync_hd_wallet__x_pub_y_pub_z_pub**
-> SyncHDWalletxPubYPubZPubResponse sync_hd_wallet__x_pub_y_pub_z_pub(blockchain, network)
+> SyncHDWalletXPubYPubZPubR sync_hd_wallet__x_pub_y_pub_z_pub(blockchain, network)
 
 Sync HD Wallet (xPub, yPub, zPub)
 
@@ -249,16 +249,16 @@ HD wallets usually have a lot of addresses and transactions, getting the data on
 import time
 import cryptoapis
 from cryptoapis.api import utxo_based_api
+from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub_r import SyncHDWalletXPubYPubZPubR
 from cryptoapis.model.invalid_xpub import InvalidXpub
+from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub_rb import SyncHDWalletXPubYPubZPubRB
 from cryptoapis.model.xpub_sync_in_progress import XpubSyncInProgress
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.already_exists import AlreadyExists
 from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.sync_hd_walletx_pub_y_pub_z_pub_request_body import SyncHDWalletxPubYPubZPubRequestBody
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.sync_hd_walletx_pub_y_pub_z_pub_response import SyncHDWalletxPubYPubZPubResponse
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -285,14 +285,14 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    sync_hd_walletx_pub_y_pub_z_pub_request_body = SyncHDWalletxPubYPubZPubRequestBody(
+    sync_hd_wallet_x_pub_y_pub_z_pub_rb = SyncHDWalletXPubYPubZPubRB(
         context="context_example",
-        data=SyncHDWalletxPubYPubZPubRequestBodyData(
-            item=SyncHDWalletxPubYPubZPubRequestBodyDataItem(
+        data=SyncHDWalletXPubYPubZPubRBData(
+            item=SyncHDWalletXPubYPubZPubRBDataItem(
                 extended_public_key="upub5Ei6bRNneqozk6smK7dvtXHC5PjUyEL4ynCfMKvjznLcXi9DQaikETzQjHvJC43XexMvQs64jxB1njMjCHpRZ4xQWAmv3ge9cVtjfsHmbvQ",
             ),
         ),
-    ) # SyncHDWalletxPubYPubZPubRequestBody |  (optional)
+    ) # SyncHDWalletXPubYPubZPubRB |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -306,7 +306,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Sync HD Wallet (xPub, yPub, zPub)
-        api_response = api_instance.sync_hd_wallet__x_pub_y_pub_z_pub(blockchain, network, context=context, sync_hd_walletx_pub_y_pub_z_pub_request_body=sync_hd_walletx_pub_y_pub_z_pub_request_body)
+        api_response = api_instance.sync_hd_wallet__x_pub_y_pub_z_pub(blockchain, network, context=context, sync_hd_wallet_x_pub_y_pub_z_pub_rb=sync_hd_wallet_x_pub_y_pub_z_pub_rb)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling UTXOBasedApi->sync_hd_wallet__x_pub_y_pub_z_pub: %s\n" % e)
@@ -320,11 +320,11 @@ Name | Type | Description  | Notes
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **sync_hd_walletx_pub_y_pub_z_pub_request_body** | [**SyncHDWalletxPubYPubZPubRequestBody**](SyncHDWalletxPubYPubZPubRequestBody.md)|  | [optional]
+ **sync_hd_wallet_x_pub_y_pub_z_pub_rb** | [**SyncHDWalletXPubYPubZPubRB**](SyncHDWalletXPubYPubZPubRB.md)|  | [optional]
 
 ### Return type
 
-[**SyncHDWalletxPubYPubZPubResponse**](SyncHDWalletxPubYPubZPubResponse.md)
+[**SyncHDWalletXPubYPubZPubR**](SyncHDWalletXPubYPubZPubR.md)
 
 ### Authorization
 

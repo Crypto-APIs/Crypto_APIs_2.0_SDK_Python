@@ -24,19 +24,19 @@ from cryptoapis.model_utils import (  # noqa: F401
 )
 from cryptoapis.model.blockchain_data_transaction_not_found import BlockchainDataTransactionNotFound
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.get_omni_transaction_details_by_transaction_id_txid_response import GetOmniTransactionDetailsByTransactionIDTxidResponse
-from cryptoapis.model.get_unconfirmed_omni_transaction_by_transaction_id_txid_response import GetUnconfirmedOmniTransactionByTransactionIDTxidResponse
+from cryptoapis.model.get_omni_transaction_details_by_transaction_id_txid_r import GetOmniTransactionDetailsByTransactionIDTxidR
+from cryptoapis.model.get_unconfirmed_omni_transaction_by_transaction_id_txid_r import GetUnconfirmedOmniTransactionByTransactionIDTxidR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.list_omni_tokens_by_address_response import ListOmniTokensByAddressResponse
-from cryptoapis.model.list_omni_transactions_by_address_response import ListOmniTransactionsByAddressResponse
-from cryptoapis.model.list_omni_transactions_by_block_hash_response import ListOmniTransactionsByBlockHashResponse
-from cryptoapis.model.list_omni_transactions_by_block_height_response import ListOmniTransactionsByBlockHeightResponse
-from cryptoapis.model.list_unconfirmed_omni_transactions_by_address_response import ListUnconfirmedOmniTransactionsByAddressResponse
-from cryptoapis.model.list_unconfirmed_omni_transactions_by_property_id_response import ListUnconfirmedOmniTransactionsByPropertyIDResponse
+from cryptoapis.model.list_omni_tokens_by_address_r import ListOmniTokensByAddressR
+from cryptoapis.model.list_omni_transactions_by_address_r import ListOmniTransactionsByAddressR
+from cryptoapis.model.list_omni_transactions_by_block_hash_r import ListOmniTransactionsByBlockHashR
+from cryptoapis.model.list_omni_transactions_by_block_height_r import ListOmniTransactionsByBlockHeightR
+from cryptoapis.model.list_unconfirmed_omni_transactions_by_address_r import ListUnconfirmedOmniTransactionsByAddressR
+from cryptoapis.model.list_unconfirmed_omni_transactions_by_property_idr import ListUnconfirmedOmniTransactionsByPropertyIDR
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
@@ -82,8 +82,8 @@ class OmniLayerApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -98,7 +98,7 @@ class OmniLayerApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GetOmniTransactionDetailsByTransactionIDTxidResponse
+                GetOmniTransactionDetailsByTransactionIDTxidR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -131,7 +131,7 @@ class OmniLayerApi(object):
 
         self.get_omni_transaction_details_by_transaction_id__txid = _Endpoint(
             settings={
-                'response_type': (GetOmniTransactionDetailsByTransactionIDTxidResponse,),
+                'response_type': (GetOmniTransactionDetailsByTransactionIDTxidR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -238,8 +238,8 @@ class OmniLayerApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -254,7 +254,7 @@ class OmniLayerApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GetUnconfirmedOmniTransactionByTransactionIDTxidResponse
+                GetUnconfirmedOmniTransactionByTransactionIDTxidR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -287,7 +287,7 @@ class OmniLayerApi(object):
 
         self.get_unconfirmed_omni_transaction_by_transaction_id__txid = _Endpoint(
             settings={
-                'response_type': (GetUnconfirmedOmniTransactionByTransactionIDTxidResponse,),
+                'response_type': (GetUnconfirmedOmniTransactionByTransactionIDTxidR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -375,7 +375,7 @@ class OmniLayerApi(object):
         ):
             """List Omni Tokens By Address  # noqa: E501
 
-            Through this endpoint the customer can receive basic information about a given Omni address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.  # noqa: E501
+            Through this endpoint the customer can receive basic information about a given Omni address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -394,8 +394,8 @@ class OmniLayerApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -410,7 +410,7 @@ class OmniLayerApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListOmniTokensByAddressResponse
+                ListOmniTokensByAddressR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -443,7 +443,7 @@ class OmniLayerApi(object):
 
         self.list_omni_tokens_by_address = _Endpoint(
             settings={
-                'response_type': (ListOmniTokensByAddressResponse,),
+                'response_type': (ListOmniTokensByAddressR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -531,7 +531,7 @@ class OmniLayerApi(object):
         ):
             """List Omni Transactions By Address  # noqa: E501
 
-            This endpoint will list Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.  # noqa: E501
+            This endpoint will list Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -552,8 +552,8 @@ class OmniLayerApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -568,7 +568,7 @@ class OmniLayerApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListOmniTransactionsByAddressResponse
+                ListOmniTransactionsByAddressR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -601,7 +601,7 @@ class OmniLayerApi(object):
 
         self.list_omni_transactions_by_address = _Endpoint(
             settings={
-                'response_type': (ListOmniTransactionsByAddressResponse,),
+                'response_type': (ListOmniTransactionsByAddressR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -699,7 +699,7 @@ class OmniLayerApi(object):
         ):
             """List Omni Transactions By Block Hash  # noqa: E501
 
-            This endpoint will list Omni transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.  # noqa: E501
+            This endpoint will list Omni transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -720,8 +720,8 @@ class OmniLayerApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -736,7 +736,7 @@ class OmniLayerApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListOmniTransactionsByBlockHashResponse
+                ListOmniTransactionsByBlockHashR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -769,7 +769,7 @@ class OmniLayerApi(object):
 
         self.list_omni_transactions_by_block_hash = _Endpoint(
             settings={
-                'response_type': (ListOmniTransactionsByBlockHashResponse,),
+                'response_type': (ListOmniTransactionsByBlockHashR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -867,7 +867,7 @@ class OmniLayerApi(object):
         ):
             """List Omni Transactions By Block Height  # noqa: E501
 
-            This endpoint will list Omni transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.  # noqa: E501
+            This endpoint will list Omni transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -888,8 +888,8 @@ class OmniLayerApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -904,7 +904,7 @@ class OmniLayerApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListOmniTransactionsByBlockHeightResponse
+                ListOmniTransactionsByBlockHeightR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -937,7 +937,7 @@ class OmniLayerApi(object):
 
         self.list_omni_transactions_by_block_height = _Endpoint(
             settings={
-                'response_type': (ListOmniTransactionsByBlockHeightResponse,),
+                'response_type': (ListOmniTransactionsByBlockHeightR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -1035,7 +1035,7 @@ class OmniLayerApi(object):
         ):
             """List Unconfirmed Omni Transactions By Address  # noqa: E501
 
-            This endpoint will list unconfirmed Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.  # noqa: E501
+            This endpoint will list unconfirmed Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -1056,8 +1056,8 @@ class OmniLayerApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -1072,7 +1072,7 @@ class OmniLayerApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListUnconfirmedOmniTransactionsByAddressResponse
+                ListUnconfirmedOmniTransactionsByAddressR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -1105,7 +1105,7 @@ class OmniLayerApi(object):
 
         self.list_unconfirmed_omni_transactions_by_address = _Endpoint(
             settings={
-                'response_type': (ListUnconfirmedOmniTransactionsByAddressResponse,),
+                'response_type': (ListUnconfirmedOmniTransactionsByAddressR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -1203,7 +1203,7 @@ class OmniLayerApi(object):
         ):
             """List Unconfirmed Omni Transactions By Property ID  # noqa: E501
 
-            This endpoint will list unconfirmed Omni transactions by an attribute `propertyId`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.  # noqa: E501
+            This endpoint will list unconfirmed Omni transactions by an attribute `propertyId`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -1224,8 +1224,8 @@ class OmniLayerApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -1240,7 +1240,7 @@ class OmniLayerApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListUnconfirmedOmniTransactionsByPropertyIDResponse
+                ListUnconfirmedOmniTransactionsByPropertyIDR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -1273,7 +1273,7 @@ class OmniLayerApi(object):
 
         self.list_unconfirmed_omni_transactions_by_property_id = _Endpoint(
             settings={
-                'response_type': (ListUnconfirmedOmniTransactionsByPropertyIDResponse,),
+                'response_type': (ListUnconfirmedOmniTransactionsByPropertyIDR,),
                 'auth': [
                     'ApiKey'
                 ],

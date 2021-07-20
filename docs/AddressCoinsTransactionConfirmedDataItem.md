@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **amount** | **str** | Defines the amount of coins sent with the confirmed transaction. | 
 **unit** | **str** | Defines the unit of the transaction, e.g. BTC. | 
 **direction** | **str** | Defines whether the transaction is \&quot;incoming\&quot; or \&quot;outgoing\&quot;. | 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

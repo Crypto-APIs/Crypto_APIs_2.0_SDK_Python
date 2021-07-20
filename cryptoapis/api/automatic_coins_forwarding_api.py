@@ -24,16 +24,16 @@ from cryptoapis.model_utils import (  # noqa: F401
 )
 from cryptoapis.model.already_exists import AlreadyExists
 from cryptoapis.model.coins_forwarding_automations_limit_reached import CoinsForwardingAutomationsLimitReached
-from cryptoapis.model.create_automatic_coins_forwarding_request_body import CreateAutomaticCoinsForwardingRequestBody
-from cryptoapis.model.create_automatic_coins_forwarding_response import CreateAutomaticCoinsForwardingResponse
-from cryptoapis.model.delete_automatic_coins_forwarding_response import DeleteAutomaticCoinsForwardingResponse
+from cryptoapis.model.create_automatic_coins_forwarding_r import CreateAutomaticCoinsForwardingR
+from cryptoapis.model.create_automatic_coins_forwarding_rb import CreateAutomaticCoinsForwardingRB
+from cryptoapis.model.delete_automatic_coins_forwarding_r import DeleteAutomaticCoinsForwardingR
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.list_coins_forwarding_automations_response import ListCoinsForwardingAutomationsResponse
+from cryptoapis.model.list_coins_forwarding_automations_r import ListCoinsForwardingAutomationsR
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.resource_not_found import ResourceNotFound
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
@@ -73,14 +73,14 @@ class AutomaticCoinsForwardingApi(object):
 
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                create_automatic_coins_forwarding_request_body (CreateAutomaticCoinsForwardingRequestBody): [optional]
+                create_automatic_coins_forwarding_rb (CreateAutomaticCoinsForwardingRB): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -95,7 +95,7 @@ class AutomaticCoinsForwardingApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                CreateAutomaticCoinsForwardingResponse
+                CreateAutomaticCoinsForwardingR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -126,7 +126,7 @@ class AutomaticCoinsForwardingApi(object):
 
         self.create_automatic_coins_forwarding = _Endpoint(
             settings={
-                'response_type': (CreateAutomaticCoinsForwardingResponse,),
+                'response_type': (CreateAutomaticCoinsForwardingR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -140,7 +140,7 @@ class AutomaticCoinsForwardingApi(object):
                     'blockchain',
                     'network',
                     'context',
-                    'create_automatic_coins_forwarding_request_body',
+                    'create_automatic_coins_forwarding_rb',
                 ],
                 'required': [
                     'blockchain',
@@ -185,8 +185,8 @@ class AutomaticCoinsForwardingApi(object):
                         (str,),
                     'context':
                         (str,),
-                    'create_automatic_coins_forwarding_request_body':
-                        (CreateAutomaticCoinsForwardingRequestBody,),
+                    'create_automatic_coins_forwarding_rb':
+                        (CreateAutomaticCoinsForwardingRB,),
                 },
                 'attribute_map': {
                     'blockchain': 'blockchain',
@@ -197,7 +197,7 @@ class AutomaticCoinsForwardingApi(object):
                     'blockchain': 'path',
                     'network': 'path',
                     'context': 'query',
-                    'create_automatic_coins_forwarding_request_body': 'body',
+                    'create_automatic_coins_forwarding_rb': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -242,8 +242,8 @@ class AutomaticCoinsForwardingApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -258,7 +258,7 @@ class AutomaticCoinsForwardingApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                DeleteAutomaticCoinsForwardingResponse
+                DeleteAutomaticCoinsForwardingR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -291,7 +291,7 @@ class AutomaticCoinsForwardingApi(object):
 
         self.delete_automatic_coins_forwarding = _Endpoint(
             settings={
-                'response_type': (DeleteAutomaticCoinsForwardingResponse,),
+                'response_type': (DeleteAutomaticCoinsForwardingR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -387,7 +387,7 @@ class AutomaticCoinsForwardingApi(object):
         ):
             """List Coins Forwarding Automations  # noqa: E501
 
-            Through this endpoint customers can list all of their **coins** forwarding automations (**not** tokens).    Customers can set up automatic forwarding functions for coins by setting a `fromAddress` and a `toAddress`, and specifying the amount that can be transferred between addresses.     A `feePriority` will be returned which represents the fee priority of the automation whether it is \"SLOW\", \"STANDARD\" OR \"FAST\".    {warning}The subscription will work for all incoming transactions until it is deleted. There is no need to do that for every transaction.{/warning}  # noqa: E501
+            Through this endpoint customers can list all of their **coins** forwarding automations (**not** tokens).    Customers can set up automatic forwarding functions for coins by setting a `fromAddress` and a `toAddress`, and specifying the amount that can be transferred between addresses.     A `feePriority` will be returned which represents the fee priority of the automation whether it is \"SLOW\", \"STANDARD\" OR \"FAST\".    {warning}The subscription will work for all incoming transactions until it is deleted. There is no need to do that for every transaction.{/warning}    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -407,8 +407,8 @@ class AutomaticCoinsForwardingApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -423,7 +423,7 @@ class AutomaticCoinsForwardingApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListCoinsForwardingAutomationsResponse
+                ListCoinsForwardingAutomationsR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -454,7 +454,7 @@ class AutomaticCoinsForwardingApi(object):
 
         self.list_coins_forwarding_automations = _Endpoint(
             settings={
-                'response_type': (ListCoinsForwardingAutomationsResponse,),
+                'response_type': (ListCoinsForwardingAutomationsR,),
                 'auth': [
                     'ApiKey'
                 ],

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **delete_blockchain_event_subscription**
-> DeleteBlockchainEventSubscriptionResponse delete_blockchain_event_subscription(blockchain, network, reference_id)
+> DeleteBlockchainEventSubscriptionR delete_blockchain_event_subscription(blockchain, network, reference_id)
 
 Delete Blockchain Event Subscription
 
@@ -29,8 +29,8 @@ from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodySt
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.delete_blockchain_event_subscription_response import DeleteBlockchainEventSubscriptionResponse
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
+from cryptoapis.model.delete_blockchain_event_subscription_r import DeleteBlockchainEventSubscriptionR
 from cryptoapis.model.resource_not_found import ResourceNotFound
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteBlockchainEventSubscriptionResponse**](DeleteBlockchainEventSubscriptionResponse.md)
+[**DeleteBlockchainEventSubscriptionR**](DeleteBlockchainEventSubscriptionR.md)
 
 ### Authorization
 
@@ -120,11 +120,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_blockchain_events_subscriptions**
-> ListBlockchainEventsSubscriptionsResponse list_blockchain_events_subscriptions(blockchain, network)
+> ListBlockchainEventsSubscriptionsR list_blockchain_events_subscriptions(blockchain, network)
 
 List Blockchain Events Subscriptions
 
-Through this endpoint the customer can obtain a list of their callback subscriptions for the available Blockchain events.    Currently Crypto APIs 2.0 offers certain Blockchain event endpoints which allow the user to subscribe for one/a few/all and receive callback notifications when the specific event occurs.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
+Through this endpoint the customer can obtain a list of their callback subscriptions for the available Blockchain events.    Currently Crypto APIs 2.0 offers certain Blockchain event endpoints which allow the user to subscribe for one/a few/all and receive callback notifications when the specific event occurs.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -133,13 +133,13 @@ Through this endpoint the customer can obtain a list of their callback subscript
 import time
 import cryptoapis
 from cryptoapis.api import manage_subscriptions_api
-from cryptoapis.model.list_blockchain_events_subscriptions_response import ListBlockchainEventsSubscriptionsResponse
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.list_blockchain_events_subscriptions_r import ListBlockchainEventsSubscriptionsR
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListBlockchainEventsSubscriptionsResponse**](ListBlockchainEventsSubscriptionsResponse.md)
+[**ListBlockchainEventsSubscriptionsR**](ListBlockchainEventsSubscriptionsR.md)
 
 ### Authorization
 

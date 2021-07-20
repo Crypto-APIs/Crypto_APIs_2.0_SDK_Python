@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_exchange_rate_by_asset_symbols**
-> GetExchangeRateByAssetSymbolsResponse get_exchange_rate_by_asset_symbols(from_asset_symbol, to_asset_symbol)
+> GetExchangeRateByAssetSymbolsR get_exchange_rate_by_asset_symbols(from_asset_symbol, to_asset_symbol)
 
 Get Exchange Rate By Asset Symbols
 
@@ -22,12 +22,12 @@ Through this endpoint customers can obtain exchange rates by asset symbols. The 
 import time
 import cryptoapis
 from cryptoapis.api import exchange_rates_api
-from cryptoapis.model.get_exchange_rate_by_asset_symbols_response import GetExchangeRateByAssetSymbolsResponse
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.get_exchange_rate_by_asset_symbols_r import GetExchangeRateByAssetSymbolsR
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.could_not_calculate_rate_for_pair import CouldNotCalculateRateForPair
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
@@ -57,6 +57,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     from_asset_symbol = "btc" # str | Defines the base asset symbol to get a rate for.
     to_asset_symbol = "usd" # str | Defines the relation asset symbol in which the base asset rate will be displayed.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    calculation_timestamp = 1618577849 # int | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -70,7 +71,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get Exchange Rate By Asset Symbols
-        api_response = api_instance.get_exchange_rate_by_asset_symbols(from_asset_symbol, to_asset_symbol, context=context)
+        api_response = api_instance.get_exchange_rate_by_asset_symbols(from_asset_symbol, to_asset_symbol, context=context, calculation_timestamp=calculation_timestamp)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling ExchangeRatesApi->get_exchange_rate_by_asset_symbols: %s\n" % e)
@@ -84,10 +85,11 @@ Name | Type | Description  | Notes
  **from_asset_symbol** | **str**| Defines the base asset symbol to get a rate for. |
  **to_asset_symbol** | **str**| Defines the relation asset symbol in which the base asset rate will be displayed. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **calculation_timestamp** | **int**| Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. | [optional]
 
 ### Return type
 
-[**GetExchangeRateByAssetSymbolsResponse**](GetExchangeRateByAssetSymbolsResponse.md)
+[**GetExchangeRateByAssetSymbolsR**](GetExchangeRateByAssetSymbolsR.md)
 
 ### Authorization
 
@@ -116,7 +118,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_exchange_rate_by_assets_ids**
-> GetExchangeRateByAssetsIDsResponse get_exchange_rate_by_assets_ids(from_asset_id, to_asset_id)
+> GetExchangeRateByAssetsIDsR get_exchange_rate_by_assets_ids(from_asset_id, to_asset_id)
 
 Get Exchange Rate By Assets IDs
 
@@ -129,13 +131,13 @@ Through this endpoint customers can obtain exchange rates by asset IDs. The proc
 import time
 import cryptoapis
 from cryptoapis.api import exchange_rates_api
-from cryptoapis.model.get_exchange_rate_by_assets_ids_response import GetExchangeRateByAssetsIDsResponse
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
+from cryptoapis.model.get_exchange_rate_by_assets_ids_r import GetExchangeRateByAssetsIDsR
 from cryptoapis.model.could_not_calculate_rate_for_pair import CouldNotCalculateRateForPair
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
@@ -164,6 +166,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     from_asset_id = "5b1ea92e584bf50020130612" # str | Defines the base asset Reference ID to get a rate for.
     to_asset_id = "5b1ea92e584bf50020130615" # str | Defines the relation asset Reference ID in which the base asset rate will be displayed.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    calculation_timestamp = 1618577849 # int | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -177,7 +180,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get Exchange Rate By Assets IDs
-        api_response = api_instance.get_exchange_rate_by_assets_ids(from_asset_id, to_asset_id, context=context)
+        api_response = api_instance.get_exchange_rate_by_assets_ids(from_asset_id, to_asset_id, context=context, calculation_timestamp=calculation_timestamp)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling ExchangeRatesApi->get_exchange_rate_by_assets_ids: %s\n" % e)
@@ -191,10 +194,11 @@ Name | Type | Description  | Notes
  **from_asset_id** | **str**| Defines the base asset Reference ID to get a rate for. |
  **to_asset_id** | **str**| Defines the relation asset Reference ID in which the base asset rate will be displayed. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **calculation_timestamp** | **int**| Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. | [optional]
 
 ### Return type
 
-[**GetExchangeRateByAssetsIDsResponse**](GetExchangeRateByAssetsIDsResponse.md)
+[**GetExchangeRateByAssetsIDsR**](GetExchangeRateByAssetsIDsR.md)
 
 ### Authorization
 

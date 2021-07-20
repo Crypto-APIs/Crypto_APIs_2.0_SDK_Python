@@ -24,6 +24,13 @@ class TestTokensApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_get_contract_details_by_address(self):
+        """Test case for get_contract_details_by_address
+
+        Get Contract Details by Address  # noqa: E501
+        """
+        pass
+
     def test_list_tokens_by_address(self):
         """Test case for list_tokens_by_address
 

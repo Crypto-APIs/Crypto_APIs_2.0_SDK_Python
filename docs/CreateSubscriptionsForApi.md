@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**new_block**](CreateSubscriptionsForApi.md#new_block) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/block-mined | New Block
 [**new_confirmed_coins_transactions**](CreateSubscriptionsForApi.md#new_confirmed_coins_transactions) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/address-coins-transactions-confirmed | New confirmed coins transactions
 [**new_confirmed_coins_transactions_and_each_confirmation**](CreateSubscriptionsForApi.md#new_confirmed_coins_transactions_and_each_confirmation) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/address-coins-transactions-confirmed-each-confirmation | New confirmed coins transactions and each confirmation
+[**new_confirmed_internal_transactions**](CreateSubscriptionsForApi.md#new_confirmed_internal_transactions) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/address-internal-transactions-confirmed | New confirmed internal transactions
+[**new_confirmed_internal_transactions_and_each_confirmation**](CreateSubscriptionsForApi.md#new_confirmed_internal_transactions_and_each_confirmation) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/address-internal-transactions-confirmed-each-confirmation | New confirmed internal transactions and each confirmation
 [**new_confirmed_tokens_transactions**](CreateSubscriptionsForApi.md#new_confirmed_tokens_transactions) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/address-tokens-transactions-confirmed | New confirmed tokens transactions
 [**new_confirmed_tokens_transactions_and_each_confirmation**](CreateSubscriptionsForApi.md#new_confirmed_tokens_transactions_and_each_confirmation) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/address-tokens-transactions-confirmed-each-confirmation | New confirmed tokens transactions and each confirmation
 [**new_unconfirmed_coins_transactions**](CreateSubscriptionsForApi.md#new_unconfirmed_coins_transactions) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/address-coins-transactions-unconfirmed | New unconfirmed coins transactions
@@ -15,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **mined_transaction**
-> MinedTransactionResponse mined_transaction(blockchain, network)
+> MinedTransactionR mined_transaction(blockchain, network)
 
 Mined transaction
 
@@ -28,15 +30,15 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.mined_transaction_response import MinedTransactionResponse
 from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
 from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.mined_transaction_request_body import MinedTransactionRequestBody
 from cryptoapis.model.already_exists import AlreadyExists
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
+from cryptoapis.model.mined_transaction_rb import MinedTransactionRB
 from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.mined_transaction_r import MinedTransactionR
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
@@ -64,17 +66,17 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    mined_transaction_request_body = MinedTransactionRequestBody(
+    mined_transaction_rb = MinedTransactionRB(
         context="context_example",
-        data=MinedTransactionRequestBodyData(
-            item=MinedTransactionRequestBodyDataItem(
+        data=MinedTransactionRBData(
+            item=MinedTransactionRBDataItem(
                 allow_duplicates=False,
                 callback_secret_key="yourSecretKey",
                 callback_url="http://example.com",
                 transaction_id="df2690ff97e72c1f8b0f2102a8cb5c1d0fa8fb8754d543c9bc0edc4d4bc34bfc",
             ),
         ),
-    ) # MinedTransactionRequestBody |  (optional)
+    ) # MinedTransactionRB |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -88,7 +90,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Mined transaction
-        api_response = api_instance.mined_transaction(blockchain, network, context=context, mined_transaction_request_body=mined_transaction_request_body)
+        api_response = api_instance.mined_transaction(blockchain, network, context=context, mined_transaction_rb=mined_transaction_rb)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling CreateSubscriptionsForApi->mined_transaction: %s\n" % e)
@@ -102,11 +104,11 @@ Name | Type | Description  | Notes
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **mined_transaction_request_body** | [**MinedTransactionRequestBody**](MinedTransactionRequestBody.md)|  | [optional]
+ **mined_transaction_rb** | [**MinedTransactionRB**](MinedTransactionRB.md)|  | [optional]
 
 ### Return type
 
-[**MinedTransactionResponse**](MinedTransactionResponse.md)
+[**MinedTransactionR**](MinedTransactionR.md)
 
 ### Authorization
 
@@ -135,7 +137,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **new_block**
-> NewBlockResponse new_block(blockchain, network)
+> NewBlockR new_block(blockchain, network)
 
 New Block
 
@@ -148,15 +150,15 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.new_block_request_body import NewBlockRequestBody
 from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.already_exists import AlreadyExists
 from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.new_block_response import NewBlockResponse
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
+from cryptoapis.model.new_block_rb import NewBlockRB
 from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.new_block_r import NewBlockR
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
@@ -184,16 +186,16 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    new_block_request_body = NewBlockRequestBody(
+    new_block_rb = NewBlockRB(
         context="context_example",
-        data=NewBlockRequestBodyData(
-            item=NewBlockRequestBodyDataItem(
+        data=NewBlockRBData(
+            item=NewBlockRBDataItem(
                 allow_duplicates=True,
                 callback_secret_key="yourSecretKey",
                 callback_url="http://example.com",
             ),
         ),
-    ) # NewBlockRequestBody |  (optional)
+    ) # NewBlockRB |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -207,7 +209,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # New Block
-        api_response = api_instance.new_block(blockchain, network, context=context, new_block_request_body=new_block_request_body)
+        api_response = api_instance.new_block(blockchain, network, context=context, new_block_rb=new_block_rb)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling CreateSubscriptionsForApi->new_block: %s\n" % e)
@@ -221,11 +223,11 @@ Name | Type | Description  | Notes
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **new_block_request_body** | [**NewBlockRequestBody**](NewBlockRequestBody.md)|  | [optional]
+ **new_block_rb** | [**NewBlockRB**](NewBlockRB.md)|  | [optional]
 
 ### Return type
 
-[**NewBlockResponse**](NewBlockResponse.md)
+[**NewBlockR**](NewBlockR.md)
 
 ### Authorization
 
@@ -254,7 +256,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **new_confirmed_coins_transactions**
-> NewConfirmedCoinsTransactionsResponse new_confirmed_coins_transactions(blockchain, network)
+> NewConfirmedCoinsTransactionsR new_confirmed_coins_transactions(blockchain, network)
 
 New confirmed coins transactions
 
@@ -267,14 +269,14 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.new_confirmed_coins_transactions_response import NewConfirmedCoinsTransactionsResponse
+from cryptoapis.model.new_confirmed_coins_transactions_rb import NewConfirmedCoinsTransactionsRB
 from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
 from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.new_confirmed_coins_transactions_request_body import NewConfirmedCoinsTransactionsRequestBody
 from cryptoapis.model.already_exists import AlreadyExists
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
+from cryptoapis.model.new_confirmed_coins_transactions_r import NewConfirmedCoinsTransactionsR
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
@@ -303,17 +305,17 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    new_confirmed_coins_transactions_request_body = NewConfirmedCoinsTransactionsRequestBody(
+    new_confirmed_coins_transactions_rb = NewConfirmedCoinsTransactionsRB(
         context="context_example",
-        data=NewConfirmedCoinsTransactionsRequestBodyData(
-            item=NewConfirmedCoinsTransactionsRequestBodyDataItem(
+        data=NewConfirmedCoinsTransactionsRBData(
+            item=NewConfirmedCoinsTransactionsRBDataItem(
                 address="mho4jHBcrNCncKt38trJahXakuaBnS7LK5",
                 allow_duplicates=True,
                 callback_secret_key="yourSecretKey",
                 callback_url="http://example.com",
             ),
         ),
-    ) # NewConfirmedCoinsTransactionsRequestBody |  (optional)
+    ) # NewConfirmedCoinsTransactionsRB |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -327,7 +329,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # New confirmed coins transactions
-        api_response = api_instance.new_confirmed_coins_transactions(blockchain, network, context=context, new_confirmed_coins_transactions_request_body=new_confirmed_coins_transactions_request_body)
+        api_response = api_instance.new_confirmed_coins_transactions(blockchain, network, context=context, new_confirmed_coins_transactions_rb=new_confirmed_coins_transactions_rb)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling CreateSubscriptionsForApi->new_confirmed_coins_transactions: %s\n" % e)
@@ -341,11 +343,11 @@ Name | Type | Description  | Notes
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **new_confirmed_coins_transactions_request_body** | [**NewConfirmedCoinsTransactionsRequestBody**](NewConfirmedCoinsTransactionsRequestBody.md)|  | [optional]
+ **new_confirmed_coins_transactions_rb** | [**NewConfirmedCoinsTransactionsRB**](NewConfirmedCoinsTransactionsRB.md)|  | [optional]
 
 ### Return type
 
-[**NewConfirmedCoinsTransactionsResponse**](NewConfirmedCoinsTransactionsResponse.md)
+[**NewConfirmedCoinsTransactionsR**](NewConfirmedCoinsTransactionsR.md)
 
 ### Authorization
 
@@ -374,7 +376,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **new_confirmed_coins_transactions_and_each_confirmation**
-> NewConfirmedCoinsTransactionsAndEachConfirmationResponse new_confirmed_coins_transactions_and_each_confirmation(blockchain, network)
+> NewConfirmedCoinsTransactionsAndEachConfirmationR new_confirmed_coins_transactions_and_each_confirmation(blockchain, network)
 
 New confirmed coins transactions and each confirmation
 
@@ -387,8 +389,8 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation_response import NewConfirmedCoinsTransactionsAndEachConfirmationResponse
-from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation_request_body import NewConfirmedCoinsTransactionsAndEachConfirmationRequestBody
+from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation_r import NewConfirmedCoinsTransactionsAndEachConfirmationR
+from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation_rb import NewConfirmedCoinsTransactionsAndEachConfirmationRB
 from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.already_exists import AlreadyExists
@@ -423,10 +425,10 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    new_confirmed_coins_transactions_and_each_confirmation_request_body = NewConfirmedCoinsTransactionsAndEachConfirmationRequestBody(
+    new_confirmed_coins_transactions_and_each_confirmation_rb = NewConfirmedCoinsTransactionsAndEachConfirmationRB(
         context="context_example",
-        data=NewConfirmedCoinsTransactionsAndEachConfirmationRequestBodyData(
-            item=NewConfirmedCoinsTransactionsAndEachConfirmationRequestBodyDataItem(
+        data=NewConfirmedCoinsTransactionsAndEachConfirmationRBData(
+            item=NewConfirmedCoinsTransactionsAndEachConfirmationRBDataItem(
                 address="mho4jHBcrNCncKt38trJahXakuaBnS7LK5",
                 allow_duplicates=True,
                 callback_secret_key="yourSecretKey",
@@ -434,7 +436,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
                 confirmations_count=3,
             ),
         ),
-    ) # NewConfirmedCoinsTransactionsAndEachConfirmationRequestBody |  (optional)
+    ) # NewConfirmedCoinsTransactionsAndEachConfirmationRB |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -448,7 +450,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # New confirmed coins transactions and each confirmation
-        api_response = api_instance.new_confirmed_coins_transactions_and_each_confirmation(blockchain, network, context=context, new_confirmed_coins_transactions_and_each_confirmation_request_body=new_confirmed_coins_transactions_and_each_confirmation_request_body)
+        api_response = api_instance.new_confirmed_coins_transactions_and_each_confirmation(blockchain, network, context=context, new_confirmed_coins_transactions_and_each_confirmation_rb=new_confirmed_coins_transactions_and_each_confirmation_rb)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling CreateSubscriptionsForApi->new_confirmed_coins_transactions_and_each_confirmation: %s\n" % e)
@@ -462,11 +464,252 @@ Name | Type | Description  | Notes
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **new_confirmed_coins_transactions_and_each_confirmation_request_body** | [**NewConfirmedCoinsTransactionsAndEachConfirmationRequestBody**](NewConfirmedCoinsTransactionsAndEachConfirmationRequestBody.md)|  | [optional]
+ **new_confirmed_coins_transactions_and_each_confirmation_rb** | [**NewConfirmedCoinsTransactionsAndEachConfirmationRB**](NewConfirmedCoinsTransactionsAndEachConfirmationRB.md)|  | [optional]
 
 ### Return type
 
-[**NewConfirmedCoinsTransactionsAndEachConfirmationResponse**](NewConfirmedCoinsTransactionsAndEachConfirmationResponse.md)
+[**NewConfirmedCoinsTransactionsAndEachConfirmationR**](NewConfirmedCoinsTransactionsAndEachConfirmationR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | The resource has been successfully created. |  -  |
+**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
+**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
+**403** | You have reached the maximum number of active Blockchain Events subscriptions which is {callbacks_limit} now. Please upgrade your plan to be get higher number of active subscriptions. |  -  |
+**409** | The specified resource already exists. |  -  |
+**415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
+**422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
+**429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
+**500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **new_confirmed_internal_transactions**
+> NewConfirmedInternalTransactionsR new_confirmed_internal_transactions(blockchain, network)
+
+New confirmed internal transactions
+
+Through this endpoint customers can create callback subscriptions for a specific event. In this case the event is when there are new confirmed internal transactions. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs.    Being confirmed means that the transactions are verified by miners and added to the next block.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
+
+### Example
+
+* Api Key Authentication (ApiKey):
+```python
+import time
+import cryptoapis
+from cryptoapis.api import create_subscriptions_for_api
+from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
+from cryptoapis.model.insufficient_credits import InsufficientCredits
+from cryptoapis.model.already_exists import AlreadyExists
+from cryptoapis.model.invalid_api_key import InvalidApiKey
+from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
+from cryptoapis.model.request_limit_reached import RequestLimitReached
+from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.new_confirmed_internal_transactions_r import NewConfirmedInternalTransactionsR
+from cryptoapis.model.unexpected_server_error import UnexpectedServerError
+from cryptoapis.model.new_confirmed_internal_transactions_rb import NewConfirmedInternalTransactionsRB
+from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from pprint import pprint
+# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cryptoapis.Configuration(
+    host = "https://rest.cryptoapis.io/v2"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with cryptoapis.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = create_subscriptions_for_api.CreateSubscriptionsForApi(api_client)
+    blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network = "mainnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    new_confirmed_internal_transactions_rb = NewConfirmedInternalTransactionsRB(
+        context="context_example",
+        data=NewConfirmedInternalTransactionsRBData(
+            item=NewConfirmedInternalTransactionsRBDataItem(
+                address="0xbcc817f057950b0df41206c5d7125e6225cae18e",
+                allow_duplicates=True,
+                callback_secret_key="yourSecretKey",
+                callback_url="http://example.com",
+            ),
+        ),
+    ) # NewConfirmedInternalTransactionsRB |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # New confirmed internal transactions
+        api_response = api_instance.new_confirmed_internal_transactions(blockchain, network)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling CreateSubscriptionsForApi->new_confirmed_internal_transactions: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # New confirmed internal transactions
+        api_response = api_instance.new_confirmed_internal_transactions(blockchain, network, context=context, new_confirmed_internal_transactions_rb=new_confirmed_internal_transactions_rb)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling CreateSubscriptionsForApi->new_confirmed_internal_transactions: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. |
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **new_confirmed_internal_transactions_rb** | [**NewConfirmedInternalTransactionsRB**](NewConfirmedInternalTransactionsRB.md)|  | [optional]
+
+### Return type
+
+[**NewConfirmedInternalTransactionsR**](NewConfirmedInternalTransactionsR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The request has been successful. |  -  |
+**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
+**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
+**403** | You have reached the maximum number of active Blockchain Events subscriptions which is {callbacks_limit} now. Please upgrade your plan to be get higher number of active subscriptions. |  -  |
+**409** | The specified resource already exists. |  -  |
+**415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
+**422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
+**429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
+**500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **new_confirmed_internal_transactions_and_each_confirmation**
+> NewConfirmedInternalTransactionsAndEachConfirmationR new_confirmed_internal_transactions_and_each_confirmation(blockchain, network)
+
+New confirmed internal transactions and each confirmation
+
+Through this endpoint customers can create callback subscriptions for a specific event. In this case the event is when there are new confirmed internal transactions. Includes also a response at each confirmation the transaction receives until the specified confirmations limit is reached. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs.     Being confirmed means that the transactions are verified by miners and added to the next block.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
+
+### Example
+
+* Api Key Authentication (ApiKey):
+```python
+import time
+import cryptoapis
+from cryptoapis.api import create_subscriptions_for_api
+from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation_r import NewConfirmedInternalTransactionsAndEachConfirmationR
+from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
+from cryptoapis.model.insufficient_credits import InsufficientCredits
+from cryptoapis.model.already_exists import AlreadyExists
+from cryptoapis.model.invalid_api_key import InvalidApiKey
+from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
+from cryptoapis.model.request_limit_reached import RequestLimitReached
+from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation_rb import NewConfirmedInternalTransactionsAndEachConfirmationRB
+from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.unexpected_server_error import UnexpectedServerError
+from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from pprint import pprint
+# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cryptoapis.Configuration(
+    host = "https://rest.cryptoapis.io/v2"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with cryptoapis.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = create_subscriptions_for_api.CreateSubscriptionsForApi(api_client)
+    blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network = "mainnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    new_confirmed_internal_transactions_and_each_confirmation_rb = NewConfirmedInternalTransactionsAndEachConfirmationRB(
+        context="context_example",
+        data=NewConfirmedInternalTransactionsAndEachConfirmationRBData(
+            item=NewConfirmedInternalTransactionsAndEachConfirmationRBDataItem(
+                address="0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+                allow_duplicates=True,
+                callback_secret_key="yourSecretString",
+                callback_url="https://example.com",
+                confirmations_count=3,
+            ),
+        ),
+    ) # NewConfirmedInternalTransactionsAndEachConfirmationRB |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # New confirmed internal transactions and each confirmation
+        api_response = api_instance.new_confirmed_internal_transactions_and_each_confirmation(blockchain, network)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling CreateSubscriptionsForApi->new_confirmed_internal_transactions_and_each_confirmation: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # New confirmed internal transactions and each confirmation
+        api_response = api_instance.new_confirmed_internal_transactions_and_each_confirmation(blockchain, network, context=context, new_confirmed_internal_transactions_and_each_confirmation_rb=new_confirmed_internal_transactions_and_each_confirmation_rb)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling CreateSubscriptionsForApi->new_confirmed_internal_transactions_and_each_confirmation: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. |
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **new_confirmed_internal_transactions_and_each_confirmation_rb** | [**NewConfirmedInternalTransactionsAndEachConfirmationRB**](NewConfirmedInternalTransactionsAndEachConfirmationRB.md)|  | [optional]
+
+### Return type
+
+[**NewConfirmedInternalTransactionsAndEachConfirmationR**](NewConfirmedInternalTransactionsAndEachConfirmationR.md)
 
 ### Authorization
 
@@ -495,7 +738,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **new_confirmed_tokens_transactions**
-> NewConfirmedTokensTransactionsResponse new_confirmed_tokens_transactions(blockchain, network)
+> NewConfirmedTokensTransactionsR new_confirmed_tokens_transactions(blockchain, network)
 
 New confirmed tokens transactions
 
@@ -508,15 +751,15 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
+from cryptoapis.model.new_confirmed_tokens_transactions_rb import NewConfirmedTokensTransactionsRB
 from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.already_exists import AlreadyExists
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.new_confirmed_tokens_transactions_request_body import NewConfirmedTokensTransactionsRequestBody
 from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.new_confirmed_tokens_transactions_response import NewConfirmedTokensTransactionsResponse
+from cryptoapis.model.new_confirmed_tokens_transactions_r import NewConfirmedTokensTransactionsR
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
@@ -544,17 +787,17 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    new_confirmed_tokens_transactions_request_body = NewConfirmedTokensTransactionsRequestBody(
+    new_confirmed_tokens_transactions_rb = NewConfirmedTokensTransactionsRB(
         context="context_example",
-        data=NewUnconfirmedTokensTransactionsRequestBodyData(
-            item=NewUnconfirmedTokensTransactionsRequestBodyDataItem(
+        data=NewUnconfirmedTokensTransactionsRBData(
+            item=NewUnconfirmedTokensTransactionsRBDataItem(
                 address="mho4jHBcrNCncKt38trJahXakuaBnS7LK5",
                 allow_duplicates=True,
                 callback_secret_key="yourSecretKey",
                 callback_url="http://example.com",
             ),
         ),
-    ) # NewConfirmedTokensTransactionsRequestBody |  (optional)
+    ) # NewConfirmedTokensTransactionsRB |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -568,7 +811,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # New confirmed tokens transactions
-        api_response = api_instance.new_confirmed_tokens_transactions(blockchain, network, context=context, new_confirmed_tokens_transactions_request_body=new_confirmed_tokens_transactions_request_body)
+        api_response = api_instance.new_confirmed_tokens_transactions(blockchain, network, context=context, new_confirmed_tokens_transactions_rb=new_confirmed_tokens_transactions_rb)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling CreateSubscriptionsForApi->new_confirmed_tokens_transactions: %s\n" % e)
@@ -582,11 +825,11 @@ Name | Type | Description  | Notes
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **new_confirmed_tokens_transactions_request_body** | [**NewConfirmedTokensTransactionsRequestBody**](NewConfirmedTokensTransactionsRequestBody.md)|  | [optional]
+ **new_confirmed_tokens_transactions_rb** | [**NewConfirmedTokensTransactionsRB**](NewConfirmedTokensTransactionsRB.md)|  | [optional]
 
 ### Return type
 
-[**NewConfirmedTokensTransactionsResponse**](NewConfirmedTokensTransactionsResponse.md)
+[**NewConfirmedTokensTransactionsR**](NewConfirmedTokensTransactionsR.md)
 
 ### Authorization
 
@@ -615,7 +858,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **new_confirmed_tokens_transactions_and_each_confirmation**
-> NewConfirmedTokensTransactionsAndEachConfirmationResponse new_confirmed_tokens_transactions_and_each_confirmation(blockchain, network)
+> NewConfirmedTokensTransactionsAndEachConfirmationR new_confirmed_tokens_transactions_and_each_confirmation(blockchain, network)
 
 New confirmed tokens transactions and each confirmation
 
@@ -628,7 +871,7 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_response import NewConfirmedTokensTransactionsAndEachConfirmationResponse
+from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_r import NewConfirmedTokensTransactionsAndEachConfirmationR
 from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.already_exists import AlreadyExists
@@ -636,9 +879,9 @@ from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_rb import NewConfirmedTokensTransactionsAndEachConfirmationRB
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
-from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_request_body import NewConfirmedTokensTransactionsAndEachConfirmationRequestBody
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -664,10 +907,10 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    new_confirmed_tokens_transactions_and_each_confirmation_request_body = NewConfirmedTokensTransactionsAndEachConfirmationRequestBody(
+    new_confirmed_tokens_transactions_and_each_confirmation_rb = NewConfirmedTokensTransactionsAndEachConfirmationRB(
         context="context_example",
-        data=NewConfirmedTokensTransactionsAndEachConfirmationRequestBodyData(
-            item=NewConfirmedTokensTransactionsAndEachConfirmationRequestBodyDataItem(
+        data=NewConfirmedTokensTransactionsAndEachConfirmationRBData(
+            item=NewConfirmedTokensTransactionsAndEachConfirmationRBDataItem(
                 address="mho4jHBcrNCncKt38trJahXakuaBnS7LK5",
                 allow_duplicates=True,
                 callback_secret_key="yourSecretKey",
@@ -675,7 +918,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
                 confirmations_count=3,
             ),
         ),
-    ) # NewConfirmedTokensTransactionsAndEachConfirmationRequestBody |  (optional)
+    ) # NewConfirmedTokensTransactionsAndEachConfirmationRB |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -689,7 +932,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # New confirmed tokens transactions and each confirmation
-        api_response = api_instance.new_confirmed_tokens_transactions_and_each_confirmation(blockchain, network, context=context, new_confirmed_tokens_transactions_and_each_confirmation_request_body=new_confirmed_tokens_transactions_and_each_confirmation_request_body)
+        api_response = api_instance.new_confirmed_tokens_transactions_and_each_confirmation(blockchain, network, context=context, new_confirmed_tokens_transactions_and_each_confirmation_rb=new_confirmed_tokens_transactions_and_each_confirmation_rb)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling CreateSubscriptionsForApi->new_confirmed_tokens_transactions_and_each_confirmation: %s\n" % e)
@@ -703,11 +946,11 @@ Name | Type | Description  | Notes
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **new_confirmed_tokens_transactions_and_each_confirmation_request_body** | [**NewConfirmedTokensTransactionsAndEachConfirmationRequestBody**](NewConfirmedTokensTransactionsAndEachConfirmationRequestBody.md)|  | [optional]
+ **new_confirmed_tokens_transactions_and_each_confirmation_rb** | [**NewConfirmedTokensTransactionsAndEachConfirmationRB**](NewConfirmedTokensTransactionsAndEachConfirmationRB.md)|  | [optional]
 
 ### Return type
 
-[**NewConfirmedTokensTransactionsAndEachConfirmationResponse**](NewConfirmedTokensTransactionsAndEachConfirmationResponse.md)
+[**NewConfirmedTokensTransactionsAndEachConfirmationR**](NewConfirmedTokensTransactionsAndEachConfirmationR.md)
 
 ### Authorization
 
@@ -736,11 +979,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **new_unconfirmed_coins_transactions**
-> NewUnconfirmedCoinsTransactionsResponse new_unconfirmed_coins_transactions(blockchain, network)
+> NewUnconfirmedCoinsTransactionsR new_unconfirmed_coins_transactions(blockchain, network)
 
 New unconfirmed coins transactions
 
-Through this endpoint customers can create callback subscriptions for a specific event. In this case the event is when there are new unconfirmed coins transactions for the user. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs. The information is returned per specified address.    Unconfirmed coins transactions remain in the mempool (memory pool) until they are confirmed by miners and added to the next block. Sometimes spikes in transaction activity can cause delays in confirmations.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {note}It is also **important to note** that just because pending unconfirmed transactions are in the mempool, **doesn't necessarily** mean they will get confirmed.{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
+Through this endpoint customers can create callback subscriptions for a specific event. In this case the event is when there are new unconfirmed coins transactions for the user. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs. The information is returned per specified address.    Unconfirmed coins transactions remain in the mempool (memory pool) until they are confirmed by miners and added to the next block. Sometimes spikes in transaction activity can cause delays in confirmations.    {warning}We cannot guarantee at 100% that webhooks for unconfirmed transactions will always be received. Some may **not get received** due to the possibility of some nodes not being updated with that information. This can occur in networks with low activity and/or not many nodes, e.g. Testnet networks and rarely Mainnets.{/warning}    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {note}It is also **important to note** that just because pending unconfirmed transactions are in the mempool, **doesn't necessarily** mean they will get confirmed.{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 
 ### Example
 
@@ -749,15 +992,15 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.new_unconfirmed_coins_transactions_request_body import NewUnconfirmedCoinsTransactionsRequestBody
+from cryptoapis.model.new_unconfirmed_coins_transactions_r import NewUnconfirmedCoinsTransactionsR
 from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.already_exists import AlreadyExists
 from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.new_unconfirmed_coins_transactions_response import NewUnconfirmedCoinsTransactionsResponse
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.new_unconfirmed_coins_transactions_rb import NewUnconfirmedCoinsTransactionsRB
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
@@ -785,17 +1028,17 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    new_unconfirmed_coins_transactions_request_body = NewUnconfirmedCoinsTransactionsRequestBody(
+    new_unconfirmed_coins_transactions_rb = NewUnconfirmedCoinsTransactionsRB(
         context="context_example",
-        data=NewUnconfirmedCoinsTransactionsRequestBodyData(
-            item=NewUnconfirmedCoinsTransactionsRequestBodyDataItem(
+        data=NewUnconfirmedCoinsTransactionsRBData(
+            item=NewUnconfirmedCoinsTransactionsRBDataItem(
                 address="mho4jHBcrNCncKt38trJahXakuaBnS7LK5",
                 allow_duplicates=True,
                 callback_secret_key="yourSecretKey",
                 callback_url="http://example.com",
             ),
         ),
-    ) # NewUnconfirmedCoinsTransactionsRequestBody |  (optional)
+    ) # NewUnconfirmedCoinsTransactionsRB |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -809,7 +1052,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # New unconfirmed coins transactions
-        api_response = api_instance.new_unconfirmed_coins_transactions(blockchain, network, context=context, new_unconfirmed_coins_transactions_request_body=new_unconfirmed_coins_transactions_request_body)
+        api_response = api_instance.new_unconfirmed_coins_transactions(blockchain, network, context=context, new_unconfirmed_coins_transactions_rb=new_unconfirmed_coins_transactions_rb)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling CreateSubscriptionsForApi->new_unconfirmed_coins_transactions: %s\n" % e)
@@ -823,11 +1066,11 @@ Name | Type | Description  | Notes
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **new_unconfirmed_coins_transactions_request_body** | [**NewUnconfirmedCoinsTransactionsRequestBody**](NewUnconfirmedCoinsTransactionsRequestBody.md)|  | [optional]
+ **new_unconfirmed_coins_transactions_rb** | [**NewUnconfirmedCoinsTransactionsRB**](NewUnconfirmedCoinsTransactionsRB.md)|  | [optional]
 
 ### Return type
 
-[**NewUnconfirmedCoinsTransactionsResponse**](NewUnconfirmedCoinsTransactionsResponse.md)
+[**NewUnconfirmedCoinsTransactionsR**](NewUnconfirmedCoinsTransactionsR.md)
 
 ### Authorization
 
@@ -856,11 +1099,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **new_unconfirmed_tokens_transactions**
-> NewUnconfirmedTokensTransactionsResponse new_unconfirmed_tokens_transactions(blockchain, network)
+> NewUnconfirmedTokensTransactionsR new_unconfirmed_tokens_transactions(blockchain, network)
 
 New unconfirmed tokens transactions
 
-Through this endpoint customers can create callback subscriptions for a specific event. In this case the event is when there are new unconfirmed tokens transactions for the user. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs. The information is returned per specified address.    Unconfirmed tokens transactions remain in the mempool (memory pool) until they are confirmed by miners and added to the next block. Sometimes spikes in transaction activity can cause delays in confirmations.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {note}It is also **important to note** that just because pending unconfirmed transactions are in the mempool, **doesn't necessarily** mean they will get confirmed.{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
+Through this endpoint customers can create callback subscriptions for a specific event. In this case the event is when there are new unconfirmed tokens transactions for the user. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs. The information is returned per specified address.    Unconfirmed tokens transactions remain in the mempool (memory pool) until they are confirmed by miners and added to the next block. Sometimes spikes in transaction activity can cause delays in confirmations.    {warning}We cannot guarantee at 100% that webhooks for unconfirmed transactions will always be received. Some may **not get received** due to the possibility of some nodes not being updated with that information. This can occur in networks with low activity and/or not many nodes, e.g. Testnet networks and rarely Mainnets.{/warning}    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {note}It is also **important to note** that just because pending unconfirmed transactions are in the mempool, **doesn't necessarily** mean they will get confirmed.{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 
 ### Example
 
@@ -869,16 +1112,16 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
+from cryptoapis.model.new_unconfirmed_tokens_transactions_r import NewUnconfirmedTokensTransactionsR
 from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.already_exists import AlreadyExists
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.new_unconfirmed_tokens_transactions_response import NewUnconfirmedTokensTransactionsResponse
 from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.new_unconfirmed_tokens_transactions_request_body import NewUnconfirmedTokensTransactionsRequestBody
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
+from cryptoapis.model.new_unconfirmed_tokens_transactions_rb import NewUnconfirmedTokensTransactionsRB
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -905,17 +1148,17 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    new_unconfirmed_tokens_transactions_request_body = NewUnconfirmedTokensTransactionsRequestBody(
+    new_unconfirmed_tokens_transactions_rb = NewUnconfirmedTokensTransactionsRB(
         context="context_example",
-        data=NewUnconfirmedTokensTransactionsRequestBodyData(
-            item=NewUnconfirmedTokensTransactionsRequestBodyDataItem(
+        data=NewUnconfirmedTokensTransactionsRBData(
+            item=NewUnconfirmedTokensTransactionsRBDataItem(
                 address="mho4jHBcrNCncKt38trJahXakuaBnS7LK5",
                 allow_duplicates=True,
                 callback_secret_key="yourSecretKey",
                 callback_url="http://example.com",
             ),
         ),
-    ) # NewUnconfirmedTokensTransactionsRequestBody |  (optional)
+    ) # NewUnconfirmedTokensTransactionsRB |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -929,7 +1172,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # New unconfirmed tokens transactions
-        api_response = api_instance.new_unconfirmed_tokens_transactions(blockchain, network, context=context, new_unconfirmed_tokens_transactions_request_body=new_unconfirmed_tokens_transactions_request_body)
+        api_response = api_instance.new_unconfirmed_tokens_transactions(blockchain, network, context=context, new_unconfirmed_tokens_transactions_rb=new_unconfirmed_tokens_transactions_rb)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling CreateSubscriptionsForApi->new_unconfirmed_tokens_transactions: %s\n" % e)
@@ -943,11 +1186,11 @@ Name | Type | Description  | Notes
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **new_unconfirmed_tokens_transactions_request_body** | [**NewUnconfirmedTokensTransactionsRequestBody**](NewUnconfirmedTokensTransactionsRequestBody.md)|  | [optional]
+ **new_unconfirmed_tokens_transactions_rb** | [**NewUnconfirmedTokensTransactionsRB**](NewUnconfirmedTokensTransactionsRB.md)|  | [optional]
 
 ### Return type
 
-[**NewUnconfirmedTokensTransactionsResponse**](NewUnconfirmedTokensTransactionsResponse.md)
+[**NewUnconfirmedTokensTransactionsR**](NewUnconfirmedTokensTransactionsR.md)
 
 ### Authorization
 

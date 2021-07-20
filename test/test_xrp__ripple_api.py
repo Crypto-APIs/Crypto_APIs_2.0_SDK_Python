@@ -73,6 +73,13 @@ class TestXRPRippleApi(unittest.TestCase):
         """
         pass
 
+    def test_list_xrp__ripple_transactions_by_block_height(self):
+        """Test case for list_xrp__ripple_transactions_by_block_height
+
+        List XRP (Ripple) Transactions By Block Height  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

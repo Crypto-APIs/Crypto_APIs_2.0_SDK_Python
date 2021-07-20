@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **create_automatic_coins_forwarding**
-> CreateAutomaticCoinsForwardingResponse create_automatic_coins_forwarding(blockchain, network)
+> CreateAutomaticCoinsForwardingR create_automatic_coins_forwarding(blockchain, network)
 
 Create Automatic Coins Forwarding
 
@@ -23,15 +23,15 @@ Through this endpoint customers can set up an automatic forwarding function spec
 import time
 import cryptoapis
 from cryptoapis.api import automatic_coins_forwarding_api
+from cryptoapis.model.create_automatic_coins_forwarding_r import CreateAutomaticCoinsForwardingR
 from cryptoapis.model.coins_forwarding_automations_limit_reached import CoinsForwardingAutomationsLimitReached
-from cryptoapis.model.create_automatic_coins_forwarding_response import CreateAutomaticCoinsForwardingResponse
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.already_exists import AlreadyExists
 from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.create_automatic_coins_forwarding_request_body import CreateAutomaticCoinsForwardingRequestBody
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.create_automatic_coins_forwarding_rb import CreateAutomaticCoinsForwardingRB
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.resource_not_found import ResourceNotFound
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
@@ -60,19 +60,19 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    create_automatic_coins_forwarding_request_body = CreateAutomaticCoinsForwardingRequestBody(
+    create_automatic_coins_forwarding_rb = CreateAutomaticCoinsForwardingRB(
         context="context_example",
-        data=CreateAutomaticCoinsForwardingRequestBodyData(
-            item=CreateAutomaticCoinsForwardingRequestBodyDataItem(
+        data=CreateAutomaticCoinsForwardingRBData(
+            item=CreateAutomaticCoinsForwardingRBDataItem(
                 callback_secret_key="yourSecretString",
                 callback_url="https://example.com",
                 confirmations_count=3,
-                fee_priority="slow",
+                fee_priority="standard",
                 minimum_transfer_amount="0.0002",
                 to_address="mzYijhgmzZrmuB7wBDazRKirnChKyow4M3",
             ),
         ),
-    ) # CreateAutomaticCoinsForwardingRequestBody |  (optional)
+    ) # CreateAutomaticCoinsForwardingRB |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -86,7 +86,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create Automatic Coins Forwarding
-        api_response = api_instance.create_automatic_coins_forwarding(blockchain, network, context=context, create_automatic_coins_forwarding_request_body=create_automatic_coins_forwarding_request_body)
+        api_response = api_instance.create_automatic_coins_forwarding(blockchain, network, context=context, create_automatic_coins_forwarding_rb=create_automatic_coins_forwarding_rb)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling AutomaticCoinsForwardingApi->create_automatic_coins_forwarding: %s\n" % e)
@@ -100,11 +100,11 @@ Name | Type | Description  | Notes
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **create_automatic_coins_forwarding_request_body** | [**CreateAutomaticCoinsForwardingRequestBody**](CreateAutomaticCoinsForwardingRequestBody.md)|  | [optional]
+ **create_automatic_coins_forwarding_rb** | [**CreateAutomaticCoinsForwardingRB**](CreateAutomaticCoinsForwardingRB.md)|  | [optional]
 
 ### Return type
 
-[**CreateAutomaticCoinsForwardingResponse**](CreateAutomaticCoinsForwardingResponse.md)
+[**CreateAutomaticCoinsForwardingR**](CreateAutomaticCoinsForwardingR.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_automatic_coins_forwarding**
-> DeleteAutomaticCoinsForwardingResponse delete_automatic_coins_forwarding(blockchain, network, reference_id)
+> DeleteAutomaticCoinsForwardingR delete_automatic_coins_forwarding(blockchain, network, reference_id)
 
 Delete Automatic Coins Forwarding
 
@@ -153,8 +153,8 @@ from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.delete_automatic_coins_forwarding_r import DeleteAutomaticCoinsForwardingR
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.delete_automatic_coins_forwarding_response import DeleteAutomaticCoinsForwardingResponse
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.resource_not_found import ResourceNotFound
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAutomaticCoinsForwardingResponse**](DeleteAutomaticCoinsForwardingResponse.md)
+[**DeleteAutomaticCoinsForwardingR**](DeleteAutomaticCoinsForwardingR.md)
 
 ### Authorization
 
@@ -245,11 +245,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_coins_forwarding_automations**
-> ListCoinsForwardingAutomationsResponse list_coins_forwarding_automations(blockchain, network)
+> ListCoinsForwardingAutomationsR list_coins_forwarding_automations(blockchain, network)
 
 List Coins Forwarding Automations
 
-Through this endpoint customers can list all of their **coins** forwarding automations (**not** tokens).    Customers can set up automatic forwarding functions for coins by setting a `fromAddress` and a `toAddress`, and specifying the amount that can be transferred between addresses.     A `feePriority` will be returned which represents the fee priority of the automation whether it is \"SLOW\", \"STANDARD\" OR \"FAST\".    {warning}The subscription will work for all incoming transactions until it is deleted. There is no need to do that for every transaction.{/warning}
+Through this endpoint customers can list all of their **coins** forwarding automations (**not** tokens).    Customers can set up automatic forwarding functions for coins by setting a `fromAddress` and a `toAddress`, and specifying the amount that can be transferred between addresses.     A `feePriority` will be returned which represents the fee priority of the automation whether it is \"SLOW\", \"STANDARD\" OR \"FAST\".    {warning}The subscription will work for all incoming transactions until it is deleted. There is no need to do that for every transaction.{/warning}    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -265,7 +265,7 @@ from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodySt
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.list_coins_forwarding_automations_response import ListCoinsForwardingAutomationsResponse
+from cryptoapis.model.list_coins_forwarding_automations_r import ListCoinsForwardingAutomationsR
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.resource_not_found import ResourceNotFound
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListCoinsForwardingAutomationsResponse**](ListCoinsForwardingAutomationsResponse.md)
+[**ListCoinsForwardingAutomationsR**](ListCoinsForwardingAutomationsR.md)
 
 ### Authorization
 

@@ -25,20 +25,20 @@ from cryptoapis.model_utils import (  # noqa: F401
 from cryptoapis.model.blockchain_data_block_not_found import BlockchainDataBlockNotFound
 from cryptoapis.model.blockchain_data_transaction_not_found import BlockchainDataTransactionNotFound
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.get_address_details_response import GetAddressDetailsResponse
-from cryptoapis.model.get_block_details_by_block_hash_response import GetBlockDetailsByBlockHashResponse
-from cryptoapis.model.get_block_details_by_block_height_response import GetBlockDetailsByBlockHeightResponse
-from cryptoapis.model.get_fee_recommendations_response import GetFeeRecommendationsResponse
-from cryptoapis.model.get_latest_mined_block_response import GetLatestMinedBlockResponse
-from cryptoapis.model.get_transaction_details_by_transaction_id_response import GetTransactionDetailsByTransactionIDResponse
+from cryptoapis.model.get_address_details_r import GetAddressDetailsR
+from cryptoapis.model.get_block_details_by_block_hash_r import GetBlockDetailsByBlockHashR
+from cryptoapis.model.get_block_details_by_block_height_r import GetBlockDetailsByBlockHeightR
+from cryptoapis.model.get_fee_recommendations_r import GetFeeRecommendationsR
+from cryptoapis.model.get_latest_mined_block_r import GetLatestMinedBlockR
+from cryptoapis.model.get_transaction_details_by_transaction_idr import GetTransactionDetailsByTransactionIDR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.list_transactions_by_address_response import ListTransactionsByAddressResponse
-from cryptoapis.model.list_transactions_by_block_hash_response import ListTransactionsByBlockHashResponse
-from cryptoapis.model.list_transactions_by_block_height_response import ListTransactionsByBlockHeightResponse
+from cryptoapis.model.list_transactions_by_address_r import ListTransactionsByAddressR
+from cryptoapis.model.list_transactions_by_block_hash_r import ListTransactionsByBlockHashR
+from cryptoapis.model.list_transactions_by_block_height_r import ListTransactionsByBlockHeightR
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.resource_not_found import ResourceNotFound
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
@@ -85,8 +85,8 @@ class UnifiedEndpointsApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -101,7 +101,7 @@ class UnifiedEndpointsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GetAddressDetailsResponse
+                GetAddressDetailsR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -134,7 +134,7 @@ class UnifiedEndpointsApi(object):
 
         self.get_address_details = _Endpoint(
             settings={
-                'response_type': (GetAddressDetailsResponse,),
+                'response_type': (GetAddressDetailsR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -250,8 +250,8 @@ class UnifiedEndpointsApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -266,7 +266,7 @@ class UnifiedEndpointsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GetBlockDetailsByBlockHashResponse
+                GetBlockDetailsByBlockHashR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -299,7 +299,7 @@ class UnifiedEndpointsApi(object):
 
         self.get_block_details_by_block_hash = _Endpoint(
             settings={
-                'response_type': (GetBlockDetailsByBlockHashResponse,),
+                'response_type': (GetBlockDetailsByBlockHashR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -415,8 +415,8 @@ class UnifiedEndpointsApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -431,7 +431,7 @@ class UnifiedEndpointsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GetBlockDetailsByBlockHeightResponse
+                GetBlockDetailsByBlockHeightR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -464,7 +464,7 @@ class UnifiedEndpointsApi(object):
 
         self.get_block_details_by_block_height = _Endpoint(
             settings={
-                'response_type': (GetBlockDetailsByBlockHeightResponse,),
+                'response_type': (GetBlockDetailsByBlockHeightR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -578,8 +578,8 @@ class UnifiedEndpointsApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -594,7 +594,7 @@ class UnifiedEndpointsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GetFeeRecommendationsResponse
+                GetFeeRecommendationsR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -625,7 +625,7 @@ class UnifiedEndpointsApi(object):
 
         self.get_fee_recommendations = _Endpoint(
             settings={
-                'response_type': (GetFeeRecommendationsResponse,),
+                'response_type': (GetFeeRecommendationsR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -733,8 +733,8 @@ class UnifiedEndpointsApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -749,7 +749,7 @@ class UnifiedEndpointsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GetLatestMinedBlockResponse
+                GetLatestMinedBlockR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -780,7 +780,7 @@ class UnifiedEndpointsApi(object):
 
         self.get_latest_mined_block = _Endpoint(
             settings={
-                'response_type': (GetLatestMinedBlockResponse,),
+                'response_type': (GetLatestMinedBlockR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -890,8 +890,8 @@ class UnifiedEndpointsApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -906,7 +906,7 @@ class UnifiedEndpointsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GetTransactionDetailsByTransactionIDResponse
+                GetTransactionDetailsByTransactionIDR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -939,7 +939,7 @@ class UnifiedEndpointsApi(object):
 
         self.get_transaction_details_by_transaction_id = _Endpoint(
             settings={
-                'response_type': (GetTransactionDetailsByTransactionIDResponse,),
+                'response_type': (GetTransactionDetailsByTransactionIDR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -1036,7 +1036,7 @@ class UnifiedEndpointsApi(object):
         ):
             """List Transactions By Address  # noqa: E501
 
-            This endpoint will list transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.  # noqa: E501
+            This endpoint will list transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -1057,8 +1057,8 @@ class UnifiedEndpointsApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -1073,7 +1073,7 @@ class UnifiedEndpointsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListTransactionsByAddressResponse
+                ListTransactionsByAddressR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -1106,7 +1106,7 @@ class UnifiedEndpointsApi(object):
 
         self.list_transactions_by_address = _Endpoint(
             settings={
-                'response_type': (ListTransactionsByAddressResponse,),
+                'response_type': (ListTransactionsByAddressR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -1213,7 +1213,7 @@ class UnifiedEndpointsApi(object):
         ):
             """List Transactions by Block Hash  # noqa: E501
 
-            This endpoint will list transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.  # noqa: E501
+            This endpoint will list transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -1234,8 +1234,8 @@ class UnifiedEndpointsApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -1250,7 +1250,7 @@ class UnifiedEndpointsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListTransactionsByBlockHashResponse
+                ListTransactionsByBlockHashR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -1283,7 +1283,7 @@ class UnifiedEndpointsApi(object):
 
         self.list_transactions_by_block_hash = _Endpoint(
             settings={
-                'response_type': (ListTransactionsByBlockHashResponse,),
+                'response_type': (ListTransactionsByBlockHashR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -1390,7 +1390,7 @@ class UnifiedEndpointsApi(object):
         ):
             """List Transactions by Block Height  # noqa: E501
 
-            This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.  # noqa: E501
+            This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -1411,8 +1411,8 @@ class UnifiedEndpointsApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -1427,7 +1427,7 @@ class UnifiedEndpointsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListTransactionsByBlockHeightResponse
+                ListTransactionsByBlockHeightR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -1460,7 +1460,7 @@ class UnifiedEndpointsApi(object):
 
         self.list_transactions_by_block_height = _Endpoint(
             settings={
-                'response_type': (ListTransactionsByBlockHeightResponse,),
+                'response_type': (ListTransactionsByBlockHeightR,),
                 'auth': [
                     'ApiKey'
                 ],

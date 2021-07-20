@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **spent_fees_unit** | **str** | Represents the unit of the fee spent for the coins to be forwarded, e.g. BTC. | 
 **trigger_transaction_id** | **str** | Defines the unique Transaction ID that triggered the coin forwarding. | 
 **forwarding_transaction_id** | **str** | Defines the unique Transaction ID that forwarded the coins. | 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -8,11 +8,11 @@ Method | HTTP request | Description
 
 
 # **list_supported_assets**
-> ListSupportedAssetsResponse list_supported_assets()
+> ListSupportedAssetsR list_supported_assets()
 
 List Supported Assets
 
-This endpoint will return a list of supported assets. The asset could be a cryptocurrency or FIAT assets that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".
+This endpoint will return a list of supported assets. The asset could be a cryptocurrency or FIAT assets that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -22,8 +22,8 @@ import time
 import cryptoapis
 from cryptoapis.api import metadata_api
 from cryptoapis.model.insufficient_credits import InsufficientCredits
+from cryptoapis.model.list_supported_assets_r import ListSupportedAssetsR
 from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.list_supported_assets_response import ListSupportedAssetsResponse
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListSupportedAssetsResponse**](ListSupportedAssetsResponse.md)
+[**ListSupportedAssetsR**](ListSupportedAssetsR.md)
 
 ### Authorization
 

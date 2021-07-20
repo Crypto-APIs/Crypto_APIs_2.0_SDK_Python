@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **trigger_transaction_id** | **str** | Defines the unique Transaction ID that triggered the token forwarding. | 
 **error_code** | **str** | Represents the error code received for the failed token forwarding. | 
 **error_message** | **str** | Represents the error message received for the failed token forwarding. | 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

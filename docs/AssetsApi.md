@@ -8,11 +8,11 @@ Method | HTTP request | Description
 
 
 # **list_assets_details**
-> ListAssetsDetailsResponse list_assets_details()
+> ListAssetsDetailsR list_assets_details()
 
 List Assets Details
 
-This endpoint will return details on a requested asset. The asset could be a cryptocurrency or FIAT asset that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".    The details returned could include information on the latest rate and rate fluctuation of different periods of time - 24 hours, a week, one hour, the encoding of the logo, and more.
+This endpoint will return details on a requested asset. The asset could be a cryptocurrency or FIAT asset that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".    The details returned could include information on the latest rate and rate fluctuation of different periods of time - 24 hours, a week, one hour, the encoding of the logo, and more.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -22,8 +22,8 @@ import time
 import cryptoapis
 from cryptoapis.api import assets_api
 from cryptoapis.model.insufficient_credits import InsufficientCredits
+from cryptoapis.model.list_assets_details_r import ListAssetsDetailsR
 from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.list_assets_details_response import ListAssetsDetailsResponse
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
@@ -55,14 +55,16 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = assets_api.AssetsApi(api_client)
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     asset_type = "crypto" # str | Defines the type of the supported asset. This could be either \"crypto\" or \"fiat\". (optional)
+    crypto_type = "coin" # str | Subtype of the crypto assets. Could be COIN or TOKEN (optional)
     limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
     offset = 10 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    waas_enabled = True # bool | Show only if WaaS is/not enabled (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # List Assets Details
-        api_response = api_instance.list_assets_details(context=context, asset_type=asset_type, limit=limit, offset=offset)
+        api_response = api_instance.list_assets_details(context=context, asset_type=asset_type, crypto_type=crypto_type, limit=limit, offset=offset, waas_enabled=waas_enabled)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling AssetsApi->list_assets_details: %s\n" % e)
@@ -75,12 +77,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
  **asset_type** | **str**| Defines the type of the supported asset. This could be either \&quot;crypto\&quot; or \&quot;fiat\&quot;. | [optional]
+ **crypto_type** | **str**| Subtype of the crypto assets. Could be COIN or TOKEN | [optional]
  **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] if omitted the server will use the default value of 50
  **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] if omitted the server will use the default value of 0
+ **waas_enabled** | **bool**| Show only if WaaS is/not enabled | [optional]
 
 ### Return type
 
-[**ListAssetsDetailsResponse**](ListAssetsDetailsResponse.md)
+[**ListAssetsDetailsR**](ListAssetsDetailsR.md)
 
 ### Authorization
 

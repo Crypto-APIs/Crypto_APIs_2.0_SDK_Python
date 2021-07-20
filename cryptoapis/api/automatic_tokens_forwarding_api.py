@@ -22,19 +22,19 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from cryptoapis.model.add_tokens_to_existing_from_address_request_body import AddTokensToExistingFromAddressRequestBody
-from cryptoapis.model.add_tokens_to_existing_from_address_response import AddTokensToExistingFromAddressResponse
-from cryptoapis.model.create_automatic_tokens_forwarding_request_body import CreateAutomaticTokensForwardingRequestBody
-from cryptoapis.model.create_automatic_tokens_forwarding_response import CreateAutomaticTokensForwardingResponse
-from cryptoapis.model.delete_automatic_tokens_forwarding_response import DeleteAutomaticTokensForwardingResponse
+from cryptoapis.model.add_tokens_to_existing_from_address_r import AddTokensToExistingFromAddressR
+from cryptoapis.model.add_tokens_to_existing_from_address_rb import AddTokensToExistingFromAddressRB
+from cryptoapis.model.create_automatic_tokens_forwarding_r import CreateAutomaticTokensForwardingR
+from cryptoapis.model.create_automatic_tokens_forwarding_rb import CreateAutomaticTokensForwardingRB
+from cryptoapis.model.delete_automatic_tokens_forwarding_r import DeleteAutomaticTokensForwardingR
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.get_fee_address_details_response import GetFeeAddressDetailsResponse
+from cryptoapis.model.get_fee_address_details_r import GetFeeAddressDetailsR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.list_tokens_forwarding_automations_response import ListTokensForwardingAutomationsResponse
+from cryptoapis.model.list_tokens_forwarding_automations_r import ListTokensForwardingAutomationsR
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.resource_not_found import ResourceNotFound
 from cryptoapis.model.tokens_forwarding_automations_limit_reached import TokensForwardingAutomationsLimitReached
@@ -75,14 +75,14 @@ class AutomaticTokensForwardingApi(object):
 
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                add_tokens_to_existing_from_address_request_body (AddTokensToExistingFromAddressRequestBody): [optional]
+                add_tokens_to_existing_from_address_rb (AddTokensToExistingFromAddressRB): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -97,7 +97,7 @@ class AutomaticTokensForwardingApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                AddTokensToExistingFromAddressResponse
+                AddTokensToExistingFromAddressR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -128,7 +128,7 @@ class AutomaticTokensForwardingApi(object):
 
         self.add_tokens_to_existing_from_address = _Endpoint(
             settings={
-                'response_type': (AddTokensToExistingFromAddressResponse,),
+                'response_type': (AddTokensToExistingFromAddressR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -142,7 +142,7 @@ class AutomaticTokensForwardingApi(object):
                     'blockchain',
                     'network',
                     'context',
-                    'add_tokens_to_existing_from_address_request_body',
+                    'add_tokens_to_existing_from_address_rb',
                 ],
                 'required': [
                     'blockchain',
@@ -181,8 +181,8 @@ class AutomaticTokensForwardingApi(object):
                         (str,),
                     'context':
                         (str,),
-                    'add_tokens_to_existing_from_address_request_body':
-                        (AddTokensToExistingFromAddressRequestBody,),
+                    'add_tokens_to_existing_from_address_rb':
+                        (AddTokensToExistingFromAddressRB,),
                 },
                 'attribute_map': {
                     'blockchain': 'blockchain',
@@ -193,7 +193,7 @@ class AutomaticTokensForwardingApi(object):
                     'blockchain': 'path',
                     'network': 'path',
                     'context': 'query',
-                    'add_tokens_to_existing_from_address_request_body': 'body',
+                    'add_tokens_to_existing_from_address_rb': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -231,14 +231,14 @@ class AutomaticTokensForwardingApi(object):
 
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                create_automatic_tokens_forwarding_request_body (CreateAutomaticTokensForwardingRequestBody): [optional]
+                create_automatic_tokens_forwarding_rb (CreateAutomaticTokensForwardingRB): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -253,7 +253,7 @@ class AutomaticTokensForwardingApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                CreateAutomaticTokensForwardingResponse
+                CreateAutomaticTokensForwardingR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -284,7 +284,7 @@ class AutomaticTokensForwardingApi(object):
 
         self.create_automatic_tokens_forwarding = _Endpoint(
             settings={
-                'response_type': (CreateAutomaticTokensForwardingResponse,),
+                'response_type': (CreateAutomaticTokensForwardingR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -298,7 +298,7 @@ class AutomaticTokensForwardingApi(object):
                     'blockchain',
                     'network',
                     'context',
-                    'create_automatic_tokens_forwarding_request_body',
+                    'create_automatic_tokens_forwarding_rb',
                 ],
                 'required': [
                     'blockchain',
@@ -337,8 +337,8 @@ class AutomaticTokensForwardingApi(object):
                         (str,),
                     'context':
                         (str,),
-                    'create_automatic_tokens_forwarding_request_body':
-                        (CreateAutomaticTokensForwardingRequestBody,),
+                    'create_automatic_tokens_forwarding_rb':
+                        (CreateAutomaticTokensForwardingRB,),
                 },
                 'attribute_map': {
                     'blockchain': 'blockchain',
@@ -349,7 +349,7 @@ class AutomaticTokensForwardingApi(object):
                     'blockchain': 'path',
                     'network': 'path',
                     'context': 'query',
-                    'create_automatic_tokens_forwarding_request_body': 'body',
+                    'create_automatic_tokens_forwarding_rb': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -394,8 +394,8 @@ class AutomaticTokensForwardingApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -410,7 +410,7 @@ class AutomaticTokensForwardingApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                DeleteAutomaticTokensForwardingResponse
+                DeleteAutomaticTokensForwardingR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -443,7 +443,7 @@ class AutomaticTokensForwardingApi(object):
 
         self.delete_automatic_tokens_forwarding = _Endpoint(
             settings={
-                'response_type': (DeleteAutomaticTokensForwardingResponse,),
+                'response_type': (DeleteAutomaticTokensForwardingR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -551,8 +551,8 @@ class AutomaticTokensForwardingApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -567,7 +567,7 @@ class AutomaticTokensForwardingApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GetFeeAddressDetailsResponse
+                GetFeeAddressDetailsR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -598,7 +598,7 @@ class AutomaticTokensForwardingApi(object):
 
         self.get_fee_address_details = _Endpoint(
             settings={
-                'response_type': (GetFeeAddressDetailsResponse,),
+                'response_type': (GetFeeAddressDetailsR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -682,7 +682,7 @@ class AutomaticTokensForwardingApi(object):
         ):
             """List Tokens Forwarding Automations  # noqa: E501
 
-            Through this endpoint customers can list all of their **tokens** forwarding automations (**not** coins).    Customers can set up automatic forwarding functions for tokens by setting a `fromAddress` and a `toAddress`, and specifying the amount that can be transferred between addresses.     A `feePriority` will be returned which represents the fee priority of the automation whether it is \"SLOW\", \"STANDARD\" OR \"FAST\".     {warning}The subscription will work for all incoming transactions until it is deleted. There is no need to do that for every transaction.{/warning}  # noqa: E501
+            Through this endpoint customers can list all of their **tokens** forwarding automations (**not** coins).    Customers can set up automatic forwarding functions for tokens by setting a `fromAddress` and a `toAddress`, and specifying the amount that can be transferred between addresses.     A `feePriority` will be returned which represents the fee priority of the automation whether it is \"SLOW\", \"STANDARD\" OR \"FAST\".     {warning}The subscription will work for all incoming transactions until it is deleted. There is no need to do that for every transaction.{/warning}    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -702,8 +702,8 @@ class AutomaticTokensForwardingApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -718,7 +718,7 @@ class AutomaticTokensForwardingApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListTokensForwardingAutomationsResponse
+                ListTokensForwardingAutomationsR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -749,7 +749,7 @@ class AutomaticTokensForwardingApi(object):
 
         self.list_tokens_forwarding_automations = _Endpoint(
             settings={
-                'response_type': (ListTokensForwardingAutomationsResponse,),
+                'response_type': (ListTokensForwardingAutomationsR,),
                 'auth': [
                     'ApiKey'
                 ],

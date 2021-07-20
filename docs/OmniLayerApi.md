@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **get_omni_transaction_details_by_transaction_id__txid**
-> GetOmniTransactionDetailsByTransactionIDTxidResponse get_omni_transaction_details_by_transaction_id__txid(network, transaction_id)
+> GetOmniTransactionDetailsByTransactionIDTxidR get_omni_transaction_details_by_transaction_id__txid(network, transaction_id)
 
 Get Omni Transaction Details By Transaction ID (Txid)
 
@@ -28,7 +28,7 @@ Through this endpoint customers can obtain details about an Omni transaction by 
 import time
 import cryptoapis
 from cryptoapis.api import omni_layer_api
-from cryptoapis.model.get_omni_transaction_details_by_transaction_id_txid_response import GetOmniTransactionDetailsByTransactionIDTxidResponse
+from cryptoapis.model.get_omni_transaction_details_by_transaction_id_txid_r import GetOmniTransactionDetailsByTransactionIDTxidR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetOmniTransactionDetailsByTransactionIDTxidResponse**](GetOmniTransactionDetailsByTransactionIDTxidResponse.md)
+[**GetOmniTransactionDetailsByTransactionIDTxidR**](GetOmniTransactionDetailsByTransactionIDTxidR.md)
 
 ### Authorization
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_unconfirmed_omni_transaction_by_transaction_id__txid**
-> GetUnconfirmedOmniTransactionByTransactionIDTxidResponse get_unconfirmed_omni_transaction_by_transaction_id__txid(network, transaction_id)
+> GetUnconfirmedOmniTransactionByTransactionIDTxidR get_unconfirmed_omni_transaction_by_transaction_id__txid(network, transaction_id)
 
 Get Unconfirmed Omni Transaction By Transaction ID (Txid)
 
@@ -138,7 +138,7 @@ Through this endpoint customers can obtain information on unconfirmed Omni trans
 import time
 import cryptoapis
 from cryptoapis.api import omni_layer_api
-from cryptoapis.model.get_unconfirmed_omni_transaction_by_transaction_id_txid_response import GetUnconfirmedOmniTransactionByTransactionIDTxidResponse
+from cryptoapis.model.get_unconfirmed_omni_transaction_by_transaction_id_txid_r import GetUnconfirmedOmniTransactionByTransactionIDTxidR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUnconfirmedOmniTransactionByTransactionIDTxidResponse**](GetUnconfirmedOmniTransactionByTransactionIDTxidResponse.md)
+[**GetUnconfirmedOmniTransactionByTransactionIDTxidR**](GetUnconfirmedOmniTransactionByTransactionIDTxidR.md)
 
 ### Authorization
 
@@ -235,11 +235,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_omni_tokens_by_address**
-> ListOmniTokensByAddressResponse list_omni_tokens_by_address(network, address)
+> ListOmniTokensByAddressR list_omni_tokens_by_address(network, address)
 
 List Omni Tokens By Address
 
-Through this endpoint the customer can receive basic information about a given Omni address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.
+Through this endpoint the customer can receive basic information about a given Omni address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -253,9 +253,9 @@ from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
+from cryptoapis.model.list_omni_tokens_by_address_r import ListOmniTokensByAddressR
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.list_omni_tokens_by_address_response import ListOmniTokensByAddressResponse
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListOmniTokensByAddressResponse**](ListOmniTokensByAddressResponse.md)
+[**ListOmniTokensByAddressR**](ListOmniTokensByAddressR.md)
 
 ### Authorization
 
@@ -343,11 +343,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_omni_transactions_by_address**
-> ListOmniTransactionsByAddressResponse list_omni_transactions_by_address(network, address)
+> ListOmniTransactionsByAddressR list_omni_transactions_by_address(network, address)
 
 List Omni Transactions By Address
 
-This endpoint will list Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
+This endpoint will list Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -361,8 +361,8 @@ from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.list_omni_transactions_by_address_response import ListOmniTransactionsByAddressResponse
 from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.list_omni_transactions_by_address_r import ListOmniTransactionsByAddressR
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
@@ -426,7 +426,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListOmniTransactionsByAddressResponse**](ListOmniTransactionsByAddressResponse.md)
+[**ListOmniTransactionsByAddressR**](ListOmniTransactionsByAddressR.md)
 
 ### Authorization
 
@@ -455,11 +455,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_omni_transactions_by_block_hash**
-> ListOmniTransactionsByBlockHashResponse list_omni_transactions_by_block_hash(network, block_hash)
+> ListOmniTransactionsByBlockHashR list_omni_transactions_by_block_hash(network, block_hash)
 
 List Omni Transactions By Block Hash
 
-This endpoint will list Omni transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.
+This endpoint will list Omni transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -474,8 +474,8 @@ from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.list_omni_transactions_by_block_hash_response import ListOmniTransactionsByBlockHashResponse
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
+from cryptoapis.model.list_omni_transactions_by_block_hash_r import ListOmniTransactionsByBlockHashR
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
@@ -538,7 +538,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListOmniTransactionsByBlockHashResponse**](ListOmniTransactionsByBlockHashResponse.md)
+[**ListOmniTransactionsByBlockHashR**](ListOmniTransactionsByBlockHashR.md)
 
 ### Authorization
 
@@ -567,11 +567,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_omni_transactions_by_block_height**
-> ListOmniTransactionsByBlockHeightResponse list_omni_transactions_by_block_height(network, block_height)
+> ListOmniTransactionsByBlockHeightR list_omni_transactions_by_block_height(network, block_height)
 
 List Omni Transactions By Block Height
 
-This endpoint will list Omni transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
+This endpoint will list Omni transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -580,7 +580,6 @@ This endpoint will list Omni transactions by an attribute `blockHeight`. The tra
 import time
 import cryptoapis
 from cryptoapis.api import omni_layer_api
-from cryptoapis.model.list_omni_transactions_by_block_height_response import ListOmniTransactionsByBlockHeightResponse
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
@@ -589,6 +588,7 @@ from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
+from cryptoapis.model.list_omni_transactions_by_block_height_r import ListOmniTransactionsByBlockHeightR
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -650,7 +650,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListOmniTransactionsByBlockHeightResponse**](ListOmniTransactionsByBlockHeightResponse.md)
+[**ListOmniTransactionsByBlockHeightR**](ListOmniTransactionsByBlockHeightR.md)
 
 ### Authorization
 
@@ -679,11 +679,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_unconfirmed_omni_transactions_by_address**
-> ListUnconfirmedOmniTransactionsByAddressResponse list_unconfirmed_omni_transactions_by_address(network, address)
+> ListUnconfirmedOmniTransactionsByAddressR list_unconfirmed_omni_transactions_by_address(network, address)
 
 List Unconfirmed Omni Transactions By Address
 
-This endpoint will list unconfirmed Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
+This endpoint will list unconfirmed Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -694,6 +694,7 @@ import cryptoapis
 from cryptoapis.api import omni_layer_api
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
+from cryptoapis.model.list_unconfirmed_omni_transactions_by_address_r import ListUnconfirmedOmniTransactionsByAddressR
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
@@ -701,7 +702,6 @@ from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
-from cryptoapis.model.list_unconfirmed_omni_transactions_by_address_response import ListUnconfirmedOmniTransactionsByAddressResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -762,7 +762,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListUnconfirmedOmniTransactionsByAddressResponse**](ListUnconfirmedOmniTransactionsByAddressResponse.md)
+[**ListUnconfirmedOmniTransactionsByAddressR**](ListUnconfirmedOmniTransactionsByAddressR.md)
 
 ### Authorization
 
@@ -791,11 +791,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_unconfirmed_omni_transactions_by_property_id**
-> ListUnconfirmedOmniTransactionsByPropertyIDResponse list_unconfirmed_omni_transactions_by_property_id(network, property_id)
+> ListUnconfirmedOmniTransactionsByPropertyIDR list_unconfirmed_omni_transactions_by_property_id(network, property_id)
 
 List Unconfirmed Omni Transactions By Property ID
 
-This endpoint will list unconfirmed Omni transactions by an attribute `propertyId`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
+This endpoint will list unconfirmed Omni transactions by an attribute `propertyId`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -809,10 +809,10 @@ from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
+from cryptoapis.model.list_unconfirmed_omni_transactions_by_property_idr import ListUnconfirmedOmniTransactionsByPropertyIDR
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.list_unconfirmed_omni_transactions_by_property_id_response import ListUnconfirmedOmniTransactionsByPropertyIDResponse
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -874,7 +874,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListUnconfirmedOmniTransactionsByPropertyIDResponse**](ListUnconfirmedOmniTransactionsByPropertyIDResponse.md)
+[**ListUnconfirmedOmniTransactionsByPropertyIDR**](ListUnconfirmedOmniTransactionsByPropertyIDR.md)
 
 ### Authorization
 

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **validate_address**
-> ValidateAddressResponse validate_address(blockchain, network)
+> ValidateAddressR validate_address(blockchain, network)
 
 Validate Address
 
@@ -21,17 +21,17 @@ This endpoint checks user public addresses whether they are valid or not.
 import time
 import cryptoapis
 from cryptoapis.api import validating_api
+from cryptoapis.model.validate_address_rb import ValidateAddressRB
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
+from cryptoapis.model.validate_address_r import ValidateAddressR
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.validate_address_response import ValidateAddressResponse
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
-from cryptoapis.model.validate_address_request_body import ValidateAddressRequestBody
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -57,14 +57,14 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    validate_address_request_body = ValidateAddressRequestBody(
+    validate_address_rb = ValidateAddressRB(
         context="context_example",
-        data=ValidateAddressRequestBodyData(
-            item=ValidateAddressRequestBodyDataItem(
+        data=ValidateAddressRBData(
+            item=ValidateAddressRBDataItem(
                 address="mho4jHBcrNCncKt38trJahXakuaBnS7LK5",
             ),
         ),
-    ) # ValidateAddressRequestBody |  (optional)
+    ) # ValidateAddressRB |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -78,7 +78,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Validate Address
-        api_response = api_instance.validate_address(blockchain, network, context=context, validate_address_request_body=validate_address_request_body)
+        api_response = api_instance.validate_address(blockchain, network, context=context, validate_address_rb=validate_address_rb)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling ValidatingApi->validate_address: %s\n" % e)
@@ -92,11 +92,11 @@ Name | Type | Description  | Notes
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **validate_address_request_body** | [**ValidateAddressRequestBody**](ValidateAddressRequestBody.md)|  | [optional]
+ **validate_address_rb** | [**ValidateAddressRB**](ValidateAddressRB.md)|  | [optional]
 
 ### Return type
 
-[**ValidateAddressResponse**](ValidateAddressResponse.md)
+[**ValidateAddressR**](ValidateAddressR.md)
 
 ### Authorization
 

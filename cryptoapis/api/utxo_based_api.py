@@ -24,15 +24,15 @@ from cryptoapis.model_utils import (  # noqa: F401
 )
 from cryptoapis.model.already_exists import AlreadyExists
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.get_hd_walletx_pub_y_pub_z_pub_details_response import GetHDWalletxPubYPubZPubDetailsResponse
+from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_details_r import GetHDWalletXPubYPubZPubDetailsR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_xpub import InvalidXpub
-from cryptoapis.model.list_hd_walletx_pub_y_pub_z_pub_transactions_response import ListHDWalletxPubYPubZPubTransactionsResponse
+from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_transactions_r import ListHDWalletXPubYPubZPubTransactionsR
 from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.sync_hd_walletx_pub_y_pub_z_pub_request_body import SyncHDWalletxPubYPubZPubRequestBody
-from cryptoapis.model.sync_hd_walletx_pub_y_pub_z_pub_response import SyncHDWalletxPubYPubZPubResponse
+from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub_r import SyncHDWalletXPubYPubZPubR
+from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub_rb import SyncHDWalletXPubYPubZPubRB
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from cryptoapis.model.xpub_not_synced import XpubNotSynced
@@ -80,8 +80,8 @@ class UTXOBasedApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -96,7 +96,7 @@ class UTXOBasedApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GetHDWalletxPubYPubZPubDetailsResponse
+                GetHDWalletXPubYPubZPubDetailsR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -129,7 +129,7 @@ class UTXOBasedApi(object):
 
         self.get_hd_wallet__x_pub_y_pub_z_pub_details = _Endpoint(
             settings={
-                'response_type': (GetHDWalletxPubYPubZPubDetailsResponse,),
+                'response_type': (GetHDWalletXPubYPubZPubDetailsR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -171,12 +171,15 @@ class UTXOBasedApi(object):
                         "BITCOIN-CASH": "bitcoin-cash",
                         "LITECOIN": "litecoin",
                         "DOGECOIN": "dogecoin",
-                        "DASH": "dash"
+                        "DASH": "dash",
+                        "ETHEREUM": "ethereum"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
-                        "TESTNET": "testnet"
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten",
+                        "RINKEBY": "rinkeby"
                     },
                     ('derivation',): {
 
@@ -232,7 +235,7 @@ class UTXOBasedApi(object):
         ):
             """List HD Wallet (xPub, yPub, zPub) Transactions  # noqa: E501
 
-            This endpoint will list HD Wallet transactions.  # noqa: E501
+            This endpoint will list HD Wallet transactions.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -254,8 +257,8 @@ class UTXOBasedApi(object):
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -270,7 +273,7 @@ class UTXOBasedApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListHDWalletxPubYPubZPubTransactionsResponse
+                ListHDWalletXPubYPubZPubTransactionsR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -303,7 +306,7 @@ class UTXOBasedApi(object):
 
         self.list_hd_wallet__x_pub_y_pub_z_pub_transactions = _Endpoint(
             settings={
-                'response_type': (ListHDWalletxPubYPubZPubTransactionsResponse,),
+                'response_type': (ListHDWalletXPubYPubZPubTransactionsR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -347,12 +350,15 @@ class UTXOBasedApi(object):
                         "BITCOIN-CASH": "bitcoin-cash",
                         "LITECOIN": "litecoin",
                         "DOGECOIN": "dogecoin",
-                        "DASH": "dash"
+                        "DASH": "dash",
+                        "ETHEREUM": "ethereum"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
-                        "TESTNET": "testnet"
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten",
+                        "RINKEBY": "rinkeby"
                     },
                     ('derivation',): {
 
@@ -428,14 +434,14 @@ class UTXOBasedApi(object):
 
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                sync_hd_walletx_pub_y_pub_z_pub_request_body (SyncHDWalletxPubYPubZPubRequestBody): [optional]
+                sync_hd_wallet_x_pub_y_pub_z_pub_rb (SyncHDWalletXPubYPubZPubRB): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
                     will be returned without reading/decoding response data.
                     Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
                     be a pair (tuple) of (connection, read) timeouts.
                     Default is None.
                 _check_input_type (bool): specifies if type checking
@@ -450,7 +456,7 @@ class UTXOBasedApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                SyncHDWalletxPubYPubZPubResponse
+                SyncHDWalletXPubYPubZPubR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -481,7 +487,7 @@ class UTXOBasedApi(object):
 
         self.sync_hd_wallet__x_pub_y_pub_z_pub = _Endpoint(
             settings={
-                'response_type': (SyncHDWalletxPubYPubZPubResponse,),
+                'response_type': (SyncHDWalletXPubYPubZPubR,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -495,7 +501,7 @@ class UTXOBasedApi(object):
                     'blockchain',
                     'network',
                     'context',
-                    'sync_hd_walletx_pub_y_pub_z_pub_request_body',
+                    'sync_hd_wallet_x_pub_y_pub_z_pub_rb',
                 ],
                 'required': [
                     'blockchain',
@@ -535,8 +541,8 @@ class UTXOBasedApi(object):
                         (str,),
                     'context':
                         (str,),
-                    'sync_hd_walletx_pub_y_pub_z_pub_request_body':
-                        (SyncHDWalletxPubYPubZPubRequestBody,),
+                    'sync_hd_wallet_x_pub_y_pub_z_pub_rb':
+                        (SyncHDWalletXPubYPubZPubRB,),
                 },
                 'attribute_map': {
                     'blockchain': 'blockchain',
@@ -547,7 +553,7 @@ class UTXOBasedApi(object):
                     'blockchain': 'path',
                     'network': 'path',
                     'context': 'query',
-                    'sync_hd_walletx_pub_y_pub_z_pub_request_body': 'body',
+                    'sync_hd_wallet_x_pub_y_pub_z_pub_rb': 'body',
                 },
                 'collection_format_map': {
                 }
