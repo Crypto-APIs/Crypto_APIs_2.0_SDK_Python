@@ -560,7 +560,7 @@ Name | Type | Description  | Notes
 
 List XRP (Ripple) Transactions by Address
 
-This endpoint will list XRP transactions by a attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+This endpoint will list XRP transactions by a attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 
 ### Example
 
@@ -606,6 +606,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
     offset = 10 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    transaction_type = "payment" # str |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -619,7 +620,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List XRP (Ripple) Transactions by Address
-        api_response = api_instance.list_xrp__ripple_transactions_by_address(network, address, context=context, limit=limit, offset=offset)
+        api_response = api_instance.list_xrp__ripple_transactions_by_address(network, address, context=context, limit=limit, offset=offset, transaction_type=transaction_type)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling XRPRippleApi->list_xrp__ripple_transactions_by_address: %s\n" % e)
@@ -635,6 +636,7 @@ Name | Type | Description  | Notes
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
  **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] if omitted the server will use the default value of 50
  **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] if omitted the server will use the default value of 0
+ **transaction_type** | **str**|  | [optional]
 
 ### Return type
 
@@ -671,7 +673,7 @@ Name | Type | Description  | Notes
 
 List XRP (Ripple) Transactions By Block Hash
 
-This endpoint will list transactions by an attribute `blockHash`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+This endpoint will list transactions by an attribute `blockHash`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 
 ### Example
 
@@ -782,7 +784,7 @@ Name | Type | Description  | Notes
 
 List XRP (Ripple) Transactions By Block Height
 
-This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 
 ### Example
 

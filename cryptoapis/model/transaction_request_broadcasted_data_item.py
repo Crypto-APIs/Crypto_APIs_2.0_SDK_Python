@@ -84,10 +84,10 @@ class TransactionRequestBroadcastedDataItem(ModelNormal):
         return {
             'blockchain': (str,),  # noqa: E501
             'network': (str,),  # noqa: E501
-            'required_approves': (int,),  # noqa: E501
-            'required_rejects': (int,),  # noqa: E501
-            'current_approves': (int,),  # noqa: E501
-            'current_rejects': (int,),  # noqa: E501
+            'required_approvals': (int,),  # noqa: E501
+            'required_rejections': (int,),  # noqa: E501
+            'current_approvals': (int,),  # noqa: E501
+            'current_rejections': (int,),  # noqa: E501
             'transaction_id': (str,),  # noqa: E501
         }
 
@@ -99,10 +99,10 @@ class TransactionRequestBroadcastedDataItem(ModelNormal):
     attribute_map = {
         'blockchain': 'blockchain',  # noqa: E501
         'network': 'network',  # noqa: E501
-        'required_approves': 'requiredApproves',  # noqa: E501
-        'required_rejects': 'requiredRejects',  # noqa: E501
-        'current_approves': 'currentApproves',  # noqa: E501
-        'current_rejects': 'currentRejects',  # noqa: E501
+        'required_approvals': 'requiredApprovals',  # noqa: E501
+        'required_rejections': 'requiredRejections',  # noqa: E501
+        'current_approvals': 'currentApprovals',  # noqa: E501
+        'current_rejections': 'currentRejections',  # noqa: E501
         'transaction_id': 'transactionId',  # noqa: E501
     }
 
@@ -113,17 +113,17 @@ class TransactionRequestBroadcastedDataItem(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, blockchain, network, required_approves, required_rejects, current_approves, current_rejects, transaction_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, blockchain, network, required_approvals, required_rejections, current_approvals, current_rejections, transaction_id, *args, **kwargs):  # noqa: E501
         """TransactionRequestBroadcastedDataItem - a model defined in OpenAPI
 
         Args:
-            blockchain (str):
-            network (str):
-            required_approves (int):
-            required_rejects (int):
-            current_approves (int):
-            current_rejects (int):
-            transaction_id (str):
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+            required_approvals (int): The required number of approvals needed to approve the transaction.
+            required_rejections (int): The required number of rejections needed to reject the transaction.
+            current_approvals (int): The current number of approvals given for the transaction.
+            current_rejections (int): The current number of rejections given for the transaction.
+            transaction_id (str): Defines the unique ID of the specific transaction, i.e. its identification number.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -185,10 +185,10 @@ class TransactionRequestBroadcastedDataItem(ModelNormal):
 
         self.blockchain = blockchain
         self.network = network
-        self.required_approves = required_approves
-        self.required_rejects = required_rejects
-        self.current_approves = current_approves
-        self.current_rejects = current_rejects
+        self.required_approvals = required_approvals
+        self.required_rejections = required_rejections
+        self.current_approvals = current_approvals
+        self.current_rejections = current_rejections
         self.transaction_id = transaction_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -210,17 +210,17 @@ class TransactionRequestBroadcastedDataItem(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, blockchain, network, required_approves, required_rejects, current_approves, current_rejects, transaction_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, blockchain, network, required_approvals, required_rejections, current_approvals, current_rejections, transaction_id, *args, **kwargs):  # noqa: E501
         """TransactionRequestBroadcastedDataItem - a model defined in OpenAPI
 
         Args:
-            blockchain (str):
-            network (str):
-            required_approves (int):
-            required_rejects (int):
-            current_approves (int):
-            current_rejects (int):
-            transaction_id (str):
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+            required_approvals (int): The required number of approvals needed to approve the transaction.
+            required_rejections (int): The required number of rejections needed to reject the transaction.
+            current_approvals (int): The current number of approvals given for the transaction.
+            current_rejections (int): The current number of rejections given for the transaction.
+            transaction_id (str): Defines the unique ID of the specific transaction, i.e. its identification number.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -280,10 +280,10 @@ class TransactionRequestBroadcastedDataItem(ModelNormal):
 
         self.blockchain = blockchain
         self.network = network
-        self.required_approves = required_approves
-        self.required_rejects = required_rejects
-        self.current_approves = current_approves
-        self.current_rejects = current_rejects
+        self.required_approvals = required_approvals
+        self.required_rejections = required_rejections
+        self.current_approvals = current_approvals
+        self.current_rejections = current_rejections
         self.transaction_id = transaction_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

@@ -31,10 +31,10 @@ class TestInformativeApi(unittest.TestCase):
         """
         pass
 
-    def test_list_receiving_addresses(self):
-        """Test case for list_receiving_addresses
+    def test_list_deposit_addresses(self):
+        """Test case for list_deposit_addresses
 
-        List Receiving Addresses  # noqa: E501
+        List Deposit Addresses  # noqa: E501
         """
         pass
 

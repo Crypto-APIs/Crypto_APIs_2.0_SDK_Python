@@ -15,10 +15,10 @@ import unittest
 import cryptoapis
 from cryptoapis.model.list_assets_details_ri_asset_logo import ListAssetsDetailsRIAssetLogo
 from cryptoapis.model.list_assets_details_ri_latest_rate import ListAssetsDetailsRILatestRate
-from cryptoapis.model.list_assets_details_ri_specific_data import ListAssetsDetailsRISpecificData
+from cryptoapis.model.list_assets_details_ris import ListAssetsDetailsRIS
 globals()['ListAssetsDetailsRIAssetLogo'] = ListAssetsDetailsRIAssetLogo
 globals()['ListAssetsDetailsRILatestRate'] = ListAssetsDetailsRILatestRate
-globals()['ListAssetsDetailsRISpecificData'] = ListAssetsDetailsRISpecificData
+globals()['ListAssetsDetailsRIS'] = ListAssetsDetailsRIS
 from cryptoapis.model.list_assets_details_ri import ListAssetsDetailsRI
 
 

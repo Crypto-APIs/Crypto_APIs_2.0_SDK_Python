@@ -108,7 +108,7 @@ class ListTransactionsByBlockHashRIFee(ModelNormal):
 
         Args:
             amount (str): Represents the fee amount.
-            unit (str): Defines the unit of the fee amount, e.g. BTC, ETH, XRP.
+            unit (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -195,7 +195,7 @@ class ListTransactionsByBlockHashRIFee(ModelNormal):
 
         Args:
             amount (str): Represents the fee amount.
-            unit (str): Defines the unit of the fee amount, e.g. BTC, ETH, XRP.
+            unit (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -235,7 +235,7 @@ class UTXOBasedApi(object):
         ):
             """List HD Wallet (xPub, yPub, zPub) Transactions  # noqa: E501
 
-            This endpoint will list HD Wallet transactions.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
+            This endpoint will list HD Wallet transactions.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 

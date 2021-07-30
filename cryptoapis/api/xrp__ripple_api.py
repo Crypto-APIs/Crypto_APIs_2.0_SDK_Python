@@ -757,7 +757,7 @@ class XRPRippleApi(object):
         ):
             """List XRP (Ripple) Transactions by Address  # noqa: E501
 
-            This endpoint will list XRP transactions by a attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
+            This endpoint will list XRP transactions by a attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -772,6 +772,7 @@ class XRPRippleApi(object):
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
                 limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
                 offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
+                transaction_type (str): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -840,6 +841,7 @@ class XRPRippleApi(object):
                     'context',
                     'limit',
                     'offset',
+                    'transaction_type',
                 ],
                 'required': [
                     'network',
@@ -849,6 +851,7 @@ class XRPRippleApi(object):
                 ],
                 'enum': [
                     'network',
+                    'transaction_type',
                 ],
                 'validation': [
                 ]
@@ -862,6 +865,28 @@ class XRPRippleApi(object):
                         "MAINNET": "mainnet",
                         "TESTNET": "testnet"
                     },
+                    ('transaction_type',): {
+
+                        "ACCOUNT-SET": "account-set",
+                        "ACCOUNT-DELETE": "account-delete",
+                        "CHECK-CANCEL": "check-cancel",
+                        "CHECK-CASH": "check-cash",
+                        "CHECK-CREATE": "check-create",
+                        "DEPOSIT-PREAUTH": "deposit-preauth",
+                        "ESCROW-CANCEL": "escrow-cancel",
+                        "ESCROW-CREATE": "escrow-create",
+                        "ESCROW-FINISH": "escrow-finish",
+                        "OFFER-CANCEL": "offer-cancel",
+                        "OFFER-CREATE": "offer-create",
+                        "PAYMENT": "payment",
+                        "PAYMENT-CHANNEL-CLAIM": "payment-channel-claim",
+                        "PAYMENT-CHANNEL-CREATE": "payment-channel-create",
+                        "PAYMENT-CHANNEL-FUND": "payment-channel-fund",
+                        "SET-REGULAR-KEY": "set-regular-key",
+                        "SIGNER-LIST-SET": "signer-list-set",
+                        "TICKET-CREATE": "ticket-create",
+                        "TRUST-SET": "trust-set"
+                    },
                 },
                 'openapi_types': {
                     'network':
@@ -874,6 +899,8 @@ class XRPRippleApi(object):
                         (int,),
                     'offset':
                         (int,),
+                    'transaction_type':
+                        (str,),
                 },
                 'attribute_map': {
                     'network': 'network',
@@ -881,6 +908,7 @@ class XRPRippleApi(object):
                     'context': 'context',
                     'limit': 'limit',
                     'offset': 'offset',
+                    'transaction_type': 'transactionType',
                 },
                 'location_map': {
                     'network': 'path',
@@ -888,6 +916,7 @@ class XRPRippleApi(object):
                     'context': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                    'transaction_type': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -910,7 +939,7 @@ class XRPRippleApi(object):
         ):
             """List XRP (Ripple) Transactions By Block Hash  # noqa: E501
 
-            This endpoint will list transactions by an attribute `blockHash`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
+            This endpoint will list transactions by an attribute `blockHash`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -1063,7 +1092,7 @@ class XRPRippleApi(object):
         ):
             """List XRP (Ripple) Transactions By Block Height  # noqa: E501
 
-            This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
+            This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 

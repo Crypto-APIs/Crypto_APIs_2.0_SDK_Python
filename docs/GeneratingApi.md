@@ -4,13 +4,13 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**generate_receiving_address**](GeneratingApi.md#generate_receiving_address) | **POST** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses | Generate Receiving Address
+[**generate_deposit_address**](GeneratingApi.md#generate_deposit_address) | **POST** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses | Generate Deposit Address
 
 
-# **generate_receiving_address**
-> GenerateReceivingAddressR generate_receiving_address(blockchain, network, wallet_id)
+# **generate_deposit_address**
+> GenerateDepositAddressR generate_deposit_address(blockchain, network, wallet_id)
 
-Generate Receiving Address
+Generate Deposit Address
 
 Through this endpoint customers can generate a new Receiving/Deposit Addresses into their Wallet.
 
@@ -27,9 +27,9 @@ from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.generate_receiving_address_r import GenerateReceivingAddressR
+from cryptoapis.model.generate_deposit_address_r import GenerateDepositAddressR
 from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.generate_receiving_address_rb import GenerateReceivingAddressRB
+from cryptoapis.model.generate_deposit_address_rb import GenerateDepositAddressRB
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.resource_not_found import ResourceNotFound
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
@@ -59,31 +59,31 @@ with cryptoapis.ApiClient(configuration) as api_client:
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     wallet_id = "60c9d9921c38030006675ff6" # str | Represents the unique ID of the specific Wallet.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    generate_receiving_address_rb = GenerateReceivingAddressRB(
+    generate_deposit_address_rb = GenerateDepositAddressRB(
         context="context_example",
-        data=GenerateReceivingAddressRBData(
-            item=GenerateReceivingAddressRBDataItem(
+        data=GenerateDepositAddressRBData(
+            item=GenerateDepositAddressRBDataItem(
                 label="yourLabelStringHere",
             ),
         ),
-    ) # GenerateReceivingAddressRB |  (optional)
+    ) # GenerateDepositAddressRB |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Generate Receiving Address
-        api_response = api_instance.generate_receiving_address(blockchain, network, wallet_id)
+        # Generate Deposit Address
+        api_response = api_instance.generate_deposit_address(blockchain, network, wallet_id)
         pprint(api_response)
     except cryptoapis.ApiException as e:
-        print("Exception when calling GeneratingApi->generate_receiving_address: %s\n" % e)
+        print("Exception when calling GeneratingApi->generate_deposit_address: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Generate Receiving Address
-        api_response = api_instance.generate_receiving_address(blockchain, network, wallet_id, context=context, generate_receiving_address_rb=generate_receiving_address_rb)
+        # Generate Deposit Address
+        api_response = api_instance.generate_deposit_address(blockchain, network, wallet_id, context=context, generate_deposit_address_rb=generate_deposit_address_rb)
         pprint(api_response)
     except cryptoapis.ApiException as e:
-        print("Exception when calling GeneratingApi->generate_receiving_address: %s\n" % e)
+        print("Exception when calling GeneratingApi->generate_deposit_address: %s\n" % e)
 ```
 
 
@@ -95,11 +95,11 @@ Name | Type | Description  | Notes
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. |
  **wallet_id** | **str**| Represents the unique ID of the specific Wallet. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **generate_receiving_address_rb** | [**GenerateReceivingAddressRB**](GenerateReceivingAddressRB.md)|  | [optional]
+ **generate_deposit_address_rb** | [**GenerateDepositAddressRB**](GenerateDepositAddressRB.md)|  | [optional]
 
 ### Return type
 
-[**GenerateReceivingAddressR**](GenerateReceivingAddressR.md)
+[**GenerateDepositAddressR**](GenerateDepositAddressR.md)
 
 ### Authorization
 

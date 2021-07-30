@@ -33,10 +33,10 @@ from cryptoapis.exceptions import ApiAttributeError
 def lazy_import():
     from cryptoapis.model.list_assets_details_ri_asset_logo import ListAssetsDetailsRIAssetLogo
     from cryptoapis.model.list_assets_details_ri_latest_rate import ListAssetsDetailsRILatestRate
-    from cryptoapis.model.list_assets_details_ri_specific_data import ListAssetsDetailsRISpecificData
+    from cryptoapis.model.list_assets_details_ris import ListAssetsDetailsRIS
     globals()['ListAssetsDetailsRIAssetLogo'] = ListAssetsDetailsRIAssetLogo
     globals()['ListAssetsDetailsRILatestRate'] = ListAssetsDetailsRILatestRate
-    globals()['ListAssetsDetailsRISpecificData'] = ListAssetsDetailsRISpecificData
+    globals()['ListAssetsDetailsRIS'] = ListAssetsDetailsRIS
 
 
 class ListAssetsDetailsRI(ModelNormal):
@@ -103,7 +103,7 @@ class ListAssetsDetailsRI(ModelNormal):
             'asset_symbol': (str,),  # noqa: E501
             'asset_type': (str,),  # noqa: E501
             'latest_rate': (ListAssetsDetailsRILatestRate,),  # noqa: E501
-            'specific_data': (ListAssetsDetailsRISpecificData,),  # noqa: E501
+            'specific_data': (ListAssetsDetailsRIS,),  # noqa: E501
             'slug': (str,),  # noqa: E501
         }
 
@@ -142,7 +142,7 @@ class ListAssetsDetailsRI(ModelNormal):
             asset_symbol (str): Specifies the asset's unique symbol in the Crypto APIs listings.
             asset_type (str): Defines the type of the supported asset. This could be either \"crypto\" or \"fiat\".
             latest_rate (ListAssetsDetailsRILatestRate):
-            specific_data (ListAssetsDetailsRISpecificData):
+            specific_data (ListAssetsDetailsRIS):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -242,7 +242,7 @@ class ListAssetsDetailsRI(ModelNormal):
             asset_symbol (str): Specifies the asset's unique symbol in the Crypto APIs listings.
             asset_type (str): Defines the type of the supported asset. This could be either \"crypto\" or \"fiat\".
             latest_rate (ListAssetsDetailsRILatestRate):
-            specific_data (ListAssetsDetailsRISpecificData):
+            specific_data (ListAssetsDetailsRIS):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

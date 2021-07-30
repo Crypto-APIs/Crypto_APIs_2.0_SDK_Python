@@ -12,7 +12,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "cryptoapis"
-VERSION = "1.1.0"
+VERSION = "1.2.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -28,8 +28,8 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="CryptoAPIs Python client",
-    author="CryptoAPIs Team",
+    description="CryptoAPIs",
+    author="Crypto APIs Team",
     author_email="developers@cryptoapis.io",
     url="https://github.com/Crypto-APIs/Crypto_APIs_2.0_SDK_Python",
     keywords=["OpenAPI", "OpenAPI-Generator", "CryptoAPIs"],

@@ -98,7 +98,6 @@ class ListXRPRippleTransactionsByAddressRI(ModelNormal):
         """
         lazy_import()
         return {
-            'additional_data': (str,),  # noqa: E501
             'index': (int,),  # noqa: E501
             'mined_in_block_hash': (str,),  # noqa: E501
             'mined_in_block_height': (int,),  # noqa: E501
@@ -121,7 +120,6 @@ class ListXRPRippleTransactionsByAddressRI(ModelNormal):
 
 
     attribute_map = {
-        'additional_data': 'additionalData',  # noqa: E501
         'index': 'index',  # noqa: E501
         'mined_in_block_hash': 'minedInBlockHash',  # noqa: E501
         'mined_in_block_height': 'minedInBlockHeight',  # noqa: E501
@@ -145,11 +143,10 @@ class ListXRPRippleTransactionsByAddressRI(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, additional_data, index, mined_in_block_hash, mined_in_block_height, recipients, senders, sequence, status, timestamp, transaction_hash, type, fee, offer, receive, value, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, index, mined_in_block_hash, mined_in_block_height, recipients, senders, sequence, status, timestamp, transaction_hash, type, fee, offer, receive, value, *args, **kwargs):  # noqa: E501
         """ListXRPRippleTransactionsByAddressRI - a model defined in OpenAPI
 
         Args:
-            additional_data (str): Represents any additional data that may be needed.
             index (int): Represents the index position of the transaction in the block.
             mined_in_block_hash (str): Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
             mined_in_block_height (int): Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
@@ -223,7 +220,6 @@ class ListXRPRippleTransactionsByAddressRI(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.additional_data = additional_data
         self.index = index
         self.mined_in_block_hash = mined_in_block_hash
         self.mined_in_block_height = mined_in_block_height
@@ -258,11 +254,10 @@ class ListXRPRippleTransactionsByAddressRI(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, additional_data, index, mined_in_block_hash, mined_in_block_height, recipients, senders, sequence, status, timestamp, transaction_hash, type, fee, offer, receive, value, *args, **kwargs):  # noqa: E501
+    def __init__(self, index, mined_in_block_hash, mined_in_block_height, recipients, senders, sequence, status, timestamp, transaction_hash, type, fee, offer, receive, value, *args, **kwargs):  # noqa: E501
         """ListXRPRippleTransactionsByAddressRI - a model defined in OpenAPI
 
         Args:
-            additional_data (str): Represents any additional data that may be needed.
             index (int): Represents the index position of the transaction in the block.
             mined_in_block_hash (str): Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
             mined_in_block_height (int): Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
@@ -334,7 +329,6 @@ class ListXRPRippleTransactionsByAddressRI(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.additional_data = additional_data
         self.index = index
         self.mined_in_block_hash = mined_in_block_hash
         self.mined_in_block_height = mined_in_block_height

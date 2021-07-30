@@ -109,6 +109,8 @@ class CreateCoinsTransactionRequestFromWalletRI(ModelNormal):
             'recipients': ([CreateCoinsTransactionRequestFromWalletRIRecipients],),  # noqa: E501
             'total_transaction_amount': (str,),  # noqa: E501
             'transaction_request_status': (str,),  # noqa: E501
+            'callback_secret_key': (str,),  # noqa: E501
+            'callback_url': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -121,6 +123,8 @@ class CreateCoinsTransactionRequestFromWalletRI(ModelNormal):
         'recipients': 'recipients',  # noqa: E501
         'total_transaction_amount': 'totalTransactionAmount',  # noqa: E501
         'transaction_request_status': 'transactionRequestStatus',  # noqa: E501
+        'callback_secret_key': 'callbackSecretKey',  # noqa: E501
+        'callback_url': 'callbackUrl',  # noqa: E501
     }
 
     read_only_vars = {
@@ -170,6 +174,8 @@ class CreateCoinsTransactionRequestFromWalletRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.. [optional]  # noqa: E501
+            callback_url (str): Verified URL for sending callbacks. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -261,6 +267,8 @@ class CreateCoinsTransactionRequestFromWalletRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.. [optional]  # noqa: E501
+            callback_url (str): Verified URL for sending callbacks. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

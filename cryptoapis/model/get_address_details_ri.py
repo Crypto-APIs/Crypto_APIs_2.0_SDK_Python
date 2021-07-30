@@ -129,8 +129,8 @@ class GetAddressDetailsRI(ModelNormal):
             confirmed_balance (GetAddressDetailsRIConfirmedBalance):
             total_received (GetAddressDetailsRITotalReceived):
             total_spent (GetAddressDetailsRITotalSpent):
-            incoming_transactions_count (int): Defines the count of all confirmed incoming transactions from the address for coins. This applies to **coins** only, **not** to tokens transfers e.g. for Ethereum.
-            outgoing_transactions_count (int): Defines the count of all confirmed outgoing transactions from the address for coins. This applies to **coins** only, **not** to tokens transfers e.g. for Ethereum.
+            incoming_transactions_count (int): Numeric representation of the received transaction count of the address
+            outgoing_transactions_count (int): Numeric representation of the sent transaction count of the address
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -224,8 +224,8 @@ class GetAddressDetailsRI(ModelNormal):
             confirmed_balance (GetAddressDetailsRIConfirmedBalance):
             total_received (GetAddressDetailsRITotalReceived):
             total_spent (GetAddressDetailsRITotalSpent):
-            incoming_transactions_count (int): Defines the count of all confirmed incoming transactions from the address for coins. This applies to **coins** only, **not** to tokens transfers e.g. for Ethereum.
-            outgoing_transactions_count (int): Defines the count of all confirmed outgoing transactions from the address for coins. This applies to **coins** only, **not** to tokens transfers e.g. for Ethereum.
+            incoming_transactions_count (int): Numeric representation of the received transaction count of the address
+            outgoing_transactions_count (int): Numeric representation of the sent transaction count of the address
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

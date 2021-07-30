@@ -22,8 +22,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from cryptoapis.model.generate_receiving_address_r import GenerateReceivingAddressR
-from cryptoapis.model.generate_receiving_address_rb import GenerateReceivingAddressRB
+from cryptoapis.model.generate_deposit_address_r import GenerateDepositAddressR
+from cryptoapis.model.generate_deposit_address_rb import GenerateDepositAddressRB
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
@@ -48,20 +48,20 @@ class GeneratingApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-        def __generate_receiving_address(
+        def __generate_deposit_address(
             self,
             blockchain,
             network,
             wallet_id,
             **kwargs
         ):
-            """Generate Receiving Address  # noqa: E501
+            """Generate Deposit Address  # noqa: E501
 
             Through this endpoint customers can generate a new Receiving/Deposit Addresses into their Wallet.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.generate_receiving_address(blockchain, network, wallet_id, async_req=True)
+            >>> thread = api.generate_deposit_address(blockchain, network, wallet_id, async_req=True)
             >>> result = thread.get()
 
             Args:
@@ -71,7 +71,7 @@ class GeneratingApi(object):
 
             Keyword Args:
                 context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                generate_receiving_address_rb (GenerateReceivingAddressRB): [optional]
+                generate_deposit_address_rb (GenerateDepositAddressRB): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -93,7 +93,7 @@ class GeneratingApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                GenerateReceivingAddressR
+                GenerateDepositAddressR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -124,14 +124,14 @@ class GeneratingApi(object):
                 wallet_id
             return self.call_with_http_info(**kwargs)
 
-        self.generate_receiving_address = _Endpoint(
+        self.generate_deposit_address = _Endpoint(
             settings={
-                'response_type': (GenerateReceivingAddressR,),
+                'response_type': (GenerateDepositAddressR,),
                 'auth': [
                     'ApiKey'
                 ],
                 'endpoint_path': '/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses',
-                'operation_id': 'generate_receiving_address',
+                'operation_id': 'generate_deposit_address',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -141,7 +141,7 @@ class GeneratingApi(object):
                     'network',
                     'wallet_id',
                     'context',
-                    'generate_receiving_address_rb',
+                    'generate_deposit_address_rb',
                 ],
                 'required': [
                     'blockchain',
@@ -185,8 +185,8 @@ class GeneratingApi(object):
                         (str,),
                     'context':
                         (str,),
-                    'generate_receiving_address_rb':
-                        (GenerateReceivingAddressRB,),
+                    'generate_deposit_address_rb':
+                        (GenerateDepositAddressRB,),
                 },
                 'attribute_map': {
                     'blockchain': 'blockchain',
@@ -199,7 +199,7 @@ class GeneratingApi(object):
                     'network': 'path',
                     'wallet_id': 'path',
                     'context': 'query',
-                    'generate_receiving_address_rb': 'body',
+                    'generate_deposit_address_rb': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -213,5 +213,5 @@ class GeneratingApi(object):
                 ]
             },
             api_client=api_client,
-            callable=__generate_receiving_address
+            callable=__generate_deposit_address
         )

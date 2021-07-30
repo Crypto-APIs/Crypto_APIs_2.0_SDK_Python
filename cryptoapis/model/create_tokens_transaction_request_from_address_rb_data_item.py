@@ -89,8 +89,9 @@ class CreateTokensTransactionRequestFromAddressRBDataItem(ModelNormal):
         return {
             'amount': (str,),  # noqa: E501
             'fee_priority': (str,),  # noqa: E501
-            'to_address': (str,),  # noqa: E501
+            'recipient_address': (str,),  # noqa: E501
             'token_identifier': (str,),  # noqa: E501
+            'callback_secret_key': (str,),  # noqa: E501
             'callback_url': (str,),  # noqa: E501
         }
 
@@ -102,8 +103,9 @@ class CreateTokensTransactionRequestFromAddressRBDataItem(ModelNormal):
     attribute_map = {
         'amount': 'amount',  # noqa: E501
         'fee_priority': 'feePriority',  # noqa: E501
-        'to_address': 'toAddress',  # noqa: E501
+        'recipient_address': 'recipientAddress',  # noqa: E501
         'token_identifier': 'tokenIdentifier',  # noqa: E501
+        'callback_secret_key': 'callbackSecretKey',  # noqa: E501
         'callback_url': 'callbackUrl',  # noqa: E501
     }
 
@@ -114,13 +116,13 @@ class CreateTokensTransactionRequestFromAddressRBDataItem(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, amount, fee_priority, to_address, token_identifier, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, amount, fee_priority, recipient_address, token_identifier, *args, **kwargs):  # noqa: E501
         """CreateTokensTransactionRequestFromAddressRBDataItem - a model defined in OpenAPI
 
         Args:
             amount (str): Represents the specific amount of the transaction.
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
-            to_address (str): Defines the specific recipient address for the transaction.
+            recipient_address (str): Defines the specific recipient address for the transaction.
             token_identifier (str): Defines the specific token identifier. For Bitcoin-based transactions it should be the `propertyId` and for Ethereum-based transactions - the `contract`.
 
         Keyword Args:
@@ -154,7 +156,8 @@ class CreateTokensTransactionRequestFromAddressRBDataItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            callback_url (str): Represents the URL that is set by the customer where the callback will be received at.. [optional]  # noqa: E501
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.. [optional]  # noqa: E501
+            callback_url (str): Verified URL for sending callbacks. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -184,7 +187,7 @@ class CreateTokensTransactionRequestFromAddressRBDataItem(ModelNormal):
 
         self.amount = amount
         self.fee_priority = fee_priority
-        self.to_address = to_address
+        self.recipient_address = recipient_address
         self.token_identifier = token_identifier
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -206,13 +209,13 @@ class CreateTokensTransactionRequestFromAddressRBDataItem(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, amount, fee_priority, to_address, token_identifier, *args, **kwargs):  # noqa: E501
+    def __init__(self, amount, fee_priority, recipient_address, token_identifier, *args, **kwargs):  # noqa: E501
         """CreateTokensTransactionRequestFromAddressRBDataItem - a model defined in OpenAPI
 
         Args:
             amount (str): Represents the specific amount of the transaction.
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
-            to_address (str): Defines the specific recipient address for the transaction.
+            recipient_address (str): Defines the specific recipient address for the transaction.
             token_identifier (str): Defines the specific token identifier. For Bitcoin-based transactions it should be the `propertyId` and for Ethereum-based transactions - the `contract`.
 
         Keyword Args:
@@ -246,7 +249,8 @@ class CreateTokensTransactionRequestFromAddressRBDataItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            callback_url (str): Represents the URL that is set by the customer where the callback will be received at.. [optional]  # noqa: E501
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.. [optional]  # noqa: E501
+            callback_url (str): Verified URL for sending callbacks. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -274,7 +278,7 @@ class CreateTokensTransactionRequestFromAddressRBDataItem(ModelNormal):
 
         self.amount = amount
         self.fee_priority = fee_priority
-        self.to_address = to_address
+        self.recipient_address = recipient_address
         self.token_identifier = token_identifier
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

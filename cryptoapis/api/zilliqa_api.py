@@ -753,7 +753,7 @@ class ZilliqaApi(object):
         ):
             """List Zilliqa Transactions by Address  # noqa: E501
 
-            Through this endpoint customers can list transactions on the Zilliqa blockchain by the address parameter.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
+            Through this endpoint customers can list transactions on the Zilliqa blockchain by the address parameter.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -905,7 +905,7 @@ class ZilliqaApi(object):
         ):
             """List Zilliqa Transactions By Block Hash  # noqa: E501
 
-            Through this endpoint customers can list transactions on the Zilliqa blockchain by the block hash parameter.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
+            Through this endpoint customers can list transactions on the Zilliqa blockchain by the block hash parameter.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -1057,7 +1057,7 @@ class ZilliqaApi(object):
         ):
             """List Zilliqa Transactions By Block Height  # noqa: E501
 
-            Through this endpoint customers can list transactions on the Zilliqa blockchain by the block height parameter.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
+            Through this endpoint customers can list transactions on the Zilliqa blockchain by the block height parameter.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 

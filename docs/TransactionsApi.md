@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_coins_transaction_request_from_address**](TransactionsApi.md#create_coins_transaction_request_from_address) | **POST** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/transaction-requests | Create Coins Transaction Request from Address
 [**create_coins_transaction_request_from_wallet**](TransactionsApi.md#create_coins_transaction_request_from_wallet) | **POST** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/transaction-requests | Create Coins Transaction Request from Wallet
-[**create_tokens_transaction_request_from_address**](TransactionsApi.md#create_tokens_transaction_request_from_address) | **POST** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/token-transaction-requests | Create Tokens Transaction Request from Address
+[**create_tokens_transaction_request_from_address**](TransactionsApi.md#create_tokens_transaction_request_from_address) | **POST** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{senderAddress}/token-transaction-requests | Create Tokens Transaction Request from Address
 
 
 # **create_coins_transaction_request_from_address**
@@ -64,8 +64,10 @@ with cryptoapis.ApiClient(configuration) as api_client:
         data=CreateCoinsTransactionRequestFromAddressRBData(
             item=CreateCoinsTransactionRequestFromAddressRBDataItem(
                 amount="0.2",
+                callback_secret_key="yourSecretString",
+                callback_url="https://example.com",
                 fee_priority="slow",
-                to_address="0xc065b539490f81b6c297c37b1925c3be2f190732",
+                recipient_address="0xc065b539490f81b6c297c37b1925c3be2f190732",
             ),
         ),
     ) # CreateCoinsTransactionRequestFromAddressRB |  (optional)
@@ -117,7 +119,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The request has been successful. |  -  |
+**201** | The resource has been successfully created. |  -  |
 **400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
 **401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
@@ -185,13 +187,15 @@ with cryptoapis.ApiClient(configuration) as api_client:
         context="context_example",
         data=CreateCoinsTransactionRequestFromWalletRBData(
             item=CreateCoinsTransactionRequestFromWalletRBDataItem(
-                destinations=[
-                    CreateCoinsTransactionRequestFromWalletRBDataItemDestinations(
+                callback_secret_key="yourSecretKey",
+                callback_url="https://example.com",
+                fee_priority="standard",
+                recipients=[
+                    CreateCoinsTransactionRequestFromWalletRBDataItemRecipients(
                         address="0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5",
                         amount="0.125",
                     ),
                 ],
-                fee_priority="standard",
             ),
         ),
     ) # CreateCoinsTransactionRequestFromWalletRB |  (optional)
@@ -242,7 +246,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The request has been successful. |  -  |
+**201** | The resource has been successfully created. |  -  |
 **400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
 **401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
@@ -256,11 +260,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_tokens_transaction_request_from_address**
-> CreateTokensTransactionRequestFromAddressR create_tokens_transaction_request_from_address(address, wallet_id)
+> CreateTokensTransactionRequestFromAddressR create_tokens_transaction_request_from_address(sender_address, wallet_id)
 
 Create Tokens Transaction Request from Address
 
-Through this endpoint users can make a single token transaction.    {warning}This applies only to **fungible** tokens, **not** NFTs (non-fungible tokens).{/warning}
+Through this endpoint users can make a single token transaction.    {warning}This applies only to **fungible** tokens, **not** NFTs (non-fungible tokens).{/warning}    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 
 ### Example
 
@@ -302,7 +306,7 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transactions_api.TransactionsApi(api_client)
-    address = "0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5" # str | Defines the specific source address for the transaction.
+    sender_address = "0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5" # str | Defines the specific source address for the transaction.
     wallet_id = "609e221675d04500068718dc" # str | Defines the unique ID of the Wallet.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     create_tokens_transaction_request_from_address_rb = CreateTokensTransactionRequestFromAddressRB(
@@ -310,9 +314,10 @@ with cryptoapis.ApiClient(configuration) as api_client:
         data=CreateTokensTransactionRequestFromAddressRBData(
             item=CreateTokensTransactionRequestFromAddressRBDataItem(
                 amount="0.2",
-                callback_url="http://example.com",
+                callback_secret_key="yourSecretString",
+                callback_url="https://example.com",
                 fee_priority="standard",
-                to_address="0xc065b539490f81b6c297c37b1925c3be2f190732",
+                recipient_address="0xc065b539490f81b6c297c37b1925c3be2f190732",
                 token_identifier="1",
             ),
         ),
@@ -321,7 +326,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Create Tokens Transaction Request from Address
-        api_response = api_instance.create_tokens_transaction_request_from_address(address, wallet_id)
+        api_response = api_instance.create_tokens_transaction_request_from_address(sender_address, wallet_id)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling TransactionsApi->create_tokens_transaction_request_from_address: %s\n" % e)
@@ -330,7 +335,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create Tokens Transaction Request from Address
-        api_response = api_instance.create_tokens_transaction_request_from_address(address, wallet_id, context=context, create_tokens_transaction_request_from_address_rb=create_tokens_transaction_request_from_address_rb)
+        api_response = api_instance.create_tokens_transaction_request_from_address(sender_address, wallet_id, context=context, create_tokens_transaction_request_from_address_rb=create_tokens_transaction_request_from_address_rb)
         pprint(api_response)
     except cryptoapis.ApiException as e:
         print("Exception when calling TransactionsApi->create_tokens_transaction_request_from_address: %s\n" % e)
@@ -341,7 +346,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **address** | **str**| Defines the specific source address for the transaction. |
+ **sender_address** | **str**| Defines the specific source address for the transaction. |
  **wallet_id** | **str**| Defines the unique ID of the Wallet. |
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | defaults to "ethereum"
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. | defaults to "mainnet"

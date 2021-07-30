@@ -33,10 +33,10 @@ from cryptoapis.exceptions import ApiAttributeError
 def lazy_import():
     from cryptoapis.model.create_tokens_transaction_request_from_address_ri_recipients import CreateTokensTransactionRequestFromAddressRIRecipients
     from cryptoapis.model.create_tokens_transaction_request_from_address_ri_senders import CreateTokensTransactionRequestFromAddressRISenders
-    from cryptoapis.model.create_tokens_transaction_request_from_address_ri_token_type_specific_data import CreateTokensTransactionRequestFromAddressRITokenTypeSpecificData
+    from cryptoapis.model.create_tokens_transaction_request_from_address_ris import CreateTokensTransactionRequestFromAddressRIS
     globals()['CreateTokensTransactionRequestFromAddressRIRecipients'] = CreateTokensTransactionRequestFromAddressRIRecipients
+    globals()['CreateTokensTransactionRequestFromAddressRIS'] = CreateTokensTransactionRequestFromAddressRIS
     globals()['CreateTokensTransactionRequestFromAddressRISenders'] = CreateTokensTransactionRequestFromAddressRISenders
-    globals()['CreateTokensTransactionRequestFromAddressRITokenTypeSpecificData'] = CreateTokensTransactionRequestFromAddressRITokenTypeSpecificData
 
 
 class CreateTokensTransactionRequestFromAddressRI(ModelNormal):
@@ -97,10 +97,12 @@ class CreateTokensTransactionRequestFromAddressRI(ModelNormal):
         """
         lazy_import()
         return {
+            'callback_secret_key': (str,),  # noqa: E501
+            'callback_url': (str,),  # noqa: E501
             'fee_priority': (str,),  # noqa: E501
             'recipients': ([CreateTokensTransactionRequestFromAddressRIRecipients],),  # noqa: E501
             'senders': (CreateTokensTransactionRequestFromAddressRISenders,),  # noqa: E501
-            'token_type_specific_data': (CreateTokensTransactionRequestFromAddressRITokenTypeSpecificData,),  # noqa: E501
+            'token_type_specific_data': (CreateTokensTransactionRequestFromAddressRIS,),  # noqa: E501
         }
 
     @cached_property
@@ -109,6 +111,8 @@ class CreateTokensTransactionRequestFromAddressRI(ModelNormal):
 
 
     attribute_map = {
+        'callback_secret_key': 'callbackSecretKey',  # noqa: E501
+        'callback_url': 'callbackUrl',  # noqa: E501
         'fee_priority': 'feePriority',  # noqa: E501
         'recipients': 'recipients',  # noqa: E501
         'senders': 'senders',  # noqa: E501
@@ -122,14 +126,16 @@ class CreateTokensTransactionRequestFromAddressRI(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, fee_priority, recipients, senders, token_type_specific_data, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, callback_secret_key, callback_url, fee_priority, recipients, senders, token_type_specific_data, *args, **kwargs):  # noqa: E501
         """CreateTokensTransactionRequestFromAddressRI - a model defined in OpenAPI
 
         Args:
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.
+            callback_url (str): Verified URL for sending callbacks
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
             recipients ([CreateTokensTransactionRequestFromAddressRIRecipients]): Defines the destination for the transaction, i.e. the recipient(s).
             senders (CreateTokensTransactionRequestFromAddressRISenders):
-            token_type_specific_data (CreateTokensTransactionRequestFromAddressRITokenTypeSpecificData):
+            token_type_specific_data (CreateTokensTransactionRequestFromAddressRIS):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -189,6 +195,8 @@ class CreateTokensTransactionRequestFromAddressRI(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.callback_secret_key = callback_secret_key
+        self.callback_url = callback_url
         self.fee_priority = fee_priority
         self.recipients = recipients
         self.senders = senders
@@ -213,14 +221,16 @@ class CreateTokensTransactionRequestFromAddressRI(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, fee_priority, recipients, senders, token_type_specific_data, *args, **kwargs):  # noqa: E501
+    def __init__(self, callback_secret_key, callback_url, fee_priority, recipients, senders, token_type_specific_data, *args, **kwargs):  # noqa: E501
         """CreateTokensTransactionRequestFromAddressRI - a model defined in OpenAPI
 
         Args:
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.
+            callback_url (str): Verified URL for sending callbacks
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
             recipients ([CreateTokensTransactionRequestFromAddressRIRecipients]): Defines the destination for the transaction, i.e. the recipient(s).
             senders (CreateTokensTransactionRequestFromAddressRISenders):
-            token_type_specific_data (CreateTokensTransactionRequestFromAddressRITokenTypeSpecificData):
+            token_type_specific_data (CreateTokensTransactionRequestFromAddressRIS):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -278,6 +288,8 @@ class CreateTokensTransactionRequestFromAddressRI(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.callback_secret_key = callback_secret_key
+        self.callback_url = callback_url
         self.fee_priority = fee_priority
         self.recipients = recipients
         self.senders = senders

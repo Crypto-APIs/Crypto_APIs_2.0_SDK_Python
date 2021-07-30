@@ -1165,23 +1165,14 @@ class CreateSubscriptionsForApi(object):
                     ('blockchain',): {
 
                         "BITCOIN": "bitcoin",
-                        "BITCOIN-CASH": "bitcoin-cash",
-                        "LITECOIN": "litecoin",
-                        "DOGECOIN": "dogecoin",
-                        "DASH": "dash",
-                        "ETHEREUM": "ethereum",
-                        "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "XRP": "xrp",
-                        "ZILLIQA": "zilliqa"
+                        "ETHEREUM": "ethereum"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
                         "TESTNET": "testnet",
                         "ROPSTEN": "ropsten",
-                        "RINKEBY": "rinkeby",
-                        "MORDOR": "mordor",
-                        "KOTTI": "kotti"
+                        "RINKEBY": "rinkeby"
                     },
                 },
                 'openapi_types': {
@@ -1330,23 +1321,14 @@ class CreateSubscriptionsForApi(object):
                     ('blockchain',): {
 
                         "BITCOIN": "bitcoin",
-                        "BITCOIN-CASH": "bitcoin-cash",
-                        "LITECOIN": "litecoin",
-                        "DOGECOIN": "dogecoin",
-                        "DASH": "dash",
-                        "ETHEREUM": "ethereum",
-                        "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "XRP": "xrp",
-                        "ZILLIQA": "zilliqa"
+                        "ETHEREUM": "ethereum"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
                         "TESTNET": "testnet",
                         "ROPSTEN": "ropsten",
-                        "RINKEBY": "rinkeby",
-                        "MORDOR": "mordor",
-                        "KOTTI": "kotti"
+                        "RINKEBY": "rinkeby"
                     },
                 },
                 'openapi_types': {
@@ -1495,14 +1477,12 @@ class CreateSubscriptionsForApi(object):
                     ('blockchain',): {
 
                         "BITCOIN": "bitcoin",
-                        "BITCOIN-CASH": "bitcoin-cash",
                         "LITECOIN": "litecoin",
+                        "BITCOIN-CASH": "bitcoin-cash",
                         "DOGECOIN": "dogecoin",
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
-                        "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "XRP": "xrp",
-                        "ZILLIQA": "zilliqa"
+                        "ETHEREUM-CLASSIC": "ethereum-classic"
                     },
                     ('network',): {
 
@@ -1510,8 +1490,7 @@ class CreateSubscriptionsForApi(object):
                         "TESTNET": "testnet",
                         "ROPSTEN": "ropsten",
                         "RINKEBY": "rinkeby",
-                        "MORDOR": "mordor",
-                        "KOTTI": "kotti"
+                        "MORDOR": "mordor"
                     },
                 },
                 'openapi_types': {
@@ -1660,23 +1639,14 @@ class CreateSubscriptionsForApi(object):
                     ('blockchain',): {
 
                         "BITCOIN": "bitcoin",
-                        "BITCOIN-CASH": "bitcoin-cash",
-                        "LITECOIN": "litecoin",
-                        "DOGECOIN": "dogecoin",
-                        "DASH": "dash",
-                        "ETHEREUM": "ethereum",
-                        "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "XRP": "xrp",
-                        "ZILLIQA": "zilliqa"
+                        "ETHEREUM": "ethereum"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
                         "TESTNET": "testnet",
                         "ROPSTEN": "ropsten",
-                        "RINKEBY": "rinkeby",
-                        "MORDOR": "mordor",
-                        "KOTTI": "kotti"
+                        "RINKEBY": "rinkeby"
                     },
                 },
                 'openapi_types': {

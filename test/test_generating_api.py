@@ -24,10 +24,10 @@ class TestGeneratingApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_generate_receiving_address(self):
-        """Test case for generate_receiving_address
+    def test_generate_deposit_address(self):
+        """Test case for generate_deposit_address
 
-        Generate Receiving Address  # noqa: E501
+        Generate Deposit Address  # noqa: E501
         """
         pass
 

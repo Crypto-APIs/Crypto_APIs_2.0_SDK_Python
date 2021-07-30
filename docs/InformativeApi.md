@@ -5,7 +5,7 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_wallet_asset_details**](InformativeApi.md#get_wallet_asset_details) | **GET** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network} | Get Wallet Asset Details
-[**list_receiving_addresses**](InformativeApi.md#list_receiving_addresses) | **GET** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses | List Receiving Addresses
+[**list_deposit_addresses**](InformativeApi.md#list_deposit_addresses) | **GET** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses | List Deposit Addresses
 [**list_supported_tokens**](InformativeApi.md#list_supported_tokens) | **GET** /wallet-as-a-service/info/{blockchain}/{network}/supported-tokens | List Supported Tokens
 
 
@@ -120,12 +120,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_receiving_addresses**
-> ListReceivingAddressesR list_receiving_addresses(blockchain, network, wallet_id)
+# **list_deposit_addresses**
+> ListDepositAddressesR list_deposit_addresses(blockchain, network, wallet_id)
 
-List Receiving Addresses
+List Deposit Addresses
 
-Through this endpoint customers can pull a list of Deposit Addresses they have already generated. Deposit addresses are listed with their specific details such as unique ID.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+Through this endpoint customers can pull a list of Deposit/Receiving Addresses they have already generated.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Example
 
@@ -134,9 +134,9 @@ Through this endpoint customers can pull a list of Deposit Addresses they have a
 import time
 import cryptoapis
 from cryptoapis.api import informative_api
+from cryptoapis.model.list_deposit_addresses_r import ListDepositAddressesR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.list_receiving_addresses_r import ListReceivingAddressesR
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.request_limit_reached import RequestLimitReached
@@ -174,20 +174,20 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # List Receiving Addresses
-        api_response = api_instance.list_receiving_addresses(blockchain, network, wallet_id)
+        # List Deposit Addresses
+        api_response = api_instance.list_deposit_addresses(blockchain, network, wallet_id)
         pprint(api_response)
     except cryptoapis.ApiException as e:
-        print("Exception when calling InformativeApi->list_receiving_addresses: %s\n" % e)
+        print("Exception when calling InformativeApi->list_deposit_addresses: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # List Receiving Addresses
-        api_response = api_instance.list_receiving_addresses(blockchain, network, wallet_id, context=context)
+        # List Deposit Addresses
+        api_response = api_instance.list_deposit_addresses(blockchain, network, wallet_id, context=context)
         pprint(api_response)
     except cryptoapis.ApiException as e:
-        print("Exception when calling InformativeApi->list_receiving_addresses: %s\n" % e)
+        print("Exception when calling InformativeApi->list_deposit_addresses: %s\n" % e)
 ```
 
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListReceivingAddressesR**](ListReceivingAddressesR.md)
+[**ListDepositAddressesR**](ListDepositAddressesR.md)
 
 ### Authorization
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 List Supported Tokens
 
-Through this endpoint customers can obtain information on multiple tokens at once.     {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+Through this endpoint customers can obtain information on multiple tokens at once.
 
 ### Example
 

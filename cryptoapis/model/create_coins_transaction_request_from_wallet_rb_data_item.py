@@ -31,8 +31,8 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.create_coins_transaction_request_from_wallet_rb_data_item_destinations import CreateCoinsTransactionRequestFromWalletRBDataItemDestinations
-    globals()['CreateCoinsTransactionRequestFromWalletRBDataItemDestinations'] = CreateCoinsTransactionRequestFromWalletRBDataItemDestinations
+    from cryptoapis.model.create_coins_transaction_request_from_wallet_rb_data_item_recipients import CreateCoinsTransactionRequestFromWalletRBDataItemRecipients
+    globals()['CreateCoinsTransactionRequestFromWalletRBDataItemRecipients'] = CreateCoinsTransactionRequestFromWalletRBDataItemRecipients
 
 
 class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
@@ -93,8 +93,10 @@ class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
         """
         lazy_import()
         return {
-            'destinations': ([CreateCoinsTransactionRequestFromWalletRBDataItemDestinations],),  # noqa: E501
             'fee_priority': (str,),  # noqa: E501
+            'recipients': ([CreateCoinsTransactionRequestFromWalletRBDataItemRecipients],),  # noqa: E501
+            'callback_secret_key': (str,),  # noqa: E501
+            'callback_url': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -103,8 +105,10 @@ class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
 
 
     attribute_map = {
-        'destinations': 'destinations',  # noqa: E501
         'fee_priority': 'feePriority',  # noqa: E501
+        'recipients': 'recipients',  # noqa: E501
+        'callback_secret_key': 'callbackSecretKey',  # noqa: E501
+        'callback_url': 'callbackUrl',  # noqa: E501
     }
 
     read_only_vars = {
@@ -114,12 +118,12 @@ class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, destinations, fee_priority, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, fee_priority, recipients, *args, **kwargs):  # noqa: E501
         """CreateCoinsTransactionRequestFromWalletRBDataItem - a model defined in OpenAPI
 
         Args:
-            destinations ([CreateCoinsTransactionRequestFromWalletRBDataItemDestinations]): Defines the destination of the transaction, whether it is incoming or outgoing.
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
+            recipients ([CreateCoinsTransactionRequestFromWalletRBDataItemRecipients]): Defines the destination of the transaction, whether it is incoming or outgoing.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -152,6 +156,8 @@ class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.. [optional]  # noqa: E501
+            callback_url (str): Verified URL for sending callbacks. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -179,8 +185,8 @@ class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.destinations = destinations
         self.fee_priority = fee_priority
+        self.recipients = recipients
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -201,12 +207,12 @@ class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, destinations, fee_priority, *args, **kwargs):  # noqa: E501
+    def __init__(self, fee_priority, recipients, *args, **kwargs):  # noqa: E501
         """CreateCoinsTransactionRequestFromWalletRBDataItem - a model defined in OpenAPI
 
         Args:
-            destinations ([CreateCoinsTransactionRequestFromWalletRBDataItemDestinations]): Defines the destination of the transaction, whether it is incoming or outgoing.
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
+            recipients ([CreateCoinsTransactionRequestFromWalletRBDataItemRecipients]): Defines the destination of the transaction, whether it is incoming or outgoing.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -239,6 +245,8 @@ class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.. [optional]  # noqa: E501
+            callback_url (str): Verified URL for sending callbacks. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -264,8 +272,8 @@ class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.destinations = destinations
         self.fee_priority = fee_priority
+        self.recipients = recipients
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

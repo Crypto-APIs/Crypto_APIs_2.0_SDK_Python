@@ -29,7 +29,7 @@ from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.list_receiving_addresses_r import ListReceivingAddressesR
+from cryptoapis.model.list_deposit_addresses_r import ListDepositAddressesR
 from cryptoapis.model.list_supported_tokens_r import ListSupportedTokensR
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.resource_not_found import ResourceNotFound
@@ -210,20 +210,20 @@ class InformativeApi(object):
             callable=__get_wallet_asset_details
         )
 
-        def __list_receiving_addresses(
+        def __list_deposit_addresses(
             self,
             blockchain,
             network,
             wallet_id,
             **kwargs
         ):
-            """List Receiving Addresses  # noqa: E501
+            """List Deposit Addresses  # noqa: E501
 
-            Through this endpoint customers can pull a list of Deposit Addresses they have already generated. Deposit addresses are listed with their specific details such as unique ID.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
+            Through this endpoint customers can pull a list of Deposit/Receiving Addresses they have already generated.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.list_receiving_addresses(blockchain, network, wallet_id, async_req=True)
+            >>> thread = api.list_deposit_addresses(blockchain, network, wallet_id, async_req=True)
             >>> result = thread.get()
 
             Args:
@@ -254,7 +254,7 @@ class InformativeApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ListReceivingAddressesR
+                ListDepositAddressesR
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -285,14 +285,14 @@ class InformativeApi(object):
                 wallet_id
             return self.call_with_http_info(**kwargs)
 
-        self.list_receiving_addresses = _Endpoint(
+        self.list_deposit_addresses = _Endpoint(
             settings={
-                'response_type': (ListReceivingAddressesR,),
+                'response_type': (ListDepositAddressesR,),
                 'auth': [
                     'ApiKey'
                 ],
                 'endpoint_path': '/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses',
-                'operation_id': 'list_receiving_addresses',
+                'operation_id': 'list_deposit_addresses',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -368,7 +368,7 @@ class InformativeApi(object):
                 'content_type': [],
             },
             api_client=api_client,
-            callable=__list_receiving_addresses
+            callable=__list_deposit_addresses
         )
 
         def __list_supported_tokens(
@@ -379,7 +379,7 @@ class InformativeApi(object):
         ):
             """List Supported Tokens  # noqa: E501
 
-            Through this endpoint customers can obtain information on multiple tokens at once.     {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
+            Through this endpoint customers can obtain information on multiple tokens at once.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -483,21 +483,12 @@ class InformativeApi(object):
                     ('blockchain',): {
 
                         "BITCOIN": "bitcoin",
-                        "BITCOIN-CASH": "bitcoin-cash",
-                        "LITECOIN": "litecoin",
-                        "DOGECOIN": "dogecoin",
-                        "DASH": "dash",
-                        "ETHEREUM": "ethereum",
-                        "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "XRP": "xrp"
+                        "ETHEREUM": "ethereum"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
-                        "TESTNET": "testnet",
-                        "ROPSTEN": "ropsten",
-                        "RINKEBY": "rinkeby",
-                        "MORDOR": "mordor"
+                        "TESTNET": "testnet"
                     },
                 },
                 'openapi_types': {
