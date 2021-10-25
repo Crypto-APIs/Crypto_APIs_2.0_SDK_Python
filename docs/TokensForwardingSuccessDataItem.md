@@ -6,7 +6,7 @@ Defines an `item` as one result.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **blockchain** | **str** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
-**network** | **str** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. | 
+**network** | **str** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
 **from_address** | **str** | Represents the hash of the address that provides the tokens. | 
 **to_address** | **str** | Represents the hash of the address to forward the tokens to. | 
 **spent_fees_amount** | **str** | Represents the amount of the fee spent for the tokens to be forwarded. | 

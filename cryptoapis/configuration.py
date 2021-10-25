@@ -74,7 +74,7 @@ class Configuration(object):
     :param server_operation_variables: Mapping from operation ID to a mapping with
       string values to replace variables in templated server configuration.
       The validation of enums is performed for variables with defined enum values before.
-    :param ssl_ca_cert: str - the path to a file of concatenated CA certificates 
+    :param ssl_ca_cert: str - the path to a file of concatenated CA certificates
       in PEM format
 
     :Example:
@@ -407,7 +407,7 @@ conf = cryptoapis.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 2.0.0\n"\
-               "SDK Package Version: 1.2.0".\
+               "SDK Package Version: 1.3.0".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

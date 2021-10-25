@@ -47,83 +47,7 @@ class ManageSubscriptionsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __delete_blockchain_event_subscription(
-            self,
-            blockchain,
-            network,
-            reference_id,
-            **kwargs
-        ):
-            """Delete Blockchain Event Subscription  # noqa: E501
-
-            Through this endpoint the customer can delete blockchain event subscriptions they have by attributes `referenceId` and `network`.    Currently Crypto APIs 2.0 offers certain Blockchain event endpoints which allow the user to subscribe for one/a few/all and receive callback notifications when the specific event occurs.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.delete_blockchain_event_subscription(blockchain, network, reference_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
-                reference_id (str): Represents a unique ID used to reference the specific callback subscription.
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                DeleteBlockchainEventSubscriptionR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['blockchain'] = \
-                blockchain
-            kwargs['network'] = \
-                network
-            kwargs['reference_id'] = \
-                reference_id
-            return self.call_with_http_info(**kwargs)
-
-        self.delete_blockchain_event_subscription = _Endpoint(
+        self.delete_blockchain_event_subscription_endpoint = _Endpoint(
             settings={
                 'response_type': (DeleteBlockchainEventSubscriptionR,),
                 'auth': [
@@ -169,16 +93,16 @@ class ManageSubscriptionsApi(object):
                         "ETHEREUM": "ethereum",
                         "ETHEREUM-CLASSIC": "ethereum-classic",
                         "XRP": "xrp",
-                        "ZILLIQA": "zilliqa"
+                        "ZILLIQA": "zilliqa",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain",
+                        "ZCASH": "zcash"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
                         "TESTNET": "testnet",
                         "ROPSTEN": "ropsten",
-                        "RINKEBY": "rinkeby",
-                        "MORDOR": "mordor",
-                        "KOTTI": "kotti"
+                        "MORDOR": "mordor"
                     },
                 },
                 'openapi_types': {
@@ -212,84 +136,9 @@ class ManageSubscriptionsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__delete_blockchain_event_subscription
+            api_client=api_client
         )
-
-        def __list_blockchain_events_subscriptions(
-            self,
-            blockchain,
-            network,
-            **kwargs
-        ):
-            """List Blockchain Events Subscriptions  # noqa: E501
-
-            Through this endpoint the customer can obtain a list of their callback subscriptions for the available Blockchain events.    Currently Crypto APIs 2.0 offers certain Blockchain event endpoints which allow the user to subscribe for one/a few/all and receive callback notifications when the specific event occurs.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.list_blockchain_events_subscriptions(blockchain, network, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
-                offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                ListBlockchainEventsSubscriptionsR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['blockchain'] = \
-                blockchain
-            kwargs['network'] = \
-                network
-            return self.call_with_http_info(**kwargs)
-
-        self.list_blockchain_events_subscriptions = _Endpoint(
+        self.list_blockchain_events_subscriptions_endpoint = _Endpoint(
             settings={
                 'response_type': (ListBlockchainEventsSubscriptionsR,),
                 'auth': [
@@ -335,16 +184,16 @@ class ManageSubscriptionsApi(object):
                         "ETHEREUM": "ethereum",
                         "ETHEREUM-CLASSIC": "ethereum-classic",
                         "XRP": "xrp",
-                        "ZILLIQA": "zilliqa"
+                        "ZILLIQA": "zilliqa",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain",
+                        "ZCASH": "zcash"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
                         "TESTNET": "testnet",
                         "ROPSTEN": "ropsten",
-                        "RINKEBY": "rinkeby",
-                        "MORDOR": "mordor",
-                        "KOTTI": "kotti"
+                        "MORDOR": "mordor"
                     },
                 },
                 'openapi_types': {
@@ -382,6 +231,154 @@ class ManageSubscriptionsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__list_blockchain_events_subscriptions
+            api_client=api_client
         )
+
+    def delete_blockchain_event_subscription(
+        self,
+        blockchain,
+        network,
+        reference_id,
+        **kwargs
+    ):
+        """Delete Blockchain Event Subscription  # noqa: E501
+
+        Through this endpoint the customer can delete blockchain event subscriptions they have by attributes `referenceId` and `network`.    Currently Crypto APIs 2.0 offers certain Blockchain event endpoints which allow the user to subscribe for one/a few/all and receive callback notifications when the specific event occurs.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_blockchain_event_subscription(blockchain, network, reference_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+            reference_id (str): Represents a unique ID used to reference the specific callback subscription.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            DeleteBlockchainEventSubscriptionR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        kwargs['reference_id'] = \
+            reference_id
+        return self.delete_blockchain_event_subscription_endpoint.call_with_http_info(**kwargs)
+
+    def list_blockchain_events_subscriptions(
+        self,
+        blockchain,
+        network,
+        **kwargs
+    ):
+        """List Blockchain Events Subscriptions  # noqa: E501
+
+        Through this endpoint the customer can obtain a list of their callback subscriptions for the available Blockchain events.    Currently Crypto APIs 2.0 offers certain Blockchain event endpoints which allow the user to subscribe for one/a few/all and receive callback notifications when the specific event occurs.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_blockchain_events_subscriptions(blockchain, network, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
+            offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ListBlockchainEventsSubscriptionsR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        return self.list_blockchain_events_subscriptions_endpoint.call_with_http_info(**kwargs)
+

@@ -108,7 +108,7 @@ class GetAddressDetailsRITotalSpent(ModelNormal):
 
         Args:
             amount (str): Defines the total amount of all spent by this address coins, based on confirmed transactions.
-            unit (str):
+            unit (str): Represents the unit of the total spent amount.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -195,7 +195,7 @@ class GetAddressDetailsRITotalSpent(ModelNormal):
 
         Args:
             amount (str): Defines the total amount of all spent by this address coins, based on confirmed transactions.
-            unit (str):
+            unit (str): Represents the unit of the total spent amount.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

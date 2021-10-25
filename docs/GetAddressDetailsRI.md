@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **confirmed_balance** | [**GetAddressDetailsRIConfirmedBalance**](GetAddressDetailsRIConfirmedBalance.md) |  | 
 **total_received** | [**GetAddressDetailsRITotalReceived**](GetAddressDetailsRITotalReceived.md) |  | 
 **total_spent** | [**GetAddressDetailsRITotalSpent**](GetAddressDetailsRITotalSpent.md) |  | 
-**incoming_transactions_count** | **int** | Numeric representation of the received transaction count of the address | 
-**outgoing_transactions_count** | **int** | Numeric representation of the sent transaction count of the address | 
+**incoming_transactions_count** | **int** | Defines the count of the incoming transactions. | 
+**outgoing_transactions_count** | **int** | Defines the count of the outgoing transactions. | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

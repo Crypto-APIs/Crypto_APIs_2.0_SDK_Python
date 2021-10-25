@@ -38,6 +38,13 @@ class TestInternalApi(unittest.TestCase):
         """
         pass
 
+    def test_list_internal_transactions_by_address(self):
+        """Test case for list_internal_transactions_by_address
+
+        List Internal Transactions By Address  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -61,9 +61,9 @@ class TokensForwardingSuccessDataItem(ModelNormal):
 
     allowed_values = {
         ('token_type',): {
-            'ETHEREUMERC20TOKEN': "ethereumERC20Token",
-            'ETHEREUMERC721TOKEN': "ethereumERC721Token",
-            'OMNILAYERTOKEN': "omniLayerToken",
+            'ERC-20': "ERC-20",
+            'ERC-721': "ERC-721",
+            'OMNI': "OMNI",
         },
     }
 
@@ -135,7 +135,7 @@ class TokensForwardingSuccessDataItem(ModelNormal):
 
         Args:
             blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
             from_address (str): Represents the hash of the address that provides the tokens.
             to_address (str): Represents the hash of the address to forward the tokens to.
             spent_fees_amount (str): Represents the amount of the fee spent for the tokens to be forwarded.
@@ -238,7 +238,7 @@ class TokensForwardingSuccessDataItem(ModelNormal):
 
         Args:
             blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
             from_address (str): Represents the hash of the address that provides the tokens.
             to_address (str): Represents the hash of the address to forward the tokens to.
             spent_fees_amount (str): Represents the amount of the fee spent for the tokens to be forwarded.

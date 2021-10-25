@@ -31,9 +31,9 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.address_tokens_transaction_confirmed_each_confirmation_data_item_mined_in_block import AddressTokensTransactionConfirmedEachConfirmationDataItemMinedInBlock
+    from cryptoapis.model.address_tokens_transaction_confirmed_data_item_mined_in_block import AddressTokensTransactionConfirmedDataItemMinedInBlock
     from cryptoapis.model.address_tokens_transaction_confirmed_each_confirmation_token import AddressTokensTransactionConfirmedEachConfirmationToken
-    globals()['AddressTokensTransactionConfirmedEachConfirmationDataItemMinedInBlock'] = AddressTokensTransactionConfirmedEachConfirmationDataItemMinedInBlock
+    globals()['AddressTokensTransactionConfirmedDataItemMinedInBlock'] = AddressTokensTransactionConfirmedDataItemMinedInBlock
     globals()['AddressTokensTransactionConfirmedEachConfirmationToken'] = AddressTokensTransactionConfirmedEachConfirmationToken
 
 
@@ -63,9 +63,10 @@ class AddressTokensTransactionConfirmedEachConfirmationDataItem(ModelNormal):
 
     allowed_values = {
         ('token_type',): {
-            'ETHEREUMERC20TOKEN': "ethereumERC20Token",
-            'ETHEREUMERC721TOKEN': "ethereumERC721Token",
-            'OMNILAYERTOKEN': "omniLayerToken",
+            'ERC-20': "ERC-20",
+            'ERC-721': "ERC-721",
+            'OMNI': "OMNI",
+            'BEP-20': "BEP-20",
         },
         ('direction',): {
             'INCOMING': "incoming",
@@ -102,7 +103,7 @@ class AddressTokensTransactionConfirmedEachConfirmationDataItem(ModelNormal):
             'blockchain': (str,),  # noqa: E501
             'network': (str,),  # noqa: E501
             'address': (str,),  # noqa: E501
-            'mined_in_block': (AddressTokensTransactionConfirmedEachConfirmationDataItemMinedInBlock,),  # noqa: E501
+            'mined_in_block': (AddressTokensTransactionConfirmedDataItemMinedInBlock,),  # noqa: E501
             'transaction_id': (str,),  # noqa: E501
             'current_confirmations': (int,),  # noqa: E501
             'target_confirmations': (int,),  # noqa: E501
@@ -141,9 +142,9 @@ class AddressTokensTransactionConfirmedEachConfirmationDataItem(ModelNormal):
 
         Args:
             blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\",  are test networks.
             address (str): Defines the specific address to which the transaction has been sent.
-            mined_in_block (AddressTokensTransactionConfirmedEachConfirmationDataItemMinedInBlock):
+            mined_in_block (AddressTokensTransactionConfirmedDataItemMinedInBlock):
             transaction_id (str): Defines the unique ID of the specific transaction, i.e. its identification number.
             current_confirmations (int): Defines the number of currently received confirmations for the transaction.
             target_confirmations (int): Defines the number of confirmation transactions requested as callbacks, i.e. the system can notify till the n-th confirmation.
@@ -244,9 +245,9 @@ class AddressTokensTransactionConfirmedEachConfirmationDataItem(ModelNormal):
 
         Args:
             blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\",  are test networks.
             address (str): Defines the specific address to which the transaction has been sent.
-            mined_in_block (AddressTokensTransactionConfirmedEachConfirmationDataItemMinedInBlock):
+            mined_in_block (AddressTokensTransactionConfirmedDataItemMinedInBlock):
             transaction_id (str): Defines the unique ID of the specific transaction, i.e. its identification number.
             current_confirmations (int): Defines the number of currently received confirmations for the transaction.
             target_confirmations (int): Defines the number of confirmation transactions requested as callbacks, i.e. the system can notify till the n-th confirmation.

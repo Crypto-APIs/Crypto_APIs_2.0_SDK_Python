@@ -23,6 +23,7 @@ from cryptoapis.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
+from cryptoapis.model.get_transaction_request_details_r import GetTransactionRequestDetailsR
 from cryptoapis.model.get_wallet_asset_details_r import GetWalletAssetDetailsR
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 from cryptoapis.model.invalid_api_key import InvalidApiKey
@@ -31,6 +32,7 @@ from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.list_deposit_addresses_r import ListDepositAddressesR
 from cryptoapis.model.list_supported_tokens_r import ListSupportedTokensR
+from cryptoapis.model.list_wallet_transactions_r import ListWalletTransactionsR
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.resource_not_found import ResourceNotFound
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
@@ -48,83 +50,63 @@ class InformativeApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __get_wallet_asset_details(
-            self,
-            blockchain,
-            network,
-            wallet_id,
-            **kwargs
-        ):
-            """Get Wallet Asset Details  # noqa: E501
-
-            Through this endpoint customers can obtain details about a specific Wallet/Vault.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_wallet_asset_details(blockchain, network, wallet_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
-                wallet_id (str): Defines the unique ID of the Wallet.
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                GetWalletAssetDetailsR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['blockchain'] = \
-                blockchain
-            kwargs['network'] = \
-                network
-            kwargs['wallet_id'] = \
-                wallet_id
-            return self.call_with_http_info(**kwargs)
-
-        self.get_wallet_asset_details = _Endpoint(
+        self.get_transaction_request_details_endpoint = _Endpoint(
+            settings={
+                'response_type': (GetTransactionRequestDetailsR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/wallet-as-a-service/transactionRequests/{transactionRequestId}',
+                'operation_id': 'get_transaction_request_details',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'transaction_request_id',
+                    'context',
+                ],
+                'required': [
+                    'transaction_request_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'transaction_request_id':
+                        (str,),
+                    'context':
+                        (str,),
+                },
+                'attribute_map': {
+                    'transaction_request_id': 'transactionRequestId',
+                    'context': 'context',
+                },
+                'location_map': {
+                    'transaction_request_id': 'path',
+                    'context': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_wallet_asset_details_endpoint = _Endpoint(
             settings={
                 'response_type': (GetWalletAssetDetailsR,),
                 'auth': [
@@ -167,12 +149,14 @@ class InformativeApi(object):
                         "LITECOIN": "litecoin",
                         "DOGECOIN": "dogecoin",
                         "DASH": "dash",
-                        "ETHEREUM": "ethereum"
+                        "ETHEREUM": "ethereum",
+                        "ZCASH": "zcash"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
-                        "TESTNET": "testnet"
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten"
                     },
                 },
                 'openapi_types': {
@@ -206,86 +190,9 @@ class InformativeApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_wallet_asset_details
+            api_client=api_client
         )
-
-        def __list_deposit_addresses(
-            self,
-            blockchain,
-            network,
-            wallet_id,
-            **kwargs
-        ):
-            """List Deposit Addresses  # noqa: E501
-
-            Through this endpoint customers can pull a list of Deposit/Receiving Addresses they have already generated.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.list_deposit_addresses(blockchain, network, wallet_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
-                wallet_id (str): Represents the unique ID of the specific Wallet.
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                ListDepositAddressesR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['blockchain'] = \
-                blockchain
-            kwargs['network'] = \
-                network
-            kwargs['wallet_id'] = \
-                wallet_id
-            return self.call_with_http_info(**kwargs)
-
-        self.list_deposit_addresses = _Endpoint(
+        self.list_deposit_addresses_endpoint = _Endpoint(
             settings={
                 'response_type': (ListDepositAddressesR,),
                 'auth': [
@@ -328,12 +235,14 @@ class InformativeApi(object):
                         "LITECOIN": "litecoin",
                         "DOGECOIN": "dogecoin",
                         "DASH": "dash",
-                        "ETHEREUM": "ethereum"
+                        "ETHEREUM": "ethereum",
+                        "ZCASH": "zcash"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
-                        "TESTNET": "testnet"
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten"
                     },
                 },
                 'openapi_types': {
@@ -367,84 +276,9 @@ class InformativeApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__list_deposit_addresses
+            api_client=api_client
         )
-
-        def __list_supported_tokens(
-            self,
-            blockchain,
-            network,
-            **kwargs
-        ):
-            """List Supported Tokens  # noqa: E501
-
-            Through this endpoint customers can obtain information on multiple tokens at once.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.list_supported_tokens(blockchain, network, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
-                offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                ListSupportedTokensR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['blockchain'] = \
-                blockchain
-            kwargs['network'] = \
-                network
-            return self.call_with_http_info(**kwargs)
-
-        self.list_supported_tokens = _Endpoint(
+        self.list_supported_tokens_endpoint = _Endpoint(
             settings={
                 'response_type': (ListSupportedTokensR,),
                 'auth': [
@@ -482,13 +316,12 @@ class InformativeApi(object):
                 'allowed_values': {
                     ('blockchain',): {
 
-                        "BITCOIN": "bitcoin",
                         "ETHEREUM": "ethereum"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
-                        "TESTNET": "testnet"
+                        "ROPSTEN": "ropsten"
                     },
                 },
                 'openapi_types': {
@@ -526,6 +359,469 @@ class InformativeApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__list_supported_tokens
+            api_client=api_client
         )
+        self.list_wallet_transactions_endpoint = _Endpoint(
+            settings={
+                'response_type': (ListWalletTransactionsR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/transactions',
+                'operation_id': 'list_wallet_transactions',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'blockchain',
+                    'network',
+                    'wallet_id',
+                    'context',
+                    'limit',
+                    'offset',
+                ],
+                'required': [
+                    'blockchain',
+                    'network',
+                    'wallet_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'blockchain',
+                    'network',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('blockchain',): {
+
+                        "BITCOIN": "bitcoin",
+                        "BITCOIN-CASH": "bitcoin-cash",
+                        "LITECOIN": "litecoin",
+                        "DOGECOIN": "dogecoin",
+                        "DASH": "dash",
+                        "ETHEREUM": "ethereum",
+                        "ZCASH": "zcash"
+                    },
+                    ('network',): {
+
+                        "MAINNET": "mainnet",
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten"
+                    },
+                },
+                'openapi_types': {
+                    'blockchain':
+                        (str,),
+                    'network':
+                        (str,),
+                    'wallet_id':
+                        (str,),
+                    'context':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'blockchain': 'blockchain',
+                    'network': 'network',
+                    'wallet_id': 'walletId',
+                    'context': 'context',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'blockchain': 'path',
+                    'network': 'path',
+                    'wallet_id': 'path',
+                    'context': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+    def get_transaction_request_details(
+        self,
+        transaction_request_id,
+        **kwargs
+    ):
+        """Get Transaction Request Details  # noqa: E501
+
+        Through this endpoint customers can obtain details on transaction request.    {note}This regards **transaction requests**, which is not to be confused with **transactions**. Transaction requests may not be approved due to any reason, hence a transaction may not occur.{/note}  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_transaction_request_details(transaction_request_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            transaction_request_id (str): Represents the unique ID of the transaction request.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GetTransactionRequestDetailsR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['transaction_request_id'] = \
+            transaction_request_id
+        return self.get_transaction_request_details_endpoint.call_with_http_info(**kwargs)
+
+    def get_wallet_asset_details(
+        self,
+        blockchain,
+        network,
+        wallet_id,
+        **kwargs
+    ):
+        """Get Wallet Asset Details  # noqa: E501
+
+        Through this endpoint customers can obtain details about a specific Wallet/Vault.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_wallet_asset_details(blockchain, network, wallet_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+            wallet_id (str): Defines the unique ID of the Wallet.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GetWalletAssetDetailsR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        kwargs['wallet_id'] = \
+            wallet_id
+        return self.get_wallet_asset_details_endpoint.call_with_http_info(**kwargs)
+
+    def list_deposit_addresses(
+        self,
+        blockchain,
+        network,
+        wallet_id,
+        **kwargs
+    ):
+        """List Deposit Addresses  # noqa: E501
+
+        Through this endpoint customers can pull a list of Deposit/Receiving Addresses they have already generated.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_deposit_addresses(blockchain, network, wallet_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+            wallet_id (str): Represents the unique ID of the specific Wallet.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ListDepositAddressesR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        kwargs['wallet_id'] = \
+            wallet_id
+        return self.list_deposit_addresses_endpoint.call_with_http_info(**kwargs)
+
+    def list_supported_tokens(
+        self,
+        network,
+        blockchain="ethereum",
+        **kwargs
+    ):
+        """List Supported Tokens  # noqa: E501
+
+        Through this endpoint customers can obtain information on multiple tokens at once.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_supported_tokens(network, blockchain="ethereum", async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.. defaults to "ethereum", must be one of ["ethereum"]
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
+            offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ListSupportedTokensR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        return self.list_supported_tokens_endpoint.call_with_http_info(**kwargs)
+
+    def list_wallet_transactions(
+        self,
+        blockchain,
+        network,
+        wallet_id,
+        **kwargs
+    ):
+        """List Wallet Transactions  # noqa: E501
+
+        Through this endpoint customers can list Transactions from and to their Wallet. The data returned will include `transactionId`, `direction` of the transaction - incoming or outgoing, `amount` and more.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_wallet_transactions(blockchain, network, wallet_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+            wallet_id (str): Represents the unique ID of the specific Wallet.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
+            offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ListWalletTransactionsR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        kwargs['wallet_id'] = \
+            wallet_id
+        return self.list_wallet_transactions_endpoint.call_with_http_info(**kwargs)
+

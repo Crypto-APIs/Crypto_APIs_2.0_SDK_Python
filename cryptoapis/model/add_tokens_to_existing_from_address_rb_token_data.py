@@ -32,9 +32,9 @@ from cryptoapis.exceptions import ApiAttributeError
 
 def lazy_import():
     from cryptoapis.model.add_tokens_to_existing_from_address_rb_token_data_bitcoin_omni_token import AddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken
-    from cryptoapis.model.add_tokens_to_existing_from_address_rb_token_data_ethereum_erc20_token import AddTokensToExistingFromAddressRBTokenDataEthereumErc20Token
+    from cryptoapis.model.add_tokens_to_existing_from_address_rb_token_data_ethereum_token import AddTokensToExistingFromAddressRBTokenDataEthereumToken
     globals()['AddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken'] = AddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken
-    globals()['AddTokensToExistingFromAddressRBTokenDataEthereumErc20Token'] = AddTokensToExistingFromAddressRBTokenDataEthereumErc20Token
+    globals()['AddTokensToExistingFromAddressRBTokenDataEthereumToken'] = AddTokensToExistingFromAddressRBTokenDataEthereumToken
 
 
 class AddTokensToExistingFromAddressRBTokenData(ModelComposed):
@@ -302,7 +302,7 @@ class AddTokensToExistingFromAddressRBTokenData(ModelComposed):
         # we need this here to make our import statements work
         # we must store _composed_schemas in here so the code is only run
         # when we invoke this method. If we kept this at the class
-        # level we would get an error beause the class level
+        # level we would get an error because the class level
         # code would be run when this module is imported, and these composed
         # classes don't exist yet because their module has not finished
         # loading
@@ -314,6 +314,6 @@ class AddTokensToExistingFromAddressRBTokenData(ModelComposed):
           ],
           'oneOf': [
               AddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken,
-              AddTokensToExistingFromAddressRBTokenDataEthereumErc20Token,
+              AddTokensToExistingFromAddressRBTokenDataEthereumToken,
           ],
         }

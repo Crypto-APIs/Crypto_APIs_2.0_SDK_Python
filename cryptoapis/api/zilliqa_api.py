@@ -54,75 +54,7 @@ class ZilliqaApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __get_latest_mined_zilliqa_block(
-            self,
-            network="mainnet",
-            **kwargs
-        ):
-            """Get Latest Mined Zilliqa Block  # noqa: E501
-
-            Through this endpoint users can obtain information on the latest block that has been mined on the Zilliqa blockchain. Data could include the current and previous block hashes, transaction count, and more.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_latest_mined_zilliqa_block(network="mainnet", async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                GetLatestMinedZilliqaBlockR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['network'] = \
-                network
-            return self.call_with_http_info(**kwargs)
-
-        self.get_latest_mined_zilliqa_block = _Endpoint(
+        self.get_latest_mined_zilliqa_block_endpoint = _Endpoint(
             settings={
                 'response_type': (GetLatestMinedZilliqaBlockR,),
                 'auth': [
@@ -181,82 +113,9 @@ class ZilliqaApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_latest_mined_zilliqa_block
+            api_client=api_client
         )
-
-        def __get_zilliqa_address_details(
-            self,
-            address,
-            network="mainnet",
-            **kwargs
-        ):
-            """Get Zilliqa Address Details  # noqa: E501
-
-            Through this endpoint customers can obtain information address details from the Zilliqa blockchain.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_zilliqa_address_details(address, network="mainnet", async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                address (str): Defines the specific transaction's address.
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                GetZilliqaAddressDetailsR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['network'] = \
-                network
-            kwargs['address'] = \
-                address
-            return self.call_with_http_info(**kwargs)
-
-        self.get_zilliqa_address_details = _Endpoint(
+        self.get_zilliqa_address_details_endpoint = _Endpoint(
             settings={
                 'response_type': (GetZilliqaAddressDetailsR,),
                 'auth': [
@@ -321,82 +180,9 @@ class ZilliqaApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_zilliqa_address_details
+            api_client=api_client
         )
-
-        def __get_zilliqa_block_details_by_block_hash(
-            self,
-            block_hash,
-            network="mainnet",
-            **kwargs
-        ):
-            """Get Zilliqa Block Details By Block Hash  # noqa: E501
-
-            Through this endpoint customers can obtain block details from the Zilliqa blockchain by providing the block Hash parameter.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_zilliqa_block_details_by_block_hash(block_hash, network="mainnet", async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                block_hash (str): Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                GetZilliqaBlockDetailsByBlockHashR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['network'] = \
-                network
-            kwargs['block_hash'] = \
-                block_hash
-            return self.call_with_http_info(**kwargs)
-
-        self.get_zilliqa_block_details_by_block_hash = _Endpoint(
+        self.get_zilliqa_block_details_by_block_hash_endpoint = _Endpoint(
             settings={
                 'response_type': (GetZilliqaBlockDetailsByBlockHashR,),
                 'auth': [
@@ -461,82 +247,9 @@ class ZilliqaApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_zilliqa_block_details_by_block_hash
+            api_client=api_client
         )
-
-        def __get_zilliqa_block_details_by_block_height(
-            self,
-            block_height,
-            network="mainnet",
-            **kwargs
-        ):
-            """Get Zilliqa Block Details By Block Height  # noqa: E501
-
-            Through this endpoint customers can obtain block details from the Zilliqa blockchain by providing the block Height parameter.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_zilliqa_block_details_by_block_height(block_height, network="mainnet", async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                block_height (int): Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\",  are test networks.. defaults to "mainnet", must be one of ["mainnet"]
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                GetZilliqaBlockDetailsByBlockHeightR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['network'] = \
-                network
-            kwargs['block_height'] = \
-                block_height
-            return self.call_with_http_info(**kwargs)
-
-        self.get_zilliqa_block_details_by_block_height = _Endpoint(
+        self.get_zilliqa_block_details_by_block_height_endpoint = _Endpoint(
             settings={
                 'response_type': (GetZilliqaBlockDetailsByBlockHeightR,),
                 'auth': [
@@ -601,82 +314,9 @@ class ZilliqaApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_zilliqa_block_details_by_block_height
+            api_client=api_client
         )
-
-        def __get_zilliqa_transaction_details_by_transaction_id(
-            self,
-            transaction_hash,
-            network="mainnet",
-            **kwargs
-        ):
-            """Get Zilliqa Transaction Details by Transaction ID  # noqa: E501
-
-            Through this endpoint customers can obtain transaction details on the Zilliqa blockchain by providing a Transaction ID parameter.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_zilliqa_transaction_details_by_transaction_id(transaction_hash, network="mainnet", async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                transaction_hash (str): String identifier of the transaction
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                GetZilliqaTransactionDetailsByTransactionIDR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['network'] = \
-                network
-            kwargs['transaction_hash'] = \
-                transaction_hash
-            return self.call_with_http_info(**kwargs)
-
-        self.get_zilliqa_transaction_details_by_transaction_id = _Endpoint(
+        self.get_zilliqa_transaction_details_by_transaction_id_endpoint = _Endpoint(
             settings={
                 'response_type': (GetZilliqaTransactionDetailsByTransactionIDR,),
                 'auth': [
@@ -741,84 +381,9 @@ class ZilliqaApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_zilliqa_transaction_details_by_transaction_id
+            api_client=api_client
         )
-
-        def __list_zilliqa_transactions_by_address(
-            self,
-            address,
-            network="mainnet",
-            **kwargs
-        ):
-            """List Zilliqa Transactions by Address  # noqa: E501
-
-            Through this endpoint customers can list transactions on the Zilliqa blockchain by the address parameter.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.list_zilliqa_transactions_by_address(address, network="mainnet", async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                address (str): Defines the specific address of the sender.
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
-                offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                ListZilliqaTransactionsByAddressR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['network'] = \
-                network
-            kwargs['address'] = \
-                address
-            return self.call_with_http_info(**kwargs)
-
-        self.list_zilliqa_transactions_by_address = _Endpoint(
+        self.list_zilliqa_transactions_by_address_endpoint = _Endpoint(
             settings={
                 'response_type': (ListZilliqaTransactionsByAddressR,),
                 'auth': [
@@ -893,84 +458,9 @@ class ZilliqaApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__list_zilliqa_transactions_by_address
+            api_client=api_client
         )
-
-        def __list_zilliqa_transactions_by_block_hash(
-            self,
-            block_hash,
-            network="mainnet",
-            **kwargs
-        ):
-            """List Zilliqa Transactions By Block Hash  # noqa: E501
-
-            Through this endpoint customers can list transactions on the Zilliqa blockchain by the block hash parameter.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.list_zilliqa_transactions_by_block_hash(block_hash, network="mainnet", async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                block_hash (str): Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
-                offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                ListZilliqaTransactionsByBlockHashR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['network'] = \
-                network
-            kwargs['block_hash'] = \
-                block_hash
-            return self.call_with_http_info(**kwargs)
-
-        self.list_zilliqa_transactions_by_block_hash = _Endpoint(
+        self.list_zilliqa_transactions_by_block_hash_endpoint = _Endpoint(
             settings={
                 'response_type': (ListZilliqaTransactionsByBlockHashR,),
                 'auth': [
@@ -1045,84 +535,9 @@ class ZilliqaApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__list_zilliqa_transactions_by_block_hash
+            api_client=api_client
         )
-
-        def __list_zilliqa_transactions_by_block_height(
-            self,
-            block_height,
-            network="mainnet",
-            **kwargs
-        ):
-            """List Zilliqa Transactions By Block Height  # noqa: E501
-
-            Through this endpoint customers can list transactions on the Zilliqa blockchain by the block height parameter.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.list_zilliqa_transactions_by_block_height(block_height, network="mainnet", async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                block_height (int): Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
-                offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                ListZilliqaTransactionsByBlockHeightR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['network'] = \
-                network
-            kwargs['block_height'] = \
-                block_height
-            return self.call_with_http_info(**kwargs)
-
-        self.list_zilliqa_transactions_by_block_height = _Endpoint(
+        self.list_zilliqa_transactions_by_block_height_endpoint = _Endpoint(
             settings={
                 'response_type': (ListZilliqaTransactionsByBlockHeightR,),
                 'auth': [
@@ -1197,6 +612,576 @@ class ZilliqaApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__list_zilliqa_transactions_by_block_height
+            api_client=api_client
         )
+
+    def get_latest_mined_zilliqa_block(
+        self,
+        network="mainnet",
+        **kwargs
+    ):
+        """Get Latest Mined Zilliqa Block  # noqa: E501
+
+        Through this endpoint users can obtain information on the latest block that has been mined on the Zilliqa blockchain. Data could include the current and previous block hashes, transaction count, and more.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_latest_mined_zilliqa_block(network="mainnet", async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GetLatestMinedZilliqaBlockR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['network'] = \
+            network
+        return self.get_latest_mined_zilliqa_block_endpoint.call_with_http_info(**kwargs)
+
+    def get_zilliqa_address_details(
+        self,
+        address,
+        network="mainnet",
+        **kwargs
+    ):
+        """Get Zilliqa Address Details  # noqa: E501
+
+        Through this endpoint customers can obtain information address details from the Zilliqa blockchain.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_zilliqa_address_details(address, network="mainnet", async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            address (str): Defines the specific transaction's address.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GetZilliqaAddressDetailsR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['network'] = \
+            network
+        kwargs['address'] = \
+            address
+        return self.get_zilliqa_address_details_endpoint.call_with_http_info(**kwargs)
+
+    def get_zilliqa_block_details_by_block_hash(
+        self,
+        block_hash,
+        network="mainnet",
+        **kwargs
+    ):
+        """Get Zilliqa Block Details By Block Hash  # noqa: E501
+
+        Through this endpoint customers can obtain block details from the Zilliqa blockchain by providing the block Hash parameter.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_zilliqa_block_details_by_block_hash(block_hash, network="mainnet", async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            block_hash (str): Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GetZilliqaBlockDetailsByBlockHashR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['network'] = \
+            network
+        kwargs['block_hash'] = \
+            block_hash
+        return self.get_zilliqa_block_details_by_block_hash_endpoint.call_with_http_info(**kwargs)
+
+    def get_zilliqa_block_details_by_block_height(
+        self,
+        block_height,
+        network="mainnet",
+        **kwargs
+    ):
+        """Get Zilliqa Block Details By Block Height  # noqa: E501
+
+        Through this endpoint customers can obtain block details from the Zilliqa blockchain by providing the block Height parameter.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_zilliqa_block_details_by_block_height(block_height, network="mainnet", async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            block_height (int): Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GetZilliqaBlockDetailsByBlockHeightR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['network'] = \
+            network
+        kwargs['block_height'] = \
+            block_height
+        return self.get_zilliqa_block_details_by_block_height_endpoint.call_with_http_info(**kwargs)
+
+    def get_zilliqa_transaction_details_by_transaction_id(
+        self,
+        transaction_hash,
+        network="mainnet",
+        **kwargs
+    ):
+        """Get Zilliqa Transaction Details by Transaction ID  # noqa: E501
+
+        Through this endpoint customers can obtain transaction details on the Zilliqa blockchain by providing a Transaction ID parameter.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_zilliqa_transaction_details_by_transaction_id(transaction_hash, network="mainnet", async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            transaction_hash (str): String identifier of the transaction
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GetZilliqaTransactionDetailsByTransactionIDR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['network'] = \
+            network
+        kwargs['transaction_hash'] = \
+            transaction_hash
+        return self.get_zilliqa_transaction_details_by_transaction_id_endpoint.call_with_http_info(**kwargs)
+
+    def list_zilliqa_transactions_by_address(
+        self,
+        address,
+        network="mainnet",
+        **kwargs
+    ):
+        """List Zilliqa Transactions by Address  # noqa: E501
+
+        Through this endpoint customers can list transactions on the Zilliqa blockchain by the address parameter.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_zilliqa_transactions_by_address(address, network="mainnet", async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            address (str): Defines the specific address of the sender.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
+            offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ListZilliqaTransactionsByAddressR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['network'] = \
+            network
+        kwargs['address'] = \
+            address
+        return self.list_zilliqa_transactions_by_address_endpoint.call_with_http_info(**kwargs)
+
+    def list_zilliqa_transactions_by_block_hash(
+        self,
+        block_hash,
+        network="mainnet",
+        **kwargs
+    ):
+        """List Zilliqa Transactions By Block Hash  # noqa: E501
+
+        Through this endpoint customers can list transactions on the Zilliqa blockchain by the block hash parameter.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_zilliqa_transactions_by_block_hash(block_hash, network="mainnet", async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            block_hash (str): Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
+            offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ListZilliqaTransactionsByBlockHashR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['network'] = \
+            network
+        kwargs['block_hash'] = \
+            block_hash
+        return self.list_zilliqa_transactions_by_block_hash_endpoint.call_with_http_info(**kwargs)
+
+    def list_zilliqa_transactions_by_block_height(
+        self,
+        block_height,
+        network="mainnet",
+        **kwargs
+    ):
+        """List Zilliqa Transactions By Block Height  # noqa: E501
+
+        Through this endpoint customers can list transactions on the Zilliqa blockchain by the block height parameter.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_zilliqa_transactions_by_block_height(block_height, network="mainnet", async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            block_height (int): Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
+            offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ListZilliqaTransactionsByBlockHeightR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['network'] = \
+            network
+        kwargs['block_height'] = \
+            block_height
+        return self.list_zilliqa_transactions_by_block_height_endpoint.call_with_http_info(**kwargs)
+

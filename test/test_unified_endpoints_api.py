@@ -52,10 +52,10 @@ class TestUnifiedEndpointsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_latest_mined_block(self):
-        """Test case for get_latest_mined_block
+    def test_get_last_mined_block(self):
+        """Test case for get_last_mined_block
 
-        Get Latest Mined Block  # noqa: E501
+        Get Last Mined Block  # noqa: E501
         """
         pass
 
@@ -66,10 +66,24 @@ class TestUnifiedEndpointsApi(unittest.TestCase):
         """
         pass
 
-    def test_list_transactions_by_address(self):
-        """Test case for list_transactions_by_address
+    def test_list_all_unconfirmed_transactions(self):
+        """Test case for list_all_unconfirmed_transactions
 
-        List Transactions By Address  # noqa: E501
+        List All Unconfirmed Transactions  # noqa: E501
+        """
+        pass
+
+    def test_list_confirmed_transactions_by_address(self):
+        """Test case for list_confirmed_transactions_by_address
+
+        List Confirmed Transactions By Address  # noqa: E501
+        """
+        pass
+
+    def test_list_latest_mined_blocks(self):
+        """Test case for list_latest_mined_blocks
+
+        List Latest Mined Blocks  # noqa: E501
         """
         pass
 
@@ -84,6 +98,13 @@ class TestUnifiedEndpointsApi(unittest.TestCase):
         """Test case for list_transactions_by_block_height
 
         List Transactions by Block Height  # noqa: E501
+        """
+        pass
+
+    def test_list_unconfirmed_transactions_by_address(self):
+        """Test case for list_unconfirmed_transactions_by_address
+
+        List Unconfirmed Transactions by Address  # noqa: E501
         """
         pass
 

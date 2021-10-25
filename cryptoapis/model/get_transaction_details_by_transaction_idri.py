@@ -95,13 +95,13 @@ class GetTransactionDetailsByTransactionIDRI(ModelNormal):
         lazy_import()
         return {
             'index': (int,),  # noqa: E501
+            'is_confirmed': (str,),  # noqa: E501
             'recipients': ([GetTransactionDetailsByTransactionIDRIRecipients],),  # noqa: E501
             'senders': ([GetTransactionDetailsByTransactionIDRISenders],),  # noqa: E501
             'timestamp': (int,),  # noqa: E501
             'transaction_hash': (str,),  # noqa: E501
             'transaction_id': (str,),  # noqa: E501
             'fee': (GetTransactionDetailsByTransactionIDRIFee,),  # noqa: E501
-            'is_confirmed': (bool,),  # noqa: E501
             'blockchain_specific': (GetTransactionDetailsByTransactionIDRIBS,),  # noqa: E501
             'mined_in_block_hash': (str,),  # noqa: E501
             'mined_in_block_height': (int,),  # noqa: E501
@@ -114,13 +114,13 @@ class GetTransactionDetailsByTransactionIDRI(ModelNormal):
 
     attribute_map = {
         'index': 'index',  # noqa: E501
+        'is_confirmed': 'isConfirmed',  # noqa: E501
         'recipients': 'recipients',  # noqa: E501
         'senders': 'senders',  # noqa: E501
         'timestamp': 'timestamp',  # noqa: E501
         'transaction_hash': 'transactionHash',  # noqa: E501
         'transaction_id': 'transactionId',  # noqa: E501
         'fee': 'fee',  # noqa: E501
-        'is_confirmed': 'isConfirmed',  # noqa: E501
         'blockchain_specific': 'blockchainSpecific',  # noqa: E501
         'mined_in_block_hash': 'minedInBlockHash',  # noqa: E501
         'mined_in_block_height': 'minedInBlockHeight',  # noqa: E501
@@ -133,18 +133,18 @@ class GetTransactionDetailsByTransactionIDRI(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, index, recipients, senders, timestamp, transaction_hash, transaction_id, fee, is_confirmed, blockchain_specific, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, index, is_confirmed, recipients, senders, timestamp, transaction_hash, transaction_id, fee, blockchain_specific, *args, **kwargs):  # noqa: E501
         """GetTransactionDetailsByTransactionIDRI - a model defined in OpenAPI
 
         Args:
             index (int): Represents the index position of the transaction in the specific block.
+            is_confirmed (str): Represents the state of the transaction whether it is confirmed or not confirmed.
             recipients ([GetTransactionDetailsByTransactionIDRIRecipients]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             senders ([GetTransactionDetailsByTransactionIDRISenders]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_hash (str): Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.
             transaction_id (str): Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
             fee (GetTransactionDetailsByTransactionIDRIFee):
-            is_confirmed (bool): Defines whether the transaction is mined/confirmed or not. If it is \"false\", it means the transaction is still in the Mempool waiting to be included in a block. Value \"true\" means that this transaction is already confirmed and included in a block.
             blockchain_specific (GetTransactionDetailsByTransactionIDRIBS):
 
         Keyword Args:
@@ -208,13 +208,13 @@ class GetTransactionDetailsByTransactionIDRI(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.index = index
+        self.is_confirmed = is_confirmed
         self.recipients = recipients
         self.senders = senders
         self.timestamp = timestamp
         self.transaction_hash = transaction_hash
         self.transaction_id = transaction_id
         self.fee = fee
-        self.is_confirmed = is_confirmed
         self.blockchain_specific = blockchain_specific
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -236,18 +236,18 @@ class GetTransactionDetailsByTransactionIDRI(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, index, recipients, senders, timestamp, transaction_hash, transaction_id, fee, is_confirmed, blockchain_specific, *args, **kwargs):  # noqa: E501
+    def __init__(self, index, is_confirmed, recipients, senders, timestamp, transaction_hash, transaction_id, fee, blockchain_specific, *args, **kwargs):  # noqa: E501
         """GetTransactionDetailsByTransactionIDRI - a model defined in OpenAPI
 
         Args:
             index (int): Represents the index position of the transaction in the specific block.
+            is_confirmed (str): Represents the state of the transaction whether it is confirmed or not confirmed.
             recipients ([GetTransactionDetailsByTransactionIDRIRecipients]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             senders ([GetTransactionDetailsByTransactionIDRISenders]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_hash (str): Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.
             transaction_id (str): Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
             fee (GetTransactionDetailsByTransactionIDRIFee):
-            is_confirmed (bool): Defines whether the transaction is mined/confirmed or not. If it is \"false\", it means the transaction is still in the Mempool waiting to be included in a block. Value \"true\" means that this transaction is already confirmed and included in a block.
             blockchain_specific (GetTransactionDetailsByTransactionIDRIBS):
 
         Keyword Args:
@@ -309,13 +309,13 @@ class GetTransactionDetailsByTransactionIDRI(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.index = index
+        self.is_confirmed = is_confirmed
         self.recipients = recipients
         self.senders = senders
         self.timestamp = timestamp
         self.transaction_hash = transaction_hash
         self.transaction_id = transaction_id
         self.fee = fee
-        self.is_confirmed = is_confirmed
         self.blockchain_specific = blockchain_specific
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

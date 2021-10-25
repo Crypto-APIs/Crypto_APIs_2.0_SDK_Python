@@ -146,7 +146,7 @@ class MinedTransactionRBDataItem(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             allow_duplicates (bool): Specifies a flag that permits or denies the creation of duplicate addresses.. [optional]  # noqa: E501
-            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.. [optional]  # noqa: E501
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -235,7 +235,7 @@ class MinedTransactionRBDataItem(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             allow_duplicates (bool): Specifies a flag that permits or denies the creation of duplicate addresses.. [optional]  # noqa: E501
-            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.. [optional]  # noqa: E501
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

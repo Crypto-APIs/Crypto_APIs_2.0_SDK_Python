@@ -33,23 +33,25 @@ from cryptoapis.exceptions import ApiAttributeError
 def lazy_import():
     from cryptoapis.model.get_transaction_details_by_transaction_idribsb import GetTransactionDetailsByTransactionIDRIBSB
     from cryptoapis.model.get_transaction_details_by_transaction_idribsbc import GetTransactionDetailsByTransactionIDRIBSBC
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsbsc import GetTransactionDetailsByTransactionIDRIBSBSC
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsbsc_gas_price import GetTransactionDetailsByTransactionIDRIBSBSCGasPrice
     from cryptoapis.model.get_transaction_details_by_transaction_idribsd import GetTransactionDetailsByTransactionIDRIBSD
     from cryptoapis.model.get_transaction_details_by_transaction_idribsd2 import GetTransactionDetailsByTransactionIDRIBSD2
     from cryptoapis.model.get_transaction_details_by_transaction_idribsd2_vin import GetTransactionDetailsByTransactionIDRIBSD2Vin
     from cryptoapis.model.get_transaction_details_by_transaction_idribsd2_vout import GetTransactionDetailsByTransactionIDRIBSD2Vout
     from cryptoapis.model.get_transaction_details_by_transaction_idribse import GetTransactionDetailsByTransactionIDRIBSE
     from cryptoapis.model.get_transaction_details_by_transaction_idribsec import GetTransactionDetailsByTransactionIDRIBSEC
-    from cryptoapis.model.get_transaction_details_by_transaction_idribsec_gas_price import GetTransactionDetailsByTransactionIDRIBSECGasPrice
     from cryptoapis.model.get_transaction_details_by_transaction_idribsl import GetTransactionDetailsByTransactionIDRIBSL
     globals()['GetTransactionDetailsByTransactionIDRIBSB'] = GetTransactionDetailsByTransactionIDRIBSB
     globals()['GetTransactionDetailsByTransactionIDRIBSBC'] = GetTransactionDetailsByTransactionIDRIBSBC
+    globals()['GetTransactionDetailsByTransactionIDRIBSBSC'] = GetTransactionDetailsByTransactionIDRIBSBSC
+    globals()['GetTransactionDetailsByTransactionIDRIBSBSCGasPrice'] = GetTransactionDetailsByTransactionIDRIBSBSCGasPrice
     globals()['GetTransactionDetailsByTransactionIDRIBSD'] = GetTransactionDetailsByTransactionIDRIBSD
     globals()['GetTransactionDetailsByTransactionIDRIBSD2'] = GetTransactionDetailsByTransactionIDRIBSD2
     globals()['GetTransactionDetailsByTransactionIDRIBSD2Vin'] = GetTransactionDetailsByTransactionIDRIBSD2Vin
     globals()['GetTransactionDetailsByTransactionIDRIBSD2Vout'] = GetTransactionDetailsByTransactionIDRIBSD2Vout
     globals()['GetTransactionDetailsByTransactionIDRIBSE'] = GetTransactionDetailsByTransactionIDRIBSE
     globals()['GetTransactionDetailsByTransactionIDRIBSEC'] = GetTransactionDetailsByTransactionIDRIBSEC
-    globals()['GetTransactionDetailsByTransactionIDRIBSECGasPrice'] = GetTransactionDetailsByTransactionIDRIBSECGasPrice
     globals()['GetTransactionDetailsByTransactionIDRIBSL'] = GetTransactionDetailsByTransactionIDRIBSL
 
 
@@ -112,13 +114,12 @@ class GetTransactionDetailsByTransactionIDRIBS(ModelComposed):
             'version': (int,),  # noqa: E501
             'vin': ([GetTransactionDetailsByTransactionIDRIBSD2Vin],),  # noqa: E501
             'vout': ([GetTransactionDetailsByTransactionIDRIBSD2Vout],),  # noqa: E501
-            'vsize': (int,),  # noqa: E501
             'contract': (str,),  # noqa: E501
             'gas_limit': (str,),  # noqa: E501
-            'gas_price': (GetTransactionDetailsByTransactionIDRIBSECGasPrice,),  # noqa: E501
+            'gas_price': (GetTransactionDetailsByTransactionIDRIBSBSCGasPrice,),  # noqa: E501
             'gas_used': (str,),  # noqa: E501
             'input_data': (str,),  # noqa: E501
-            'nonce': (str,),  # noqa: E501
+            'nonce': (int,),  # noqa: E501
             'transaction_status': (str,),  # noqa: E501
         }
 
@@ -134,7 +135,6 @@ class GetTransactionDetailsByTransactionIDRIBS(ModelComposed):
         'version': 'version',  # noqa: E501
         'vin': 'vin',  # noqa: E501
         'vout': 'vout',  # noqa: E501
-        'vsize': 'vsize',  # noqa: E501
         'contract': 'contract',  # noqa: E501
         'gas_limit': 'gasLimit',  # noqa: E501
         'gas_price': 'gasPrice',  # noqa: E501
@@ -189,13 +189,12 @@ class GetTransactionDetailsByTransactionIDRIBS(ModelComposed):
             version (int): Represents transaction version number.. [optional]  # noqa: E501
             vin ([GetTransactionDetailsByTransactionIDRIBSD2Vin]): Represents the transaction inputs.. [optional]  # noqa: E501
             vout ([GetTransactionDetailsByTransactionIDRIBSD2Vout]): Represents the transaction outputs.. [optional]  # noqa: E501
-            vsize (int): Represents the virtual size of this transaction.. [optional]  # noqa: E501
-            contract (str): Represents the specific transaction contract.. [optional]  # noqa: E501
+            contract (str): Represents the specific transaction contract. [optional]  # noqa: E501
             gas_limit (str): Represents the amount of gas used by this specific transaction alone.. [optional]  # noqa: E501
-            gas_price (GetTransactionDetailsByTransactionIDRIBSECGasPrice): [optional]  # noqa: E501
-            gas_used (str): Represents the exact unit of gas that was used for the transaction.. [optional]  # noqa: E501
+            gas_price (GetTransactionDetailsByTransactionIDRIBSBSCGasPrice): [optional]  # noqa: E501
+            gas_used (str): Defines the unit of the gas price amount, e.g. BTC, ETH, XRP.. [optional]  # noqa: E501
             input_data (str): Represents additional information that is required for the transaction.. [optional]  # noqa: E501
-            nonce (str): Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.. [optional]  # noqa: E501
+            nonce (int): Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.. [optional]  # noqa: E501
             transaction_status (str): Represents the status of this transaction.. [optional]  # noqa: E501
         """
 
@@ -302,13 +301,12 @@ class GetTransactionDetailsByTransactionIDRIBS(ModelComposed):
             version (int): Represents transaction version number.. [optional]  # noqa: E501
             vin ([GetTransactionDetailsByTransactionIDRIBSD2Vin]): Represents the transaction inputs.. [optional]  # noqa: E501
             vout ([GetTransactionDetailsByTransactionIDRIBSD2Vout]): Represents the transaction outputs.. [optional]  # noqa: E501
-            vsize (int): Represents the virtual size of this transaction.. [optional]  # noqa: E501
-            contract (str): Represents the specific transaction contract.. [optional]  # noqa: E501
+            contract (str): Represents the specific transaction contract. [optional]  # noqa: E501
             gas_limit (str): Represents the amount of gas used by this specific transaction alone.. [optional]  # noqa: E501
-            gas_price (GetTransactionDetailsByTransactionIDRIBSECGasPrice): [optional]  # noqa: E501
-            gas_used (str): Represents the exact unit of gas that was used for the transaction.. [optional]  # noqa: E501
+            gas_price (GetTransactionDetailsByTransactionIDRIBSBSCGasPrice): [optional]  # noqa: E501
+            gas_used (str): Defines the unit of the gas price amount, e.g. BTC, ETH, XRP.. [optional]  # noqa: E501
             input_data (str): Represents additional information that is required for the transaction.. [optional]  # noqa: E501
-            nonce (str): Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.. [optional]  # noqa: E501
+            nonce (int): Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.. [optional]  # noqa: E501
             transaction_status (str): Represents the status of this transaction.. [optional]  # noqa: E501
         """
 
@@ -366,7 +364,7 @@ class GetTransactionDetailsByTransactionIDRIBS(ModelComposed):
         # we need this here to make our import statements work
         # we must store _composed_schemas in here so the code is only run
         # when we invoke this method. If we kept this at the class
-        # level we would get an error beause the class level
+        # level we would get an error because the class level
         # code would be run when this module is imported, and these composed
         # classes don't exist yet because their module has not finished
         # loading
@@ -379,6 +377,7 @@ class GetTransactionDetailsByTransactionIDRIBS(ModelComposed):
           'oneOf': [
               GetTransactionDetailsByTransactionIDRIBSB,
               GetTransactionDetailsByTransactionIDRIBSBC,
+              GetTransactionDetailsByTransactionIDRIBSBSC,
               GetTransactionDetailsByTransactionIDRIBSD,
               GetTransactionDetailsByTransactionIDRIBSD2,
               GetTransactionDetailsByTransactionIDRIBSE,

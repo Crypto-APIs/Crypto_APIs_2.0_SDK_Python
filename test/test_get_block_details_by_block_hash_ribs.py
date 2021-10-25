@@ -15,18 +15,22 @@ import unittest
 import cryptoapis
 from cryptoapis.model.get_block_details_by_block_hash_ribsb import GetBlockDetailsByBlockHashRIBSB
 from cryptoapis.model.get_block_details_by_block_hash_ribsbc import GetBlockDetailsByBlockHashRIBSBC
+from cryptoapis.model.get_block_details_by_block_hash_ribsbsc import GetBlockDetailsByBlockHashRIBSBSC
 from cryptoapis.model.get_block_details_by_block_hash_ribsd import GetBlockDetailsByBlockHashRIBSD
 from cryptoapis.model.get_block_details_by_block_hash_ribsd2 import GetBlockDetailsByBlockHashRIBSD2
 from cryptoapis.model.get_block_details_by_block_hash_ribse import GetBlockDetailsByBlockHashRIBSE
 from cryptoapis.model.get_block_details_by_block_hash_ribsec import GetBlockDetailsByBlockHashRIBSEC
 from cryptoapis.model.get_block_details_by_block_hash_ribsl import GetBlockDetailsByBlockHashRIBSL
+from cryptoapis.model.get_block_details_by_block_hash_ribsz import GetBlockDetailsByBlockHashRIBSZ
 globals()['GetBlockDetailsByBlockHashRIBSB'] = GetBlockDetailsByBlockHashRIBSB
 globals()['GetBlockDetailsByBlockHashRIBSBC'] = GetBlockDetailsByBlockHashRIBSBC
+globals()['GetBlockDetailsByBlockHashRIBSBSC'] = GetBlockDetailsByBlockHashRIBSBSC
 globals()['GetBlockDetailsByBlockHashRIBSD'] = GetBlockDetailsByBlockHashRIBSD
 globals()['GetBlockDetailsByBlockHashRIBSD2'] = GetBlockDetailsByBlockHashRIBSD2
 globals()['GetBlockDetailsByBlockHashRIBSE'] = GetBlockDetailsByBlockHashRIBSE
 globals()['GetBlockDetailsByBlockHashRIBSEC'] = GetBlockDetailsByBlockHashRIBSEC
 globals()['GetBlockDetailsByBlockHashRIBSL'] = GetBlockDetailsByBlockHashRIBSL
+globals()['GetBlockDetailsByBlockHashRIBSZ'] = GetBlockDetailsByBlockHashRIBSZ
 from cryptoapis.model.get_block_details_by_block_hash_ribs import GetBlockDetailsByBlockHashRIBS
 
 

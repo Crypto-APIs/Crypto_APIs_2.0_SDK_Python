@@ -107,8 +107,8 @@ class GetWalletAssetDetailsRISentConfirmedAmount(ModelNormal):
         """GetWalletAssetDetailsRISentConfirmedAmount - a model defined in OpenAPI
 
         Args:
-            amount (str):
-            unit (str):
+            amount (str): Specifies the confirmed amount that has been sent.
+            unit (str): Specifies the unit of the confirmed amount that has been sent.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,8 +194,8 @@ class GetWalletAssetDetailsRISentConfirmedAmount(ModelNormal):
         """GetWalletAssetDetailsRISentConfirmedAmount - a model defined in OpenAPI
 
         Args:
-            amount (str):
-            unit (str):
+            amount (str): Specifies the confirmed amount that has been sent.
+            unit (str): Specifies the unit of the confirmed amount that has been sent.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

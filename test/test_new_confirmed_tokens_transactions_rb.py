@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.new_unconfirmed_tokens_transactions_rb_data import NewUnconfirmedTokensTransactionsRBData
-globals()['NewUnconfirmedTokensTransactionsRBData'] = NewUnconfirmedTokensTransactionsRBData
+from cryptoapis.model.new_confirmed_tokens_transactions_rb_data import NewConfirmedTokensTransactionsRBData
+globals()['NewConfirmedTokensTransactionsRBData'] = NewConfirmedTokensTransactionsRBData
 from cryptoapis.model.new_confirmed_tokens_transactions_rb import NewConfirmedTokensTransactionsRB
 
 

@@ -110,9 +110,11 @@ class CreateCoinsTransactionRequestFromAddressRI(ModelNormal):
             'fee_priority': (str,),  # noqa: E501
             'recipients': ([CreateCoinsTransactionRequestFromAddressRIRecipients],),  # noqa: E501
             'senders': (CreateCoinsTransactionRequestFromAddressRISenders,),  # noqa: E501
+            'transaction_request_id': (str,),  # noqa: E501
             'transaction_request_status': (str,),  # noqa: E501
             'callback_secret_key': (str,),  # noqa: E501
             'callback_url': (str,),  # noqa: E501
+            'note': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -124,9 +126,11 @@ class CreateCoinsTransactionRequestFromAddressRI(ModelNormal):
         'fee_priority': 'feePriority',  # noqa: E501
         'recipients': 'recipients',  # noqa: E501
         'senders': 'senders',  # noqa: E501
+        'transaction_request_id': 'transactionRequestId',  # noqa: E501
         'transaction_request_status': 'transactionRequestStatus',  # noqa: E501
         'callback_secret_key': 'callbackSecretKey',  # noqa: E501
         'callback_url': 'callbackUrl',  # noqa: E501
+        'note': 'note',  # noqa: E501
     }
 
     read_only_vars = {
@@ -136,13 +140,14 @@ class CreateCoinsTransactionRequestFromAddressRI(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, fee_priority, recipients, senders, transaction_request_status, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, fee_priority, recipients, senders, transaction_request_id, transaction_request_status, *args, **kwargs):  # noqa: E501
         """CreateCoinsTransactionRequestFromAddressRI - a model defined in OpenAPI
 
         Args:
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
             recipients ([CreateCoinsTransactionRequestFromAddressRIRecipients]): Defines the destination for the transaction, i.e. the recipient(s).
             senders (CreateCoinsTransactionRequestFromAddressRISenders):
+            transaction_request_id (str): Represents a unique identifier of the transaction request (the request sent to make a transaction), which helps in identifying which callback and which `referenceId` concern that specific transaction request.
             transaction_request_status (str): Defines the status of the transaction request, e.g. \"created, \"await_approval\", \"pending\", \"prepared\", \"signed\", \"broadcasted\", \"success\", \"failed\", \"rejected\", mined\".
 
         Keyword Args:
@@ -176,8 +181,9 @@ class CreateCoinsTransactionRequestFromAddressRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.. [optional]  # noqa: E501
-            callback_url (str): Verified URL for sending callbacks. [optional]  # noqa: E501
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).. [optional]  # noqa: E501
+            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.. [optional]  # noqa: E501
+            note (str): Represents an optional note to add a free text in, explaining or providing additional detail on the transaction request.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -208,6 +214,7 @@ class CreateCoinsTransactionRequestFromAddressRI(ModelNormal):
         self.fee_priority = fee_priority
         self.recipients = recipients
         self.senders = senders
+        self.transaction_request_id = transaction_request_id
         self.transaction_request_status = transaction_request_status
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -229,13 +236,14 @@ class CreateCoinsTransactionRequestFromAddressRI(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, fee_priority, recipients, senders, transaction_request_status, *args, **kwargs):  # noqa: E501
+    def __init__(self, fee_priority, recipients, senders, transaction_request_id, transaction_request_status, *args, **kwargs):  # noqa: E501
         """CreateCoinsTransactionRequestFromAddressRI - a model defined in OpenAPI
 
         Args:
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
             recipients ([CreateCoinsTransactionRequestFromAddressRIRecipients]): Defines the destination for the transaction, i.e. the recipient(s).
             senders (CreateCoinsTransactionRequestFromAddressRISenders):
+            transaction_request_id (str): Represents a unique identifier of the transaction request (the request sent to make a transaction), which helps in identifying which callback and which `referenceId` concern that specific transaction request.
             transaction_request_status (str): Defines the status of the transaction request, e.g. \"created, \"await_approval\", \"pending\", \"prepared\", \"signed\", \"broadcasted\", \"success\", \"failed\", \"rejected\", mined\".
 
         Keyword Args:
@@ -269,8 +277,9 @@ class CreateCoinsTransactionRequestFromAddressRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.. [optional]  # noqa: E501
-            callback_url (str): Verified URL for sending callbacks. [optional]  # noqa: E501
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).. [optional]  # noqa: E501
+            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.. [optional]  # noqa: E501
+            note (str): Represents an optional note to add a free text in, explaining or providing additional detail on the transaction request.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -299,6 +308,7 @@ class CreateCoinsTransactionRequestFromAddressRI(ModelNormal):
         self.fee_priority = fee_priority
         self.recipients = recipients
         self.senders = senders
+        self.transaction_request_id = transaction_request_id
         self.transaction_request_status = transaction_request_status
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

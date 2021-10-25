@@ -83,7 +83,7 @@ class GetBlockDetailsByBlockHeightRIBSD(ModelNormal):
         """
         return {
             'difficulty': (str,),  # noqa: E501
-            'nonce': (int,),  # noqa: E501
+            'nonce': (str,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'bits': (str,),  # noqa: E501
             'chainwork': (str,),  # noqa: E501
@@ -122,14 +122,14 @@ class GetBlockDetailsByBlockHeightRIBSD(ModelNormal):
 
         Args:
             difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.
-            nonce (int): Represents a random value that can be adjusted to satisfy the Proof of Work
+            nonce (str): Represents a random value that can be adjusted to satisfy the Proof of Work.
             size (int): Represents the total size of the block in Bytes.
             bits (str): Represents a specific sub-unit of Doge. Bits have two-decimal precision.
             chainwork (str): Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
             merkle_root (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
             stripped_size (int): Defines the numeric representation of the block size excluding the witness data.
             version (int): Represents the version of the specific block on the blockchain.
-            weight (int): Represents a measurement to compare the size of different transactions to each other in proportion to the block size limit.
+            weight (int): Represents a measurement to compare the size of different transactions to each other in proportion to the block size limi
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -223,14 +223,14 @@ class GetBlockDetailsByBlockHeightRIBSD(ModelNormal):
 
         Args:
             difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.
-            nonce (int): Represents a random value that can be adjusted to satisfy the Proof of Work
+            nonce (str): Represents a random value that can be adjusted to satisfy the Proof of Work.
             size (int): Represents the total size of the block in Bytes.
             bits (str): Represents a specific sub-unit of Doge. Bits have two-decimal precision.
             chainwork (str): Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
             merkle_root (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
             stripped_size (int): Defines the numeric representation of the block size excluding the witness data.
             version (int): Represents the version of the specific block on the blockchain.
-            weight (int): Represents a measurement to compare the size of different transactions to each other in proportion to the block size limit.
+            weight (int): Represents a measurement to compare the size of different transactions to each other in proportion to the block size limi
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

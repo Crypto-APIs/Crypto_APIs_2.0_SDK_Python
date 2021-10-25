@@ -33,18 +33,22 @@ from cryptoapis.exceptions import ApiAttributeError
 def lazy_import():
     from cryptoapis.model.get_block_details_by_block_hash_ribsb import GetBlockDetailsByBlockHashRIBSB
     from cryptoapis.model.get_block_details_by_block_hash_ribsbc import GetBlockDetailsByBlockHashRIBSBC
+    from cryptoapis.model.get_block_details_by_block_hash_ribsbsc import GetBlockDetailsByBlockHashRIBSBSC
     from cryptoapis.model.get_block_details_by_block_hash_ribsd import GetBlockDetailsByBlockHashRIBSD
     from cryptoapis.model.get_block_details_by_block_hash_ribsd2 import GetBlockDetailsByBlockHashRIBSD2
     from cryptoapis.model.get_block_details_by_block_hash_ribse import GetBlockDetailsByBlockHashRIBSE
     from cryptoapis.model.get_block_details_by_block_hash_ribsec import GetBlockDetailsByBlockHashRIBSEC
     from cryptoapis.model.get_block_details_by_block_hash_ribsl import GetBlockDetailsByBlockHashRIBSL
+    from cryptoapis.model.get_block_details_by_block_hash_ribsz import GetBlockDetailsByBlockHashRIBSZ
     globals()['GetBlockDetailsByBlockHashRIBSB'] = GetBlockDetailsByBlockHashRIBSB
     globals()['GetBlockDetailsByBlockHashRIBSBC'] = GetBlockDetailsByBlockHashRIBSBC
+    globals()['GetBlockDetailsByBlockHashRIBSBSC'] = GetBlockDetailsByBlockHashRIBSBSC
     globals()['GetBlockDetailsByBlockHashRIBSD'] = GetBlockDetailsByBlockHashRIBSD
     globals()['GetBlockDetailsByBlockHashRIBSD2'] = GetBlockDetailsByBlockHashRIBSD2
     globals()['GetBlockDetailsByBlockHashRIBSE'] = GetBlockDetailsByBlockHashRIBSE
     globals()['GetBlockDetailsByBlockHashRIBSEC'] = GetBlockDetailsByBlockHashRIBSEC
     globals()['GetBlockDetailsByBlockHashRIBSL'] = GetBlockDetailsByBlockHashRIBSL
+    globals()['GetBlockDetailsByBlockHashRIBSZ'] = GetBlockDetailsByBlockHashRIBSZ
 
 
 class GetBlockDetailsByBlockHashRIBS(ModelComposed):
@@ -101,7 +105,7 @@ class GetBlockDetailsByBlockHashRIBS(ModelComposed):
         lazy_import()
         return {
             'difficulty': (str,),  # noqa: E501
-            'nonce': (int,),  # noqa: E501
+            'nonce': (str,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'bits': (str,),  # noqa: E501
             'chainwork': (str,),  # noqa: E501
@@ -186,20 +190,20 @@ class GetBlockDetailsByBlockHashRIBS(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.. [optional]  # noqa: E501
-            nonce (int): Represents a random value that can be adjusted to satisfy the Proof of Work.. [optional]  # noqa: E501
+            nonce (str): Represents a random value that can be adjusted to satisfy the Proof of Work.. [optional]  # noqa: E501
             size (int): Represents the total size of the block in Bytes.. [optional]  # noqa: E501
-            bits (str): Represents a specific sub-unit of Dash. Bits have two-decimal precision.. [optional]  # noqa: E501
+            bits (str): Represents a specific sub-unit of Zcash. Bits have two-decimal precision. [optional]  # noqa: E501
             chainwork (str): Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.. [optional]  # noqa: E501
             merkle_root (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.. [optional]  # noqa: E501
             stripped_size (int): Defines the numeric representation of the block size excluding the witness data.. [optional]  # noqa: E501
-            version (int): Represents the version of the specific block on the blockchain.. [optional]  # noqa: E501
+            version (int): Represents the block version number.. [optional]  # noqa: E501
             version_hex (str): Is the hexadecimal string representation of the block's version.. [optional]  # noqa: E501
             weight (int): Represents a measurement to compare the size of different transactions to each other in proportion to the block size limit.. [optional]  # noqa: E501
             extra_data (str): Represents any data that can be included by the miner in the block.. [optional]  # noqa: E501
             gas_limit (str): Defines the total gas limit of all transactions in the block.. [optional]  # noqa: E501
             gas_used (str): Represents the total amount of gas used by all transactions in this block.. [optional]  # noqa: E501
             mined_in_seconds (int): Specifies the amount of time required for the block to be mined in seconds.. [optional]  # noqa: E501
-            sha3_uncles (str): Defines the combined hash of all uncles for a given parent.. [optional]  # noqa: E501
+            sha3_uncles (str): Defines the combined hash of all uncles for a given paren. [optional]  # noqa: E501
             total_difficulty (str): Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block.. [optional]  # noqa: E501
             uncles ([str]): [optional]  # noqa: E501
             merkleroot (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.. [optional]  # noqa: E501
@@ -303,20 +307,20 @@ class GetBlockDetailsByBlockHashRIBS(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.. [optional]  # noqa: E501
-            nonce (int): Represents a random value that can be adjusted to satisfy the Proof of Work.. [optional]  # noqa: E501
+            nonce (str): Represents a random value that can be adjusted to satisfy the Proof of Work.. [optional]  # noqa: E501
             size (int): Represents the total size of the block in Bytes.. [optional]  # noqa: E501
-            bits (str): Represents a specific sub-unit of Dash. Bits have two-decimal precision.. [optional]  # noqa: E501
+            bits (str): Represents a specific sub-unit of Zcash. Bits have two-decimal precision. [optional]  # noqa: E501
             chainwork (str): Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.. [optional]  # noqa: E501
             merkle_root (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.. [optional]  # noqa: E501
             stripped_size (int): Defines the numeric representation of the block size excluding the witness data.. [optional]  # noqa: E501
-            version (int): Represents the version of the specific block on the blockchain.. [optional]  # noqa: E501
+            version (int): Represents the block version number.. [optional]  # noqa: E501
             version_hex (str): Is the hexadecimal string representation of the block's version.. [optional]  # noqa: E501
             weight (int): Represents a measurement to compare the size of different transactions to each other in proportion to the block size limit.. [optional]  # noqa: E501
             extra_data (str): Represents any data that can be included by the miner in the block.. [optional]  # noqa: E501
             gas_limit (str): Defines the total gas limit of all transactions in the block.. [optional]  # noqa: E501
             gas_used (str): Represents the total amount of gas used by all transactions in this block.. [optional]  # noqa: E501
             mined_in_seconds (int): Specifies the amount of time required for the block to be mined in seconds.. [optional]  # noqa: E501
-            sha3_uncles (str): Defines the combined hash of all uncles for a given parent.. [optional]  # noqa: E501
+            sha3_uncles (str): Defines the combined hash of all uncles for a given paren. [optional]  # noqa: E501
             total_difficulty (str): Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block.. [optional]  # noqa: E501
             uncles ([str]): [optional]  # noqa: E501
             merkleroot (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.. [optional]  # noqa: E501
@@ -376,7 +380,7 @@ class GetBlockDetailsByBlockHashRIBS(ModelComposed):
         # we need this here to make our import statements work
         # we must store _composed_schemas in here so the code is only run
         # when we invoke this method. If we kept this at the class
-        # level we would get an error beause the class level
+        # level we would get an error because the class level
         # code would be run when this module is imported, and these composed
         # classes don't exist yet because their module has not finished
         # loading
@@ -389,10 +393,12 @@ class GetBlockDetailsByBlockHashRIBS(ModelComposed):
           'oneOf': [
               GetBlockDetailsByBlockHashRIBSB,
               GetBlockDetailsByBlockHashRIBSBC,
+              GetBlockDetailsByBlockHashRIBSBSC,
               GetBlockDetailsByBlockHashRIBSD,
               GetBlockDetailsByBlockHashRIBSD2,
               GetBlockDetailsByBlockHashRIBSE,
               GetBlockDetailsByBlockHashRIBSEC,
               GetBlockDetailsByBlockHashRIBSL,
+              GetBlockDetailsByBlockHashRIBSZ,
           ],
         }

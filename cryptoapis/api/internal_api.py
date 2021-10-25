@@ -31,6 +31,7 @@ from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.list_internal_transaction_details_by_transaction_hash_r import ListInternalTransactionDetailsByTransactionHashR
+from cryptoapis.model.list_internal_transactions_by_address_r import ListInternalTransactionsByAddressR
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
@@ -47,87 +48,7 @@ class InternalApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __get_internal_transaction_by_transaction_hash_and_operation_id(
-            self,
-            operation_id,
-            transaction_hash,
-            blockchain="ethereum",
-            network="ropsten",
-            **kwargs
-        ):
-            """Get Internal Transaction by Transaction Hash and Operation Id  # noqa: E501
-
-            Through this endpoint customers can obtain detailed information about a specific Internal Transaction by using the attributes `transactionHash`  (the parent transaction's Hash) and `operationId` (type trace address).    An internal transaction is the result of a smart contract being triggered by an EOA or a subsequent contract call.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_internal_transaction_by_transaction_hash_and_operation_id(operation_id, transaction_hash, blockchain="ethereum", network="ropsten", async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                operation_id (str): Represents the unique internal transaction ID in regards to the parent transaction (type trace address).
-                transaction_hash (str): String identifier of the parent transaction of the internal transaction represented in CryptoAPIs.
-                blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.. defaults to "ethereum", must be one of ["ethereum"]
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.. defaults to "ropsten", must be one of ["ropsten"]
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                GetInternalTransactionByTransactionHashAndOperationIdR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['blockchain'] = \
-                blockchain
-            kwargs['network'] = \
-                network
-            kwargs['operation_id'] = \
-                operation_id
-            kwargs['transaction_hash'] = \
-                transaction_hash
-            return self.call_with_http_info(**kwargs)
-
-        self.get_internal_transaction_by_transaction_hash_and_operation_id = _Endpoint(
+        self.get_internal_transaction_by_transaction_hash_and_operation_id_endpoint = _Endpoint(
             settings={
                 'response_type': (GetInternalTransactionByTransactionHashAndOperationIdR,),
                 'auth': [
@@ -167,11 +88,15 @@ class InternalApi(object):
                 'allowed_values': {
                     ('blockchain',): {
 
-                        "ETHEREUM": "ethereum"
+                        "ETHEREUM": "ethereum",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain",
+                        "ETHEREUM-CLASSIC": "ethereum-classic"
                     },
                     ('network',): {
 
-                        "MAINNET": "mainnet"
+                        "MAINNET": "mainnet",
+                        "TESTNET": "testnet",
+                        "MORDOR": "mordor"
                     },
                 },
                 'openapi_types': {
@@ -209,88 +134,9 @@ class InternalApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_internal_transaction_by_transaction_hash_and_operation_id
+            api_client=api_client
         )
-
-        def __list_internal_transaction_details_by_transaction_hash(
-            self,
-            transaction_hash,
-            blockchain="ethereum",
-            network="mainnet",
-            **kwargs
-        ):
-            """List Internal Transaction Details by Transaction Hash  # noqa: E501
-
-            Through this endpoint customers can list internal transactions along with their details by a specific attribute `transactionHash`, which is the parent transaction's Hash.    An internal transaction is the result of a smart contract being triggered by an EOA or a subsequent contract call.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.list_internal_transaction_details_by_transaction_hash(transaction_hash, blockchain="ethereum", network="mainnet", async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                transaction_hash (str): String identifier of the parent transaction of the internal transaction represented in CryptoAPIs.
-                blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.. defaults to "ethereum", must be one of ["ethereum"]
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
-                offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                ListInternalTransactionDetailsByTransactionHashR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['blockchain'] = \
-                blockchain
-            kwargs['network'] = \
-                network
-            kwargs['transaction_hash'] = \
-                transaction_hash
-            return self.call_with_http_info(**kwargs)
-
-        self.list_internal_transaction_details_by_transaction_hash = _Endpoint(
+        self.list_internal_transaction_details_by_transaction_hash_endpoint = _Endpoint(
             settings={
                 'response_type': (ListInternalTransactionDetailsByTransactionHashR,),
                 'auth': [
@@ -330,11 +176,15 @@ class InternalApi(object):
                 'allowed_values': {
                     ('blockchain',): {
 
-                        "ETHEREUM": "ethereum"
+                        "ETHEREUM": "ethereum",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain",
+                        "ETHEREUM-CLASSIC": "ethereum-classic"
                     },
                     ('network',): {
 
-                        "MAINNET": "mainnet"
+                        "MAINNET": "mainnet",
+                        "TESTNET": "testnet",
+                        "MORDOR": "mordor"
                     },
                 },
                 'openapi_types': {
@@ -376,6 +226,331 @@ class InternalApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__list_internal_transaction_details_by_transaction_hash
+            api_client=api_client
         )
+        self.list_internal_transactions_by_address_endpoint = _Endpoint(
+            settings={
+                'response_type': (ListInternalTransactionsByAddressR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/blockchain-data/{blockchain}/{network}/addresses/{address}/internal',
+                'operation_id': 'list_internal_transactions_by_address',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'blockchain',
+                    'network',
+                    'address',
+                    'context',
+                    'limit',
+                    'offset',
+                ],
+                'required': [
+                    'blockchain',
+                    'network',
+                    'address',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'blockchain',
+                    'network',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('blockchain',): {
+
+                        "ETHEREUM": "ethereum",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain"
+                    },
+                    ('network',): {
+
+                        "MAINNET": "mainnet",
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor",
+                        "TESTNET": "testnet"
+                    },
+                },
+                'openapi_types': {
+                    'blockchain':
+                        (str,),
+                    'network':
+                        (str,),
+                    'address':
+                        (str,),
+                    'context':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'blockchain': 'blockchain',
+                    'network': 'network',
+                    'address': 'address',
+                    'context': 'context',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'blockchain': 'path',
+                    'network': 'path',
+                    'address': 'path',
+                    'context': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+    def get_internal_transaction_by_transaction_hash_and_operation_id(
+        self,
+        blockchain,
+        network,
+        operation_id,
+        transaction_hash,
+        **kwargs
+    ):
+        """Get Internal Transaction by Transaction Hash and Operation Id  # noqa: E501
+
+        Through this endpoint customers can obtain detailed information about a specific Internal Transaction by using the attributes `transactionHash`  (the parent transaction's Hash) and `operationId` (type trace address).    An internal transaction is the result of a smart contract being triggered by an EOA or a subsequent contract call.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_internal_transaction_by_transaction_hash_and_operation_id(blockchain, network, operation_id, transaction_hash, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+            operation_id (str): Represents the unique internal transaction ID in regards to the parent transaction (type trace address).
+            transaction_hash (str): String identifier of the parent transaction of the internal transaction represented in CryptoAPIs.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GetInternalTransactionByTransactionHashAndOperationIdR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        kwargs['operation_id'] = \
+            operation_id
+        kwargs['transaction_hash'] = \
+            transaction_hash
+        return self.get_internal_transaction_by_transaction_hash_and_operation_id_endpoint.call_with_http_info(**kwargs)
+
+    def list_internal_transaction_details_by_transaction_hash(
+        self,
+        blockchain,
+        network,
+        transaction_hash,
+        **kwargs
+    ):
+        """List Internal Transaction Details by Transaction Hash  # noqa: E501
+
+        Through this endpoint customers can list internal transactions along with their details by a specific attribute `transactionHash`, which is the parent transaction's Hash.    An internal transaction is the result of a smart contract being triggered by an EOA or a subsequent contract call.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_internal_transaction_details_by_transaction_hash(blockchain, network, transaction_hash, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+            transaction_hash (str): String identifier of the parent transaction of the internal transaction represented in CryptoAPIs.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
+            offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ListInternalTransactionDetailsByTransactionHashR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        kwargs['transaction_hash'] = \
+            transaction_hash
+        return self.list_internal_transaction_details_by_transaction_hash_endpoint.call_with_http_info(**kwargs)
+
+    def list_internal_transactions_by_address(
+        self,
+        blockchain,
+        network,
+        address,
+        **kwargs
+    ):
+        """List Internal Transactions By Address  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_internal_transactions_by_address(blockchain, network, address, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+            address (str): String identifier of the address document represented in CryptoAPIs
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
+            offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ListInternalTransactionsByAddressR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        kwargs['address'] = \
+            address
+        return self.list_internal_transactions_by_address_endpoint.call_with_http_info(**kwargs)
+

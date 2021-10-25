@@ -63,9 +63,10 @@ class AddressTokensTransactionConfirmedDataItem(ModelNormal):
 
     allowed_values = {
         ('token_type',): {
-            'ETHEREUMERC20TOKEN': "ethereumERC20Token",
-            'ETHEREUMERC721TOKEN': "ethereumERC721Token",
-            'OMNILAYERTOKEN': "omniLayerToken",
+            'ERC-20': "ERC-20",
+            'ERC-721': "ERC-721",
+            'OMNI': "OMNI",
+            'BEP-20': "BEP-20",
         },
         ('direction',): {
             'INCOMING': "incoming",
@@ -137,7 +138,7 @@ class AddressTokensTransactionConfirmedDataItem(ModelNormal):
 
         Args:
             blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\",  are test networks.
             address (str): Defines the specific address to which the transaction has been sent.
             mined_in_block (AddressTokensTransactionConfirmedDataItemMinedInBlock):
             transaction_id (str): Defines the unique ID of the specific transaction, i.e. its identification number.
@@ -236,7 +237,7 @@ class AddressTokensTransactionConfirmedDataItem(ModelNormal):
 
         Args:
             blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\",  are test networks.
             address (str): Defines the specific address to which the transaction has been sent.
             mined_in_block (AddressTokensTransactionConfirmedDataItemMinedInBlock):
             transaction_id (str): Defines the unique ID of the specific transaction, i.e. its identification number.

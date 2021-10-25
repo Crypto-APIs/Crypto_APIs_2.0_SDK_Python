@@ -47,84 +47,7 @@ class GeneratingApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __generate_deposit_address(
-            self,
-            blockchain,
-            network,
-            wallet_id,
-            **kwargs
-        ):
-            """Generate Deposit Address  # noqa: E501
-
-            Through this endpoint customers can generate a new Receiving/Deposit Addresses into their Wallet.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.generate_deposit_address(blockchain, network, wallet_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
-                wallet_id (str): Represents the unique ID of the specific Wallet.
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                generate_deposit_address_rb (GenerateDepositAddressRB): [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                GenerateDepositAddressR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['blockchain'] = \
-                blockchain
-            kwargs['network'] = \
-                network
-            kwargs['wallet_id'] = \
-                wallet_id
-            return self.call_with_http_info(**kwargs)
-
-        self.generate_deposit_address = _Endpoint(
+        self.generate_deposit_address_endpoint = _Endpoint(
             settings={
                 'response_type': (GenerateDepositAddressR,),
                 'auth': [
@@ -168,12 +91,14 @@ class GeneratingApi(object):
                         "LITECOIN": "litecoin",
                         "DOGECOIN": "dogecoin",
                         "DASH": "dash",
-                        "ETHEREUM": "ethereum"
+                        "ETHEREUM": "ethereum",
+                        "ZCASH": "zcash"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
-                        "TESTNET": "testnet"
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten"
                     },
                 },
                 'openapi_types': {
@@ -212,6 +137,82 @@ class GeneratingApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__generate_deposit_address
+            api_client=api_client
         )
+
+    def generate_deposit_address(
+        self,
+        blockchain,
+        network,
+        wallet_id,
+        **kwargs
+    ):
+        """Generate Deposit Address  # noqa: E501
+
+        Through this endpoint customers can generate a new Receiving/Deposit Addresses into their Wallet.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.generate_deposit_address(blockchain, network, wallet_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+            wallet_id (str): Represents the unique ID of the specific Wallet.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            generate_deposit_address_rb (GenerateDepositAddressRB): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GenerateDepositAddressR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        kwargs['wallet_id'] = \
+            wallet_id
+        return self.generate_deposit_address_endpoint.call_with_http_info(**kwargs)
+

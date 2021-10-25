@@ -22,6 +22,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from cryptoapis.model.create_coins_transaction_from_address_for_whole_amount_r import CreateCoinsTransactionFromAddressForWholeAmountR
+from cryptoapis.model.create_coins_transaction_from_address_for_whole_amount_rb import CreateCoinsTransactionFromAddressForWholeAmountRB
 from cryptoapis.model.create_coins_transaction_request_from_address_r import CreateCoinsTransactionRequestFromAddressR
 from cryptoapis.model.create_coins_transaction_request_from_address_rb import CreateCoinsTransactionRequestFromAddressRB
 from cryptoapis.model.create_coins_transaction_request_from_wallet_r import CreateCoinsTransactionRequestFromWalletR
@@ -36,9 +38,9 @@ from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodySt
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.wallet_as_a_service_address_balance_not_enough import WalletAsAServiceAddressBalanceNotEnough
 from cryptoapis.model.wallet_as_a_service_no_deposit_addresses_found import WalletAsAServiceNoDepositAddressesFound
 from cryptoapis.model.wallet_as_a_service_token_not_supported import WalletAsAServiceTokenNotSupported
-from cryptoapis.model.wallet_as_a_service_wallet_balance_not_enough import WalletAsAServiceWalletBalanceNotEnough
 
 
 class TransactionsApi(object):
@@ -52,88 +54,98 @@ class TransactionsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.create_coins_transaction_from_address_for_whole_amount_endpoint = _Endpoint(
+            settings={
+                'response_type': (CreateCoinsTransactionFromAddressForWholeAmountR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/all-transaction-requests',
+                'operation_id': 'create_coins_transaction_from_address_for_whole_amount',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'address',
+                    'blockchain',
+                    'network',
+                    'wallet_id',
+                    'context',
+                    'create_coins_transaction_from_address_for_whole_amount_rb',
+                ],
+                'required': [
+                    'address',
+                    'blockchain',
+                    'network',
+                    'wallet_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'blockchain',
+                    'network',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('blockchain',): {
 
-        def __create_coins_transaction_request_from_address(
-            self,
-            address,
-            wallet_id,
-            blockchain="ethereum",
-            network="mainnet",
-            **kwargs
-        ):
-            """Create Coins Transaction Request from Address  # noqa: E501
+                        "ETHEREUM": "ethereum"
+                    },
+                    ('network',): {
 
-            Through this endpoint users can create a new single transaction request from one address to another.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.create_coins_transaction_request_from_address(address, wallet_id, blockchain="ethereum", network="mainnet", async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                address (str): Defines the specific source address for the transaction.
-                wallet_id (str): Represents the sender's specific and unique Wallet ID of the sender.
-                blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.. defaults to "ethereum", must be one of ["ethereum"]
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                create_coins_transaction_request_from_address_rb (CreateCoinsTransactionRequestFromAddressRB): [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                CreateCoinsTransactionRequestFromAddressR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['address'] = \
-                address
-            kwargs['blockchain'] = \
-                blockchain
-            kwargs['network'] = \
-                network
-            kwargs['wallet_id'] = \
-                wallet_id
-            return self.call_with_http_info(**kwargs)
-
-        self.create_coins_transaction_request_from_address = _Endpoint(
+                        "MAINNET": "mainnet",
+                        "ROPSTEN": "ropsten"
+                    },
+                },
+                'openapi_types': {
+                    'address':
+                        (str,),
+                    'blockchain':
+                        (str,),
+                    'network':
+                        (str,),
+                    'wallet_id':
+                        (str,),
+                    'context':
+                        (str,),
+                    'create_coins_transaction_from_address_for_whole_amount_rb':
+                        (CreateCoinsTransactionFromAddressForWholeAmountRB,),
+                },
+                'attribute_map': {
+                    'address': 'address',
+                    'blockchain': 'blockchain',
+                    'network': 'network',
+                    'wallet_id': 'walletId',
+                    'context': 'context',
+                },
+                'location_map': {
+                    'address': 'path',
+                    'blockchain': 'path',
+                    'network': 'path',
+                    'wallet_id': 'path',
+                    'context': 'query',
+                    'create_coins_transaction_from_address_for_whole_amount_rb': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.create_coins_transaction_request_from_address_endpoint = _Endpoint(
             settings={
                 'response_type': (CreateCoinsTransactionRequestFromAddressR,),
                 'auth': [
@@ -178,7 +190,8 @@ class TransactionsApi(object):
                     },
                     ('network',): {
 
-                        "MAINNET": "mainnet"
+                        "MAINNET": "mainnet",
+                        "ROPSTEN": "ropsten"
                     },
                 },
                 'openapi_types': {
@@ -221,87 +234,9 @@ class TransactionsApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__create_coins_transaction_request_from_address
+            api_client=api_client
         )
-
-        def __create_coins_transaction_request_from_wallet(
-            self,
-            blockchain,
-            network,
-            wallet_id,
-            **kwargs
-        ):
-            """Create Coins Transaction Request from Wallet  # noqa: E501
-
-            Through this endpoint users can create a new transaction request from the entire Wallet instead from just a specific address. This endpoint can generate transactions from multiple to multiple addresses.    {warning}This is available **only** for UTXO-based protocols such as Bitcoin, Bitcoin Cash, Litecoin, etc. It **is not** available for Account-based protocols like Ethereum.{/warning}  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.create_coins_transaction_request_from_wallet(blockchain, network, wallet_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
-                wallet_id (str): Represents the sender's specific and unique Wallet ID of the sender.
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                create_coins_transaction_request_from_wallet_rb (CreateCoinsTransactionRequestFromWalletRB): [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                CreateCoinsTransactionRequestFromWalletR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['blockchain'] = \
-                blockchain
-            kwargs['network'] = \
-                network
-            kwargs['wallet_id'] = \
-                wallet_id
-            return self.call_with_http_info(**kwargs)
-
-        self.create_coins_transaction_request_from_wallet = _Endpoint(
+        self.create_coins_transaction_request_from_wallet_endpoint = _Endpoint(
             settings={
                 'response_type': (CreateCoinsTransactionRequestFromWalletR,),
                 'auth': [
@@ -344,7 +279,8 @@ class TransactionsApi(object):
                         "BITCOIN-CASH": "bitcoin-cash",
                         "LITECOIN": "litecoin",
                         "DOGECOIN": "dogecoin",
-                        "DASH": "dash"
+                        "DASH": "dash",
+                        "ZCASH": "zcash"
                     },
                     ('network',): {
 
@@ -388,91 +324,9 @@ class TransactionsApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__create_coins_transaction_request_from_wallet
+            api_client=api_client
         )
-
-        def __create_tokens_transaction_request_from_address(
-            self,
-            sender_address,
-            wallet_id,
-            blockchain="ethereum",
-            network="mainnet",
-            **kwargs
-        ):
-            """Create Tokens Transaction Request from Address  # noqa: E501
-
-            Through this endpoint users can make a single token transaction.    {warning}This applies only to **fungible** tokens, **not** NFTs (non-fungible tokens).{/warning}    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.create_tokens_transaction_request_from_address(sender_address, wallet_id, blockchain="ethereum", network="mainnet", async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                sender_address (str): Defines the specific source address for the transaction.
-                wallet_id (str): Defines the unique ID of the Wallet.
-                blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.. defaults to "ethereum", must be one of ["ethereum"]
-                network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                create_tokens_transaction_request_from_address_rb (CreateTokensTransactionRequestFromAddressRB): [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                CreateTokensTransactionRequestFromAddressR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['blockchain'] = \
-                blockchain
-            kwargs['network'] = \
-                network
-            kwargs['sender_address'] = \
-                sender_address
-            kwargs['wallet_id'] = \
-                wallet_id
-            return self.call_with_http_info(**kwargs)
-
-        self.create_tokens_transaction_request_from_address = _Endpoint(
+        self.create_tokens_transaction_request_from_address_endpoint = _Endpoint(
             settings={
                 'response_type': (CreateTokensTransactionRequestFromAddressR,),
                 'auth': [
@@ -517,7 +371,8 @@ class TransactionsApi(object):
                     },
                     ('network',): {
 
-                        "MAINNET": "mainnet"
+                        "MAINNET": "mainnet",
+                        "ROPSTEN": "ropsten"
                     },
                 },
                 'openapi_types': {
@@ -560,6 +415,322 @@ class TransactionsApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__create_tokens_transaction_request_from_address
+            api_client=api_client
         )
+
+    def create_coins_transaction_from_address_for_whole_amount(
+        self,
+        address,
+        network,
+        wallet_id,
+        blockchain="ethereum",
+        **kwargs
+    ):
+        """Create Coins Transaction From Address For Whole Amount  # noqa: E501
+
+        Through this endpoint customers can create a new transaction from address for **coins** specifically, which will transfer over the entire available amount.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_coins_transaction_from_address_for_whole_amount(address, network, wallet_id, blockchain="ethereum", async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            address (str): Defines the source address.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+            wallet_id (str): Represents the sender's specific and unique Wallet ID of the sender.
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.. defaults to "ethereum", must be one of ["ethereum"]
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            create_coins_transaction_from_address_for_whole_amount_rb (CreateCoinsTransactionFromAddressForWholeAmountRB): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CreateCoinsTransactionFromAddressForWholeAmountR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['address'] = \
+            address
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        kwargs['wallet_id'] = \
+            wallet_id
+        return self.create_coins_transaction_from_address_for_whole_amount_endpoint.call_with_http_info(**kwargs)
+
+    def create_coins_transaction_request_from_address(
+        self,
+        address,
+        network,
+        wallet_id,
+        blockchain="ethereum",
+        **kwargs
+    ):
+        """Create Coins Transaction Request from Address  # noqa: E501
+
+        Through this endpoint users can create a new single transaction request from one address to another.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_coins_transaction_request_from_address(address, network, wallet_id, blockchain="ethereum", async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            address (str): Defines the specific source address for the transaction.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+            wallet_id (str): Represents the sender's specific and unique Wallet ID of the sender.
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.. defaults to "ethereum", must be one of ["ethereum"]
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            create_coins_transaction_request_from_address_rb (CreateCoinsTransactionRequestFromAddressRB): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CreateCoinsTransactionRequestFromAddressR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['address'] = \
+            address
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        kwargs['wallet_id'] = \
+            wallet_id
+        return self.create_coins_transaction_request_from_address_endpoint.call_with_http_info(**kwargs)
+
+    def create_coins_transaction_request_from_wallet(
+        self,
+        blockchain,
+        wallet_id,
+        network="testnet",
+        **kwargs
+    ):
+        """Create Coins Transaction Request from Wallet  # noqa: E501
+
+        Through this endpoint users can create a new transaction request from the entire Wallet instead from just a specific address. This endpoint can generate transactions from multiple to multiple addresses.    {warning}This is available **only** for UTXO-based protocols such as Bitcoin, Bitcoin Cash, Litecoin, etc. It **is not** available for Account-based protocols like Ethereum.{/warning}  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_coins_transaction_request_from_wallet(blockchain, wallet_id, network="testnet", async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            wallet_id (str): Represents the sender's specific and unique Wallet ID of the sender.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.. defaults to "testnet", must be one of ["testnet"]
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            create_coins_transaction_request_from_wallet_rb (CreateCoinsTransactionRequestFromWalletRB): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CreateCoinsTransactionRequestFromWalletR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        kwargs['wallet_id'] = \
+            wallet_id
+        return self.create_coins_transaction_request_from_wallet_endpoint.call_with_http_info(**kwargs)
+
+    def create_tokens_transaction_request_from_address(
+        self,
+        sender_address,
+        wallet_id,
+        blockchain="ethereum",
+        network="mainnet",
+        **kwargs
+    ):
+        """Create Tokens Transaction Request from Address  # noqa: E501
+
+        Through this endpoint users can make a single token transaction.    {warning}This applies only to **fungible** tokens, **not** NFTs (non-fungible tokens).{/warning}    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_tokens_transaction_request_from_address(sender_address, wallet_id, blockchain="ethereum", network="mainnet", async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            sender_address (str): Defines the specific source address for the transaction.
+            wallet_id (str): Defines the unique ID of the Wallet.
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.. defaults to "ethereum", must be one of ["ethereum"]
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.. defaults to "mainnet", must be one of ["mainnet"]
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            create_tokens_transaction_request_from_address_rb (CreateTokensTransactionRequestFromAddressRB): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CreateTokensTransactionRequestFromAddressR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        kwargs['sender_address'] = \
+            sender_address
+        kwargs['wallet_id'] = \
+            wallet_id
+        return self.create_tokens_transaction_request_from_address_endpoint.call_with_http_info(**kwargs)
+

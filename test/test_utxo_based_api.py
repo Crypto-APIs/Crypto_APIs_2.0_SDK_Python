@@ -24,24 +24,10 @@ class TestUTXOBasedApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_get_hd_wallet__x_pub_y_pub_z_pub_details(self):
-        """Test case for get_hd_wallet__x_pub_y_pub_z_pub_details
+    def test_list_unspent_transaction_outputs_by_address(self):
+        """Test case for list_unspent_transaction_outputs_by_address
 
-        Get HD Wallet (xPub, yPub, zPub) Details  # noqa: E501
-        """
-        pass
-
-    def test_list_hd_wallet__x_pub_y_pub_z_pub_transactions(self):
-        """Test case for list_hd_wallet__x_pub_y_pub_z_pub_transactions
-
-        List HD Wallet (xPub, yPub, zPub) Transactions  # noqa: E501
-        """
-        pass
-
-    def test_sync_hd_wallet__x_pub_y_pub_z_pub(self):
-        """Test case for sync_hd_wallet__x_pub_y_pub_z_pub
-
-        Sync HD Wallet (xPub, yPub, zPub)  # noqa: E501
+        List Unspent Transaction Outputs By Address  # noqa: E501
         """
         pass
 

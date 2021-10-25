@@ -65,6 +65,10 @@ class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
             'STANDARD': "standard",
             'FAST': "fast",
         },
+        ('prepare_strategy',): {
+            'MINIMIZE-DUST': "minimize-dust",
+            'OPTIMIZE-SIZE': "optimize-size",
+        },
     }
 
     validations = {
@@ -97,6 +101,8 @@ class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
             'recipients': ([CreateCoinsTransactionRequestFromWalletRBDataItemRecipients],),  # noqa: E501
             'callback_secret_key': (str,),  # noqa: E501
             'callback_url': (str,),  # noqa: E501
+            'note': (str,),  # noqa: E501
+            'prepare_strategy': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -109,6 +115,8 @@ class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
         'recipients': 'recipients',  # noqa: E501
         'callback_secret_key': 'callbackSecretKey',  # noqa: E501
         'callback_url': 'callbackUrl',  # noqa: E501
+        'note': 'note',  # noqa: E501
+        'prepare_strategy': 'prepareStrategy',  # noqa: E501
     }
 
     read_only_vars = {
@@ -156,8 +164,10 @@ class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.. [optional]  # noqa: E501
-            callback_url (str): Verified URL for sending callbacks. [optional]  # noqa: E501
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).. [optional]  # noqa: E501
+            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.. [optional]  # noqa: E501
+            note (str): Represents an optional note to add a free text in, explaining or providing additional detail on the transaction request.. [optional]  # noqa: E501
+            prepare_strategy (str): Refers to a model of a UTXO spending strategy, where customers can choose how to spend their transaction outputs from multiple Bitcoin addresses. Two options available - \"minimize-dust\" (select lower amounts from multiple addresses) or \"optimize-size\" (select higher amounts from less addresses).. [optional] if omitted the server will use the default value of "minimize-dust"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -245,8 +255,10 @@ class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.. [optional]  # noqa: E501
-            callback_url (str): Verified URL for sending callbacks. [optional]  # noqa: E501
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).. [optional]  # noqa: E501
+            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.. [optional]  # noqa: E501
+            note (str): Represents an optional note to add a free text in, explaining or providing additional detail on the transaction request.. [optional]  # noqa: E501
+            prepare_strategy (str): Refers to a model of a UTXO spending strategy, where customers can choose how to spend their transaction outputs from multiple Bitcoin addresses. Two options available - \"minimize-dust\" (select lower amounts from multiple addresses) or \"optimize-size\" (select higher amounts from less addresses).. [optional] if omitted the server will use the default value of "minimize-dust"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

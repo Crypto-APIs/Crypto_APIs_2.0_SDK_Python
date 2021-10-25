@@ -61,9 +61,9 @@ class AddressTokensTransactionUnconfirmedDataItem(ModelNormal):
 
     allowed_values = {
         ('token_type',): {
-            'ETHEREUMERC20TOKEN': "ethereumERC20Token",
-            'ETHEREUMERC721TOKEN': "ethereumERC721Token",
-            'OMNILAYERTOKEN': "omniLayerToken",
+            'ERC-20': "ERC-20",
+            'ERC-721': "ERC-721",
+            'OMNI': "OMNI",
         },
         ('direction',): {
             'INCOMING': "incoming",

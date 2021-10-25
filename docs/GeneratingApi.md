@@ -17,6 +17,7 @@ Through this endpoint customers can generate a new Receiving/Deposit Addresses i
 ### Example
 
 * Api Key Authentication (ApiKey):
+
 ```python
 import time
 import cryptoapis
@@ -56,7 +57,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = generating_api.GeneratingApi(api_client)
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-    network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+    network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     wallet_id = "60c9d9921c38030006675ff6" # str | Represents the unique ID of the specific Wallet.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     generate_deposit_address_rb = GenerateDepositAddressRB(
@@ -92,7 +93,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. |
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
  **wallet_id** | **str**| Represents the unique ID of the specific Wallet. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
  **generate_deposit_address_rb** | [**GenerateDepositAddressRB**](GenerateDepositAddressRB.md)|  | [optional]
@@ -112,6 +113,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | The resource has been successfully created. |  -  |

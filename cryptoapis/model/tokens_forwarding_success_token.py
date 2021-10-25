@@ -31,12 +31,12 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.tokens_forwarding_success_ethereumerc20token import TokensForwardingSuccessEthereumerc20token
-    from cryptoapis.model.tokens_forwarding_success_ethereumerc721token import TokensForwardingSuccessEthereumerc721token
-    from cryptoapis.model.tokens_forwarding_success_omnilayertoken import TokensForwardingSuccessOmnilayertoken
-    globals()['TokensForwardingSuccessEthereumerc20token'] = TokensForwardingSuccessEthereumerc20token
-    globals()['TokensForwardingSuccessEthereumerc721token'] = TokensForwardingSuccessEthereumerc721token
-    globals()['TokensForwardingSuccessOmnilayertoken'] = TokensForwardingSuccessOmnilayertoken
+    from cryptoapis.model.tokens_forwarding_success_erc20 import TokensForwardingSuccessErc20
+    from cryptoapis.model.tokens_forwarding_success_erc721 import TokensForwardingSuccessErc721
+    from cryptoapis.model.tokens_forwarding_success_omni import TokensForwardingSuccessOmni
+    globals()['TokensForwardingSuccessErc20'] = TokensForwardingSuccessErc20
+    globals()['TokensForwardingSuccessErc721'] = TokensForwardingSuccessErc721
+    globals()['TokensForwardingSuccessOmni'] = TokensForwardingSuccessOmni
 
 
 class TokensForwardingSuccessToken(ModelComposed):
@@ -332,7 +332,7 @@ class TokensForwardingSuccessToken(ModelComposed):
         # we need this here to make our import statements work
         # we must store _composed_schemas in here so the code is only run
         # when we invoke this method. If we kept this at the class
-        # level we would get an error beause the class level
+        # level we would get an error because the class level
         # code would be run when this module is imported, and these composed
         # classes don't exist yet because their module has not finished
         # loading
@@ -343,8 +343,8 @@ class TokensForwardingSuccessToken(ModelComposed):
           'allOf': [
           ],
           'oneOf': [
-              TokensForwardingSuccessEthereumerc20token,
-              TokensForwardingSuccessEthereumerc721token,
-              TokensForwardingSuccessOmnilayertoken,
+              TokensForwardingSuccessErc20,
+              TokensForwardingSuccessErc721,
+              TokensForwardingSuccessOmni,
           ],
         }

@@ -13,9 +13,7 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.create_tokens_transaction_request_from_address_risb import CreateTokensTransactionRequestFromAddressRISB
 from cryptoapis.model.create_tokens_transaction_request_from_address_rise import CreateTokensTransactionRequestFromAddressRISE
-globals()['CreateTokensTransactionRequestFromAddressRISB'] = CreateTokensTransactionRequestFromAddressRISB
 globals()['CreateTokensTransactionRequestFromAddressRISE'] = CreateTokensTransactionRequestFromAddressRISE
 from cryptoapis.model.create_tokens_transaction_request_from_address_ris import CreateTokensTransactionRequestFromAddressRIS
 

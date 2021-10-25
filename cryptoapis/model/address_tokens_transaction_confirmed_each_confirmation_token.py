@@ -31,12 +31,14 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.address_tokens_transaction_confirmed_each_confirmation_ethereumerc20token import AddressTokensTransactionConfirmedEachConfirmationEthereumerc20token
-    from cryptoapis.model.address_tokens_transaction_confirmed_each_confirmation_ethereumerc721token import AddressTokensTransactionConfirmedEachConfirmationEthereumerc721token
-    from cryptoapis.model.address_tokens_transaction_confirmed_each_confirmation_omnilayertoken import AddressTokensTransactionConfirmedEachConfirmationOmnilayertoken
-    globals()['AddressTokensTransactionConfirmedEachConfirmationEthereumerc20token'] = AddressTokensTransactionConfirmedEachConfirmationEthereumerc20token
-    globals()['AddressTokensTransactionConfirmedEachConfirmationEthereumerc721token'] = AddressTokensTransactionConfirmedEachConfirmationEthereumerc721token
-    globals()['AddressTokensTransactionConfirmedEachConfirmationOmnilayertoken'] = AddressTokensTransactionConfirmedEachConfirmationOmnilayertoken
+    from cryptoapis.model.address_tokens_transaction_confirmed_each_confirmation_bep20 import AddressTokensTransactionConfirmedEachConfirmationBep20
+    from cryptoapis.model.address_tokens_transaction_confirmed_each_confirmation_erc20 import AddressTokensTransactionConfirmedEachConfirmationErc20
+    from cryptoapis.model.address_tokens_transaction_confirmed_each_confirmation_erc721 import AddressTokensTransactionConfirmedEachConfirmationErc721
+    from cryptoapis.model.address_tokens_transaction_confirmed_each_confirmation_omni import AddressTokensTransactionConfirmedEachConfirmationOmni
+    globals()['AddressTokensTransactionConfirmedEachConfirmationBep20'] = AddressTokensTransactionConfirmedEachConfirmationBep20
+    globals()['AddressTokensTransactionConfirmedEachConfirmationErc20'] = AddressTokensTransactionConfirmedEachConfirmationErc20
+    globals()['AddressTokensTransactionConfirmedEachConfirmationErc721'] = AddressTokensTransactionConfirmedEachConfirmationErc721
+    globals()['AddressTokensTransactionConfirmedEachConfirmationOmni'] = AddressTokensTransactionConfirmedEachConfirmationOmni
 
 
 class AddressTokensTransactionConfirmedEachConfirmationToken(ModelComposed):
@@ -163,7 +165,7 @@ class AddressTokensTransactionConfirmedEachConfirmationToken(ModelComposed):
             name (str): Specifies the name of the token.. [optional]  # noqa: E501
             symbol (str): Specifies an identifier of the token, where up to five alphanumeric characters can be used for it.. [optional]  # noqa: E501
             amount (str): Defines the amount of tokens sent with the confirmed transaction.. [optional]  # noqa: E501
-            contract_address (str): Specifies the address of the contract.. [optional]  # noqa: E501
+            contract_address (str): Defines the address of the contract.. [optional]  # noqa: E501
             token_id (str): Specifies the ID of the token.. [optional]  # noqa: E501
             property_id (str): Defines the ID of the property for Omni Layer.. [optional]  # noqa: E501
             transaction_type (str): Defines the type of the transaction.. [optional]  # noqa: E501
@@ -271,7 +273,7 @@ class AddressTokensTransactionConfirmedEachConfirmationToken(ModelComposed):
             name (str): Specifies the name of the token.. [optional]  # noqa: E501
             symbol (str): Specifies an identifier of the token, where up to five alphanumeric characters can be used for it.. [optional]  # noqa: E501
             amount (str): Defines the amount of tokens sent with the confirmed transaction.. [optional]  # noqa: E501
-            contract_address (str): Specifies the address of the contract.. [optional]  # noqa: E501
+            contract_address (str): Defines the address of the contract.. [optional]  # noqa: E501
             token_id (str): Specifies the ID of the token.. [optional]  # noqa: E501
             property_id (str): Defines the ID of the property for Omni Layer.. [optional]  # noqa: E501
             transaction_type (str): Defines the type of the transaction.. [optional]  # noqa: E501
@@ -332,7 +334,7 @@ class AddressTokensTransactionConfirmedEachConfirmationToken(ModelComposed):
         # we need this here to make our import statements work
         # we must store _composed_schemas in here so the code is only run
         # when we invoke this method. If we kept this at the class
-        # level we would get an error beause the class level
+        # level we would get an error because the class level
         # code would be run when this module is imported, and these composed
         # classes don't exist yet because their module has not finished
         # loading
@@ -343,8 +345,9 @@ class AddressTokensTransactionConfirmedEachConfirmationToken(ModelComposed):
           'allOf': [
           ],
           'oneOf': [
-              AddressTokensTransactionConfirmedEachConfirmationEthereumerc20token,
-              AddressTokensTransactionConfirmedEachConfirmationEthereumerc721token,
-              AddressTokensTransactionConfirmedEachConfirmationOmnilayertoken,
+              AddressTokensTransactionConfirmedEachConfirmationBep20,
+              AddressTokensTransactionConfirmedEachConfirmationErc20,
+              AddressTokensTransactionConfirmedEachConfirmationErc721,
+              AddressTokensTransactionConfirmedEachConfirmationOmni,
           ],
         }

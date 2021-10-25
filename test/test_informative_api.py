@@ -24,6 +24,13 @@ class TestInformativeApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_get_transaction_request_details(self):
+        """Test case for get_transaction_request_details
+
+        Get Transaction Request Details  # noqa: E501
+        """
+        pass
+
     def test_get_wallet_asset_details(self):
         """Test case for get_wallet_asset_details
 
@@ -42,6 +49,13 @@ class TestInformativeApi(unittest.TestCase):
         """Test case for list_supported_tokens
 
         List Supported Tokens  # noqa: E501
+        """
+        pass
+
+    def test_list_wallet_transactions(self):
+        """Test case for list_wallet_transactions
+
+        List Wallet Transactions  # noqa: E501
         """
         pass
 

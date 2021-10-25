@@ -13,12 +13,12 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.tokens_forwarding_success_ethereumerc20token import TokensForwardingSuccessEthereumerc20token
-from cryptoapis.model.tokens_forwarding_success_ethereumerc721token import TokensForwardingSuccessEthereumerc721token
-from cryptoapis.model.tokens_forwarding_success_omnilayertoken import TokensForwardingSuccessOmnilayertoken
-globals()['TokensForwardingSuccessEthereumerc20token'] = TokensForwardingSuccessEthereumerc20token
-globals()['TokensForwardingSuccessEthereumerc721token'] = TokensForwardingSuccessEthereumerc721token
-globals()['TokensForwardingSuccessOmnilayertoken'] = TokensForwardingSuccessOmnilayertoken
+from cryptoapis.model.tokens_forwarding_success_erc20 import TokensForwardingSuccessErc20
+from cryptoapis.model.tokens_forwarding_success_erc721 import TokensForwardingSuccessErc721
+from cryptoapis.model.tokens_forwarding_success_omni import TokensForwardingSuccessOmni
+globals()['TokensForwardingSuccessErc20'] = TokensForwardingSuccessErc20
+globals()['TokensForwardingSuccessErc721'] = TokensForwardingSuccessErc721
+globals()['TokensForwardingSuccessOmni'] = TokensForwardingSuccessOmni
 from cryptoapis.model.tokens_forwarding_success_token import TokensForwardingSuccessToken
 
 

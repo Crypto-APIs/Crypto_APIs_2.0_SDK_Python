@@ -31,8 +31,8 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.new_unconfirmed_tokens_transactions_rb_data import NewUnconfirmedTokensTransactionsRBData
-    globals()['NewUnconfirmedTokensTransactionsRBData'] = NewUnconfirmedTokensTransactionsRBData
+    from cryptoapis.model.new_confirmed_tokens_transactions_rb_data import NewConfirmedTokensTransactionsRBData
+    globals()['NewConfirmedTokensTransactionsRBData'] = NewConfirmedTokensTransactionsRBData
 
 
 class NewConfirmedTokensTransactionsRB(ModelNormal):
@@ -88,7 +88,7 @@ class NewConfirmedTokensTransactionsRB(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (NewUnconfirmedTokensTransactionsRBData,),  # noqa: E501
+            'data': (NewConfirmedTokensTransactionsRBData,),  # noqa: E501
             'context': (str,),  # noqa: E501
         }
 
@@ -113,7 +113,7 @@ class NewConfirmedTokensTransactionsRB(ModelNormal):
         """NewConfirmedTokensTransactionsRB - a model defined in OpenAPI
 
         Args:
-            data (NewUnconfirmedTokensTransactionsRBData):
+            data (NewConfirmedTokensTransactionsRBData):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -199,7 +199,7 @@ class NewConfirmedTokensTransactionsRB(ModelNormal):
         """NewConfirmedTokensTransactionsRB - a model defined in OpenAPI
 
         Args:
-            data (NewUnconfirmedTokensTransactionsRBData):
+            data (NewConfirmedTokensTransactionsRBData):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -31,9 +31,7 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.create_tokens_transaction_request_from_address_risb import CreateTokensTransactionRequestFromAddressRISB
     from cryptoapis.model.create_tokens_transaction_request_from_address_rise import CreateTokensTransactionRequestFromAddressRISE
-    globals()['CreateTokensTransactionRequestFromAddressRISB'] = CreateTokensTransactionRequestFromAddressRISB
     globals()['CreateTokensTransactionRequestFromAddressRISE'] = CreateTokensTransactionRequestFromAddressRISE
 
 
@@ -90,7 +88,6 @@ class CreateTokensTransactionRequestFromAddressRIS(ModelComposed):
         """
         lazy_import()
         return {
-            'property_id': (str,),  # noqa: E501
             'contract_address': (str,),  # noqa: E501
         }
 
@@ -100,7 +97,6 @@ class CreateTokensTransactionRequestFromAddressRIS(ModelComposed):
 
 
     attribute_map = {
-        'property_id': 'propertyId',  # noqa: E501
         'contract_address': 'contractAddress',  # noqa: E501
     }
 
@@ -143,7 +139,6 @@ class CreateTokensTransactionRequestFromAddressRIS(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            property_id (str): Defines the `propertyID` from Omni layer.. [optional]  # noqa: E501
             contract_address (str): Defines the contract address in the blockchain for an ERC20 token.. [optional]  # noqa: E501
         """
 
@@ -244,7 +239,6 @@ class CreateTokensTransactionRequestFromAddressRIS(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            property_id (str): Defines the `propertyID` from Omni layer.. [optional]  # noqa: E501
             contract_address (str): Defines the contract address in the blockchain for an ERC20 token.. [optional]  # noqa: E501
         """
 
@@ -302,7 +296,7 @@ class CreateTokensTransactionRequestFromAddressRIS(ModelComposed):
         # we need this here to make our import statements work
         # we must store _composed_schemas in here so the code is only run
         # when we invoke this method. If we kept this at the class
-        # level we would get an error beause the class level
+        # level we would get an error because the class level
         # code would be run when this module is imported, and these composed
         # classes don't exist yet because their module has not finished
         # loading
@@ -313,7 +307,6 @@ class CreateTokensTransactionRequestFromAddressRIS(ModelComposed):
           'allOf': [
           ],
           'oneOf': [
-              CreateTokensTransactionRequestFromAddressRISB,
               CreateTokensTransactionRequestFromAddressRISE,
           ],
         }

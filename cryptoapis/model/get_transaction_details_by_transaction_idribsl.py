@@ -92,10 +92,10 @@ class GetTransactionDetailsByTransactionIDRIBSL(ModelNormal):
         return {
             'locktime': (int,),  # noqa: E501
             'size': (int,),  # noqa: E501
+            'v_size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
             'vin': ([GetTransactionDetailsByTransactionIDRIBSLVin],),  # noqa: E501
             'vout': ([GetTransactionDetailsByTransactionIDRIBSLVout],),  # noqa: E501
-            'vsize': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -106,10 +106,10 @@ class GetTransactionDetailsByTransactionIDRIBSL(ModelNormal):
     attribute_map = {
         'locktime': 'locktime',  # noqa: E501
         'size': 'size',  # noqa: E501
+        'v_size': 'vSize',  # noqa: E501
         'version': 'version',  # noqa: E501
         'vin': 'vin',  # noqa: E501
         'vout': 'vout',  # noqa: E501
-        'vsize': 'vsize',  # noqa: E501
     }
 
     read_only_vars = {
@@ -119,16 +119,16 @@ class GetTransactionDetailsByTransactionIDRIBSL(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, locktime, size, version, vin, vout, vsize, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, locktime, size, v_size, version, vin, vout, *args, **kwargs):  # noqa: E501
         """GetTransactionDetailsByTransactionIDRIBSL - a model defined in OpenAPI
 
         Args:
             locktime (int): Represents the time at which a particular transaction can be added to the blockchain.
             size (int): Represents the total size of this transaction.
+            v_size (int): Represents the virtual size of this transaction.
             version (int): Represents transaction version number.
             vin ([GetTransactionDetailsByTransactionIDRIBSLVin]): Represents the transaction inputs.
             vout ([GetTransactionDetailsByTransactionIDRIBSLVout]): Represents the transaction outputs.
-            vsize (int): Represents the virtual size of this transaction.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -190,10 +190,10 @@ class GetTransactionDetailsByTransactionIDRIBSL(ModelNormal):
 
         self.locktime = locktime
         self.size = size
+        self.v_size = v_size
         self.version = version
         self.vin = vin
         self.vout = vout
-        self.vsize = vsize
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -214,16 +214,16 @@ class GetTransactionDetailsByTransactionIDRIBSL(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, locktime, size, version, vin, vout, vsize, *args, **kwargs):  # noqa: E501
+    def __init__(self, locktime, size, v_size, version, vin, vout, *args, **kwargs):  # noqa: E501
         """GetTransactionDetailsByTransactionIDRIBSL - a model defined in OpenAPI
 
         Args:
             locktime (int): Represents the time at which a particular transaction can be added to the blockchain.
             size (int): Represents the total size of this transaction.
+            v_size (int): Represents the virtual size of this transaction.
             version (int): Represents transaction version number.
             vin ([GetTransactionDetailsByTransactionIDRIBSLVin]): Represents the transaction inputs.
             vout ([GetTransactionDetailsByTransactionIDRIBSLVout]): Represents the transaction outputs.
-            vsize (int): Represents the virtual size of this transaction.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -283,10 +283,10 @@ class GetTransactionDetailsByTransactionIDRIBSL(ModelNormal):
 
         self.locktime = locktime
         self.size = size
+        self.v_size = v_size
         self.version = version
         self.vin = vin
         self.vout = vout
-        self.vsize = vsize
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -15,18 +15,22 @@ import unittest
 import cryptoapis
 from cryptoapis.model.get_block_details_by_block_height_ribsb import GetBlockDetailsByBlockHeightRIBSB
 from cryptoapis.model.get_block_details_by_block_height_ribsbc import GetBlockDetailsByBlockHeightRIBSBC
+from cryptoapis.model.get_block_details_by_block_height_ribsbsc import GetBlockDetailsByBlockHeightRIBSBSC
 from cryptoapis.model.get_block_details_by_block_height_ribsd import GetBlockDetailsByBlockHeightRIBSD
 from cryptoapis.model.get_block_details_by_block_height_ribsd2 import GetBlockDetailsByBlockHeightRIBSD2
 from cryptoapis.model.get_block_details_by_block_height_ribse import GetBlockDetailsByBlockHeightRIBSE
 from cryptoapis.model.get_block_details_by_block_height_ribsec import GetBlockDetailsByBlockHeightRIBSEC
 from cryptoapis.model.get_block_details_by_block_height_ribsl import GetBlockDetailsByBlockHeightRIBSL
+from cryptoapis.model.get_block_details_by_block_height_ribsz import GetBlockDetailsByBlockHeightRIBSZ
 globals()['GetBlockDetailsByBlockHeightRIBSB'] = GetBlockDetailsByBlockHeightRIBSB
 globals()['GetBlockDetailsByBlockHeightRIBSBC'] = GetBlockDetailsByBlockHeightRIBSBC
+globals()['GetBlockDetailsByBlockHeightRIBSBSC'] = GetBlockDetailsByBlockHeightRIBSBSC
 globals()['GetBlockDetailsByBlockHeightRIBSD'] = GetBlockDetailsByBlockHeightRIBSD
 globals()['GetBlockDetailsByBlockHeightRIBSD2'] = GetBlockDetailsByBlockHeightRIBSD2
 globals()['GetBlockDetailsByBlockHeightRIBSE'] = GetBlockDetailsByBlockHeightRIBSE
 globals()['GetBlockDetailsByBlockHeightRIBSEC'] = GetBlockDetailsByBlockHeightRIBSEC
 globals()['GetBlockDetailsByBlockHeightRIBSL'] = GetBlockDetailsByBlockHeightRIBSL
+globals()['GetBlockDetailsByBlockHeightRIBSZ'] = GetBlockDetailsByBlockHeightRIBSZ
 from cryptoapis.model.get_block_details_by_block_height_ribs import GetBlockDetailsByBlockHeightRIBS
 
 

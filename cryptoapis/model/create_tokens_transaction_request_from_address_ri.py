@@ -103,6 +103,8 @@ class CreateTokensTransactionRequestFromAddressRI(ModelNormal):
             'recipients': ([CreateTokensTransactionRequestFromAddressRIRecipients],),  # noqa: E501
             'senders': (CreateTokensTransactionRequestFromAddressRISenders,),  # noqa: E501
             'token_type_specific_data': (CreateTokensTransactionRequestFromAddressRIS,),  # noqa: E501
+            'transaction_request_id': (str,),  # noqa: E501
+            'note': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -117,6 +119,8 @@ class CreateTokensTransactionRequestFromAddressRI(ModelNormal):
         'recipients': 'recipients',  # noqa: E501
         'senders': 'senders',  # noqa: E501
         'token_type_specific_data': 'tokenTypeSpecificData',  # noqa: E501
+        'transaction_request_id': 'transactionRequestId',  # noqa: E501
+        'note': 'note',  # noqa: E501
     }
 
     read_only_vars = {
@@ -126,16 +130,17 @@ class CreateTokensTransactionRequestFromAddressRI(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, callback_secret_key, callback_url, fee_priority, recipients, senders, token_type_specific_data, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, callback_secret_key, callback_url, fee_priority, recipients, senders, token_type_specific_data, transaction_request_id, *args, **kwargs):  # noqa: E501
         """CreateTokensTransactionRequestFromAddressRI - a model defined in OpenAPI
 
         Args:
-            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.
-            callback_url (str): Verified URL for sending callbacks
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
+            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
             recipients ([CreateTokensTransactionRequestFromAddressRIRecipients]): Defines the destination for the transaction, i.e. the recipient(s).
             senders (CreateTokensTransactionRequestFromAddressRISenders):
             token_type_specific_data (CreateTokensTransactionRequestFromAddressRIS):
+            transaction_request_id (str): Represents a unique identifier of the transaction request (the request sent to make a transaction), which helps in identifying which callback and which `referenceId` concern that specific transaction request.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -168,6 +173,7 @@ class CreateTokensTransactionRequestFromAddressRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            note (str): Represents an optional note to add a free text in, explaining or providing additional detail on the transaction request.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -201,6 +207,7 @@ class CreateTokensTransactionRequestFromAddressRI(ModelNormal):
         self.recipients = recipients
         self.senders = senders
         self.token_type_specific_data = token_type_specific_data
+        self.transaction_request_id = transaction_request_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -221,16 +228,17 @@ class CreateTokensTransactionRequestFromAddressRI(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, callback_secret_key, callback_url, fee_priority, recipients, senders, token_type_specific_data, *args, **kwargs):  # noqa: E501
+    def __init__(self, callback_secret_key, callback_url, fee_priority, recipients, senders, token_type_specific_data, transaction_request_id, *args, **kwargs):  # noqa: E501
         """CreateTokensTransactionRequestFromAddressRI - a model defined in OpenAPI
 
         Args:
-            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.
-            callback_url (str): Verified URL for sending callbacks
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
+            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
             recipients ([CreateTokensTransactionRequestFromAddressRIRecipients]): Defines the destination for the transaction, i.e. the recipient(s).
             senders (CreateTokensTransactionRequestFromAddressRISenders):
             token_type_specific_data (CreateTokensTransactionRequestFromAddressRIS):
+            transaction_request_id (str): Represents a unique identifier of the transaction request (the request sent to make a transaction), which helps in identifying which callback and which `referenceId` concern that specific transaction request.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -263,6 +271,7 @@ class CreateTokensTransactionRequestFromAddressRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            note (str): Represents an optional note to add a free text in, explaining or providing additional detail on the transaction request.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -294,6 +303,7 @@ class CreateTokensTransactionRequestFromAddressRI(ModelNormal):
         self.recipients = recipients
         self.senders = senders
         self.token_type_specific_data = token_type_specific_data
+        self.transaction_request_id = transaction_request_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

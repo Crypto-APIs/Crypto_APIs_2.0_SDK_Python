@@ -46,80 +46,7 @@ class ExchangeRatesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __get_exchange_rate_by_asset_symbols(
-            self,
-            from_asset_symbol,
-            to_asset_symbol,
-            **kwargs
-        ):
-            """Get Exchange Rate By Asset Symbols  # noqa: E501
-
-            Through this endpoint customers can obtain exchange rates by asset symbols. The process represents the exchange rate value of a single unit of one asset versus another one. Data is provided per unique asset symbol.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_exchange_rate_by_asset_symbols(from_asset_symbol, to_asset_symbol, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                from_asset_symbol (str): Defines the base asset symbol to get a rate for.
-                to_asset_symbol (str): Defines the relation asset symbol in which the base asset rate will be displayed.
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                calculation_timestamp (int): Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                GetExchangeRateByAssetSymbolsR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['from_asset_symbol'] = \
-                from_asset_symbol
-            kwargs['to_asset_symbol'] = \
-                to_asset_symbol
-            return self.call_with_http_info(**kwargs)
-
-        self.get_exchange_rate_by_asset_symbols = _Endpoint(
+        self.get_exchange_rate_by_asset_symbols_endpoint = _Endpoint(
             settings={
                 'response_type': (GetExchangeRateByAssetSymbolsR,),
                 'auth': [
@@ -184,83 +111,9 @@ class ExchangeRatesApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_exchange_rate_by_asset_symbols
+            api_client=api_client
         )
-
-        def __get_exchange_rate_by_assets_ids(
-            self,
-            from_asset_id,
-            to_asset_id,
-            **kwargs
-        ):
-            """Get Exchange Rate By Assets IDs  # noqa: E501
-
-            Through this endpoint customers can obtain exchange rates by asset IDs. The process represents the exchange rate value of a single unit of one asset versus another one. Data is provided per unique asset Reference ID.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_exchange_rate_by_assets_ids(from_asset_id, to_asset_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                from_asset_id (str): Defines the base asset Reference ID to get a rate for.
-                to_asset_id (str): Defines the relation asset Reference ID in which the base asset rate will be displayed.
-
-            Keyword Args:
-                context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-                calculation_timestamp (int): Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                GetExchangeRateByAssetsIDsR
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['from_asset_id'] = \
-                from_asset_id
-            kwargs['to_asset_id'] = \
-                to_asset_id
-            return self.call_with_http_info(**kwargs)
-
-        self.get_exchange_rate_by_assets_ids = _Endpoint(
+        self.get_exchange_rate_by_assets_ids_endpoint = _Endpoint(
             settings={
                 'response_type': (GetExchangeRateByAssetsIDsR,),
                 'auth': [
@@ -325,6 +178,150 @@ class ExchangeRatesApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_exchange_rate_by_assets_ids
+            api_client=api_client
         )
+
+    def get_exchange_rate_by_asset_symbols(
+        self,
+        from_asset_symbol,
+        to_asset_symbol,
+        **kwargs
+    ):
+        """Get Exchange Rate By Asset Symbols  # noqa: E501
+
+        Through this endpoint customers can obtain exchange rates by asset symbols. The process represents the exchange rate value of a single unit of one asset versus another one. Data is provided per unique asset symbol.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_exchange_rate_by_asset_symbols(from_asset_symbol, to_asset_symbol, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            from_asset_symbol (str): Defines the base asset symbol to get a rate for.
+            to_asset_symbol (str): Defines the relation asset symbol in which the base asset rate will be displayed.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            calculation_timestamp (int): Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GetExchangeRateByAssetSymbolsR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['from_asset_symbol'] = \
+            from_asset_symbol
+        kwargs['to_asset_symbol'] = \
+            to_asset_symbol
+        return self.get_exchange_rate_by_asset_symbols_endpoint.call_with_http_info(**kwargs)
+
+    def get_exchange_rate_by_assets_ids(
+        self,
+        from_asset_id,
+        to_asset_id,
+        **kwargs
+    ):
+        """Get Exchange Rate By Assets IDs  # noqa: E501
+
+        Through this endpoint customers can obtain exchange rates by asset IDs. The process represents the exchange rate value of a single unit of one asset versus another one. Data is provided per unique asset Reference ID.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_exchange_rate_by_assets_ids(from_asset_id, to_asset_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            from_asset_id (str): Defines the base asset Reference ID to get a rate for.
+            to_asset_id (str): Defines the relation asset Reference ID in which the base asset rate will be displayed.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            calculation_timestamp (int): Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GetExchangeRateByAssetsIDsR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['from_asset_id'] = \
+            from_asset_id
+        kwargs['to_asset_id'] = \
+            to_asset_id
+        return self.get_exchange_rate_by_assets_ids_endpoint.call_with_http_info(**kwargs)
+

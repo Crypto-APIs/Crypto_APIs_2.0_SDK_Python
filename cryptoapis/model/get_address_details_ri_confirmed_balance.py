@@ -108,7 +108,7 @@ class GetAddressDetailsRIConfirmedBalance(ModelNormal):
 
         Args:
             amount (str): Defines the total balance of the address that is confirmed. It doesn't include unconfirmed transactions.
-            unit (str):
+            unit (str): Represents the unit of the confirmed balance.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -195,7 +195,7 @@ class GetAddressDetailsRIConfirmedBalance(ModelNormal):
 
         Args:
             amount (str): Defines the total balance of the address that is confirmed. It doesn't include unconfirmed transactions.
-            unit (str):
+            unit (str): Represents the unit of the confirmed balance.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

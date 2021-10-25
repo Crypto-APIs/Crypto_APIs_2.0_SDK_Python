@@ -31,12 +31,12 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.address_tokens_transaction_unconfirmed_ethereumerc20token import AddressTokensTransactionUnconfirmedEthereumerc20token
-    from cryptoapis.model.address_tokens_transaction_unconfirmed_ethereumerc721token import AddressTokensTransactionUnconfirmedEthereumerc721token
-    from cryptoapis.model.address_tokens_transaction_unconfirmed_omnilayertoken import AddressTokensTransactionUnconfirmedOmnilayertoken
-    globals()['AddressTokensTransactionUnconfirmedEthereumerc20token'] = AddressTokensTransactionUnconfirmedEthereumerc20token
-    globals()['AddressTokensTransactionUnconfirmedEthereumerc721token'] = AddressTokensTransactionUnconfirmedEthereumerc721token
-    globals()['AddressTokensTransactionUnconfirmedOmnilayertoken'] = AddressTokensTransactionUnconfirmedOmnilayertoken
+    from cryptoapis.model.address_tokens_transaction_unconfirmed_erc20 import AddressTokensTransactionUnconfirmedErc20
+    from cryptoapis.model.address_tokens_transaction_unconfirmed_erc721 import AddressTokensTransactionUnconfirmedErc721
+    from cryptoapis.model.address_tokens_transaction_unconfirmed_omni import AddressTokensTransactionUnconfirmedOmni
+    globals()['AddressTokensTransactionUnconfirmedErc20'] = AddressTokensTransactionUnconfirmedErc20
+    globals()['AddressTokensTransactionUnconfirmedErc721'] = AddressTokensTransactionUnconfirmedErc721
+    globals()['AddressTokensTransactionUnconfirmedOmni'] = AddressTokensTransactionUnconfirmedOmni
 
 
 class AddressTokensTransactionUnconfirmedToken(ModelComposed):
@@ -332,7 +332,7 @@ class AddressTokensTransactionUnconfirmedToken(ModelComposed):
         # we need this here to make our import statements work
         # we must store _composed_schemas in here so the code is only run
         # when we invoke this method. If we kept this at the class
-        # level we would get an error beause the class level
+        # level we would get an error because the class level
         # code would be run when this module is imported, and these composed
         # classes don't exist yet because their module has not finished
         # loading
@@ -343,8 +343,8 @@ class AddressTokensTransactionUnconfirmedToken(ModelComposed):
           'allOf': [
           ],
           'oneOf': [
-              AddressTokensTransactionUnconfirmedEthereumerc20token,
-              AddressTokensTransactionUnconfirmedEthereumerc721token,
-              AddressTokensTransactionUnconfirmedOmnilayertoken,
+              AddressTokensTransactionUnconfirmedErc20,
+              AddressTokensTransactionUnconfirmedErc721,
+              AddressTokensTransactionUnconfirmedOmni,
           ],
         }

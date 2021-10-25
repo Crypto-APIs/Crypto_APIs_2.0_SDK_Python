@@ -18,6 +18,7 @@ Through this endpoint customers can obtain exchange rates by asset symbols. The 
 ### Example
 
 * Api Key Authentication (ApiKey):
+
 ```python
 import time
 import cryptoapis
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
@@ -127,6 +129,7 @@ Through this endpoint customers can obtain exchange rates by asset IDs. The proc
 ### Example
 
 * Api Key Authentication (ApiKey):
+
 ```python
 import time
 import cryptoapis
@@ -211,6 +214,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successfull. |  -  |

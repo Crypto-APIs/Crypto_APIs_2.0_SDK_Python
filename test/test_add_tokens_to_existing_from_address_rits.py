@@ -14,9 +14,9 @@ import unittest
 
 import cryptoapis
 from cryptoapis.model.add_tokens_to_existing_from_address_ritsbot import AddTokensToExistingFromAddressRITSBOT
-from cryptoapis.model.add_tokens_to_existing_from_address_ritseet import AddTokensToExistingFromAddressRITSEET
+from cryptoapis.model.add_tokens_to_existing_from_address_ritset import AddTokensToExistingFromAddressRITSET
 globals()['AddTokensToExistingFromAddressRITSBOT'] = AddTokensToExistingFromAddressRITSBOT
-globals()['AddTokensToExistingFromAddressRITSEET'] = AddTokensToExistingFromAddressRITSEET
+globals()['AddTokensToExistingFromAddressRITSET'] = AddTokensToExistingFromAddressRITSET
 from cryptoapis.model.add_tokens_to_existing_from_address_rits import AddTokensToExistingFromAddressRITS
 
 

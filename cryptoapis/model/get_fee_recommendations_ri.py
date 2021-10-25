@@ -112,9 +112,9 @@ class GetFeeRecommendationsRI(ModelNormal):
 
         Args:
             unit (str): Defines the unit of the fee, e.g. BTC.
-            fast (str): Defines the fee priority as \"FAST\". It works per byte, for UTXO-based protocols like Bitcoin, or per gas price, for account-based protocols like Ethereum. These are calculated based on Mempool.
-            slow (str): Defines the fee priority as \"SLOW\". It works per byte, for UTXO-based protocols like Bitcoin, or per gas price, for account-based protocols like Ethereum. These are calculated based on Mempool.
-            standard (str): Defines the fee priority as \"STANDARD\". It works per byte, for UTXO-based protocols like Bitcoin, or per gas price, for account-based protocols like Ethereum. These are calculated based on Mempool.
+            fast (str): Fast fee per byte calculated from unconfirmed transactions
+            slow (str): Slow fee per byte calculated from unconfirmed transactions
+            standard (str): Standard fee per byte calculated from unconfirmed transactions
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -203,9 +203,9 @@ class GetFeeRecommendationsRI(ModelNormal):
 
         Args:
             unit (str): Defines the unit of the fee, e.g. BTC.
-            fast (str): Defines the fee priority as \"FAST\". It works per byte, for UTXO-based protocols like Bitcoin, or per gas price, for account-based protocols like Ethereum. These are calculated based on Mempool.
-            slow (str): Defines the fee priority as \"SLOW\". It works per byte, for UTXO-based protocols like Bitcoin, or per gas price, for account-based protocols like Ethereum. These are calculated based on Mempool.
-            standard (str): Defines the fee priority as \"STANDARD\". It works per byte, for UTXO-based protocols like Bitcoin, or per gas price, for account-based protocols like Ethereum. These are calculated based on Mempool.
+            fast (str): Fast fee per byte calculated from unconfirmed transactions
+            slow (str): Slow fee per byte calculated from unconfirmed transactions
+            standard (str): Standard fee per byte calculated from unconfirmed transactions
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

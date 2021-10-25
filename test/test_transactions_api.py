@@ -24,6 +24,13 @@ class TestTransactionsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_create_coins_transaction_from_address_for_whole_amount(self):
+        """Test case for create_coins_transaction_from_address_for_whole_amount
+
+        Create Coins Transaction From Address For Whole Amount  # noqa: E501
+        """
+        pass
+
     def test_create_coins_transaction_request_from_address(self):
         """Test case for create_coins_transaction_request_from_address
 

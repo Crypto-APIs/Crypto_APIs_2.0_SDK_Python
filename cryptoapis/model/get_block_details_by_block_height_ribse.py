@@ -83,7 +83,7 @@ class GetBlockDetailsByBlockHeightRIBSE(ModelNormal):
         """
         return {
             'difficulty': (str,),  # noqa: E501
-            'nonce': (int,),  # noqa: E501
+            'nonce': (str,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'extra_data': (str,),  # noqa: E501
             'gas_limit': (str,),  # noqa: E501
@@ -122,7 +122,7 @@ class GetBlockDetailsByBlockHeightRIBSE(ModelNormal):
 
         Args:
             difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.
-            nonce (int): Represents a random value that can be adjusted to satisfy the Proof of Work
+            nonce (str): Represents a random value that can be adjusted to satisfy the Proof of Work.
             size (int): Represents the total size of the block in Bytes.
             extra_data (str): Represents any data that can be included by the miner in the block.
             gas_limit (str): Defines the total gas limit of all transactions in the block.
@@ -223,7 +223,7 @@ class GetBlockDetailsByBlockHeightRIBSE(ModelNormal):
 
         Args:
             difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.
-            nonce (int): Represents a random value that can be adjusted to satisfy the Proof of Work
+            nonce (str): Represents a random value that can be adjusted to satisfy the Proof of Work.
             size (int): Represents the total size of the block in Bytes.
             extra_data (str): Represents any data that can be included by the miner in the block.
             gas_limit (str): Defines the total gas limit of all transactions in the block.

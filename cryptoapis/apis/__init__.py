@@ -21,6 +21,7 @@ from cryptoapis.api.create_subscriptions_for_api import CreateSubscriptionsForAp
 from cryptoapis.api.exchange_rates_api import ExchangeRatesApi
 from cryptoapis.api.features_api import FeaturesApi
 from cryptoapis.api.generating_api import GeneratingApi
+from cryptoapis.api.hd_wallets_api import HDWalletsApi
 from cryptoapis.api.informative_api import InformativeApi
 from cryptoapis.api.manage_subscriptions_api import ManageSubscriptionsApi
 from cryptoapis.api.metadata_api import MetadataApi

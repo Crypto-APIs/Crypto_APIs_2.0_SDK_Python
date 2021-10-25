@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **str** | Specifies the name of the token. | [optional] 
 **symbol** | **str** | Specifies an identifier of the token, where up to five alphanumeric characters can be used for it. | [optional] 
 **amount** | **str** | Defines the amount of tokens sent with the confirmed transaction. | [optional] 
-**contract_address** | **str** | Specifies the address of the contract. | [optional] 
+**contract_address** | **str** | Defines the address of the contract. | [optional] 
 **token_id** | **str** | Specifies the ID of the token. | [optional] 
 **property_id** | **str** | Defines the ID of the property for Omni Layer. | [optional] 
 **transaction_type** | **str** | Defines the type of the transaction. | [optional] 

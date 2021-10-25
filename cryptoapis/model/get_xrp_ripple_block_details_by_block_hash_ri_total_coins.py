@@ -107,8 +107,8 @@ class GetXRPRippleBlockDetailsByBlockHashRITotalCoins(ModelNormal):
         """GetXRPRippleBlockDetailsByBlockHashRITotalCoins - a model defined in OpenAPI
 
         Args:
-            amount (str):
-            unit (str):
+            amount (str): Defines the amount of the total coins.
+            unit (str): Defines the unit of the total coins.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,8 +194,8 @@ class GetXRPRippleBlockDetailsByBlockHashRITotalCoins(ModelNormal):
         """GetXRPRippleBlockDetailsByBlockHashRITotalCoins - a model defined in OpenAPI
 
         Args:
-            amount (str):
-            unit (str):
+            amount (str): Defines the amount of the total coins.
+            unit (str): Defines the unit of the total coins.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -108,7 +108,7 @@ class GetAddressDetailsRITotalReceived(ModelNormal):
 
         Args:
             amount (str): Defines the total amount of all coins received to the address, based on confirmed transactions.
-            unit (str):
+            unit (str): Represents the unit of the total received amount.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -195,7 +195,7 @@ class GetAddressDetailsRITotalReceived(ModelNormal):
 
         Args:
             amount (str): Defines the total amount of all coins received to the address, based on confirmed transactions.
-            unit (str):
+            unit (str): Represents the unit of the total received amount.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

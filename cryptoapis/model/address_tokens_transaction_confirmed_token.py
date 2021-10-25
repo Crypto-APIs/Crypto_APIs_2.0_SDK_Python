@@ -31,12 +31,14 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.address_tokens_transaction_confirmed_ethereumerc20token import AddressTokensTransactionConfirmedEthereumerc20token
-    from cryptoapis.model.address_tokens_transaction_confirmed_ethereumerc721token import AddressTokensTransactionConfirmedEthereumerc721token
-    from cryptoapis.model.address_tokens_transaction_confirmed_omnilayertoken import AddressTokensTransactionConfirmedOmnilayertoken
-    globals()['AddressTokensTransactionConfirmedEthereumerc20token'] = AddressTokensTransactionConfirmedEthereumerc20token
-    globals()['AddressTokensTransactionConfirmedEthereumerc721token'] = AddressTokensTransactionConfirmedEthereumerc721token
-    globals()['AddressTokensTransactionConfirmedOmnilayertoken'] = AddressTokensTransactionConfirmedOmnilayertoken
+    from cryptoapis.model.address_tokens_transaction_confirmed_bep20 import AddressTokensTransactionConfirmedBep20
+    from cryptoapis.model.address_tokens_transaction_confirmed_erc20 import AddressTokensTransactionConfirmedErc20
+    from cryptoapis.model.address_tokens_transaction_confirmed_erc721 import AddressTokensTransactionConfirmedErc721
+    from cryptoapis.model.address_tokens_transaction_confirmed_omni import AddressTokensTransactionConfirmedOmni
+    globals()['AddressTokensTransactionConfirmedBep20'] = AddressTokensTransactionConfirmedBep20
+    globals()['AddressTokensTransactionConfirmedErc20'] = AddressTokensTransactionConfirmedErc20
+    globals()['AddressTokensTransactionConfirmedErc721'] = AddressTokensTransactionConfirmedErc721
+    globals()['AddressTokensTransactionConfirmedOmni'] = AddressTokensTransactionConfirmedOmni
 
 
 class AddressTokensTransactionConfirmedToken(ModelComposed):
@@ -163,7 +165,7 @@ class AddressTokensTransactionConfirmedToken(ModelComposed):
             name (str): Specifies the name of the token.. [optional]  # noqa: E501
             symbol (str): Specifies an identifier of the token, where up to five alphanumeric characters can be used for it.. [optional]  # noqa: E501
             amount (str): Defines the amount of tokens sent with the confirmed transaction.. [optional]  # noqa: E501
-            contract_address (str): Specifies the address of the contract.. [optional]  # noqa: E501
+            contract_address (str): Defines the address of the contract.. [optional]  # noqa: E501
             token_id (str): Specifies the ID of the token.. [optional]  # noqa: E501
             property_id (str): Defines the ID of the property for Omni Layer.. [optional]  # noqa: E501
             transaction_type (str): Defines the type of the transaction.. [optional]  # noqa: E501
@@ -271,7 +273,7 @@ class AddressTokensTransactionConfirmedToken(ModelComposed):
             name (str): Specifies the name of the token.. [optional]  # noqa: E501
             symbol (str): Specifies an identifier of the token, where up to five alphanumeric characters can be used for it.. [optional]  # noqa: E501
             amount (str): Defines the amount of tokens sent with the confirmed transaction.. [optional]  # noqa: E501
-            contract_address (str): Specifies the address of the contract.. [optional]  # noqa: E501
+            contract_address (str): Defines the address of the contract.. [optional]  # noqa: E501
             token_id (str): Specifies the ID of the token.. [optional]  # noqa: E501
             property_id (str): Defines the ID of the property for Omni Layer.. [optional]  # noqa: E501
             transaction_type (str): Defines the type of the transaction.. [optional]  # noqa: E501
@@ -332,7 +334,7 @@ class AddressTokensTransactionConfirmedToken(ModelComposed):
         # we need this here to make our import statements work
         # we must store _composed_schemas in here so the code is only run
         # when we invoke this method. If we kept this at the class
-        # level we would get an error beause the class level
+        # level we would get an error because the class level
         # code would be run when this module is imported, and these composed
         # classes don't exist yet because their module has not finished
         # loading
@@ -343,8 +345,9 @@ class AddressTokensTransactionConfirmedToken(ModelComposed):
           'allOf': [
           ],
           'oneOf': [
-              AddressTokensTransactionConfirmedEthereumerc20token,
-              AddressTokensTransactionConfirmedEthereumerc721token,
-              AddressTokensTransactionConfirmedOmnilayertoken,
+              AddressTokensTransactionConfirmedBep20,
+              AddressTokensTransactionConfirmedErc20,
+              AddressTokensTransactionConfirmedErc721,
+              AddressTokensTransactionConfirmedOmni,
           ],
         }

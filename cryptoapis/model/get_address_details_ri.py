@@ -129,8 +129,8 @@ class GetAddressDetailsRI(ModelNormal):
             confirmed_balance (GetAddressDetailsRIConfirmedBalance):
             total_received (GetAddressDetailsRITotalReceived):
             total_spent (GetAddressDetailsRITotalSpent):
-            incoming_transactions_count (int): Numeric representation of the received transaction count of the address
-            outgoing_transactions_count (int): Numeric representation of the sent transaction count of the address
+            incoming_transactions_count (int): Defines the count of the incoming transactions.
+            outgoing_transactions_count (int): Defines the count of the outgoing transactions.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -224,8 +224,8 @@ class GetAddressDetailsRI(ModelNormal):
             confirmed_balance (GetAddressDetailsRIConfirmedBalance):
             total_received (GetAddressDetailsRITotalReceived):
             total_spent (GetAddressDetailsRITotalSpent):
-            incoming_transactions_count (int): Numeric representation of the received transaction count of the address
-            outgoing_transactions_count (int): Numeric representation of the sent transaction count of the address
+            incoming_transactions_count (int): Defines the count of the incoming transactions.
+            outgoing_transactions_count (int): Defines the count of the outgoing transactions.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

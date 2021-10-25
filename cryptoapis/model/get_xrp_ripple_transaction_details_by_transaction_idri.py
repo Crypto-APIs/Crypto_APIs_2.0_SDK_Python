@@ -112,6 +112,7 @@ class GetXRPRippleTransactionDetailsByTransactionIDRI(ModelNormal):
             'type': (str,),  # noqa: E501
             'fee': (GetXRPRippleTransactionDetailsByTransactionIDRIFee,),  # noqa: E501
             'value': (GetXRPRippleTransactionDetailsByTransactionIDRIValue,),  # noqa: E501
+            'destination_tag': (int,),  # noqa: E501
             'status': (str,),  # noqa: E501
         }
 
@@ -135,6 +136,7 @@ class GetXRPRippleTransactionDetailsByTransactionIDRI(ModelNormal):
         'type': 'type',  # noqa: E501
         'fee': 'fee',  # noqa: E501
         'value': 'value',  # noqa: E501
+        'destination_tag': 'destinationTag',  # noqa: E501
         'status': 'status',  # noqa: E501
     }
 
@@ -195,6 +197,7 @@ class GetXRPRippleTransactionDetailsByTransactionIDRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            destination_tag (int): [optional]  # noqa: E501
             status (str): Defines the status of the transaction.. [optional]  # noqa: E501
         """
 
@@ -307,6 +310,7 @@ class GetXRPRippleTransactionDetailsByTransactionIDRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            destination_tag (int): [optional]  # noqa: E501
             status (str): Defines the status of the transaction.. [optional]  # noqa: E501
         """
 

@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **type** | **str** | Defines the type of the transaction. | 
 **fee** | [**GetXRPRippleTransactionDetailsByTransactionIDRIFee**](GetXRPRippleTransactionDetailsByTransactionIDRIFee.md) |  | 
 **value** | [**GetXRPRippleTransactionDetailsByTransactionIDRIValue**](GetXRPRippleTransactionDetailsByTransactionIDRIValue.md) |  | 
+**destination_tag** | **int** |  | [optional] 
 **status** | **str** | Defines the status of the transaction. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

@@ -112,6 +112,7 @@ class ListXRPRippleTransactionsByAddressRI(ModelNormal):
             'offer': (ListXRPRippleTransactionsByAddressRIOffer,),  # noqa: E501
             'receive': (ListXRPRippleTransactionsByAddressRIReceive,),  # noqa: E501
             'value': (ListXRPRippleTransactionsByAddressRIValue,),  # noqa: E501
+            'destination_tag': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -134,6 +135,7 @@ class ListXRPRippleTransactionsByAddressRI(ModelNormal):
         'offer': 'offer',  # noqa: E501
         'receive': 'receive',  # noqa: E501
         'value': 'value',  # noqa: E501
+        'destination_tag': 'destinationTag',  # noqa: E501
     }
 
     read_only_vars = {
@@ -193,6 +195,7 @@ class ListXRPRippleTransactionsByAddressRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            destination_tag (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -304,6 +307,7 @@ class ListXRPRippleTransactionsByAddressRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            destination_tag (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

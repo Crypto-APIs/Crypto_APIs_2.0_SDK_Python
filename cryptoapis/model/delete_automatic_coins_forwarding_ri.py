@@ -88,8 +88,8 @@ class DeleteAutomaticCoinsForwardingRI(ModelNormal):
         """
         return {
             'callback_url': (str,),  # noqa: E501
-            'confirmations_count': (str,),  # noqa: E501
-            'created_timestamp': (str,),  # noqa: E501
+            'confirmations_count': (int,),  # noqa: E501
+            'created_timestamp': (int,),  # noqa: E501
             'fee_priority': (str,),  # noqa: E501
             'from_address': (str,),  # noqa: E501
             'minimum_transfer_amount': (str,),  # noqa: E501
@@ -125,8 +125,8 @@ class DeleteAutomaticCoinsForwardingRI(ModelNormal):
 
         Args:
             callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
-            confirmations_count (str): Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
-            created_timestamp (str): Defines the specific time/date when the automatic forwarding was created in Unix Timestamp.
+            confirmations_count (int): Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
+            created_timestamp (int): Defines the specific time/date when the automatic forwarding was created in Unix Timestamp.
             fee_priority (str): Represents the fee priority of the automation, whether it is \"SLOW\", \"STANDARD\" or \"FAST\".
             from_address (str): Represents the hash of the address that forwards the currency.
             minimum_transfer_amount (str): Represents the minimum transfer amount of the currency in the `fromAddress` that can be allowed for an automatic forwarding.
@@ -224,8 +224,8 @@ class DeleteAutomaticCoinsForwardingRI(ModelNormal):
 
         Args:
             callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
-            confirmations_count (str): Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
-            created_timestamp (str): Defines the specific time/date when the automatic forwarding was created in Unix Timestamp.
+            confirmations_count (int): Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
+            created_timestamp (int): Defines the specific time/date when the automatic forwarding was created in Unix Timestamp.
             fee_priority (str): Represents the fee priority of the automation, whether it is \"SLOW\", \"STANDARD\" or \"FAST\".
             from_address (str): Represents the hash of the address that forwards the currency.
             minimum_transfer_amount (str): Represents the minimum transfer amount of the currency in the `fromAddress` that can be allowed for an automatic forwarding.

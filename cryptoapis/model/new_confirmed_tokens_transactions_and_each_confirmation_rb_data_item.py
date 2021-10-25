@@ -148,7 +148,7 @@ class NewConfirmedTokensTransactionsAndEachConfirmationRBDataItem(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             allow_duplicates (bool): Specifies a flag that permits or denies the creation of duplicate addresses.. [optional] if omitted the server will use the default value of False  # noqa: E501
-            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.. [optional]  # noqa: E501
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).. [optional]  # noqa: E501
             confirmations_count (int): Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.. [optional]  # noqa: E501
         """
 
@@ -238,7 +238,7 @@ class NewConfirmedTokensTransactionsAndEachConfirmationRBDataItem(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             allow_duplicates (bool): Specifies a flag that permits or denies the creation of duplicate addresses.. [optional] if omitted the server will use the default value of False  # noqa: E501
-            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.. [optional]  # noqa: E501
+            callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).. [optional]  # noqa: E501
             confirmations_count (int): Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.. [optional]  # noqa: E501
         """
 

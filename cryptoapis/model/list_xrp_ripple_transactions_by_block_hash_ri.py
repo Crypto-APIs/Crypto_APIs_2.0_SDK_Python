@@ -112,6 +112,7 @@ class ListXRPRippleTransactionsByBlockHashRI(ModelNormal):
             'receive': (ListXRPRippleTransactionsByBlockHashRIReceive,),  # noqa: E501
             'value': (ListXRPRippleTransactionsByBlockHashRIValue,),  # noqa: E501
             'additional_data': (str,),  # noqa: E501
+            'destination_tag': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -134,6 +135,7 @@ class ListXRPRippleTransactionsByBlockHashRI(ModelNormal):
         'receive': 'receive',  # noqa: E501
         'value': 'value',  # noqa: E501
         'additional_data': 'additionalData',  # noqa: E501
+        'destination_tag': 'destinationTag',  # noqa: E501
     }
 
     read_only_vars = {
@@ -193,6 +195,7 @@ class ListXRPRippleTransactionsByBlockHashRI(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             additional_data (str): Represents any additional data that may be needed.. [optional]  # noqa: E501
+            destination_tag (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -303,6 +306,7 @@ class ListXRPRippleTransactionsByBlockHashRI(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             additional_data (str): Represents any additional data that may be needed.. [optional]  # noqa: E501
+            destination_tag (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
