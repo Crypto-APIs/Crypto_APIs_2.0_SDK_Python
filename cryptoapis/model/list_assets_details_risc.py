@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -127,7 +127,7 @@ class ListAssetsDetailsRISC(ModelNormal):
             _1_week_price_change_in_percentage (str): Represents the percentage of the asset's current price against the its price from 1 week ago.
             _24_hours_price_change_in_percentage (str): Represents the percentage of the asset's current price against the its price from 24 hours ago.
             _24_hours_trading_volume (str): Represents the trading volume of the asset for the time frame of 24 hours.
-            asset_type (str): Subtype of the crypto assets. Could be COIN or TOKEN
+            asset_type (str): Represent a subtype of the crypto assets. Could be COIN or TOKEN.
             circulating_supply (str): Represents the amount of the asset that is circulating on the market and in public hands.
             market_cap_in_usd (str): Defines the total market value of the asset's circulating supply in USD.
             max_supply (str): Represents the maximum amount of all coins of a specific asset that will ever exist in its lifetime.
@@ -226,7 +226,7 @@ class ListAssetsDetailsRISC(ModelNormal):
             _1_week_price_change_in_percentage (str): Represents the percentage of the asset's current price against the its price from 1 week ago.
             _24_hours_price_change_in_percentage (str): Represents the percentage of the asset's current price against the its price from 24 hours ago.
             _24_hours_trading_volume (str): Represents the trading volume of the asset for the time frame of 24 hours.
-            asset_type (str): Subtype of the crypto assets. Could be COIN or TOKEN
+            asset_type (str): Represent a subtype of the crypto assets. Could be COIN or TOKEN.
             circulating_supply (str): Represents the amount of the asset that is circulating on the market and in public hands.
             market_cap_in_usd (str): Defines the total market value of the asset's circulating supply in USD.
             max_supply (str): Represents the maximum amount of all coins of a specific asset that will ever exist in its lifetime.

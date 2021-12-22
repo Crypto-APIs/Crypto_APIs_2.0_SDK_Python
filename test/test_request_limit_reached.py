@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.request_limit_reached_error import RequestLimitReachedError
-globals()['RequestLimitReachedError'] = RequestLimitReachedError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.request_limit_reached import RequestLimitReached
 
 

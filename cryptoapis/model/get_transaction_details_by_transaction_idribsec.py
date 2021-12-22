@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -93,7 +93,7 @@ class GetTransactionDetailsByTransactionIDRIBSEC(ModelNormal):
             'gas_price': (GetTransactionDetailsByTransactionIDRIBSECGasPrice,),  # noqa: E501
             'gas_used': (str,),  # noqa: E501
             'input_data': (str,),  # noqa: E501
-            'nonce': (str,),  # noqa: E501
+            'nonce': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -126,7 +126,7 @@ class GetTransactionDetailsByTransactionIDRIBSEC(ModelNormal):
             gas_price (GetTransactionDetailsByTransactionIDRIBSECGasPrice):
             gas_used (str): Represents the exact unit of gas that was used for the transaction.
             input_data (str): Represents additional information that is required for the transaction.
-            nonce (str): Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.
+            nonce (int): Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -221,7 +221,7 @@ class GetTransactionDetailsByTransactionIDRIBSEC(ModelNormal):
             gas_price (GetTransactionDetailsByTransactionIDRIBSECGasPrice):
             gas_used (str): Represents the exact unit of gas that was used for the transaction.
             input_data (str): Represents additional information that is required for the transaction.
-            nonce (str): Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.
+            nonce (int): Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

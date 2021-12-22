@@ -31,13 +31,6 @@ class TestFeaturesApi(unittest.TestCase):
         """
         pass
 
-    def test_generate_address(self):
-        """Test case for generate_address
-
-        Generate Address  # noqa: E501
-        """
-        pass
-
     def test_get_eip_1559_fee_recommendations(self):
         """Test case for get_eip_1559_fee_recommendations
 

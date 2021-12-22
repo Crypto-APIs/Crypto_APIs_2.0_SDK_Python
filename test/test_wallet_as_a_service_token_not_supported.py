@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.wallet_as_a_service_token_not_supported_error import WalletAsAServiceTokenNotSupportedError
-globals()['WalletAsAServiceTokenNotSupportedError'] = WalletAsAServiceTokenNotSupportedError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.wallet_as_a_service_token_not_supported import WalletAsAServiceTokenNotSupported
 
 

@@ -25,16 +25,16 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.list_confirmed_transactions_by_address_ribszv_shielded_output import ListConfirmedTransactionsByAddressRIBSZVShieldedOutput
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_output import GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput
     from cryptoapis.model.list_unspent_transaction_outputs_by_address_ri_blockchain_specific_v_join_split import ListUnspentTransactionOutputsByAddressRIBlockchainSpecificVJoinSplit
     from cryptoapis.model.list_unspent_transaction_outputs_by_address_ri_blockchain_specific_v_shielded_spend import ListUnspentTransactionOutputsByAddressRIBlockchainSpecificVShieldedSpend
-    globals()['ListConfirmedTransactionsByAddressRIBSZVShieldedOutput'] = ListConfirmedTransactionsByAddressRIBSZVShieldedOutput
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput
     globals()['ListUnspentTransactionOutputsByAddressRIBlockchainSpecificVJoinSplit'] = ListUnspentTransactionOutputsByAddressRIBlockchainSpecificVJoinSplit
     globals()['ListUnspentTransactionOutputsByAddressRIBlockchainSpecificVShieldedSpend'] = ListUnspentTransactionOutputsByAddressRIBlockchainSpecificVShieldedSpend
 
@@ -102,7 +102,7 @@ class ListUnspentTransactionOutputsByAddressRIBlockchainSpecific(ModelNormal):
             'value_balance': (str,),  # noqa: E501
             'version_group_id': (str,),  # noqa: E501
             'v_join_split': ([ListUnspentTransactionOutputsByAddressRIBlockchainSpecificVJoinSplit],),  # noqa: E501
-            'v_shielded_output': ([ListConfirmedTransactionsByAddressRIBSZVShieldedOutput],),  # noqa: E501
+            'v_shielded_output': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput],),  # noqa: E501
         }
 
     @cached_property
@@ -177,7 +177,7 @@ class ListUnspentTransactionOutputsByAddressRIBlockchainSpecific(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             v_join_split ([ListUnspentTransactionOutputsByAddressRIBlockchainSpecificVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.. [optional]  # noqa: E501
-            v_shielded_output ([ListConfirmedTransactionsByAddressRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions. [optional]  # noqa: E501
+            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -280,7 +280,7 @@ class ListUnspentTransactionOutputsByAddressRIBlockchainSpecific(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             v_join_split ([ListUnspentTransactionOutputsByAddressRIBlockchainSpecificVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.. [optional]  # noqa: E501
-            v_shielded_output ([ListConfirmedTransactionsByAddressRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions. [optional]  # noqa: E501
+            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

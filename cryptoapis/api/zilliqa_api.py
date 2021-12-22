@@ -22,25 +22,46 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from cryptoapis.model.blockchain_data_block_not_found import BlockchainDataBlockNotFound
-from cryptoapis.model.blockchain_data_transaction_not_found import BlockchainDataTransactionNotFound
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.get_latest_mined_zilliqa_block_r import GetLatestMinedZilliqaBlockR
 from cryptoapis.model.get_zilliqa_address_details_r import GetZilliqaAddressDetailsR
 from cryptoapis.model.get_zilliqa_block_details_by_block_hash_r import GetZilliqaBlockDetailsByBlockHashR
 from cryptoapis.model.get_zilliqa_block_details_by_block_height_r import GetZilliqaBlockDetailsByBlockHeightR
 from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_idr import GetZilliqaTransactionDetailsByTransactionIDR
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
+from cryptoapis.model.inline_response40014 import InlineResponse40014
+from cryptoapis.model.inline_response40021 import InlineResponse40021
+from cryptoapis.model.inline_response40022 import InlineResponse40022
+from cryptoapis.model.inline_response40029 import InlineResponse40029
+from cryptoapis.model.inline_response4003 import InlineResponse4003
+from cryptoapis.model.inline_response40033 import InlineResponse40033
+from cryptoapis.model.inline_response40040 import InlineResponse40040
+from cryptoapis.model.inline_response4009 import InlineResponse4009
+from cryptoapis.model.inline_response40114 import InlineResponse40114
+from cryptoapis.model.inline_response40121 import InlineResponse40121
+from cryptoapis.model.inline_response40122 import InlineResponse40122
+from cryptoapis.model.inline_response40129 import InlineResponse40129
+from cryptoapis.model.inline_response4013 import InlineResponse4013
+from cryptoapis.model.inline_response40133 import InlineResponse40133
+from cryptoapis.model.inline_response40140 import InlineResponse40140
+from cryptoapis.model.inline_response4019 import InlineResponse4019
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40314 import InlineResponse40314
+from cryptoapis.model.inline_response40321 import InlineResponse40321
+from cryptoapis.model.inline_response40322 import InlineResponse40322
+from cryptoapis.model.inline_response40329 import InlineResponse40329
+from cryptoapis.model.inline_response4033 import InlineResponse4033
+from cryptoapis.model.inline_response40333 import InlineResponse40333
+from cryptoapis.model.inline_response40340 import InlineResponse40340
+from cryptoapis.model.inline_response4039 import InlineResponse4039
+from cryptoapis.model.inline_response404 import InlineResponse404
+from cryptoapis.model.inline_response4042 import InlineResponse4042
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.list_zilliqa_transactions_by_address_r import ListZilliqaTransactionsByAddressR
 from cryptoapis.model.list_zilliqa_transactions_by_block_hash_r import ListZilliqaTransactionsByBlockHashR
 from cryptoapis.model.list_zilliqa_transactions_by_block_height_r import ListZilliqaTransactionsByBlockHeightR
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 
 
 class ZilliqaApi(object):
@@ -649,6 +670,9 @@ class ZilliqaApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -677,6 +701,8 @@ class ZilliqaApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -718,6 +744,9 @@ class ZilliqaApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -746,6 +775,8 @@ class ZilliqaApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -789,6 +820,9 @@ class ZilliqaApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -817,6 +851,8 @@ class ZilliqaApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -860,6 +896,9 @@ class ZilliqaApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -888,6 +927,8 @@ class ZilliqaApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -931,6 +972,9 @@ class ZilliqaApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -959,6 +1003,8 @@ class ZilliqaApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -1004,6 +1050,9 @@ class ZilliqaApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1032,6 +1081,8 @@ class ZilliqaApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -1077,6 +1128,9 @@ class ZilliqaApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1105,6 +1159,8 @@ class ZilliqaApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -1150,6 +1206,9 @@ class ZilliqaApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1178,6 +1237,8 @@ class ZilliqaApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network

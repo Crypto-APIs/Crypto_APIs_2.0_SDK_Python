@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.endpoint_not_allowed_for_api_key_error import EndpointNotAllowedForApiKeyError
-globals()['EndpointNotAllowedForApiKeyError'] = EndpointNotAllowedForApiKeyError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.endpoint_not_allowed_for_api_key import EndpointNotAllowedForApiKey
 
 

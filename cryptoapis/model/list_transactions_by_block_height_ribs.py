@@ -25,13 +25,13 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.list_confirmed_transactions_by_address_ribszv_shielded_spend import ListConfirmedTransactionsByAddressRIBSZVShieldedSpend
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_spend import GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
     from cryptoapis.model.list_transactions_by_block_height_ribsb import ListTransactionsByBlockHeightRIBSB
     from cryptoapis.model.list_transactions_by_block_height_ribsbc import ListTransactionsByBlockHeightRIBSBC
     from cryptoapis.model.list_transactions_by_block_height_ribsbsc import ListTransactionsByBlockHeightRIBSBSC
@@ -46,7 +46,7 @@ def lazy_import():
     from cryptoapis.model.list_transactions_by_block_height_ribsz_vout import ListTransactionsByBlockHeightRIBSZVout
     from cryptoapis.model.list_transactions_by_block_height_ribszv_join_split import ListTransactionsByBlockHeightRIBSZVJoinSplit
     from cryptoapis.model.list_transactions_by_block_height_ribszv_shielded_output import ListTransactionsByBlockHeightRIBSZVShieldedOutput
-    globals()['ListConfirmedTransactionsByAddressRIBSZVShieldedSpend'] = ListConfirmedTransactionsByAddressRIBSZVShieldedSpend
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
     globals()['ListTransactionsByBlockHeightRIBSB'] = ListTransactionsByBlockHeightRIBSB
     globals()['ListTransactionsByBlockHeightRIBSBC'] = ListTransactionsByBlockHeightRIBSBC
     globals()['ListTransactionsByBlockHeightRIBSBSC'] = ListTransactionsByBlockHeightRIBSBSC
@@ -136,7 +136,7 @@ class ListTransactionsByBlockHeightRIBS(ModelComposed):
             'overwintered': (bool,),  # noqa: E501
             'v_join_split': ([ListTransactionsByBlockHeightRIBSZVJoinSplit],),  # noqa: E501
             'v_shielded_output': ([ListTransactionsByBlockHeightRIBSZVShieldedOutput],),  # noqa: E501
-            'v_shielded_spend': ([ListConfirmedTransactionsByAddressRIBSZVShieldedSpend],),  # noqa: E501
+            'v_shielded_spend': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend],),  # noqa: E501
             'value_balance': (str,),  # noqa: E501
             'version_group_id': (str,),  # noqa: E501
         }
@@ -231,7 +231,7 @@ class ListTransactionsByBlockHeightRIBS(ModelComposed):
             overwintered (bool): \"Overwinter\" is the network upgrade for the Zcash blockchain.. [optional]  # noqa: E501
             v_join_split ([ListTransactionsByBlockHeightRIBSZVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.. [optional]  # noqa: E501
             v_shielded_output ([ListTransactionsByBlockHeightRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions. [optional]  # noqa: E501
-            v_shielded_spend ([ListConfirmedTransactionsByAddressRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions. [optional]  # noqa: E501
+            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions. [optional]  # noqa: E501
             value_balance (str): Defines the transaction value balance.. [optional]  # noqa: E501
             version_group_id (str): Represents the transaction version group ID.. [optional]  # noqa: E501
         """
@@ -353,7 +353,7 @@ class ListTransactionsByBlockHeightRIBS(ModelComposed):
             overwintered (bool): \"Overwinter\" is the network upgrade for the Zcash blockchain.. [optional]  # noqa: E501
             v_join_split ([ListTransactionsByBlockHeightRIBSZVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.. [optional]  # noqa: E501
             v_shielded_output ([ListTransactionsByBlockHeightRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions. [optional]  # noqa: E501
-            v_shielded_spend ([ListConfirmedTransactionsByAddressRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions. [optional]  # noqa: E501
+            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions. [optional]  # noqa: E501
             value_balance (str): Defines the transaction value balance.. [optional]  # noqa: E501
             version_group_id (str): Represents the transaction version group ID.. [optional]  # noqa: E501
         """

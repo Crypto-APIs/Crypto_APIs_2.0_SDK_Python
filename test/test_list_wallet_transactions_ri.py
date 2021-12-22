@@ -14,10 +14,16 @@ import unittest
 
 import cryptoapis
 from cryptoapis.model.list_wallet_transactions_ri_fee import ListWalletTransactionsRIFee
+from cryptoapis.model.list_wallet_transactions_ri_fungible_tokens import ListWalletTransactionsRIFungibleTokens
+from cryptoapis.model.list_wallet_transactions_ri_internal_transactions import ListWalletTransactionsRIInternalTransactions
+from cryptoapis.model.list_wallet_transactions_ri_non_fungible_tokens import ListWalletTransactionsRINonFungibleTokens
 from cryptoapis.model.list_wallet_transactions_ri_recipients import ListWalletTransactionsRIRecipients
 from cryptoapis.model.list_wallet_transactions_ri_senders import ListWalletTransactionsRISenders
 from cryptoapis.model.list_wallet_transactions_ri_value import ListWalletTransactionsRIValue
 globals()['ListWalletTransactionsRIFee'] = ListWalletTransactionsRIFee
+globals()['ListWalletTransactionsRIFungibleTokens'] = ListWalletTransactionsRIFungibleTokens
+globals()['ListWalletTransactionsRIInternalTransactions'] = ListWalletTransactionsRIInternalTransactions
+globals()['ListWalletTransactionsRINonFungibleTokens'] = ListWalletTransactionsRINonFungibleTokens
 globals()['ListWalletTransactionsRIRecipients'] = ListWalletTransactionsRIRecipients
 globals()['ListWalletTransactionsRISenders'] = ListWalletTransactionsRISenders
 globals()['ListWalletTransactionsRIValue'] = ListWalletTransactionsRIValue

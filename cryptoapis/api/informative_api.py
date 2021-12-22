@@ -22,21 +22,37 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.get_transaction_request_details_r import GetTransactionRequestDetailsR
 from cryptoapis.model.get_wallet_asset_details_r import GetWalletAssetDetailsR
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
+from cryptoapis.model.get_wallet_transaction_details_by_transaction_idr import GetWalletTransactionDetailsByTransactionIDR
+from cryptoapis.model.inline_response40034 import InlineResponse40034
+from cryptoapis.model.inline_response40035 import InlineResponse40035
+from cryptoapis.model.inline_response40041 import InlineResponse40041
+from cryptoapis.model.inline_response40045 import InlineResponse40045
+from cryptoapis.model.inline_response40046 import InlineResponse40046
+from cryptoapis.model.inline_response4007 import InlineResponse4007
+from cryptoapis.model.inline_response40134 import InlineResponse40134
+from cryptoapis.model.inline_response40135 import InlineResponse40135
+from cryptoapis.model.inline_response40141 import InlineResponse40141
+from cryptoapis.model.inline_response40145 import InlineResponse40145
+from cryptoapis.model.inline_response40146 import InlineResponse40146
+from cryptoapis.model.inline_response4017 import InlineResponse4017
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40334 import InlineResponse40334
+from cryptoapis.model.inline_response40335 import InlineResponse40335
+from cryptoapis.model.inline_response40341 import InlineResponse40341
+from cryptoapis.model.inline_response40345 import InlineResponse40345
+from cryptoapis.model.inline_response40346 import InlineResponse40346
+from cryptoapis.model.inline_response4037 import InlineResponse4037
+from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.list_deposit_addresses_r import ListDepositAddressesR
 from cryptoapis.model.list_supported_tokens_r import ListSupportedTokensR
 from cryptoapis.model.list_wallet_transactions_r import ListWalletTransactionsR
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.resource_not_found import ResourceNotFound
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 
 
 class InformativeApi(object):
@@ -150,13 +166,16 @@ class InformativeApi(object):
                         "DOGECOIN": "dogecoin",
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
-                        "ZCASH": "zcash"
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "ZCASH": "zcash",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
                         "TESTNET": "testnet",
-                        "ROPSTEN": "ropsten"
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor"
                     },
                 },
                 'openapi_types': {
@@ -179,6 +198,95 @@ class InformativeApi(object):
                     'blockchain': 'path',
                     'network': 'path',
                     'wallet_id': 'path',
+                    'context': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_wallet_transaction_details_by_transaction_id_endpoint = _Endpoint(
+            settings={
+                'response_type': (GetWalletTransactionDetailsByTransactionIDR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/wallet-as-a-service/wallets/{blockchain}/{network}/transactions/{transactionId}',
+                'operation_id': 'get_wallet_transaction_details_by_transaction_id',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'blockchain',
+                    'network',
+                    'transaction_id',
+                    'context',
+                ],
+                'required': [
+                    'blockchain',
+                    'network',
+                    'transaction_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'blockchain',
+                    'network',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('blockchain',): {
+
+                        "BITCOIN": "bitcoin",
+                        "ETHEREUM": "ethereum",
+                        "LITECOIN": "litecoin",
+                        "BITCOIN-CASH": "bitcoin-cash",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "DOGECOIN": "dogecoin",
+                        "DASH": "dash",
+                        "ZCASH": "zcash",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain"
+                    },
+                    ('network',): {
+
+                        "MAINNET": "mainnet",
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor"
+                    },
+                },
+                'openapi_types': {
+                    'blockchain':
+                        (str,),
+                    'network':
+                        (str,),
+                    'transaction_id':
+                        (str,),
+                    'context':
+                        (str,),
+                },
+                'attribute_map': {
+                    'blockchain': 'blockchain',
+                    'network': 'network',
+                    'transaction_id': 'transactionId',
+                    'context': 'context',
+                },
+                'location_map': {
+                    'blockchain': 'path',
+                    'network': 'path',
+                    'transaction_id': 'path',
                     'context': 'query',
                 },
                 'collection_format_map': {
@@ -236,13 +344,16 @@ class InformativeApi(object):
                         "DOGECOIN": "dogecoin",
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
-                        "ZCASH": "zcash"
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "ZCASH": "zcash",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
                         "TESTNET": "testnet",
-                        "ROPSTEN": "ropsten"
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor"
                     },
                 },
                 'openapi_types': {
@@ -316,12 +427,16 @@ class InformativeApi(object):
                 'allowed_values': {
                     ('blockchain',): {
 
-                        "ETHEREUM": "ethereum"
+                        "ETHEREUM": "ethereum",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
-                        "ROPSTEN": "ropsten"
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor"
                     },
                 },
                 'openapi_types': {
@@ -407,13 +522,16 @@ class InformativeApi(object):
                         "DOGECOIN": "dogecoin",
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
-                        "ZCASH": "zcash"
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "ZCASH": "zcash",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
                         "TESTNET": "testnet",
-                        "ROPSTEN": "ropsten"
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor"
                     },
                 },
                 'openapi_types': {
@@ -492,6 +610,9 @@ class InformativeApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -520,6 +641,8 @@ class InformativeApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['transaction_request_id'] = \
             transaction_request_id
@@ -563,6 +686,9 @@ class InformativeApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -591,6 +717,8 @@ class InformativeApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -599,6 +727,86 @@ class InformativeApi(object):
         kwargs['wallet_id'] = \
             wallet_id
         return self.get_wallet_asset_details_endpoint.call_with_http_info(**kwargs)
+
+    def get_wallet_transaction_details_by_transaction_id(
+        self,
+        blockchain,
+        network,
+        transaction_id,
+        **kwargs
+    ):
+        """Get Wallet Transaction Details By Transaction ID  # noqa: E501
+
+        Through this endpoint users can obtain Wallet transaction information by providing a `transactionId`. Customers can receive information only for a transaction that has been made from their own wallet.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_wallet_transaction_details_by_transaction_id(blockchain, network, transaction_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+            transaction_id (str): Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GetWalletTransactionDetailsByTransactionIDR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        kwargs['transaction_id'] = \
+            transaction_id
+        return self.get_wallet_transaction_details_by_transaction_id_endpoint.call_with_http_info(**kwargs)
 
     def list_deposit_addresses(
         self,
@@ -638,6 +846,9 @@ class InformativeApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -666,6 +877,8 @@ class InformativeApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -677,8 +890,8 @@ class InformativeApi(object):
 
     def list_supported_tokens(
         self,
+        blockchain,
         network,
-        blockchain="ethereum",
         **kwargs
     ):
         """List Supported Tokens  # noqa: E501
@@ -687,12 +900,12 @@ class InformativeApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_supported_tokens(network, blockchain="ethereum", async_req=True)
+        >>> thread = api.list_supported_tokens(blockchain, network, async_req=True)
         >>> result = thread.get()
 
         Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
             network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.. defaults to "ethereum", must be one of ["ethereum"]
 
         Keyword Args:
             context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
@@ -713,6 +926,9 @@ class InformativeApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -741,6 +957,8 @@ class InformativeApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -788,6 +1006,9 @@ class InformativeApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -816,6 +1037,8 @@ class InformativeApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain

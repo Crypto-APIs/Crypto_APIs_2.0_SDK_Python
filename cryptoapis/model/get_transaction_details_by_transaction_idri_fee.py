@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -107,8 +107,8 @@ class GetTransactionDetailsByTransactionIDRIFee(ModelNormal):
         """GetTransactionDetailsByTransactionIDRIFee - a model defined in OpenAPI
 
         Args:
-            amount (str): Defines the amount of the transaction fee.
-            unit (str): Defines the unit of the fee amount, e.g. BTC, ETH, XRP.
+            amount (str): When isConfirmed is True - Defines the amount of the transaction fee  When isConfirmed is False - For ETH-based blockchains this attribute represents the max fee value.
+            unit (str): Defines the fee unit.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,8 +194,8 @@ class GetTransactionDetailsByTransactionIDRIFee(ModelNormal):
         """GetTransactionDetailsByTransactionIDRIFee - a model defined in OpenAPI
 
         Args:
-            amount (str): Defines the amount of the transaction fee.
-            unit (str): Defines the unit of the fee amount, e.g. BTC, ETH, XRP.
+            amount (str): When isConfirmed is True - Defines the amount of the transaction fee  When isConfirmed is False - For ETH-based blockchains this attribute represents the max fee value.
+            unit (str): Defines the fee unit.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.uri_not_found_error import UriNotFoundError
-globals()['UriNotFoundError'] = UriNotFoundError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.uri_not_found import UriNotFound
 
 

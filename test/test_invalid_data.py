@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.invalid_data_error import InvalidDataError
-globals()['InvalidDataError'] = InvalidDataError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.invalid_data import InvalidData
 
 

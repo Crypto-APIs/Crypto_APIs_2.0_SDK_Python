@@ -28,19 +28,29 @@ from cryptoapis.model.create_coins_transaction_request_from_address_r import Cre
 from cryptoapis.model.create_coins_transaction_request_from_address_rb import CreateCoinsTransactionRequestFromAddressRB
 from cryptoapis.model.create_coins_transaction_request_from_wallet_r import CreateCoinsTransactionRequestFromWalletR
 from cryptoapis.model.create_coins_transaction_request_from_wallet_rb import CreateCoinsTransactionRequestFromWalletRB
-from cryptoapis.model.create_tokens_transaction_request_from_address_r import CreateTokensTransactionRequestFromAddressR
-from cryptoapis.model.create_tokens_transaction_request_from_address_rb import CreateTokensTransactionRequestFromAddressRB
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
-from cryptoapis.model.wallet_as_a_service_address_balance_not_enough import WalletAsAServiceAddressBalanceNotEnough
-from cryptoapis.model.wallet_as_a_service_no_deposit_addresses_found import WalletAsAServiceNoDepositAddressesFound
-from cryptoapis.model.wallet_as_a_service_token_not_supported import WalletAsAServiceTokenNotSupported
+from cryptoapis.model.create_fungible_tokens_transaction_request_from_address_r import CreateFungibleTokensTransactionRequestFromAddressR
+from cryptoapis.model.create_fungible_tokens_transaction_request_from_address_rb import CreateFungibleTokensTransactionRequestFromAddressRB
+from cryptoapis.model.inline_response40013 import InlineResponse40013
+from cryptoapis.model.inline_response40020 import InlineResponse40020
+from cryptoapis.model.inline_response40025 import InlineResponse40025
+from cryptoapis.model.inline_response40036 import InlineResponse40036
+from cryptoapis.model.inline_response40113 import InlineResponse40113
+from cryptoapis.model.inline_response40120 import InlineResponse40120
+from cryptoapis.model.inline_response40125 import InlineResponse40125
+from cryptoapis.model.inline_response40136 import InlineResponse40136
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40313 import InlineResponse40313
+from cryptoapis.model.inline_response40320 import InlineResponse40320
+from cryptoapis.model.inline_response40325 import InlineResponse40325
+from cryptoapis.model.inline_response40336 import InlineResponse40336
+from cryptoapis.model.inline_response4091 import InlineResponse4091
+from cryptoapis.model.inline_response4092 import InlineResponse4092
+from cryptoapis.model.inline_response4093 import InlineResponse4093
+from cryptoapis.model.inline_response4094 import InlineResponse4094
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response500 import InlineResponse500
 
 
 class TransactionsApi(object):
@@ -95,12 +105,16 @@ class TransactionsApi(object):
                 'allowed_values': {
                     ('blockchain',): {
 
-                        "ETHEREUM": "ethereum"
+                        "ETHEREUM": "ethereum",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
-                        "ROPSTEN": "ropsten"
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor",
+                        "TESTNET": "testnet"
                     },
                 },
                 'openapi_types': {
@@ -186,12 +200,16 @@ class TransactionsApi(object):
                 'allowed_values': {
                     ('blockchain',): {
 
-                        "ETHEREUM": "ethereum"
+                        "ETHEREUM": "ethereum",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
-                        "ROPSTEN": "ropsten"
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor",
+                        "TESTNET": "testnet"
                     },
                 },
                 'openapi_types': {
@@ -326,14 +344,14 @@ class TransactionsApi(object):
             },
             api_client=api_client
         )
-        self.create_tokens_transaction_request_from_address_endpoint = _Endpoint(
+        self.create_fungible_tokens_transaction_request_from_address_endpoint = _Endpoint(
             settings={
-                'response_type': (CreateTokensTransactionRequestFromAddressR,),
+                'response_type': (CreateFungibleTokensTransactionRequestFromAddressR,),
                 'auth': [
                     'ApiKey'
                 ],
                 'endpoint_path': '/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{senderAddress}/token-transaction-requests',
-                'operation_id': 'create_tokens_transaction_request_from_address',
+                'operation_id': 'create_fungible_tokens_transaction_request_from_address',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -344,7 +362,7 @@ class TransactionsApi(object):
                     'sender_address',
                     'wallet_id',
                     'context',
-                    'create_tokens_transaction_request_from_address_rb',
+                    'create_fungible_tokens_transaction_request_from_address_rb',
                 ],
                 'required': [
                     'blockchain',
@@ -367,12 +385,16 @@ class TransactionsApi(object):
                 'allowed_values': {
                     ('blockchain',): {
 
-                        "ETHEREUM": "ethereum"
+                        "ETHEREUM": "ethereum",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
-                        "ROPSTEN": "ropsten"
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor",
+                        "TESTNET": "testnet"
                     },
                 },
                 'openapi_types': {
@@ -386,8 +408,8 @@ class TransactionsApi(object):
                         (str,),
                     'context':
                         (str,),
-                    'create_tokens_transaction_request_from_address_rb':
-                        (CreateTokensTransactionRequestFromAddressRB,),
+                    'create_fungible_tokens_transaction_request_from_address_rb':
+                        (CreateFungibleTokensTransactionRequestFromAddressRB,),
                 },
                 'attribute_map': {
                     'blockchain': 'blockchain',
@@ -402,7 +424,7 @@ class TransactionsApi(object):
                     'sender_address': 'path',
                     'wallet_id': 'path',
                     'context': 'query',
-                    'create_tokens_transaction_request_from_address_rb': 'body',
+                    'create_fungible_tokens_transaction_request_from_address_rb': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -421,9 +443,9 @@ class TransactionsApi(object):
     def create_coins_transaction_from_address_for_whole_amount(
         self,
         address,
+        blockchain,
         network,
         wallet_id,
-        blockchain="ethereum",
         **kwargs
     ):
         """Create Coins Transaction From Address For Whole Amount  # noqa: E501
@@ -432,14 +454,14 @@ class TransactionsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_coins_transaction_from_address_for_whole_amount(address, network, wallet_id, blockchain="ethereum", async_req=True)
+        >>> thread = api.create_coins_transaction_from_address_for_whole_amount(address, blockchain, network, wallet_id, async_req=True)
         >>> result = thread.get()
 
         Args:
             address (str): Defines the source address.
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
             network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
             wallet_id (str): Represents the sender's specific and unique Wallet ID of the sender.
-            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.. defaults to "ethereum", must be one of ["ethereum"]
 
         Keyword Args:
             context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
@@ -459,6 +481,9 @@ class TransactionsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -487,6 +512,8 @@ class TransactionsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['address'] = \
             address
@@ -501,9 +528,9 @@ class TransactionsApi(object):
     def create_coins_transaction_request_from_address(
         self,
         address,
+        blockchain,
         network,
         wallet_id,
-        blockchain="ethereum",
         **kwargs
     ):
         """Create Coins Transaction Request from Address  # noqa: E501
@@ -512,14 +539,14 @@ class TransactionsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_coins_transaction_request_from_address(address, network, wallet_id, blockchain="ethereum", async_req=True)
+        >>> thread = api.create_coins_transaction_request_from_address(address, blockchain, network, wallet_id, async_req=True)
         >>> result = thread.get()
 
         Args:
             address (str): Defines the specific source address for the transaction.
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
             network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
             wallet_id (str): Represents the sender's specific and unique Wallet ID of the sender.
-            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.. defaults to "ethereum", must be one of ["ethereum"]
 
         Keyword Args:
             context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
@@ -539,6 +566,9 @@ class TransactionsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -567,6 +597,8 @@ class TransactionsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['address'] = \
             address
@@ -617,6 +649,9 @@ class TransactionsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -645,6 +680,8 @@ class TransactionsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -654,7 +691,7 @@ class TransactionsApi(object):
             wallet_id
         return self.create_coins_transaction_request_from_wallet_endpoint.call_with_http_info(**kwargs)
 
-    def create_tokens_transaction_request_from_address(
+    def create_fungible_tokens_transaction_request_from_address(
         self,
         sender_address,
         wallet_id,
@@ -662,13 +699,13 @@ class TransactionsApi(object):
         network="mainnet",
         **kwargs
     ):
-        """Create Tokens Transaction Request from Address  # noqa: E501
+        """Create Fungible Tokens Transaction Request from Address  # noqa: E501
 
-        Through this endpoint users can make a single token transaction.    {warning}This applies only to **fungible** tokens, **not** NFTs (non-fungible tokens).{/warning}    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}  # noqa: E501
+        Through this endpoint users can make a single token transaction.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_tokens_transaction_request_from_address(sender_address, wallet_id, blockchain="ethereum", network="mainnet", async_req=True)
+        >>> thread = api.create_fungible_tokens_transaction_request_from_address(sender_address, wallet_id, blockchain="ethereum", network="mainnet", async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -679,7 +716,7 @@ class TransactionsApi(object):
 
         Keyword Args:
             context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-            create_tokens_transaction_request_from_address_rb (CreateTokensTransactionRequestFromAddressRB): [optional]
+            create_fungible_tokens_transaction_request_from_address_rb (CreateFungibleTokensTransactionRequestFromAddressRB): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -695,13 +732,16 @@ class TransactionsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
             async_req (bool): execute request asynchronously
 
         Returns:
-            CreateTokensTransactionRequestFromAddressR
+            CreateFungibleTokensTransactionRequestFromAddressR
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -723,6 +763,8 @@ class TransactionsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -732,5 +774,5 @@ class TransactionsApi(object):
             sender_address
         kwargs['wallet_id'] = \
             wallet_id
-        return self.create_tokens_transaction_request_from_address_endpoint.call_with_http_info(**kwargs)
+        return self.create_fungible_tokens_transaction_request_from_address_endpoint.call_with_http_info(**kwargs)
 

@@ -25,22 +25,22 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.list_confirmed_transactions_by_address_ribsz_vout import ListConfirmedTransactionsByAddressRIBSZVout
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsz_vin import GetTransactionDetailsByTransactionIDRIBSZVin
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsz_vout import GetTransactionDetailsByTransactionIDRIBSZVout
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_output import GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_spend import GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
     from cryptoapis.model.list_confirmed_transactions_by_address_ribszv_join_split import ListConfirmedTransactionsByAddressRIBSZVJoinSplit
-    from cryptoapis.model.list_confirmed_transactions_by_address_ribszv_shielded_output import ListConfirmedTransactionsByAddressRIBSZVShieldedOutput
-    from cryptoapis.model.list_confirmed_transactions_by_address_ribszv_shielded_spend import ListConfirmedTransactionsByAddressRIBSZVShieldedSpend
-    from cryptoapis.model.list_unconfirmed_transactions_by_address_ribsz_vin import ListUnconfirmedTransactionsByAddressRIBSZVin
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVin'] = GetTransactionDetailsByTransactionIDRIBSZVin
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVout'] = GetTransactionDetailsByTransactionIDRIBSZVout
     globals()['ListConfirmedTransactionsByAddressRIBSZVJoinSplit'] = ListConfirmedTransactionsByAddressRIBSZVJoinSplit
-    globals()['ListConfirmedTransactionsByAddressRIBSZVShieldedOutput'] = ListConfirmedTransactionsByAddressRIBSZVShieldedOutput
-    globals()['ListConfirmedTransactionsByAddressRIBSZVShieldedSpend'] = ListConfirmedTransactionsByAddressRIBSZVShieldedSpend
-    globals()['ListConfirmedTransactionsByAddressRIBSZVout'] = ListConfirmedTransactionsByAddressRIBSZVout
-    globals()['ListUnconfirmedTransactionsByAddressRIBSZVin'] = ListUnconfirmedTransactionsByAddressRIBSZVin
 
 
 class ListAllUnconfirmedTransactionsRIBSZ(ModelNormal):
@@ -104,13 +104,13 @@ class ListAllUnconfirmedTransactionsRIBSZ(ModelNormal):
             'overwintered': (bool,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'v_join_split': ([ListConfirmedTransactionsByAddressRIBSZVJoinSplit],),  # noqa: E501
-            'v_shielded_output': ([ListConfirmedTransactionsByAddressRIBSZVShieldedOutput],),  # noqa: E501
-            'v_shielded_spend': ([ListConfirmedTransactionsByAddressRIBSZVShieldedSpend],),  # noqa: E501
+            'v_shielded_output': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput],),  # noqa: E501
+            'v_shielded_spend': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend],),  # noqa: E501
             'value_balance': (str,),  # noqa: E501
             'version': (int,),  # noqa: E501
             'version_group_id': (str,),  # noqa: E501
-            'vin': ([ListUnconfirmedTransactionsByAddressRIBSZVin],),  # noqa: E501
-            'vout': ([ListConfirmedTransactionsByAddressRIBSZVout],),  # noqa: E501
+            'vin': ([GetTransactionDetailsByTransactionIDRIBSZVin],),  # noqa: E501
+            'vout': ([GetTransactionDetailsByTransactionIDRIBSZVout],),  # noqa: E501
         }
 
     @cached_property
@@ -155,13 +155,13 @@ class ListAllUnconfirmedTransactionsRIBSZ(ModelNormal):
             overwintered (bool): \"Overwinter\" is the network upgrade for the Zcash blockchain.
             size (int): Represents the total size of this transaction.
             v_join_split ([ListConfirmedTransactionsByAddressRIBSZVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
-            v_shielded_output ([ListConfirmedTransactionsByAddressRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions
-            v_shielded_spend ([ListConfirmedTransactionsByAddressRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions
+            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions
+            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions
             value_balance (str): Defines the transaction value balance.
             version (int): Defines the version of the transaction.
             version_group_id (str): Represents the transaction version group ID.
-            vin ([ListUnconfirmedTransactionsByAddressRIBSZVin]): Object Array representation of transaction inputs
-            vout ([ListConfirmedTransactionsByAddressRIBSZVout]): Object Array representation of transaction outputs
+            vin ([GetTransactionDetailsByTransactionIDRIBSZVin]): Object Array representation of transaction inputs
+            vout ([GetTransactionDetailsByTransactionIDRIBSZVout]): Object Array representation of transaction outputs
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -268,13 +268,13 @@ class ListAllUnconfirmedTransactionsRIBSZ(ModelNormal):
             overwintered (bool): \"Overwinter\" is the network upgrade for the Zcash blockchain.
             size (int): Represents the total size of this transaction.
             v_join_split ([ListConfirmedTransactionsByAddressRIBSZVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
-            v_shielded_output ([ListConfirmedTransactionsByAddressRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions
-            v_shielded_spend ([ListConfirmedTransactionsByAddressRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions
+            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions
+            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions
             value_balance (str): Defines the transaction value balance.
             version (int): Defines the version of the transaction.
             version_group_id (str): Represents the transaction version group ID.
-            vin ([ListUnconfirmedTransactionsByAddressRIBSZVin]): Object Array representation of transaction inputs
-            vout ([ListConfirmedTransactionsByAddressRIBSZVout]): Object Array representation of transaction outputs
+            vin ([GetTransactionDetailsByTransactionIDRIBSZVin]): Object Array representation of transaction inputs
+            vout ([GetTransactionDetailsByTransactionIDRIBSZVout]): Object Array representation of transaction outputs
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

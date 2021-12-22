@@ -31,17 +31,17 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.already_exists import AlreadyExists
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
+from cryptoapis.model.inline_response40912 import InlineResponse40912
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40064 import InlineResponse40064
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response40164 import InlineResponse40164
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
 from cryptoapis.model.mined_transaction_rb import MinedTransactionRB
-from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.mined_transaction_r import MinedTransactionR
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response40364 import InlineResponse40364
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -126,11 +126,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | You have reached the maximum number of active Blockchain Events subscriptions which is {callbacks_limit} now. Please upgrade your plan to be get higher number of active subscriptions. |  -  |
-**409** | The specified resource already exists. |  -  |
+**403** | 403 |  -  |
+**409** | 409 |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
@@ -153,17 +153,17 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.already_exists import AlreadyExists
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
+from cryptoapis.model.inline_response40065 import InlineResponse40065
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response40165 import InlineResponse40165
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
 from cryptoapis.model.new_block_rb import NewBlockRB
-from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.inline_response40365 import InlineResponse40365
 from cryptoapis.model.new_block_r import NewBlockR
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response40913 import InlineResponse40913
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -247,11 +247,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | You have reached the maximum number of active Blockchain Events subscriptions which is {callbacks_limit} now. Please upgrade your plan to be get higher number of active subscriptions. |  -  |
-**409** | The specified resource already exists. |  -  |
+**403** | 403 |  -  |
+**409** | 409 |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
@@ -274,17 +274,17 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
+from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.new_confirmed_coins_transactions_rb import NewConfirmedCoinsTransactionsRB
-from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.already_exists import AlreadyExists
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response4098 import InlineResponse4098
+from cryptoapis.model.inline_response40060 import InlineResponse40060
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
 from cryptoapis.model.new_confirmed_coins_transactions_r import NewConfirmedCoinsTransactionsR
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response40160 import InlineResponse40160
+from cryptoapis.model.inline_response40360 import InlineResponse40360
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -369,11 +369,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | You have reached the maximum number of active Blockchain Events subscriptions which is {callbacks_limit} now. Please upgrade your plan to be get higher number of active subscriptions. |  -  |
-**409** | The specified resource already exists. |  -  |
+**403** | 403 |  -  |
+**409** | 409 |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
@@ -396,17 +396,17 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
+from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation_r import NewConfirmedCoinsTransactionsAndEachConfirmationR
 from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation_rb import NewConfirmedCoinsTransactionsAndEachConfirmationRB
-from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.already_exists import AlreadyExists
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response40911 import InlineResponse40911
+from cryptoapis.model.inline_response40063 import InlineResponse40063
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40163 import InlineResponse40163
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40363 import InlineResponse40363
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -492,11 +492,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | The resource has been successfully created. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | You have reached the maximum number of active Blockchain Events subscriptions which is {callbacks_limit} now. Please upgrade your plan to be get higher number of active subscriptions. |  -  |
-**409** | The specified resource already exists. |  -  |
+**403** | 403 |  -  |
+**409** | 409 |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
@@ -519,17 +519,17 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.already_exists import AlreadyExists
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40073 import InlineResponse40073
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40173 import InlineResponse40173
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
 from cryptoapis.model.new_confirmed_internal_transactions_r import NewConfirmedInternalTransactionsR
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
+from cryptoapis.model.inline_response40373 import InlineResponse40373
+from cryptoapis.model.inline_response40914 import InlineResponse40914
 from cryptoapis.model.new_confirmed_internal_transactions_rb import NewConfirmedInternalTransactionsRB
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -614,11 +614,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | You have reached the maximum number of active Blockchain Events subscriptions which is {callbacks_limit} now. Please upgrade your plan to be get higher number of active subscriptions. |  -  |
-**409** | The specified resource already exists. |  -  |
+**403** | 403 |  -  |
+**409** | 409 |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
@@ -641,17 +641,17 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
+from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation_r import NewConfirmedInternalTransactionsAndEachConfirmationR
-from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.already_exists import AlreadyExists
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
+from cryptoapis.model.inline_response40074 import InlineResponse40074
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40174 import InlineResponse40174
+from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation_rb import NewConfirmedInternalTransactionsAndEachConfirmationRB
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40374 import InlineResponse40374
+from cryptoapis.model.inline_response40915 import InlineResponse40915
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -737,11 +737,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | The resource has been successfully created. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | You have reached the maximum number of active Blockchain Events subscriptions which is {callbacks_limit} now. Please upgrade your plan to be get higher number of active subscriptions. |  -  |
-**409** | The specified resource already exists. |  -  |
+**403** | 403 |  -  |
+**409** | 409 |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
@@ -764,17 +764,17 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.new_confirmed_tokens_transactions_rb import NewConfirmedTokensTransactionsRB
-from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.already_exists import AlreadyExists
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.inline_response40061 import InlineResponse40061
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40161 import InlineResponse40161
+from cryptoapis.model.inline_response4099 import InlineResponse4099
 from cryptoapis.model.new_confirmed_tokens_transactions_r import NewConfirmedTokensTransactionsR
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response40361 import InlineResponse40361
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -859,11 +859,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | The resource has been successfully created. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | You have reached the maximum number of active Blockchain Events subscriptions which is {callbacks_limit} now. Please upgrade your plan to be get higher number of active subscriptions. |  -  |
-**409** | The specified resource already exists. |  -  |
+**403** | 403 |  -  |
+**409** | 409 |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
@@ -886,17 +886,17 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
+from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_r import NewConfirmedTokensTransactionsAndEachConfirmationR
-from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.already_exists import AlreadyExists
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response40062 import InlineResponse40062
+from cryptoapis.model.inline_response40910 import InlineResponse40910
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40162 import InlineResponse40162
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
 from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_rb import NewConfirmedTokensTransactionsAndEachConfirmationRB
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response40362 import InlineResponse40362
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -982,11 +982,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | You have reached the maximum number of active Blockchain Events subscriptions which is {callbacks_limit} now. Please upgrade your plan to be get higher number of active subscriptions. |  -  |
-**409** | The specified resource already exists. |  -  |
+**403** | 403 |  -  |
+**409** | 409 |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
@@ -1010,16 +1010,16 @@ import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
 from cryptoapis.model.new_unconfirmed_coins_transactions_r import NewUnconfirmedCoinsTransactionsR
-from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.already_exists import AlreadyExists
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.inline_response40158 import InlineResponse40158
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response4096 import InlineResponse4096
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response40358 import InlineResponse40358
+from cryptoapis.model.inline_response415 import InlineResponse415
 from cryptoapis.model.new_unconfirmed_coins_transactions_rb import NewUnconfirmedCoinsTransactionsRB
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response40058 import InlineResponse40058
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1104,11 +1104,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | The resource has been successfully created. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | You have reached the maximum number of active Blockchain Events subscriptions which is {callbacks_limit} now. Please upgrade your plan to be get higher number of active subscriptions. |  -  |
-**409** | The specified resource already exists. |  -  |
+**403** | 403 |  -  |
+**409** | 409 |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
@@ -1131,17 +1131,17 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.new_unconfirmed_tokens_transactions_r import NewUnconfirmedTokensTransactionsR
-from cryptoapis.model.blockchain_events_callbacks_limit_reached import BlockchainEventsCallbacksLimitReached
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.already_exists import AlreadyExists
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
+from cryptoapis.model.inline_response4097 import InlineResponse4097
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response40359 import InlineResponse40359
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40059 import InlineResponse40059
 from cryptoapis.model.new_unconfirmed_tokens_transactions_rb import NewUnconfirmedTokensTransactionsRB
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response40159 import InlineResponse40159
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1226,11 +1226,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | The resource has been successfully created. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | You have reached the maximum number of active Blockchain Events subscriptions which is {callbacks_limit} now. Please upgrade your plan to be get higher number of active subscriptions. |  -  |
-**409** | The specified resource already exists. |  -  |
+**403** | 403 |  -  |
+**409** | 409 |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |

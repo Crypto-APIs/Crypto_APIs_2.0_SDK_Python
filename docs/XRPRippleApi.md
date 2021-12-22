@@ -29,17 +29,17 @@ Through this endpoint customers can fetch the last mined XRP block in the blockc
 import time
 import cryptoapis
 from cryptoapis.api import xrp__ripple_api
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.get_latest_mined_xrp_ripple_block_r import GetLatestMinedXRPRippleBlockR
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.resource_not_found import ResourceNotFound
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response40339 import InlineResponse40339
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40039 import InlineResponse40039
+from cryptoapis.model.inline_response40139 import InlineResponse40139
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -110,16 +110,16 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
+**403** | 403 |  -  |
 **404** | Resource not found |  -  |
 **409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
-**500** | An unexpected server error was encountered, we are working on fixing this. |  -  |
+**500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -138,16 +138,16 @@ Through this endpoint the customer can receive basic information about a given X
 import time
 import cryptoapis
 from cryptoapis.api import xrp__ripple_api
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response4032 import InlineResponse4032
 from cryptoapis.model.get_xrp_ripple_address_details_r import GetXRPRippleAddressDetailsR
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response4012 import InlineResponse4012
+from cryptoapis.model.inline_response4002 import InlineResponse4002
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -220,15 +220,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
-**409** | Invalid data |  -  |
+**403** | 403 |  -  |
+**409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
-**500** | An unexpected server error was encountered, we are working on fixing this. |  -  |
+**500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -247,17 +247,17 @@ Through this endpoint customers can obtain basic information about a given XRP b
 import time
 import cryptoapis
 from cryptoapis.api import xrp__ripple_api
+from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.get_xrp_ripple_block_details_by_block_hash_r import GetXRPRippleBlockDetailsByBlockHashR
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.resource_not_found import ResourceNotFound
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response40031 import InlineResponse40031
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response40131 import InlineResponse40131
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40331 import InlineResponse40331
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -330,16 +330,16 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
+**403** | 403 |  -  |
 **404** | Resource not found |  -  |
-**409** | Invalid data |  -  |
+**409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
-**500** | An unexpected server error was encountered, we are working on fixing this. |  -  |
+**500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -358,17 +358,17 @@ Through this endpoint customers can obtain basic information about a given XRP b
 import time
 import cryptoapis
 from cryptoapis.api import xrp__ripple_api
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40127 import InlineResponse40127
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.get_xrp_ripple_block_details_by_block_height_r import GetXRPRippleBlockDetailsByBlockHeightR
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.resource_not_found import ResourceNotFound
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40327 import InlineResponse40327
+from cryptoapis.model.inline_response40027 import InlineResponse40027
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -441,16 +441,16 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
+**403** | 403 |  -  |
 **404** | Resource not found |  -  |
-**409** | Invalid data |  -  |
+**409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
-**500** | An unexpected server error was encountered, we are working on fixing this. |  -  |
+**500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -469,17 +469,17 @@ Through this endpoint customers can obtain details about a XRP transaction by th
 import time
 import cryptoapis
 from cryptoapis.api import xrp__ripple_api
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response4006 import InlineResponse4006
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response4036 import InlineResponse4036
+from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
 from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_idr import GetXRPRippleTransactionDetailsByTransactionIDR
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.resource_not_found import ResourceNotFound
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response4016 import InlineResponse4016
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -552,16 +552,16 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
+**403** | 403 |  -  |
 **404** | Resource not found |  -  |
-**409** | Invalid data |  -  |
+**409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
-**500** | An unexpected server error was encountered, we are working on fixing this. |  -  |
+**500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -580,16 +580,16 @@ This endpoint will list XRP transactions by a attribute `address`. The transacti
 import time
 import cryptoapis
 from cryptoapis.api import xrp__ripple_api
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response40011 import InlineResponse40011
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response40111 import InlineResponse40111
+from cryptoapis.model.inline_response415 import InlineResponse415
 from cryptoapis.model.list_xrp_ripple_transactions_by_address_r import ListXRPRippleTransactionsByAddressR
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response40311 import InlineResponse40311
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -668,15 +668,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
-**409** | Invalid data |  -  |
+**403** | 403 |  -  |
+**409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
-**500** | An unexpected server error was encountered, we are working on fixing this. |  -  |
+**500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -695,16 +695,16 @@ This endpoint will list transactions by an attribute `blockHash`. The transactio
 import time
 import cryptoapis
 from cryptoapis.api import xrp__ripple_api
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
+from cryptoapis.model.inline_response40118 import InlineResponse40118
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40318 import InlineResponse40318
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40018 import InlineResponse40018
 from cryptoapis.model.list_xrp_ripple_transactions_by_block_hash_r import ListXRPRippleTransactionsByBlockHashR
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -781,15 +781,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
-**409** | Invalid data |  -  |
+**403** | 403 |  -  |
+**409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
-**500** | An unexpected server error was encountered, we are working on fixing this. |  -  |
+**500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -808,16 +808,16 @@ This endpoint will list transactions by an attribute `blockHeight`. The transact
 import time
 import cryptoapis
 from cryptoapis.api import xrp__ripple_api
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40023 import InlineResponse40023
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40123 import InlineResponse40123
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40323 import InlineResponse40323
 from cryptoapis.model.list_xrp_ripple_transactions_by_block_height_r import ListXRPRippleTransactionsByBlockHeightR
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -894,15 +894,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
-**409** | Invalid data |  -  |
+**403** | 403 |  -  |
+**409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
-**500** | An unexpected server error was encountered, we are working on fixing this. |  -  |
+**500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

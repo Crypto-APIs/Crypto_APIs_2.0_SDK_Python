@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -90,7 +90,7 @@ class GetTransactionDetailsByTransactionIDRIBSD2Vin(ModelNormal):
         return {
             'addresses': ([str],),  # noqa: E501
             'script_sig': (GetTransactionDetailsByTransactionIDRIBSD2ScriptSig,),  # noqa: E501
-            'sequence': (str,),  # noqa: E501
+            'sequence': (int,),  # noqa: E501
             'txinwitness': ([str],),  # noqa: E501
             'coinbase': (str,),  # noqa: E501
             'txid': (str,),  # noqa: E501
@@ -127,7 +127,7 @@ class GetTransactionDetailsByTransactionIDRIBSD2Vin(ModelNormal):
         Args:
             addresses ([str]):
             script_sig (GetTransactionDetailsByTransactionIDRIBSD2ScriptSig):
-            sequence (str): Represents the script sequence number.
+            sequence (int): Represents the script sequence number.
             txinwitness ([str]):
 
         Keyword Args:
@@ -222,7 +222,7 @@ class GetTransactionDetailsByTransactionIDRIBSD2Vin(ModelNormal):
         Args:
             addresses ([str]):
             script_sig (GetTransactionDetailsByTransactionIDRIBSD2ScriptSig):
-            sequence (str): Represents the script sequence number.
+            sequence (int): Represents the script sequence number.
             txinwitness ([str]):
 
         Keyword Args:

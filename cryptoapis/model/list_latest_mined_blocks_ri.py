@@ -25,18 +25,18 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.get_latest_mined_xrp_ripple_block_ri_total_coins import GetLatestMinedXRPRippleBlockRITotalCoins
-    from cryptoapis.model.get_latest_mined_xrp_ripple_block_ri_total_fees import GetLatestMinedXRPRippleBlockRITotalFees
+    from cryptoapis.model.list_latest_mined_blocks_ri_total_coins import ListLatestMinedBlocksRITotalCoins
+    from cryptoapis.model.list_latest_mined_blocks_ri_total_fees import ListLatestMinedBlocksRITotalFees
     from cryptoapis.model.list_latest_mined_blocks_ribs import ListLatestMinedBlocksRIBS
-    globals()['GetLatestMinedXRPRippleBlockRITotalCoins'] = GetLatestMinedXRPRippleBlockRITotalCoins
-    globals()['GetLatestMinedXRPRippleBlockRITotalFees'] = GetLatestMinedXRPRippleBlockRITotalFees
     globals()['ListLatestMinedBlocksRIBS'] = ListLatestMinedBlocksRIBS
+    globals()['ListLatestMinedBlocksRITotalCoins'] = ListLatestMinedBlocksRITotalCoins
+    globals()['ListLatestMinedBlocksRITotalFees'] = ListLatestMinedBlocksRITotalFees
 
 
 class ListLatestMinedBlocksRI(ModelNormal):
@@ -97,8 +97,8 @@ class ListLatestMinedBlocksRI(ModelNormal):
             'previous_block_hash': (str,),  # noqa: E501
             'timestamp': (int,),  # noqa: E501
             'transactions_count': (int,),  # noqa: E501
-            'total_coins': (GetLatestMinedXRPRippleBlockRITotalCoins,),  # noqa: E501
-            'total_fees': (GetLatestMinedXRPRippleBlockRITotalFees,),  # noqa: E501
+            'total_coins': (ListLatestMinedBlocksRITotalCoins,),  # noqa: E501
+            'total_fees': (ListLatestMinedBlocksRITotalFees,),  # noqa: E501
             'blockchain_specific': (ListLatestMinedBlocksRIBS,),  # noqa: E501
         }
 
@@ -134,8 +134,8 @@ class ListLatestMinedBlocksRI(ModelNormal):
             previous_block_hash (str): Represents the hash of the previous block, also known as the parent block.
             timestamp (int): Defines the exact date/time when this block was mined in Unix Timestamp.
             transactions_count (int): Represents the total number of all transactions as part of this block.
-            total_coins (GetLatestMinedXRPRippleBlockRITotalCoins):
-            total_fees (GetLatestMinedXRPRippleBlockRITotalFees):
+            total_coins (ListLatestMinedBlocksRITotalCoins):
+            total_fees (ListLatestMinedBlocksRITotalFees):
             blockchain_specific (ListLatestMinedBlocksRIBS):
 
         Keyword Args:
@@ -233,8 +233,8 @@ class ListLatestMinedBlocksRI(ModelNormal):
             previous_block_hash (str): Represents the hash of the previous block, also known as the parent block.
             timestamp (int): Defines the exact date/time when this block was mined in Unix Timestamp.
             transactions_count (int): Represents the total number of all transactions as part of this block.
-            total_coins (GetLatestMinedXRPRippleBlockRITotalCoins):
-            total_fees (GetLatestMinedXRPRippleBlockRITotalFees):
+            total_coins (ListLatestMinedBlocksRITotalCoins):
+            total_fees (ListLatestMinedBlocksRITotalFees):
             blockchain_specific (ListLatestMinedBlocksRIBS):
 
         Keyword Args:

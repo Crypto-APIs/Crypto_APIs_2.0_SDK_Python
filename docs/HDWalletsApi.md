@@ -24,16 +24,16 @@ HD wallet details is useful endpoint to get the most important data about HD wal
 import time
 import cryptoapis
 from cryptoapis.api import hd_wallets_api
-from cryptoapis.model.xpub_sync_in_progress import XpubSyncInProgress
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.request_limit_reached import RequestLimitReached
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40147 import InlineResponse40147
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40347 import InlineResponse40347
+from cryptoapis.model.inline_response4222 import InlineResponse4222
 from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_details_r import GetHDWalletXPubYPubZPubDetailsR
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.xpub_not_synced import XpubNotSynced
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response40047 import InlineResponse40047
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -110,13 +110,13 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | This xPub is not yet synced, please first use endpoint “Sync HD (xPub, yPub, zPub) wallet” to synchronize it. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
+**403** | 403 |  -  |
 **409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
-**422** | Your wallet (xPub, yPub, zPub) is still syncing, it should take few seconds depending on how many transactions it has. |  -  |
+**422** | 422 |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
 **500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
 
@@ -137,16 +137,16 @@ This endpoint will list HD Wallet transactions.
 import time
 import cryptoapis
 from cryptoapis.api import hd_wallets_api
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_transactions_r import ListHDWalletXPubYPubZPubTransactionsR
-from cryptoapis.model.xpub_sync_in_progress import XpubSyncInProgress
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.xpub_not_synced import XpubNotSynced
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response40349 import InlineResponse40349
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response4223 import InlineResponse4223
+from cryptoapis.model.inline_response40049 import InlineResponse40049
+from cryptoapis.model.inline_response40149 import InlineResponse40149
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -227,13 +227,13 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | This xPub is not yet synced, please first use endpoint “Sync HD (xPub, yPub, zPub) wallet” to synchronize it. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
+**403** | 403 |  -  |
 **409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
-**422** | Your wallet (xPub, yPub, zPub) is still syncing, it should take few seconds depending on how many transactions it has. |  -  |
+**422** | 422 |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
 **500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
 
@@ -255,16 +255,16 @@ import time
 import cryptoapis
 from cryptoapis.api import hd_wallets_api
 from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub_r import SyncHDWalletXPubYPubZPubR
-from cryptoapis.model.invalid_xpub import InvalidXpub
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40043 import InlineResponse40043
 from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub_rb import SyncHDWalletXPubYPubZPubRB
-from cryptoapis.model.xpub_sync_in_progress import XpubSyncInProgress
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.already_exists import AlreadyExists
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40143 import InlineResponse40143
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response4221 import InlineResponse4221
+from cryptoapis.model.inline_response40343 import InlineResponse40343
+from cryptoapis.model.inline_response4095 import InlineResponse4095
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -346,13 +346,13 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | The resource has been successfully created. |  -  |
-**400** | The provided Xpub is invalid. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
-**409** | The specified resource already exists. |  -  |
+**403** | 403 |  -  |
+**409** | 409 |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
-**422** | Your wallet (xPub, yPub, zPub) is still syncing, it should take few seconds depending on how many transactions it has. |  -  |
+**422** | 422 |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
 **500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
 

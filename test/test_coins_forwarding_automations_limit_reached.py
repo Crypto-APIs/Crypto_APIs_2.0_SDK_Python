@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.coins_forwarding_automations_limit_reached_error import CoinsForwardingAutomationsLimitReachedError
-globals()['CoinsForwardingAutomationsLimitReachedError'] = CoinsForwardingAutomationsLimitReachedError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.coins_forwarding_automations_limit_reached import CoinsForwardingAutomationsLimitReached
 
 

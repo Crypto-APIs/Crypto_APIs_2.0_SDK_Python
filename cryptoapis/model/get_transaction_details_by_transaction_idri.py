@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -95,7 +95,7 @@ class GetTransactionDetailsByTransactionIDRI(ModelNormal):
         lazy_import()
         return {
             'index': (int,),  # noqa: E501
-            'is_confirmed': (str,),  # noqa: E501
+            'is_confirmed': (bool,),  # noqa: E501
             'recipients': ([GetTransactionDetailsByTransactionIDRIRecipients],),  # noqa: E501
             'senders': ([GetTransactionDetailsByTransactionIDRISenders],),  # noqa: E501
             'timestamp': (int,),  # noqa: E501
@@ -138,7 +138,7 @@ class GetTransactionDetailsByTransactionIDRI(ModelNormal):
 
         Args:
             index (int): Represents the index position of the transaction in the specific block.
-            is_confirmed (str): Represents the state of the transaction whether it is confirmed or not confirmed.
+            is_confirmed (bool): Represents the state of the transaction whether it is confirmed or not confirmed.
             recipients ([GetTransactionDetailsByTransactionIDRIRecipients]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             senders ([GetTransactionDetailsByTransactionIDRISenders]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
@@ -241,7 +241,7 @@ class GetTransactionDetailsByTransactionIDRI(ModelNormal):
 
         Args:
             index (int): Represents the index position of the transaction in the specific block.
-            is_confirmed (str): Represents the state of the transaction whether it is confirmed or not confirmed.
+            is_confirmed (bool): Represents the state of the transaction whether it is confirmed or not confirmed.
             recipients ([GetTransactionDetailsByTransactionIDRIRecipients]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             senders ([GetTransactionDetailsByTransactionIDRISenders]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.

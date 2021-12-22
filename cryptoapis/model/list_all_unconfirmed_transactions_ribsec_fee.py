@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -83,6 +83,7 @@ class ListAllUnconfirmedTransactionsRIBSECFee(ModelNormal):
         """
         return {
             'amount': (str,),  # noqa: E501
+            'unit': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -92,6 +93,7 @@ class ListAllUnconfirmedTransactionsRIBSECFee(ModelNormal):
 
     attribute_map = {
         'amount': 'amount',  # noqa: E501
+        'unit': 'unit',  # noqa: E501
     }
 
     read_only_vars = {
@@ -101,11 +103,12 @@ class ListAllUnconfirmedTransactionsRIBSECFee(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, amount, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, amount, unit, *args, **kwargs):  # noqa: E501
         """ListAllUnconfirmedTransactionsRIBSECFee - a model defined in OpenAPI
 
         Args:
             amount (str): String representation of the fee value
+            unit (str): Represents the fee unit.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -166,6 +169,7 @@ class ListAllUnconfirmedTransactionsRIBSECFee(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.amount = amount
+        self.unit = unit
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -186,11 +190,12 @@ class ListAllUnconfirmedTransactionsRIBSECFee(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, amount, *args, **kwargs):  # noqa: E501
+    def __init__(self, amount, unit, *args, **kwargs):  # noqa: E501
         """ListAllUnconfirmedTransactionsRIBSECFee - a model defined in OpenAPI
 
         Args:
             amount (str): String representation of the fee value
+            unit (str): Represents the fee unit.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -249,6 +254,7 @@ class ListAllUnconfirmedTransactionsRIBSECFee(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.amount = amount
+        self.unit = unit
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -25,16 +25,16 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.get_transaction_details_by_transaction_idribsb_vout import GetTransactionDetailsByTransactionIDRIBSBVout
     from cryptoapis.model.list_transactions_by_block_hash_ribsb_vin import ListTransactionsByBlockHashRIBSBVin
-    globals()['GetTransactionDetailsByTransactionIDRIBSBVout'] = GetTransactionDetailsByTransactionIDRIBSBVout
+    from cryptoapis.model.list_transactions_by_block_hash_ribsb_vout import ListTransactionsByBlockHashRIBSBVout
     globals()['ListTransactionsByBlockHashRIBSBVin'] = ListTransactionsByBlockHashRIBSBVin
+    globals()['ListTransactionsByBlockHashRIBSBVout'] = ListTransactionsByBlockHashRIBSBVout
 
 
 class ListTransactionsByBlockHashRIBSB(ModelNormal):
@@ -95,7 +95,7 @@ class ListTransactionsByBlockHashRIBSB(ModelNormal):
             'v_size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
             'vin': ([ListTransactionsByBlockHashRIBSBVin],),  # noqa: E501
-            'vout': ([GetTransactionDetailsByTransactionIDRIBSBVout],),  # noqa: E501
+            'vout': ([ListTransactionsByBlockHashRIBSBVout],),  # noqa: E501
         }
 
     @cached_property
@@ -128,7 +128,7 @@ class ListTransactionsByBlockHashRIBSB(ModelNormal):
             v_size (int): Represents the virtual size of this transaction.
             version (int): Represents the transaction version number.
             vin ([ListTransactionsByBlockHashRIBSBVin]): Represents the transaction inputs.
-            vout ([GetTransactionDetailsByTransactionIDRIBSBVout]): Represents the transaction outputs.
+            vout ([ListTransactionsByBlockHashRIBSBVout]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -223,7 +223,7 @@ class ListTransactionsByBlockHashRIBSB(ModelNormal):
             v_size (int): Represents the virtual size of this transaction.
             version (int): Represents the transaction version number.
             vin ([ListTransactionsByBlockHashRIBSBVin]): Represents the transaction inputs.
-            vout ([GetTransactionDetailsByTransactionIDRIBSBVout]): Represents the transaction outputs.
+            vout ([ListTransactionsByBlockHashRIBSBVout]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

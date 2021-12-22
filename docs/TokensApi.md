@@ -25,16 +25,16 @@ Though this endpoint customers can obtain information about token details. This 
 import time
 import cryptoapis
 from cryptoapis.api import tokens_api
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.inline_response40157 import InlineResponse40157
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40357 import InlineResponse40357
 from cryptoapis.model.get_token_details_by_contract_address_r import GetTokenDetailsByContractAddressR
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response40057 import InlineResponse40057
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -108,10 +108,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
+**403** | 403 |  -  |
 **409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
@@ -135,16 +135,16 @@ Through this endpoint customers can obtain a list with **confirmed** token trans
 import time
 import cryptoapis
 from cryptoapis.api import tokens_api
+from cryptoapis.model.inline_response40055 import InlineResponse40055
+from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.list_confirmed_tokens_transfers_by_address_r import ListConfirmedTokensTransfersByAddressR
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response40155 import InlineResponse40155
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40355 import InlineResponse40355
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -172,7 +172,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     address = "0x033ef6db9fbd0ee60e2931906b987fe0280471a0" # str | Represents the public address, which is a compressed and shortened form of a public key.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 10 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
 
     # example passing only required values which don't have defaults set
     try:
@@ -223,10 +223,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
+**403** | 403 |  -  |
 **409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
@@ -250,16 +250,16 @@ Through this endpoint customers can obtain token data by providing an attribute 
 import time
 import cryptoapis
 from cryptoapis.api import tokens_api
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40156 import InlineResponse40156
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.list_tokens_by_address_r import ListTokensByAddressR
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40356 import InlineResponse40356
+from cryptoapis.model.inline_response40056 import InlineResponse40056
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -338,10 +338,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
+**403** | 403 |  -  |
 **409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
@@ -365,16 +365,16 @@ Through this endpoint customers can obtain a list with token transfers by the `t
 import time
 import cryptoapis
 from cryptoapis.api import tokens_api
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40054 import InlineResponse40054
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response40154 import InlineResponse40154
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40354 import InlineResponse40354
 from cryptoapis.model.list_tokens_transfers_by_transaction_hash_r import ListTokensTransfersByTransactionHashR
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -453,10 +453,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
+**403** | 403 |  -  |
 **409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |

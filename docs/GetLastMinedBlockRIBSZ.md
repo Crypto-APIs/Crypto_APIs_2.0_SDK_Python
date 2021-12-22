@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **size** | **int** | Represents the total size of the block in Bytes. | 
 **bits** | **str** | Represents a specific sub-unit of Zcash. Bits have two-decimal precision | 
 **chainwork** | **str** | Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes. | 
-**merkleroot** | **str** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
+**merkle_root** | **str** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
 **version** | **int** | Represents the transaction version number. | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

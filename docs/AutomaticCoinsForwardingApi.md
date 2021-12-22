@@ -25,17 +25,17 @@ import time
 import cryptoapis
 from cryptoapis.api import automatic_coins_forwarding_api
 from cryptoapis.model.create_automatic_coins_forwarding_r import CreateAutomaticCoinsForwardingR
-from cryptoapis.model.coins_forwarding_automations_limit_reached import CoinsForwardingAutomationsLimitReached
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.already_exists import AlreadyExists
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40176 import InlineResponse40176
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40376 import InlineResponse40376
 from cryptoapis.model.create_automatic_coins_forwarding_rb import CreateAutomaticCoinsForwardingRB
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.resource_not_found import ResourceNotFound
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response40916 import InlineResponse40916
+from cryptoapis.model.inline_response40076 import InlineResponse40076
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -69,7 +69,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
                 callback_url="https://example.com",
                 confirmations_count=3,
                 fee_priority="standard",
-                minimum_transfer_amount="0.0002",
+                minimum_transfer_amount="0.02",
                 to_address="mzYijhgmzZrmuB7wBDazRKirnChKyow4M3",
             ),
         ),
@@ -122,12 +122,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | The resource has been successfully created. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Your current package plan coins forwarding automations limit of {automations_limit} reached. Please contact us if you need more or upgrade your plan. |  -  |
+**403** | 403 |  -  |
 **404** | The specified resource has not been found. |  -  |
-**409** | The specified resource already exists. |  -  |
+**409** | 409 |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
@@ -150,17 +150,17 @@ Through this endpoint customers can delete a forwarding function they have set f
 import time
 import cryptoapis
 from cryptoapis.api import automatic_coins_forwarding_api
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40177 import InlineResponse40177
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40377 import InlineResponse40377
 from cryptoapis.model.delete_automatic_coins_forwarding_r import DeleteAutomaticCoinsForwardingR
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.resource_not_found import ResourceNotFound
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response40077 import InlineResponse40077
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -235,10 +235,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The delete request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
+**403** | 403 |  -  |
 **404** | The specified resource has not been found. |  -  |
 **409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
@@ -263,17 +263,17 @@ Through this endpoint customers can list all of their **coins** forwarding autom
 import time
 import cryptoapis
 from cryptoapis.api import automatic_coins_forwarding_api
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
+from cryptoapis.model.inline_response40075 import InlineResponse40075
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response40175 import InlineResponse40175
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40375 import InlineResponse40375
 from cryptoapis.model.list_coins_forwarding_automations_r import ListCoinsForwardingAutomationsR
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.resource_not_found import ResourceNotFound
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -350,10 +350,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
+**403** | 403 |  -  |
 **404** | The specified resource has not been found. |  -  |
 **409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |

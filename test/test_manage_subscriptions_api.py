@@ -24,6 +24,13 @@ class TestManageSubscriptionsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_activate_blockchain_event_subscription(self):
+        """Test case for activate_blockchain_event_subscription
+
+        Activate Blockchain Event Subscription  # noqa: E501
+        """
+        pass
+
     def test_delete_blockchain_event_subscription(self):
         """Test case for delete_blockchain_event_subscription
 

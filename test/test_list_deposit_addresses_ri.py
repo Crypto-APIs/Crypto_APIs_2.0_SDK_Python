@@ -13,6 +13,12 @@ import sys
 import unittest
 
 import cryptoapis
+from cryptoapis.model.list_deposit_addresses_ri_confirmed_balance import ListDepositAddressesRIConfirmedBalance
+from cryptoapis.model.list_deposit_addresses_ri_fungible_tokens import ListDepositAddressesRIFungibleTokens
+from cryptoapis.model.list_deposit_addresses_ri_non_fungible_tokens import ListDepositAddressesRINonFungibleTokens
+globals()['ListDepositAddressesRIConfirmedBalance'] = ListDepositAddressesRIConfirmedBalance
+globals()['ListDepositAddressesRIFungibleTokens'] = ListDepositAddressesRIFungibleTokens
+globals()['ListDepositAddressesRINonFungibleTokens'] = ListDepositAddressesRINonFungibleTokens
 from cryptoapis.model.list_deposit_addresses_ri import ListDepositAddressesRI
 
 

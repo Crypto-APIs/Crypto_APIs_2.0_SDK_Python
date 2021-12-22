@@ -22,18 +22,18 @@ Through this endpoint customers can generate a new Receiving/Deposit Addresses i
 import time
 import cryptoapis
 from cryptoapis.api import generating_api
-from cryptoapis.model.wallet_as_a_service_deposit_addresses_limit_reached import WalletAsAServiceDepositAddressesLimitReached
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
+from cryptoapis.model.inline_response4008 import InlineResponse4008
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.generate_deposit_address_r import GenerateDepositAddressR
-from cryptoapis.model.invalid_pagination import InvalidPagination
+from cryptoapis.model.inline_response415 import InlineResponse415
 from cryptoapis.model.generate_deposit_address_rb import GenerateDepositAddressRB
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.resource_not_found import ResourceNotFound
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response4018 import InlineResponse4018
+from cryptoapis.model.inline_response4038 import InlineResponse4038
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -117,10 +117,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | The resource has been successfully created. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | You have reached the maximum Deposit Addresses count which is currently {depositAddressesCount}. Please, upgrade your plan in order to have a higher Deposit Address count. |  -  |
+**403** | 403 |  -  |
 **404** | The specified resource has not been found. |  -  |
 **409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |

@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -89,6 +89,9 @@ class ListLatestMinedBlocksRIBSB(ModelNormal):
             'version': (int,),  # noqa: E501
             'version_hex': (str,),  # noqa: E501
             'weight': (int,),  # noqa: E501
+            'difficulty': (str,),  # noqa: E501
+            'nonce': (int,),  # noqa: E501
+            'size': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -104,6 +107,9 @@ class ListLatestMinedBlocksRIBSB(ModelNormal):
         'version': 'version',  # noqa: E501
         'version_hex': 'versionHex',  # noqa: E501
         'weight': 'weight',  # noqa: E501
+        'difficulty': 'difficulty',  # noqa: E501
+        'nonce': 'nonce',  # noqa: E501
+        'size': 'size',  # noqa: E501
     }
 
     read_only_vars = {
@@ -156,6 +162,9 @@ class ListLatestMinedBlocksRIBSB(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.. [optional]  # noqa: E501
+            nonce (int): Represents a random value that can be adjusted to satisfy the proof of work. [optional]  # noqa: E501
+            size (int): Represents the block size. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -253,6 +262,9 @@ class ListLatestMinedBlocksRIBSB(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.. [optional]  # noqa: E501
+            nonce (int): Represents a random value that can be adjusted to satisfy the proof of work. [optional]  # noqa: E501
+            size (int): Represents the block size. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

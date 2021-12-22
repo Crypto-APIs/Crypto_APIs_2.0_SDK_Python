@@ -22,18 +22,26 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from cryptoapis.model.activate_blockchain_event_subscription_r import ActivateBlockchainEventSubscriptionR
+from cryptoapis.model.activate_blockchain_event_subscription_rb import ActivateBlockchainEventSubscriptionRB
 from cryptoapis.model.delete_blockchain_event_subscription_r import DeleteBlockchainEventSubscriptionR
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
+from cryptoapis.model.inline_response40066 import InlineResponse40066
+from cryptoapis.model.inline_response40067 import InlineResponse40067
+from cryptoapis.model.inline_response40068 import InlineResponse40068
+from cryptoapis.model.inline_response40166 import InlineResponse40166
+from cryptoapis.model.inline_response40167 import InlineResponse40167
+from cryptoapis.model.inline_response40168 import InlineResponse40168
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40366 import InlineResponse40366
+from cryptoapis.model.inline_response40367 import InlineResponse40367
+from cryptoapis.model.inline_response40368 import InlineResponse40368
+from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.list_blockchain_events_subscriptions_r import ListBlockchainEventsSubscriptionsR
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.resource_not_found import ResourceNotFound
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 
 
 class ManageSubscriptionsApi(object):
@@ -47,6 +55,68 @@ class ManageSubscriptionsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.activate_blockchain_event_subscription_endpoint = _Endpoint(
+            settings={
+                'response_type': (ActivateBlockchainEventSubscriptionR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/blockchain-events/subscriptions/{referenceId}/activate',
+                'operation_id': 'activate_blockchain_event_subscription',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'reference_id',
+                    'context',
+                    'activate_blockchain_event_subscription_rb',
+                ],
+                'required': [
+                    'reference_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'reference_id':
+                        (str,),
+                    'context':
+                        (str,),
+                    'activate_blockchain_event_subscription_rb':
+                        (ActivateBlockchainEventSubscriptionRB,),
+                },
+                'attribute_map': {
+                    'reference_id': 'referenceId',
+                    'context': 'context',
+                },
+                'location_map': {
+                    'reference_id': 'path',
+                    'context': 'query',
+                    'activate_blockchain_event_subscription_rb': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.delete_blockchain_event_subscription_endpoint = _Endpoint(
             settings={
                 'response_type': (DeleteBlockchainEventSubscriptionR,),
@@ -95,7 +165,8 @@ class ManageSubscriptionsApi(object):
                         "XRP": "xrp",
                         "ZILLIQA": "zilliqa",
                         "BINANCE-SMART-CHAIN": "binance-smart-chain",
-                        "ZCASH": "zcash"
+                        "ZCASH": "zcash",
+                        "BITCOIN-SATOSHI-VISION": "bitcoin-satoshi-vision"
                     },
                     ('network',): {
 
@@ -234,6 +305,79 @@ class ManageSubscriptionsApi(object):
             api_client=api_client
         )
 
+    def activate_blockchain_event_subscription(
+        self,
+        reference_id,
+        **kwargs
+    ):
+        """Activate Blockchain Event Subscription  # noqa: E501
+
+        Through this endpoint customers can reactivate an event subscription (callback) which has been deactivated by the system. Deactivations could happen due to various reasons, most often \"maximum retry attempts reached\".  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.activate_blockchain_event_subscription(reference_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            reference_id (str): Represents a unique ID used to reference the specific callback subscription.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            activate_blockchain_event_subscription_rb (ActivateBlockchainEventSubscriptionRB): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ActivateBlockchainEventSubscriptionR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['reference_id'] = \
+            reference_id
+        return self.activate_blockchain_event_subscription_endpoint.call_with_http_info(**kwargs)
+
     def delete_blockchain_event_subscription(
         self,
         blockchain,
@@ -272,6 +416,9 @@ class ManageSubscriptionsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -300,6 +447,8 @@ class ManageSubscriptionsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -347,6 +496,9 @@ class ManageSubscriptionsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -375,6 +527,8 @@ class ManageSubscriptionsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain

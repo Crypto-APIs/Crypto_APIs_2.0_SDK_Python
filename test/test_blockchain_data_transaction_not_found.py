@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.blockchain_data_transaction_not_found_error import BlockchainDataTransactionNotFoundError
-globals()['BlockchainDataTransactionNotFoundError'] = BlockchainDataTransactionNotFoundError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.blockchain_data_transaction_not_found import BlockchainDataTransactionNotFound
 
 

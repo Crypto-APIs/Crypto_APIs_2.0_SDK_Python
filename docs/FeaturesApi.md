@@ -5,7 +5,6 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**broadcast_locally_signed_transaction**](FeaturesApi.md#broadcast_locally_signed_transaction) | **POST** /blockchain-tools/{blockchain}/{network}/transactions/broadcast | Broadcast Locally Signed Transaction
-[**generate_address**](FeaturesApi.md#generate_address) | **POST** /blockchain-tools/{blockchain}/{network}/addresses/generate | Generate Address
 [**get_eip_1559_fee_recommendations**](FeaturesApi.md#get_eip_1559_fee_recommendations) | **GET** /blockchain-tools/{blockchain}/{network}/fees/eip1559 | Get EIP 1559 Fee Recommendations
 [**validate_address**](FeaturesApi.md#validate_address) | **POST** /blockchain-tools/{blockchain}/{network}/addresses/validate | Validate Address
 
@@ -15,7 +14,7 @@ Method | HTTP request | Description
 
 Broadcast Locally Signed Transaction
 
-Through this endpoint customers can broadcast transactions that have been already signed locally. Instead of using a node for broadcasting a signed transaction users can use this endpoint. We then keep the user posted about the status by sending you a callback with a success or failure status.
+Through this endpoint customers can broadcast transactions that have been already signed locally. Instead of using a node for broadcasting a signed transaction users can use this endpoint. We then keep the user posted about the status by sending you a callback with a success or failure status.    {warning}This can be prepared and signed **only** locally, not through the API. We can provide support only for the process of broadcasting.{/warning}
 
 ### Example
 
@@ -25,18 +24,18 @@ Through this endpoint customers can broadcast transactions that have been alread
 import time
 import cryptoapis
 from cryptoapis.api import features_api
+from cryptoapis.model.inline_response40085 import InlineResponse40085
 from cryptoapis.model.broadcast_locally_signed_transaction_r import BroadcastLocallySignedTransactionR
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response40185 import InlineResponse40185
+from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.broadcast_locally_signed_transaction_rb import BroadcastLocallySignedTransactionRB
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.already_exists import AlreadyExists
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.resource_not_found import ResourceNotFound
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40385 import InlineResponse40385
+from cryptoapis.model.inline_response40917 import InlineResponse40917
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -60,7 +59,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = features_api.FeaturesApi(api_client)
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-    network = "mainnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     broadcast_locally_signed_transaction_rb = BroadcastLocallySignedTransactionRB(
         context="context_example",
@@ -120,129 +119,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | The resource has been successfully created. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
+**403** | 403 |  -  |
 **404** | The specified resource has not been found. |  -  |
-**409** | The specified resource already exists. |  -  |
-**415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
-**422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
-**429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
-**500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **generate_address**
-> GenerateAddressR generate_address(blockchain, network)
-
-Generate Address
-
-This endpoint will generate a unique address for the user along with the specific transaction script, e.g. P2PKH, a private and a public key, and WIF.     Users **must** keep their private keys and WIFs secure and accessible to only them at all times. Losing those exposes a risk of losing their funds associated with the respective address.     {warning}We generate, but **do not** save or record the response in any data base, log or anywhere else on our side! In the case a user loses their private key or WIF, Crypto APIs 2.0 **will not be able** to retrieve it.{/warning}
-
-### Example
-
-* Api Key Authentication (ApiKey):
-
-```python
-import time
-import cryptoapis
-from cryptoapis.api import features_api
-from cryptoapis.model.generate_address_r import GenerateAddressR
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_network import InvalidNetwork
-from cryptoapis.model.generate_address_rb import GenerateAddressRB
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
-from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with cryptoapis.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = features_api.FeaturesApi(api_client)
-    blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-    network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    generate_address_rb = GenerateAddressRB(
-        context="context_example",
-        data=GenerateAddressRBData(
-            item={},
-        ),
-    ) # GenerateAddressRB |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Generate Address
-        api_response = api_instance.generate_address(blockchain, network)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling FeaturesApi->generate_address: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Generate Address
-        api_response = api_instance.generate_address(blockchain, network, context=context, generate_address_rb=generate_address_rb)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling FeaturesApi->generate_address: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **generate_address_rb** | [**GenerateAddressRB**](GenerateAddressRB.md)|  | [optional]
-
-### Return type
-
-[**GenerateAddressR**](GenerateAddressR.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | The resource has been successfully created. |  -  |
-**400** | Invalid network! Network MUST be one of: {validNetworks} |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
-**402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
-**409** | The data provided seems to be invalid. |  -  |
+**409** | 409 |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
 **429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
@@ -266,16 +148,16 @@ import time
 import cryptoapis
 from cryptoapis.api import features_api
 from cryptoapis.model.get_eip1559_fee_recommendations_r import GetEIP1559FeeRecommendationsR
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.resource_not_found import ResourceNotFound
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40084 import InlineResponse40084
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40184 import InlineResponse40184
+from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40384 import InlineResponse40384
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -347,10 +229,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
+**403** | 403 |  -  |
 **404** | The specified resource has not been found. |  -  |
 **409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
@@ -376,16 +258,16 @@ import time
 import cryptoapis
 from cryptoapis.api import features_api
 from cryptoapis.model.validate_address_rb import ValidateAddressRB
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40083 import InlineResponse40083
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.validate_address_r import ValidateAddressR
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response40183 import InlineResponse40183
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40383 import InlineResponse40383
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -467,10 +349,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
+**403** | 403 |  -  |
 **409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |

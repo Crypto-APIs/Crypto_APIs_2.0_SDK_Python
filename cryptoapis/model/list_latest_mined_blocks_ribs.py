@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -108,7 +108,10 @@ class ListLatestMinedBlocksRIBS(ModelComposed):
         return {
             'bits': (str,),  # noqa: E501
             'chainwork': (str,),  # noqa: E501
+            'difficulty': (str,),  # noqa: E501
             'merkle_root': (str,),  # noqa: E501
+            'nonce': (str,),  # noqa: E501
+            'size': (int,),  # noqa: E501
             'stripped_size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
             'version_hex': (str,),  # noqa: E501
@@ -120,14 +123,10 @@ class ListLatestMinedBlocksRIBS(ModelComposed):
             'sha3_uncles': (str,),  # noqa: E501
             'total_difficulty': (str,),  # noqa: E501
             'uncles': ([str],),  # noqa: E501
-            'difficulty': (str,),  # noqa: E501
             'ds_block': (int,),  # noqa: E501
             'ds_difficulty': (str,),  # noqa: E501
             'ds_leader': (str,),  # noqa: E501
             'micro_blocks': ([str],),  # noqa: E501
-            'merkleroot': (str,),  # noqa: E501
-            'nonce': (str,),  # noqa: E501
-            'size': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -138,7 +137,10 @@ class ListLatestMinedBlocksRIBS(ModelComposed):
     attribute_map = {
         'bits': 'bits',  # noqa: E501
         'chainwork': 'chainwork',  # noqa: E501
+        'difficulty': 'difficulty',  # noqa: E501
         'merkle_root': 'merkleRoot',  # noqa: E501
+        'nonce': 'nonce',  # noqa: E501
+        'size': 'size',  # noqa: E501
         'stripped_size': 'strippedSize',  # noqa: E501
         'version': 'version',  # noqa: E501
         'version_hex': 'versionHex',  # noqa: E501
@@ -150,14 +152,10 @@ class ListLatestMinedBlocksRIBS(ModelComposed):
         'sha3_uncles': 'sha3Uncles',  # noqa: E501
         'total_difficulty': 'totalDifficulty',  # noqa: E501
         'uncles': 'uncles',  # noqa: E501
-        'difficulty': 'difficulty',  # noqa: E501
         'ds_block': 'dsBlock',  # noqa: E501
         'ds_difficulty': 'dsDifficulty',  # noqa: E501
         'ds_leader': 'dsLeader',  # noqa: E501
         'micro_blocks': 'microBlocks',  # noqa: E501
-        'merkleroot': 'merkleroot',  # noqa: E501
-        'nonce': 'nonce',  # noqa: E501
-        'size': 'size',  # noqa: E501
     }
 
     read_only_vars = {
@@ -201,7 +199,10 @@ class ListLatestMinedBlocksRIBS(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             bits (str): Represents a specific sub-unit of Zcash. Bits have two-decimal precision. [optional]  # noqa: E501
             chainwork (str): Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.. [optional]  # noqa: E501
+            difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.. [optional]  # noqa: E501
             merkle_root (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.. [optional]  # noqa: E501
+            nonce (str): Represents a random value that can be adjusted to satisfy the proof of work. [optional]  # noqa: E501
+            size (int): Represents the total size of the block in Bytes.. [optional]  # noqa: E501
             stripped_size (int): Defines the numeric representation of the block size excluding the witness data.. [optional]  # noqa: E501
             version (int): Represents the transaction version number.. [optional]  # noqa: E501
             version_hex (str): Is the hexadecimal string representation of the block's version.. [optional]  # noqa: E501
@@ -213,14 +214,10 @@ class ListLatestMinedBlocksRIBS(ModelComposed):
             sha3_uncles (str): Defines the combined hash of all uncles for a given parent.. [optional]  # noqa: E501
             total_difficulty (str): Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block. [optional]  # noqa: E501
             uncles ([str]): [optional]  # noqa: E501
-            difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.. [optional]  # noqa: E501
             ds_block (int): Represents the Directory Service block which contains metadata about the miners who participate in the consensus protocol.. [optional]  # noqa: E501
             ds_difficulty (str): Defines how difficult it is to mine the dsBlocks.. [optional]  # noqa: E501
             ds_leader (str): Represents a part of the DS Committee which leads the consensus protocol for the epoch.. [optional]  # noqa: E501
             micro_blocks ([str]): [optional]  # noqa: E501
-            merkleroot (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.. [optional]  # noqa: E501
-            nonce (str): Represents a random value that can be adjusted to satisfy the proof of work. [optional]  # noqa: E501
-            size (int): Represents the total size of the block in Bytes.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -322,7 +319,10 @@ class ListLatestMinedBlocksRIBS(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             bits (str): Represents a specific sub-unit of Zcash. Bits have two-decimal precision. [optional]  # noqa: E501
             chainwork (str): Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.. [optional]  # noqa: E501
+            difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.. [optional]  # noqa: E501
             merkle_root (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.. [optional]  # noqa: E501
+            nonce (str): Represents a random value that can be adjusted to satisfy the proof of work. [optional]  # noqa: E501
+            size (int): Represents the total size of the block in Bytes.. [optional]  # noqa: E501
             stripped_size (int): Defines the numeric representation of the block size excluding the witness data.. [optional]  # noqa: E501
             version (int): Represents the transaction version number.. [optional]  # noqa: E501
             version_hex (str): Is the hexadecimal string representation of the block's version.. [optional]  # noqa: E501
@@ -334,14 +334,10 @@ class ListLatestMinedBlocksRIBS(ModelComposed):
             sha3_uncles (str): Defines the combined hash of all uncles for a given parent.. [optional]  # noqa: E501
             total_difficulty (str): Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block. [optional]  # noqa: E501
             uncles ([str]): [optional]  # noqa: E501
-            difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.. [optional]  # noqa: E501
             ds_block (int): Represents the Directory Service block which contains metadata about the miners who participate in the consensus protocol.. [optional]  # noqa: E501
             ds_difficulty (str): Defines how difficult it is to mine the dsBlocks.. [optional]  # noqa: E501
             ds_leader (str): Represents a part of the DS Committee which leads the consensus protocol for the epoch.. [optional]  # noqa: E501
             micro_blocks ([str]): [optional]  # noqa: E501
-            merkleroot (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.. [optional]  # noqa: E501
-            nonce (str): Represents a random value that can be adjusted to satisfy the proof of work. [optional]  # noqa: E501
-            size (int): Represents the total size of the block in Bytes.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

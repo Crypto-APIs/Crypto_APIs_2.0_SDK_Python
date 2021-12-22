@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -82,9 +82,9 @@ class BroadcastLocallySignedTransactionRBDataItem(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'callback_url': (str,),  # noqa: E501
             'signed_transaction_hex': (str,),  # noqa: E501
             'callback_secret_key': (str,),  # noqa: E501
+            'callback_url': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -93,9 +93,9 @@ class BroadcastLocallySignedTransactionRBDataItem(ModelNormal):
 
 
     attribute_map = {
-        'callback_url': 'callbackUrl',  # noqa: E501
         'signed_transaction_hex': 'signedTransactionHex',  # noqa: E501
         'callback_secret_key': 'callbackSecretKey',  # noqa: E501
+        'callback_url': 'callbackUrl',  # noqa: E501
     }
 
     read_only_vars = {
@@ -105,11 +105,10 @@ class BroadcastLocallySignedTransactionRBDataItem(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, callback_url, signed_transaction_hex, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, signed_transaction_hex, *args, **kwargs):  # noqa: E501
         """BroadcastLocallySignedTransactionRBDataItem - a model defined in OpenAPI
 
         Args:
-            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
             signed_transaction_hex (str): Represents the signed transaction's specific hex.
 
         Keyword Args:
@@ -144,6 +143,7 @@ class BroadcastLocallySignedTransactionRBDataItem(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).. [optional]  # noqa: E501
+            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -171,7 +171,6 @@ class BroadcastLocallySignedTransactionRBDataItem(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.callback_url = callback_url
         self.signed_transaction_hex = signed_transaction_hex
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -193,11 +192,10 @@ class BroadcastLocallySignedTransactionRBDataItem(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, callback_url, signed_transaction_hex, *args, **kwargs):  # noqa: E501
+    def __init__(self, signed_transaction_hex, *args, **kwargs):  # noqa: E501
         """BroadcastLocallySignedTransactionRBDataItem - a model defined in OpenAPI
 
         Args:
-            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
             signed_transaction_hex (str): Represents the signed transaction's specific hex.
 
         Keyword Args:
@@ -232,6 +230,7 @@ class BroadcastLocallySignedTransactionRBDataItem(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).. [optional]  # noqa: E501
+            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -257,7 +256,6 @@ class BroadcastLocallySignedTransactionRBDataItem(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.callback_url = callback_url
         self.signed_transaction_hex = signed_transaction_hex
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

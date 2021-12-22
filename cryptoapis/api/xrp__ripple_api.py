@@ -22,24 +22,45 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.get_latest_mined_xrp_ripple_block_r import GetLatestMinedXRPRippleBlockR
 from cryptoapis.model.get_xrp_ripple_address_details_r import GetXRPRippleAddressDetailsR
 from cryptoapis.model.get_xrp_ripple_block_details_by_block_hash_r import GetXRPRippleBlockDetailsByBlockHashR
 from cryptoapis.model.get_xrp_ripple_block_details_by_block_height_r import GetXRPRippleBlockDetailsByBlockHeightR
 from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_idr import GetXRPRippleTransactionDetailsByTransactionIDR
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
+from cryptoapis.model.inline_response40011 import InlineResponse40011
+from cryptoapis.model.inline_response40018 import InlineResponse40018
+from cryptoapis.model.inline_response4002 import InlineResponse4002
+from cryptoapis.model.inline_response40023 import InlineResponse40023
+from cryptoapis.model.inline_response40027 import InlineResponse40027
+from cryptoapis.model.inline_response40031 import InlineResponse40031
+from cryptoapis.model.inline_response40039 import InlineResponse40039
+from cryptoapis.model.inline_response4006 import InlineResponse4006
+from cryptoapis.model.inline_response40111 import InlineResponse40111
+from cryptoapis.model.inline_response40118 import InlineResponse40118
+from cryptoapis.model.inline_response4012 import InlineResponse4012
+from cryptoapis.model.inline_response40123 import InlineResponse40123
+from cryptoapis.model.inline_response40127 import InlineResponse40127
+from cryptoapis.model.inline_response40131 import InlineResponse40131
+from cryptoapis.model.inline_response40139 import InlineResponse40139
+from cryptoapis.model.inline_response4016 import InlineResponse4016
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40311 import InlineResponse40311
+from cryptoapis.model.inline_response40318 import InlineResponse40318
+from cryptoapis.model.inline_response4032 import InlineResponse4032
+from cryptoapis.model.inline_response40323 import InlineResponse40323
+from cryptoapis.model.inline_response40327 import InlineResponse40327
+from cryptoapis.model.inline_response40331 import InlineResponse40331
+from cryptoapis.model.inline_response40339 import InlineResponse40339
+from cryptoapis.model.inline_response4036 import InlineResponse4036
+from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.list_xrp_ripple_transactions_by_address_r import ListXRPRippleTransactionsByAddressR
 from cryptoapis.model.list_xrp_ripple_transactions_by_block_hash_r import ListXRPRippleTransactionsByBlockHashR
 from cryptoapis.model.list_xrp_ripple_transactions_by_block_height_r import ListXRPRippleTransactionsByBlockHeightR
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.resource_not_found import ResourceNotFound
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 
 
 class XRPRippleApi(object):
@@ -684,6 +705,9 @@ class XRPRippleApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -712,6 +736,8 @@ class XRPRippleApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -753,6 +779,9 @@ class XRPRippleApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -781,6 +810,8 @@ class XRPRippleApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -824,6 +855,9 @@ class XRPRippleApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -852,6 +886,8 @@ class XRPRippleApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -895,6 +931,9 @@ class XRPRippleApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -923,6 +962,8 @@ class XRPRippleApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -966,6 +1007,9 @@ class XRPRippleApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -994,6 +1038,8 @@ class XRPRippleApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -1040,6 +1086,9 @@ class XRPRippleApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1068,6 +1117,8 @@ class XRPRippleApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -1113,6 +1164,9 @@ class XRPRippleApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1141,6 +1195,8 @@ class XRPRippleApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -1186,6 +1242,9 @@ class XRPRippleApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1214,6 +1273,8 @@ class XRPRippleApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network

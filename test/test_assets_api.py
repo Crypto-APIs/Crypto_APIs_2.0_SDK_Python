@@ -24,6 +24,20 @@ class TestAssetsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_get_asset_details_by_asset_id(self):
+        """Test case for get_asset_details_by_asset_id
+
+        Get Asset Details By Asset ID  # noqa: E501
+        """
+        pass
+
+    def test_get_asset_details_by_asset_symbol(self):
+        """Test case for get_asset_details_by_asset_symbol
+
+        Get Asset Details By Asset Symbol  # noqa: E501
+        """
+        pass
+
     def test_list_assets_details(self):
         """Test case for list_assets_details
 

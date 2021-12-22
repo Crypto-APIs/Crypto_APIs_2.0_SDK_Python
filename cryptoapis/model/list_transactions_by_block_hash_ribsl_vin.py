@@ -25,14 +25,14 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.get_transaction_details_by_transaction_idribsl_script_sig import GetTransactionDetailsByTransactionIDRIBSLScriptSig
-    globals()['GetTransactionDetailsByTransactionIDRIBSLScriptSig'] = GetTransactionDetailsByTransactionIDRIBSLScriptSig
+    from cryptoapis.model.list_transactions_by_block_hash_ribsl_script_sig import ListTransactionsByBlockHashRIBSLScriptSig
+    globals()['ListTransactionsByBlockHashRIBSLScriptSig'] = ListTransactionsByBlockHashRIBSLScriptSig
 
 
 class ListTransactionsByBlockHashRIBSLVin(ModelNormal):
@@ -89,7 +89,7 @@ class ListTransactionsByBlockHashRIBSLVin(ModelNormal):
         lazy_import()
         return {
             'addresses': ([str],),  # noqa: E501
-            'script_sig': (GetTransactionDetailsByTransactionIDRIBSLScriptSig,),  # noqa: E501
+            'script_sig': (ListTransactionsByBlockHashRIBSLScriptSig,),  # noqa: E501
             'sequence': (str,),  # noqa: E501
             'txid': (str,),  # noqa: E501
             'txinwitness': ([str],),  # noqa: E501
@@ -126,7 +126,7 @@ class ListTransactionsByBlockHashRIBSLVin(ModelNormal):
 
         Args:
             addresses ([str]):
-            script_sig (GetTransactionDetailsByTransactionIDRIBSLScriptSig):
+            script_sig (ListTransactionsByBlockHashRIBSLScriptSig):
             sequence (str): Represents the script sequence number.
             txid (str): Represents the reference transaction identifier.
             txinwitness ([str]):
@@ -224,7 +224,7 @@ class ListTransactionsByBlockHashRIBSLVin(ModelNormal):
 
         Args:
             addresses ([str]):
-            script_sig (GetTransactionDetailsByTransactionIDRIBSLScriptSig):
+            script_sig (ListTransactionsByBlockHashRIBSLScriptSig):
             sequence (str): Represents the script sequence number.
             txid (str): Represents the reference transaction identifier.
             txinwitness ([str]):

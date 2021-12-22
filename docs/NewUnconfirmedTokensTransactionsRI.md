@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **event_type** | **str** | Defines the type of the specific event available for the customer to subscribe to for callback notification. | 
 **is_active** | **bool** | Defines whether the subscription is active or not. Set as boolean. | 
 **reference_id** | **str** | Represents a unique ID used to reference the specific callback subscription. | 
-**transaction_id** | **str** | Represents the unique identification string that defines the transaction. | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

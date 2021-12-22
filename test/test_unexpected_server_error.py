@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.unexpected_server_error_error import UnexpectedServerErrorError
-globals()['UnexpectedServerErrorError'] = UnexpectedServerErrorError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.unexpected_server_error import UnexpectedServerError
 
 

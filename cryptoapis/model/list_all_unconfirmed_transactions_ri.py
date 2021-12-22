@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -95,6 +95,7 @@ class ListAllUnconfirmedTransactionsRI(ModelNormal):
             'recipients': ([ListUnconfirmedTransactionsByAddressRIRecipients],),  # noqa: E501
             'senders': ([ListUnconfirmedTransactionsByAddressRISenders],),  # noqa: E501
             'timestamp': (int,),  # noqa: E501
+            'transaction_hash': (str,),  # noqa: E501
             'transaction_id': (str,),  # noqa: E501
             'blockchain_specific': (ListAllUnconfirmedTransactionsRIBS,),  # noqa: E501
         }
@@ -108,6 +109,7 @@ class ListAllUnconfirmedTransactionsRI(ModelNormal):
         'recipients': 'recipients',  # noqa: E501
         'senders': 'senders',  # noqa: E501
         'timestamp': 'timestamp',  # noqa: E501
+        'transaction_hash': 'transactionHash',  # noqa: E501
         'transaction_id': 'transactionId',  # noqa: E501
         'blockchain_specific': 'blockchainSpecific',  # noqa: E501
     }
@@ -119,13 +121,14 @@ class ListAllUnconfirmedTransactionsRI(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, recipients, senders, timestamp, transaction_id, blockchain_specific, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, recipients, senders, timestamp, transaction_hash, transaction_id, blockchain_specific, *args, **kwargs):  # noqa: E501
         """ListAllUnconfirmedTransactionsRI - a model defined in OpenAPI
 
         Args:
             recipients ([ListUnconfirmedTransactionsByAddressRIRecipients]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             senders ([ListUnconfirmedTransactionsByAddressRISenders]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
+            transaction_hash (str): String representation of the transaction hash
             transaction_id (str): Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
             blockchain_specific (ListAllUnconfirmedTransactionsRIBS):
 
@@ -190,6 +193,7 @@ class ListAllUnconfirmedTransactionsRI(ModelNormal):
         self.recipients = recipients
         self.senders = senders
         self.timestamp = timestamp
+        self.transaction_hash = transaction_hash
         self.transaction_id = transaction_id
         self.blockchain_specific = blockchain_specific
         for var_name, var_value in kwargs.items():
@@ -212,13 +216,14 @@ class ListAllUnconfirmedTransactionsRI(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, recipients, senders, timestamp, transaction_id, blockchain_specific, *args, **kwargs):  # noqa: E501
+    def __init__(self, recipients, senders, timestamp, transaction_hash, transaction_id, blockchain_specific, *args, **kwargs):  # noqa: E501
         """ListAllUnconfirmedTransactionsRI - a model defined in OpenAPI
 
         Args:
             recipients ([ListUnconfirmedTransactionsByAddressRIRecipients]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             senders ([ListUnconfirmedTransactionsByAddressRISenders]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
+            transaction_hash (str): String representation of the transaction hash
             transaction_id (str): Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
             blockchain_specific (ListAllUnconfirmedTransactionsRIBS):
 
@@ -281,6 +286,7 @@ class ListAllUnconfirmedTransactionsRI(ModelNormal):
         self.recipients = recipients
         self.senders = senders
         self.timestamp = timestamp
+        self.transaction_hash = transaction_hash
         self.transaction_id = transaction_id
         self.blockchain_specific = blockchain_specific
         for var_name, var_value in kwargs.items():

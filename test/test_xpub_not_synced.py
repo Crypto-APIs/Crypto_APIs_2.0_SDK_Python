@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.xpub_not_synced_error import XpubNotSyncedError
-globals()['XpubNotSyncedError'] = XpubNotSyncedError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.xpub_not_synced import XpubNotSynced
 
 

@@ -25,17 +25,23 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
     from cryptoapis.model.list_wallet_transactions_ri_fee import ListWalletTransactionsRIFee
+    from cryptoapis.model.list_wallet_transactions_ri_fungible_tokens import ListWalletTransactionsRIFungibleTokens
+    from cryptoapis.model.list_wallet_transactions_ri_internal_transactions import ListWalletTransactionsRIInternalTransactions
+    from cryptoapis.model.list_wallet_transactions_ri_non_fungible_tokens import ListWalletTransactionsRINonFungibleTokens
     from cryptoapis.model.list_wallet_transactions_ri_recipients import ListWalletTransactionsRIRecipients
     from cryptoapis.model.list_wallet_transactions_ri_senders import ListWalletTransactionsRISenders
     from cryptoapis.model.list_wallet_transactions_ri_value import ListWalletTransactionsRIValue
     globals()['ListWalletTransactionsRIFee'] = ListWalletTransactionsRIFee
+    globals()['ListWalletTransactionsRIFungibleTokens'] = ListWalletTransactionsRIFungibleTokens
+    globals()['ListWalletTransactionsRIInternalTransactions'] = ListWalletTransactionsRIInternalTransactions
+    globals()['ListWalletTransactionsRINonFungibleTokens'] = ListWalletTransactionsRINonFungibleTokens
     globals()['ListWalletTransactionsRIRecipients'] = ListWalletTransactionsRIRecipients
     globals()['ListWalletTransactionsRISenders'] = ListWalletTransactionsRISenders
     globals()['ListWalletTransactionsRIValue'] = ListWalletTransactionsRIValue
@@ -102,6 +108,9 @@ class ListWalletTransactionsRI(ModelNormal):
             'timestamp': (int,),  # noqa: E501
             'transaction_id': (str,),  # noqa: E501
             'value': (ListWalletTransactionsRIValue,),  # noqa: E501
+            'fungible_tokens': ([ListWalletTransactionsRIFungibleTokens],),  # noqa: E501
+            'internal_transactions': ([ListWalletTransactionsRIInternalTransactions],),  # noqa: E501
+            'non_fungible_tokens': ([ListWalletTransactionsRINonFungibleTokens],),  # noqa: E501
         }
 
     @cached_property
@@ -118,6 +127,9 @@ class ListWalletTransactionsRI(ModelNormal):
         'timestamp': 'timestamp',  # noqa: E501
         'transaction_id': 'transactionId',  # noqa: E501
         'value': 'value',  # noqa: E501
+        'fungible_tokens': 'fungibleTokens',  # noqa: E501
+        'internal_transactions': 'internalTransactions',  # noqa: E501
+        'non_fungible_tokens': 'nonFungibleTokens',  # noqa: E501
     }
 
     read_only_vars = {
@@ -171,6 +183,9 @@ class ListWalletTransactionsRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            fungible_tokens ([ListWalletTransactionsRIFungibleTokens]): Represents fungible tokens'es detailed information. [optional]  # noqa: E501
+            internal_transactions ([ListWalletTransactionsRIInternalTransactions]): [optional]  # noqa: E501
+            non_fungible_tokens ([ListWalletTransactionsRINonFungibleTokens]): Represents non-fungible tokens'es detailed information.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -270,6 +285,9 @@ class ListWalletTransactionsRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            fungible_tokens ([ListWalletTransactionsRIFungibleTokens]): Represents fungible tokens'es detailed information. [optional]  # noqa: E501
+            internal_transactions ([ListWalletTransactionsRIInternalTransactions]): [optional]  # noqa: E501
+            non_fungible_tokens ([ListWalletTransactionsRINonFungibleTokens]): Represents non-fungible tokens'es detailed information.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

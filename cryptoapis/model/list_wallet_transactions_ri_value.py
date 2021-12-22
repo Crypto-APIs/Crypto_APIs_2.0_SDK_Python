@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -86,7 +86,6 @@ class ListWalletTransactionsRIValue(ModelNormal):
             'converted_amount': (str,),  # noqa: E501
             'exchange_rate_unit': (str,),  # noqa: E501
             'symbol': (str,),  # noqa: E501
-            'token_identifier': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -99,7 +98,6 @@ class ListWalletTransactionsRIValue(ModelNormal):
         'converted_amount': 'convertedAmount',  # noqa: E501
         'exchange_rate_unit': 'exchangeRateUnit',  # noqa: E501
         'symbol': 'symbol',  # noqa: E501
-        'token_identifier': 'tokenIdentifier',  # noqa: E501
     }
 
     read_only_vars = {
@@ -149,7 +147,6 @@ class ListWalletTransactionsRIValue(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            token_identifier (str): Defines the token's identifier of the transaction's amount.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -241,7 +238,6 @@ class ListWalletTransactionsRIValue(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            token_identifier (str): Defines the token's identifier of the transaction's amount.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

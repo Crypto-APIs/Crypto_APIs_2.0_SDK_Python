@@ -22,30 +22,63 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from cryptoapis.model.blockchain_data_block_not_found import BlockchainDataBlockNotFound
-from cryptoapis.model.blockchain_data_transaction_not_found import BlockchainDataTransactionNotFound
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.get_address_details_r import GetAddressDetailsR
 from cryptoapis.model.get_block_details_by_block_hash_r import GetBlockDetailsByBlockHashR
 from cryptoapis.model.get_block_details_by_block_height_r import GetBlockDetailsByBlockHeightR
 from cryptoapis.model.get_fee_recommendations_r import GetFeeRecommendationsR
 from cryptoapis.model.get_last_mined_block_r import GetLastMinedBlockR
 from cryptoapis.model.get_transaction_details_by_transaction_idr import GetTransactionDetailsByTransactionIDR
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
+from cryptoapis.model.inline_response400 import InlineResponse400
+from cryptoapis.model.inline_response40010 import InlineResponse40010
+from cryptoapis.model.inline_response40015 import InlineResponse40015
+from cryptoapis.model.inline_response40016 import InlineResponse40016
+from cryptoapis.model.inline_response40017 import InlineResponse40017
+from cryptoapis.model.inline_response40024 import InlineResponse40024
+from cryptoapis.model.inline_response40026 import InlineResponse40026
+from cryptoapis.model.inline_response40030 import InlineResponse40030
+from cryptoapis.model.inline_response40037 import InlineResponse40037
+from cryptoapis.model.inline_response4004 import InlineResponse4004
+from cryptoapis.model.inline_response40042 import InlineResponse40042
+from cryptoapis.model.inline_response40053 import InlineResponse40053
+from cryptoapis.model.inline_response401 import InlineResponse401
+from cryptoapis.model.inline_response40110 import InlineResponse40110
+from cryptoapis.model.inline_response40115 import InlineResponse40115
+from cryptoapis.model.inline_response40116 import InlineResponse40116
+from cryptoapis.model.inline_response40117 import InlineResponse40117
+from cryptoapis.model.inline_response40124 import InlineResponse40124
+from cryptoapis.model.inline_response40126 import InlineResponse40126
+from cryptoapis.model.inline_response40130 import InlineResponse40130
+from cryptoapis.model.inline_response40137 import InlineResponse40137
+from cryptoapis.model.inline_response4014 import InlineResponse4014
+from cryptoapis.model.inline_response40142 import InlineResponse40142
+from cryptoapis.model.inline_response40153 import InlineResponse40153
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response403 import InlineResponse403
+from cryptoapis.model.inline_response40310 import InlineResponse40310
+from cryptoapis.model.inline_response40315 import InlineResponse40315
+from cryptoapis.model.inline_response40316 import InlineResponse40316
+from cryptoapis.model.inline_response40317 import InlineResponse40317
+from cryptoapis.model.inline_response40324 import InlineResponse40324
+from cryptoapis.model.inline_response40326 import InlineResponse40326
+from cryptoapis.model.inline_response40330 import InlineResponse40330
+from cryptoapis.model.inline_response40337 import InlineResponse40337
+from cryptoapis.model.inline_response4034 import InlineResponse4034
+from cryptoapis.model.inline_response40342 import InlineResponse40342
+from cryptoapis.model.inline_response40353 import InlineResponse40353
+from cryptoapis.model.inline_response404 import InlineResponse404
+from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response4042 import InlineResponse4042
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.list_all_unconfirmed_transactions_r import ListAllUnconfirmedTransactionsR
 from cryptoapis.model.list_confirmed_transactions_by_address_r import ListConfirmedTransactionsByAddressR
 from cryptoapis.model.list_latest_mined_blocks_r import ListLatestMinedBlocksR
 from cryptoapis.model.list_transactions_by_block_hash_r import ListTransactionsByBlockHashR
 from cryptoapis.model.list_transactions_by_block_height_r import ListTransactionsByBlockHeightR
 from cryptoapis.model.list_unconfirmed_transactions_by_address_r import ListUnconfirmedTransactionsByAddressR
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.resource_not_found import ResourceNotFound
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 
 
 class UnifiedEndpointsApi(object):
@@ -1171,7 +1204,7 @@ class UnifiedEndpointsApi(object):
     ):
         """Get Address Details  # noqa: E501
 
-        Through this endpoint the customer can receive basic information about a given address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.  # noqa: E501
+        Through this endpoint the customer can receive basic information about a given address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here. Applies only for coins.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1200,6 +1233,9 @@ class UnifiedEndpointsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1228,6 +1264,8 @@ class UnifiedEndpointsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -1275,6 +1313,9 @@ class UnifiedEndpointsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1303,6 +1344,8 @@ class UnifiedEndpointsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -1350,6 +1393,9 @@ class UnifiedEndpointsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1378,6 +1424,8 @@ class UnifiedEndpointsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -1423,6 +1471,9 @@ class UnifiedEndpointsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1451,6 +1502,8 @@ class UnifiedEndpointsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -1494,6 +1547,9 @@ class UnifiedEndpointsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1522,6 +1578,8 @@ class UnifiedEndpointsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -1567,6 +1625,9 @@ class UnifiedEndpointsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1595,6 +1656,8 @@ class UnifiedEndpointsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -1642,6 +1705,9 @@ class UnifiedEndpointsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1670,6 +1736,8 @@ class UnifiedEndpointsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -1717,6 +1785,9 @@ class UnifiedEndpointsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1745,6 +1816,8 @@ class UnifiedEndpointsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -1763,7 +1836,7 @@ class UnifiedEndpointsApi(object):
     ):
         """List Latest Mined Blocks  # noqa: E501
 
-        Through this endpoint customers can list the latest 50 blocks that were mined.  # noqa: E501
+        Through this endpoint customers can list **up to 50** from the latest blocks that were mined.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1792,6 +1865,9 @@ class UnifiedEndpointsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1820,6 +1896,8 @@ class UnifiedEndpointsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -1869,6 +1947,9 @@ class UnifiedEndpointsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1897,6 +1978,8 @@ class UnifiedEndpointsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -1946,6 +2029,9 @@ class UnifiedEndpointsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1974,6 +2060,8 @@ class UnifiedEndpointsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -2023,6 +2111,9 @@ class UnifiedEndpointsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -2051,6 +2142,8 @@ class UnifiedEndpointsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain

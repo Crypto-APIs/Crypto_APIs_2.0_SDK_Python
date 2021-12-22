@@ -13,10 +13,10 @@ import sys
 import unittest
 
 import cryptoapis
+from cryptoapis.model.get_transaction_details_by_transaction_idribsl_vout import GetTransactionDetailsByTransactionIDRIBSLVout
 from cryptoapis.model.list_all_unconfirmed_transactions_ribsl_vin import ListAllUnconfirmedTransactionsRIBSLVin
-from cryptoapis.model.list_all_unconfirmed_transactions_ribsl_vout import ListAllUnconfirmedTransactionsRIBSLVout
+globals()['GetTransactionDetailsByTransactionIDRIBSLVout'] = GetTransactionDetailsByTransactionIDRIBSLVout
 globals()['ListAllUnconfirmedTransactionsRIBSLVin'] = ListAllUnconfirmedTransactionsRIBSLVin
-globals()['ListAllUnconfirmedTransactionsRIBSLVout'] = ListAllUnconfirmedTransactionsRIBSLVout
 from cryptoapis.model.list_all_unconfirmed_transactions_ribsl import ListAllUnconfirmedTransactionsRIBSL
 
 

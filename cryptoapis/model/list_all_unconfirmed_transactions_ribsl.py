@@ -25,16 +25,16 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsl_vout import GetTransactionDetailsByTransactionIDRIBSLVout
     from cryptoapis.model.list_all_unconfirmed_transactions_ribsl_vin import ListAllUnconfirmedTransactionsRIBSLVin
-    from cryptoapis.model.list_all_unconfirmed_transactions_ribsl_vout import ListAllUnconfirmedTransactionsRIBSLVout
+    globals()['GetTransactionDetailsByTransactionIDRIBSLVout'] = GetTransactionDetailsByTransactionIDRIBSLVout
     globals()['ListAllUnconfirmedTransactionsRIBSLVin'] = ListAllUnconfirmedTransactionsRIBSLVin
-    globals()['ListAllUnconfirmedTransactionsRIBSLVout'] = ListAllUnconfirmedTransactionsRIBSLVout
 
 
 class ListAllUnconfirmedTransactionsRIBSL(ModelNormal):
@@ -95,7 +95,7 @@ class ListAllUnconfirmedTransactionsRIBSL(ModelNormal):
             'v_size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
             'vin': ([ListAllUnconfirmedTransactionsRIBSLVin],),  # noqa: E501
-            'vout': ([ListAllUnconfirmedTransactionsRIBSLVout],),  # noqa: E501
+            'vout': ([GetTransactionDetailsByTransactionIDRIBSLVout],),  # noqa: E501
         }
 
     @cached_property
@@ -128,7 +128,7 @@ class ListAllUnconfirmedTransactionsRIBSL(ModelNormal):
             v_size (int): Represents the virtual size of this transaction.
             version (int): Represents the transaction's version number.
             vin ([ListAllUnconfirmedTransactionsRIBSLVin]): Represents the transaction inputs.
-            vout ([ListAllUnconfirmedTransactionsRIBSLVout]): Represents the transaction outputs.
+            vout ([GetTransactionDetailsByTransactionIDRIBSLVout]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -223,7 +223,7 @@ class ListAllUnconfirmedTransactionsRIBSL(ModelNormal):
             v_size (int): Represents the virtual size of this transaction.
             version (int): Represents the transaction's version number.
             vin ([ListAllUnconfirmedTransactionsRIBSLVin]): Represents the transaction inputs.
-            vout ([ListAllUnconfirmedTransactionsRIBSLVout]): Represents the transaction outputs.
+            vout ([GetTransactionDetailsByTransactionIDRIBSLVout]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

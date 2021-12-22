@@ -38,6 +38,13 @@ class TestInformativeApi(unittest.TestCase):
         """
         pass
 
+    def test_get_wallet_transaction_details_by_transaction_id(self):
+        """Test case for get_wallet_transaction_details_by_transaction_id
+
+        Get Wallet Transaction Details By Transaction ID  # noqa: E501
+        """
+        pass
+
     def test_list_deposit_addresses(self):
         """Test case for list_deposit_addresses
 

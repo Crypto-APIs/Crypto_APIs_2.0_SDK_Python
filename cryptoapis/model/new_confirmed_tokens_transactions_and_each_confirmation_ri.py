@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -87,6 +87,7 @@ class NewConfirmedTokensTransactionsAndEachConfirmationRI(ModelNormal):
             'created_timestamp': (int,),  # noqa: E501
             'event_type': (str,),  # noqa: E501
             'reference_id': (str,),  # noqa: E501
+            'confirmations_count': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -100,6 +101,7 @@ class NewConfirmedTokensTransactionsAndEachConfirmationRI(ModelNormal):
         'created_timestamp': 'createdTimestamp',  # noqa: E501
         'event_type': 'eventType',  # noqa: E501
         'reference_id': 'referenceId',  # noqa: E501
+        'confirmations_count': 'confirmationsCount',  # noqa: E501
     }
 
     read_only_vars = {
@@ -150,6 +152,7 @@ class NewConfirmedTokensTransactionsAndEachConfirmationRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            confirmations_count (int): Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -243,6 +246,7 @@ class NewConfirmedTokensTransactionsAndEachConfirmationRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            confirmations_count (int): Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

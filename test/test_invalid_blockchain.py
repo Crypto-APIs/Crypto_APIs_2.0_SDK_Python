@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.invalid_blockchain_error import InvalidBlockchainError
-globals()['InvalidBlockchainError'] = InvalidBlockchainError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.invalid_blockchain import InvalidBlockchain
 
 

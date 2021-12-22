@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -120,7 +120,6 @@ class GetBlockDetailsByBlockHeightRIBS(ModelComposed):
             'mined_in_seconds': (int,),  # noqa: E501
             'sha3_uncles': (str,),  # noqa: E501
             'total_difficulty': (str,),  # noqa: E501
-            'merkleroot': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -145,7 +144,6 @@ class GetBlockDetailsByBlockHeightRIBS(ModelComposed):
         'mined_in_seconds': 'minedInSeconds',  # noqa: E501
         'sha3_uncles': 'sha3Uncles',  # noqa: E501
         'total_difficulty': 'totalDifficulty',  # noqa: E501
-        'merkleroot': 'merkleroot',  # noqa: E501
     }
 
     read_only_vars = {
@@ -203,7 +201,6 @@ class GetBlockDetailsByBlockHeightRIBS(ModelComposed):
             mined_in_seconds (int): Specifies the amount of time required for the block to be mined in seconds.. [optional]  # noqa: E501
             sha3_uncles (str): Defines the combined hash of all uncles for a given parent.. [optional]  # noqa: E501
             total_difficulty (str): Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block.. [optional]  # noqa: E501
-            merkleroot (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -319,7 +316,6 @@ class GetBlockDetailsByBlockHeightRIBS(ModelComposed):
             mined_in_seconds (int): Specifies the amount of time required for the block to be mined in seconds.. [optional]  # noqa: E501
             sha3_uncles (str): Defines the combined hash of all uncles for a given parent.. [optional]  # noqa: E501
             total_difficulty (str): Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block.. [optional]  # noqa: E501
-            merkleroot (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

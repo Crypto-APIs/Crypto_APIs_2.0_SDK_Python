@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -37,22 +37,30 @@ def lazy_import():
     from cryptoapis.model.get_transaction_details_by_transaction_idribsbsc_gas_price import GetTransactionDetailsByTransactionIDRIBSBSCGasPrice
     from cryptoapis.model.get_transaction_details_by_transaction_idribsd import GetTransactionDetailsByTransactionIDRIBSD
     from cryptoapis.model.get_transaction_details_by_transaction_idribsd2 import GetTransactionDetailsByTransactionIDRIBSD2
-    from cryptoapis.model.get_transaction_details_by_transaction_idribsd2_vin import GetTransactionDetailsByTransactionIDRIBSD2Vin
-    from cryptoapis.model.get_transaction_details_by_transaction_idribsd2_vout import GetTransactionDetailsByTransactionIDRIBSD2Vout
     from cryptoapis.model.get_transaction_details_by_transaction_idribse import GetTransactionDetailsByTransactionIDRIBSE
     from cryptoapis.model.get_transaction_details_by_transaction_idribsec import GetTransactionDetailsByTransactionIDRIBSEC
     from cryptoapis.model.get_transaction_details_by_transaction_idribsl import GetTransactionDetailsByTransactionIDRIBSL
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsz import GetTransactionDetailsByTransactionIDRIBSZ
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsz_vin import GetTransactionDetailsByTransactionIDRIBSZVin
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsz_vout import GetTransactionDetailsByTransactionIDRIBSZVout
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_join_split import GetTransactionDetailsByTransactionIDRIBSZVJoinSplit
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_output import GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_spend import GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
     globals()['GetTransactionDetailsByTransactionIDRIBSB'] = GetTransactionDetailsByTransactionIDRIBSB
     globals()['GetTransactionDetailsByTransactionIDRIBSBC'] = GetTransactionDetailsByTransactionIDRIBSBC
     globals()['GetTransactionDetailsByTransactionIDRIBSBSC'] = GetTransactionDetailsByTransactionIDRIBSBSC
     globals()['GetTransactionDetailsByTransactionIDRIBSBSCGasPrice'] = GetTransactionDetailsByTransactionIDRIBSBSCGasPrice
     globals()['GetTransactionDetailsByTransactionIDRIBSD'] = GetTransactionDetailsByTransactionIDRIBSD
     globals()['GetTransactionDetailsByTransactionIDRIBSD2'] = GetTransactionDetailsByTransactionIDRIBSD2
-    globals()['GetTransactionDetailsByTransactionIDRIBSD2Vin'] = GetTransactionDetailsByTransactionIDRIBSD2Vin
-    globals()['GetTransactionDetailsByTransactionIDRIBSD2Vout'] = GetTransactionDetailsByTransactionIDRIBSD2Vout
     globals()['GetTransactionDetailsByTransactionIDRIBSE'] = GetTransactionDetailsByTransactionIDRIBSE
     globals()['GetTransactionDetailsByTransactionIDRIBSEC'] = GetTransactionDetailsByTransactionIDRIBSEC
     globals()['GetTransactionDetailsByTransactionIDRIBSL'] = GetTransactionDetailsByTransactionIDRIBSL
+    globals()['GetTransactionDetailsByTransactionIDRIBSZ'] = GetTransactionDetailsByTransactionIDRIBSZ
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVJoinSplit'] = GetTransactionDetailsByTransactionIDRIBSZVJoinSplit
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVin'] = GetTransactionDetailsByTransactionIDRIBSZVin
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVout'] = GetTransactionDetailsByTransactionIDRIBSZVout
 
 
 class GetTransactionDetailsByTransactionIDRIBS(ModelComposed):
@@ -112,8 +120,8 @@ class GetTransactionDetailsByTransactionIDRIBS(ModelComposed):
             'size': (int,),  # noqa: E501
             'v_size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
-            'vin': ([GetTransactionDetailsByTransactionIDRIBSD2Vin],),  # noqa: E501
-            'vout': ([GetTransactionDetailsByTransactionIDRIBSD2Vout],),  # noqa: E501
+            'vin': ([GetTransactionDetailsByTransactionIDRIBSZVin],),  # noqa: E501
+            'vout': ([GetTransactionDetailsByTransactionIDRIBSZVout],),  # noqa: E501
             'contract': (str,),  # noqa: E501
             'gas_limit': (str,),  # noqa: E501
             'gas_price': (GetTransactionDetailsByTransactionIDRIBSBSCGasPrice,),  # noqa: E501
@@ -121,6 +129,16 @@ class GetTransactionDetailsByTransactionIDRIBS(ModelComposed):
             'input_data': (str,),  # noqa: E501
             'nonce': (int,),  # noqa: E501
             'transaction_status': (str,),  # noqa: E501
+            'binding_sig': (str,),  # noqa: E501
+            'expiry_height': (int,),  # noqa: E501
+            'join_split_pub_key': (str,),  # noqa: E501
+            'join_split_sig': (str,),  # noqa: E501
+            'overwintered': (bool,),  # noqa: E501
+            'v_join_split': ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplit],),  # noqa: E501
+            'v_shielded_output': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput],),  # noqa: E501
+            'v_shielded_spend': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend],),  # noqa: E501
+            'value_balance': (str,),  # noqa: E501
+            'version_group_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -142,6 +160,16 @@ class GetTransactionDetailsByTransactionIDRIBS(ModelComposed):
         'input_data': 'inputData',  # noqa: E501
         'nonce': 'nonce',  # noqa: E501
         'transaction_status': 'transactionStatus',  # noqa: E501
+        'binding_sig': 'bindingSig',  # noqa: E501
+        'expiry_height': 'expiryHeight',  # noqa: E501
+        'join_split_pub_key': 'joinSplitPubKey',  # noqa: E501
+        'join_split_sig': 'joinSplitSig',  # noqa: E501
+        'overwintered': 'overwintered',  # noqa: E501
+        'v_join_split': 'vJoinSplit',  # noqa: E501
+        'v_shielded_output': 'vShieldedOutput',  # noqa: E501
+        'v_shielded_spend': 'vShieldedSpend',  # noqa: E501
+        'value_balance': 'valueBalance',  # noqa: E501
+        'version_group_id': 'versionGroupId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -183,12 +211,12 @@ class GetTransactionDetailsByTransactionIDRIBS(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            locktime (int): Represents the time at which a particular transaction can be added to the blockchain.. [optional]  # noqa: E501
+            locktime (int): Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid.. [optional]  # noqa: E501
             size (int): Represents the total size of this transaction.. [optional]  # noqa: E501
             v_size (int): Represents the virtual size of this transaction.. [optional]  # noqa: E501
-            version (int): Represents transaction version number.. [optional]  # noqa: E501
-            vin ([GetTransactionDetailsByTransactionIDRIBSD2Vin]): Represents the transaction inputs.. [optional]  # noqa: E501
-            vout ([GetTransactionDetailsByTransactionIDRIBSD2Vout]): Represents the transaction outputs.. [optional]  # noqa: E501
+            version (int): Defines the version of the transaction.. [optional]  # noqa: E501
+            vin ([GetTransactionDetailsByTransactionIDRIBSZVin]): Object Array representation of transaction inputs. [optional]  # noqa: E501
+            vout ([GetTransactionDetailsByTransactionIDRIBSZVout]): Object Array representation of transaction outputs. [optional]  # noqa: E501
             contract (str): Represents the specific transaction contract. [optional]  # noqa: E501
             gas_limit (str): Represents the amount of gas used by this specific transaction alone.. [optional]  # noqa: E501
             gas_price (GetTransactionDetailsByTransactionIDRIBSBSCGasPrice): [optional]  # noqa: E501
@@ -196,6 +224,16 @@ class GetTransactionDetailsByTransactionIDRIBS(ModelComposed):
             input_data (str): Represents additional information that is required for the transaction.. [optional]  # noqa: E501
             nonce (int): Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.. [optional]  # noqa: E501
             transaction_status (str): Represents the status of this transaction.. [optional]  # noqa: E501
+            binding_sig (str): It is used to enforce balance of Spend and Output transfers, in order to prevent their replay across transactions.. [optional]  # noqa: E501
+            expiry_height (int): Represents a block height after which the transaction will expire.. [optional]  # noqa: E501
+            join_split_pub_key (str): Represents an encoding of a JoinSplitSig public validating key.. [optional]  # noqa: E501
+            join_split_sig (str): Is used to sign transactions that contain at least one JoinSplit description.. [optional]  # noqa: E501
+            overwintered (bool): \"Overwinter\" is the network upgrade for the Zcash blockchain.. [optional]  # noqa: E501
+            v_join_split ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.. [optional]  # noqa: E501
+            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions. [optional]  # noqa: E501
+            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions. [optional]  # noqa: E501
+            value_balance (str): String representation of the transaction value balance. [optional]  # noqa: E501
+            version_group_id (str): Represents the transaction version group ID.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -295,12 +333,12 @@ class GetTransactionDetailsByTransactionIDRIBS(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            locktime (int): Represents the time at which a particular transaction can be added to the blockchain.. [optional]  # noqa: E501
+            locktime (int): Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid.. [optional]  # noqa: E501
             size (int): Represents the total size of this transaction.. [optional]  # noqa: E501
             v_size (int): Represents the virtual size of this transaction.. [optional]  # noqa: E501
-            version (int): Represents transaction version number.. [optional]  # noqa: E501
-            vin ([GetTransactionDetailsByTransactionIDRIBSD2Vin]): Represents the transaction inputs.. [optional]  # noqa: E501
-            vout ([GetTransactionDetailsByTransactionIDRIBSD2Vout]): Represents the transaction outputs.. [optional]  # noqa: E501
+            version (int): Defines the version of the transaction.. [optional]  # noqa: E501
+            vin ([GetTransactionDetailsByTransactionIDRIBSZVin]): Object Array representation of transaction inputs. [optional]  # noqa: E501
+            vout ([GetTransactionDetailsByTransactionIDRIBSZVout]): Object Array representation of transaction outputs. [optional]  # noqa: E501
             contract (str): Represents the specific transaction contract. [optional]  # noqa: E501
             gas_limit (str): Represents the amount of gas used by this specific transaction alone.. [optional]  # noqa: E501
             gas_price (GetTransactionDetailsByTransactionIDRIBSBSCGasPrice): [optional]  # noqa: E501
@@ -308,6 +346,16 @@ class GetTransactionDetailsByTransactionIDRIBS(ModelComposed):
             input_data (str): Represents additional information that is required for the transaction.. [optional]  # noqa: E501
             nonce (int): Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.. [optional]  # noqa: E501
             transaction_status (str): Represents the status of this transaction.. [optional]  # noqa: E501
+            binding_sig (str): It is used to enforce balance of Spend and Output transfers, in order to prevent their replay across transactions.. [optional]  # noqa: E501
+            expiry_height (int): Represents a block height after which the transaction will expire.. [optional]  # noqa: E501
+            join_split_pub_key (str): Represents an encoding of a JoinSplitSig public validating key.. [optional]  # noqa: E501
+            join_split_sig (str): Is used to sign transactions that contain at least one JoinSplit description.. [optional]  # noqa: E501
+            overwintered (bool): \"Overwinter\" is the network upgrade for the Zcash blockchain.. [optional]  # noqa: E501
+            v_join_split ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.. [optional]  # noqa: E501
+            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions. [optional]  # noqa: E501
+            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions. [optional]  # noqa: E501
+            value_balance (str): String representation of the transaction value balance. [optional]  # noqa: E501
+            version_group_id (str): Represents the transaction version group ID.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -383,5 +431,6 @@ class GetTransactionDetailsByTransactionIDRIBS(ModelComposed):
               GetTransactionDetailsByTransactionIDRIBSE,
               GetTransactionDetailsByTransactionIDRIBSEC,
               GetTransactionDetailsByTransactionIDRIBSL,
+              GetTransactionDetailsByTransactionIDRIBSZ,
           ],
         }

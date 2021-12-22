@@ -22,19 +22,28 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.get_token_details_by_contract_address_r import GetTokenDetailsByContractAddressR
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
+from cryptoapis.model.inline_response40054 import InlineResponse40054
+from cryptoapis.model.inline_response40055 import InlineResponse40055
+from cryptoapis.model.inline_response40056 import InlineResponse40056
+from cryptoapis.model.inline_response40057 import InlineResponse40057
+from cryptoapis.model.inline_response40154 import InlineResponse40154
+from cryptoapis.model.inline_response40155 import InlineResponse40155
+from cryptoapis.model.inline_response40156 import InlineResponse40156
+from cryptoapis.model.inline_response40157 import InlineResponse40157
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40354 import InlineResponse40354
+from cryptoapis.model.inline_response40355 import InlineResponse40355
+from cryptoapis.model.inline_response40356 import InlineResponse40356
+from cryptoapis.model.inline_response40357 import InlineResponse40357
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.list_confirmed_tokens_transfers_by_address_r import ListConfirmedTokensTransfersByAddressR
 from cryptoapis.model.list_tokens_by_address_r import ListTokensByAddressR
 from cryptoapis.model.list_tokens_transfers_by_transaction_hash_r import ListTokensTransfersByTransactionHashR
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 
 
 class TokensApi(object):
@@ -449,6 +458,9 @@ class TokensApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -477,6 +489,8 @@ class TokensApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -526,6 +540,9 @@ class TokensApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -554,6 +571,8 @@ class TokensApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -603,6 +622,9 @@ class TokensApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -631,6 +653,8 @@ class TokensApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -680,6 +704,9 @@ class TokensApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -708,6 +735,8 @@ class TokensApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain

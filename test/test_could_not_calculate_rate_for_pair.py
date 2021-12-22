@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.could_not_calculate_rate_for_pair_error import CouldNotCalculateRateForPairError
-globals()['CouldNotCalculateRateForPairError'] = CouldNotCalculateRateForPairError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.could_not_calculate_rate_for_pair import CouldNotCalculateRateForPair
 
 

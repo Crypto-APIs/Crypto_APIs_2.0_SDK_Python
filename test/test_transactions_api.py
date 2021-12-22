@@ -45,10 +45,10 @@ class TestTransactionsApi(unittest.TestCase):
         """
         pass
 
-    def test_create_tokens_transaction_request_from_address(self):
-        """Test case for create_tokens_transaction_request_from_address
+    def test_create_fungible_tokens_transaction_request_from_address(self):
+        """Test case for create_fungible_tokens_transaction_request_from_address
 
-        Create Tokens Transaction Request from Address  # noqa: E501
+        Create Fungible Tokens Transaction Request from Address  # noqa: E501
         """
         pass
 

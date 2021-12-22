@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -87,7 +87,7 @@ class GetBlockDetailsByBlockHashRIBSBC(ModelNormal):
             'size': (int,),  # noqa: E501
             'bits': (str,),  # noqa: E501
             'chainwork': (str,),  # noqa: E501
-            'merkleroot': (str,),  # noqa: E501
+            'merkle_root': (str,),  # noqa: E501
             'version': (int,),  # noqa: E501
             'version_hex': (str,),  # noqa: E501
         }
@@ -103,7 +103,7 @@ class GetBlockDetailsByBlockHashRIBSBC(ModelNormal):
         'size': 'size',  # noqa: E501
         'bits': 'bits',  # noqa: E501
         'chainwork': 'chainwork',  # noqa: E501
-        'merkleroot': 'merkleroot',  # noqa: E501
+        'merkle_root': 'merkleRoot',  # noqa: E501
         'version': 'version',  # noqa: E501
         'version_hex': 'versionHex',  # noqa: E501
     }
@@ -115,7 +115,7 @@ class GetBlockDetailsByBlockHashRIBSBC(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, difficulty, nonce, size, bits, chainwork, merkleroot, version, version_hex, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, difficulty, nonce, size, bits, chainwork, merkle_root, version, version_hex, *args, **kwargs):  # noqa: E501
         """GetBlockDetailsByBlockHashRIBSBC - a model defined in OpenAPI
 
         Args:
@@ -124,7 +124,7 @@ class GetBlockDetailsByBlockHashRIBSBC(ModelNormal):
             size (int): Represents the total size of the block in Bytes.
             bits (str): A sub-unit of BTC equal to 0.000001 BTC, or 100 Satoshi, and is the same as microbitcoin (μBTC). Bits have two-decimal precision.
             chainwork (str): Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
-            merkleroot (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
+            merkle_root (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
             version (int): Represents the version of the specific block on the blockchain.
             version_hex (str): Is the hexadecimal string representation of the block's version.
 
@@ -191,7 +191,7 @@ class GetBlockDetailsByBlockHashRIBSBC(ModelNormal):
         self.size = size
         self.bits = bits
         self.chainwork = chainwork
-        self.merkleroot = merkleroot
+        self.merkle_root = merkle_root
         self.version = version
         self.version_hex = version_hex
         for var_name, var_value in kwargs.items():
@@ -214,7 +214,7 @@ class GetBlockDetailsByBlockHashRIBSBC(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, difficulty, nonce, size, bits, chainwork, merkleroot, version, version_hex, *args, **kwargs):  # noqa: E501
+    def __init__(self, difficulty, nonce, size, bits, chainwork, merkle_root, version, version_hex, *args, **kwargs):  # noqa: E501
         """GetBlockDetailsByBlockHashRIBSBC - a model defined in OpenAPI
 
         Args:
@@ -223,7 +223,7 @@ class GetBlockDetailsByBlockHashRIBSBC(ModelNormal):
             size (int): Represents the total size of the block in Bytes.
             bits (str): A sub-unit of BTC equal to 0.000001 BTC, or 100 Satoshi, and is the same as microbitcoin (μBTC). Bits have two-decimal precision.
             chainwork (str): Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
-            merkleroot (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
+            merkle_root (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
             version (int): Represents the version of the specific block on the blockchain.
             version_hex (str): Is the hexadecimal string representation of the block's version.
 
@@ -288,7 +288,7 @@ class GetBlockDetailsByBlockHashRIBSBC(ModelNormal):
         self.size = size
         self.bits = bits
         self.chainwork = chainwork
-        self.merkleroot = merkleroot
+        self.merkle_root = merkle_root
         self.version = version
         self.version_hex = version_hex
         for var_name, var_value in kwargs.items():

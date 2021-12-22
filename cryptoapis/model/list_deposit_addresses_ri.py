@@ -25,10 +25,18 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
+
+def lazy_import():
+    from cryptoapis.model.list_deposit_addresses_ri_confirmed_balance import ListDepositAddressesRIConfirmedBalance
+    from cryptoapis.model.list_deposit_addresses_ri_fungible_tokens import ListDepositAddressesRIFungibleTokens
+    from cryptoapis.model.list_deposit_addresses_ri_non_fungible_tokens import ListDepositAddressesRINonFungibleTokens
+    globals()['ListDepositAddressesRIConfirmedBalance'] = ListDepositAddressesRIConfirmedBalance
+    globals()['ListDepositAddressesRIFungibleTokens'] = ListDepositAddressesRIFungibleTokens
+    globals()['ListDepositAddressesRINonFungibleTokens'] = ListDepositAddressesRINonFungibleTokens
 
 
 class ListDepositAddressesRI(ModelNormal):
@@ -67,6 +75,7 @@ class ListDepositAddressesRI(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -81,10 +90,15 @@ class ListDepositAddressesRI(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
             'address': (str,),  # noqa: E501
+            'confirmed_balance': (ListDepositAddressesRIConfirmedBalance,),  # noqa: E501
             'created_timestamp': (int,),  # noqa: E501
+            'fungible_tokens': ([ListDepositAddressesRIFungibleTokens],),  # noqa: E501
+            'index': (str,),  # noqa: E501
             'label': (str,),  # noqa: E501
+            'non_fungible_tokens': ([ListDepositAddressesRINonFungibleTokens],),  # noqa: E501
         }
 
     @cached_property
@@ -94,8 +108,12 @@ class ListDepositAddressesRI(ModelNormal):
 
     attribute_map = {
         'address': 'address',  # noqa: E501
+        'confirmed_balance': 'confirmedBalance',  # noqa: E501
         'created_timestamp': 'createdTimestamp',  # noqa: E501
+        'fungible_tokens': 'fungibleTokens',  # noqa: E501
+        'index': 'index',  # noqa: E501
         'label': 'label',  # noqa: E501
+        'non_fungible_tokens': 'nonFungibleTokens',  # noqa: E501
     }
 
     read_only_vars = {
@@ -105,13 +123,17 @@ class ListDepositAddressesRI(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, address, created_timestamp, label, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, address, confirmed_balance, created_timestamp, fungible_tokens, index, label, non_fungible_tokens, *args, **kwargs):  # noqa: E501
         """ListDepositAddressesRI - a model defined in OpenAPI
 
         Args:
             address (str): Specifies the specific address's unique string value.
+            confirmed_balance (ListDepositAddressesRIConfirmedBalance):
             created_timestamp (int): Defines the specific UNIX time when the deposit address was created.
+            fungible_tokens ([ListDepositAddressesRIFungibleTokens]): Represents fungible tokens'es detailed information
+            index (str): Represents the index of the address in the wallet.
             label (str): Represents a custom tag that customers can set up for their Wallets and addresses. E.g. custom label named \"Special addresses\".
+            non_fungible_tokens ([ListDepositAddressesRINonFungibleTokens]): Represents non-fungible tokens'es detailed information.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -172,8 +194,12 @@ class ListDepositAddressesRI(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.address = address
+        self.confirmed_balance = confirmed_balance
         self.created_timestamp = created_timestamp
+        self.fungible_tokens = fungible_tokens
+        self.index = index
         self.label = label
+        self.non_fungible_tokens = non_fungible_tokens
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -194,13 +220,17 @@ class ListDepositAddressesRI(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, address, created_timestamp, label, *args, **kwargs):  # noqa: E501
+    def __init__(self, address, confirmed_balance, created_timestamp, fungible_tokens, index, label, non_fungible_tokens, *args, **kwargs):  # noqa: E501
         """ListDepositAddressesRI - a model defined in OpenAPI
 
         Args:
             address (str): Specifies the specific address's unique string value.
+            confirmed_balance (ListDepositAddressesRIConfirmedBalance):
             created_timestamp (int): Defines the specific UNIX time when the deposit address was created.
+            fungible_tokens ([ListDepositAddressesRIFungibleTokens]): Represents fungible tokens'es detailed information
+            index (str): Represents the index of the address in the wallet.
             label (str): Represents a custom tag that customers can set up for their Wallets and addresses. E.g. custom label named \"Special addresses\".
+            non_fungible_tokens ([ListDepositAddressesRINonFungibleTokens]): Represents non-fungible tokens'es detailed information.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -259,8 +289,12 @@ class ListDepositAddressesRI(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.address = address
+        self.confirmed_balance = confirmed_balance
         self.created_timestamp = created_timestamp
+        self.fungible_tokens = fungible_tokens
+        self.index = index
         self.label = label
+        self.non_fungible_tokens = non_fungible_tokens
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

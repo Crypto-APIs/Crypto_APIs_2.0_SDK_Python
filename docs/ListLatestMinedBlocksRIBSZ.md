@@ -5,6 +5,7 @@ Zilliqa
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**difficulty** | **str** | Represents a mathematical value of how hard it is to find a valid hash for this block. | 
 **ds_block** | **int** | Represents the Directory Service block which contains metadata about the miners who participate in the consensus protocol. | 
 **ds_difficulty** | **str** | Defines how difficult it is to mine the dsBlocks. | 
 **ds_leader** | **str** | Represents a part of the DS Committee which leads the consensus protocol for the epoch. | 

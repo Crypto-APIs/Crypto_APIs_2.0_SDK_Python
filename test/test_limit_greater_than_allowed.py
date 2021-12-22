@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.limit_greater_than_allowed_error import LimitGreaterThanAllowedError
-globals()['LimitGreaterThanAllowedError'] = LimitGreaterThanAllowedError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.limit_greater_than_allowed import LimitGreaterThanAllowed
 
 

@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -84,7 +84,8 @@ class ListLatestMinedBlocksRIBSZ2(ModelNormal):
         return {
             'bits': (str,),  # noqa: E501
             'chainwork': (str,),  # noqa: E501
-            'merkleroot': (str,),  # noqa: E501
+            'difficulty': (str,),  # noqa: E501
+            'merkle_root': (str,),  # noqa: E501
             'nonce': (str,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
@@ -98,7 +99,8 @@ class ListLatestMinedBlocksRIBSZ2(ModelNormal):
     attribute_map = {
         'bits': 'bits',  # noqa: E501
         'chainwork': 'chainwork',  # noqa: E501
-        'merkleroot': 'merkleroot',  # noqa: E501
+        'difficulty': 'difficulty',  # noqa: E501
+        'merkle_root': 'merkleRoot',  # noqa: E501
         'nonce': 'nonce',  # noqa: E501
         'size': 'size',  # noqa: E501
         'version': 'version',  # noqa: E501
@@ -111,13 +113,14 @@ class ListLatestMinedBlocksRIBSZ2(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, bits, chainwork, merkleroot, nonce, size, version, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, bits, chainwork, difficulty, merkle_root, nonce, size, version, *args, **kwargs):  # noqa: E501
         """ListLatestMinedBlocksRIBSZ2 - a model defined in OpenAPI
 
         Args:
             bits (str): Represents a specific sub-unit of Zcash. Bits have two-decimal precision
             chainwork (str): Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
-            merkleroot (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
+            difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.
+            merkle_root (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
             nonce (str): Represents a random value that can be adjusted to satisfy the proof of work
             size (int): Represents the total size of the block in Bytes.
             version (int): Represents the transaction version number.
@@ -182,7 +185,8 @@ class ListLatestMinedBlocksRIBSZ2(ModelNormal):
 
         self.bits = bits
         self.chainwork = chainwork
-        self.merkleroot = merkleroot
+        self.difficulty = difficulty
+        self.merkle_root = merkle_root
         self.nonce = nonce
         self.size = size
         self.version = version
@@ -206,13 +210,14 @@ class ListLatestMinedBlocksRIBSZ2(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, bits, chainwork, merkleroot, nonce, size, version, *args, **kwargs):  # noqa: E501
+    def __init__(self, bits, chainwork, difficulty, merkle_root, nonce, size, version, *args, **kwargs):  # noqa: E501
         """ListLatestMinedBlocksRIBSZ2 - a model defined in OpenAPI
 
         Args:
             bits (str): Represents a specific sub-unit of Zcash. Bits have two-decimal precision
             chainwork (str): Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
-            merkleroot (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
+            difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.
+            merkle_root (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
             nonce (str): Represents a random value that can be adjusted to satisfy the proof of work
             size (int): Represents the total size of the block in Bytes.
             version (int): Represents the transaction version number.
@@ -275,7 +280,8 @@ class ListLatestMinedBlocksRIBSZ2(ModelNormal):
 
         self.bits = bits
         self.chainwork = chainwork
-        self.merkleroot = merkleroot
+        self.difficulty = difficulty
+        self.merkle_root = merkle_root
         self.nonce = nonce
         self.size = size
         self.version = version

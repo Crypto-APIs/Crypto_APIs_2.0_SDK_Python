@@ -22,22 +22,27 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from cryptoapis.model.already_exists import AlreadyExists
-from cryptoapis.model.coins_forwarding_automations_limit_reached import CoinsForwardingAutomationsLimitReached
 from cryptoapis.model.create_automatic_coins_forwarding_r import CreateAutomaticCoinsForwardingR
 from cryptoapis.model.create_automatic_coins_forwarding_rb import CreateAutomaticCoinsForwardingRB
 from cryptoapis.model.delete_automatic_coins_forwarding_r import DeleteAutomaticCoinsForwardingR
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
+from cryptoapis.model.inline_response40075 import InlineResponse40075
+from cryptoapis.model.inline_response40076 import InlineResponse40076
+from cryptoapis.model.inline_response40077 import InlineResponse40077
+from cryptoapis.model.inline_response40175 import InlineResponse40175
+from cryptoapis.model.inline_response40176 import InlineResponse40176
+from cryptoapis.model.inline_response40177 import InlineResponse40177
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40375 import InlineResponse40375
+from cryptoapis.model.inline_response40376 import InlineResponse40376
+from cryptoapis.model.inline_response40377 import InlineResponse40377
+from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response40916 import InlineResponse40916
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.list_coins_forwarding_automations_r import ListCoinsForwardingAutomationsR
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.resource_not_found import ResourceNotFound
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 
 
 class AutomaticCoinsForwardingApi(object):
@@ -352,6 +357,9 @@ class AutomaticCoinsForwardingApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -380,6 +388,8 @@ class AutomaticCoinsForwardingApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -425,6 +435,9 @@ class AutomaticCoinsForwardingApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -453,6 +466,8 @@ class AutomaticCoinsForwardingApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -500,6 +515,9 @@ class AutomaticCoinsForwardingApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -528,6 +546,8 @@ class AutomaticCoinsForwardingApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain

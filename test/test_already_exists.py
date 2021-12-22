@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.already_exists_error import AlreadyExistsError
-globals()['AlreadyExistsError'] = AlreadyExistsError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.already_exists import AlreadyExists
 
 

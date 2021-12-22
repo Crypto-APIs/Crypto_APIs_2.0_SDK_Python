@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -90,9 +90,10 @@ class ListConfirmedTokensTransfersByAddressRI(ModelNormal):
             'token_name': (str,),  # noqa: E501
             'token_symbol': (str,),  # noqa: E501
             'token_type': (str,),  # noqa: E501
-            'tokens_amount': (str,),  # noqa: E501
             'transaction_hash': (str,),  # noqa: E501
             'transaction_timestamp': (int,),  # noqa: E501
+            'token_id': (str,),  # noqa: E501
+            'tokens_amount': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -109,9 +110,10 @@ class ListConfirmedTokensTransfersByAddressRI(ModelNormal):
         'token_name': 'tokenName',  # noqa: E501
         'token_symbol': 'tokenSymbol',  # noqa: E501
         'token_type': 'tokenType',  # noqa: E501
-        'tokens_amount': 'tokensAmount',  # noqa: E501
         'transaction_hash': 'transactionHash',  # noqa: E501
         'transaction_timestamp': 'transactionTimestamp',  # noqa: E501
+        'token_id': 'tokenId',  # noqa: E501
+        'tokens_amount': 'tokensAmount',  # noqa: E501
     }
 
     read_only_vars = {
@@ -121,7 +123,7 @@ class ListConfirmedTokensTransfersByAddressRI(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, contract_address, mined_in_block_height, recipient_address, sender_address, token_decimals, token_name, token_symbol, token_type, tokens_amount, transaction_hash, transaction_timestamp, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, contract_address, mined_in_block_height, recipient_address, sender_address, token_decimals, token_name, token_symbol, token_type, transaction_hash, transaction_timestamp, *args, **kwargs):  # noqa: E501
         """ListConfirmedTokensTransfersByAddressRI - a model defined in OpenAPI
 
         Args:
@@ -133,7 +135,6 @@ class ListConfirmedTokensTransfersByAddressRI(ModelNormal):
             token_name (str): Defines the token's name as a string.
             token_symbol (str): Defines the token symbol by which the token contract is known. It is usually 3-4 characters in length.
             token_type (str): Defines the specific token type.
-            tokens_amount (str): Defines the token amount of the transfer.
             transaction_hash (str): Represents the hash of the transaction, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
             transaction_timestamp (int): Defines the specific time/date when the transaction was created in Unix Timestamp.
 
@@ -168,6 +169,8 @@ class ListConfirmedTokensTransfersByAddressRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            token_id (str): Represents the unique token identifier.. [optional]  # noqa: E501
+            tokens_amount (str): Defines the token amount of the transfer.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -203,7 +206,6 @@ class ListConfirmedTokensTransfersByAddressRI(ModelNormal):
         self.token_name = token_name
         self.token_symbol = token_symbol
         self.token_type = token_type
-        self.tokens_amount = tokens_amount
         self.transaction_hash = transaction_hash
         self.transaction_timestamp = transaction_timestamp
         for var_name, var_value in kwargs.items():
@@ -226,7 +228,7 @@ class ListConfirmedTokensTransfersByAddressRI(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, contract_address, mined_in_block_height, recipient_address, sender_address, token_decimals, token_name, token_symbol, token_type, tokens_amount, transaction_hash, transaction_timestamp, *args, **kwargs):  # noqa: E501
+    def __init__(self, contract_address, mined_in_block_height, recipient_address, sender_address, token_decimals, token_name, token_symbol, token_type, transaction_hash, transaction_timestamp, *args, **kwargs):  # noqa: E501
         """ListConfirmedTokensTransfersByAddressRI - a model defined in OpenAPI
 
         Args:
@@ -238,7 +240,6 @@ class ListConfirmedTokensTransfersByAddressRI(ModelNormal):
             token_name (str): Defines the token's name as a string.
             token_symbol (str): Defines the token symbol by which the token contract is known. It is usually 3-4 characters in length.
             token_type (str): Defines the specific token type.
-            tokens_amount (str): Defines the token amount of the transfer.
             transaction_hash (str): Represents the hash of the transaction, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
             transaction_timestamp (int): Defines the specific time/date when the transaction was created in Unix Timestamp.
 
@@ -273,6 +274,8 @@ class ListConfirmedTokensTransfersByAddressRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            token_id (str): Represents the unique token identifier.. [optional]  # noqa: E501
+            tokens_amount (str): Defines the token amount of the transfer.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -306,7 +309,6 @@ class ListConfirmedTokensTransfersByAddressRI(ModelNormal):
         self.token_name = token_name
         self.token_symbol = token_symbol
         self.token_type = token_type
-        self.tokens_amount = tokens_amount
         self.transaction_hash = transaction_hash
         self.transaction_timestamp = transaction_timestamp
         for var_name, var_value in kwargs.items():

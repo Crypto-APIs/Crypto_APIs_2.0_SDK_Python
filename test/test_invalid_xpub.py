@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.invalid_xpub_error import InvalidXpubError
-globals()['InvalidXpubError'] = InvalidXpubError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.invalid_xpub import InvalidXpub
 
 

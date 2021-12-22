@@ -25,14 +25,14 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.list_confirmed_transactions_by_address_ribsz_script_sig import ListConfirmedTransactionsByAddressRIBSZScriptSig
-    globals()['ListConfirmedTransactionsByAddressRIBSZScriptSig'] = ListConfirmedTransactionsByAddressRIBSZScriptSig
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsz_script_sig import GetTransactionDetailsByTransactionIDRIBSZScriptSig
+    globals()['GetTransactionDetailsByTransactionIDRIBSZScriptSig'] = GetTransactionDetailsByTransactionIDRIBSZScriptSig
 
 
 class ListConfirmedTransactionsByAddressRIBSZVin(ModelNormal):
@@ -90,7 +90,7 @@ class ListConfirmedTransactionsByAddressRIBSZVin(ModelNormal):
         return {
             'addresses': ([str],),  # noqa: E501
             'coinbase': (str,),  # noqa: E501
-            'script_sig': (ListConfirmedTransactionsByAddressRIBSZScriptSig,),  # noqa: E501
+            'script_sig': (GetTransactionDetailsByTransactionIDRIBSZScriptSig,),  # noqa: E501
             'sequence': (int,),  # noqa: E501
             'txid': (str,),  # noqa: E501
             'txinwitness': ([str],),  # noqa: E501
@@ -127,7 +127,7 @@ class ListConfirmedTransactionsByAddressRIBSZVin(ModelNormal):
         Args:
             addresses ([str]):
             coinbase (str): Represents the coinbase hex.
-            script_sig (ListConfirmedTransactionsByAddressRIBSZScriptSig):
+            script_sig (GetTransactionDetailsByTransactionIDRIBSZScriptSig):
             sequence (int): Represents the script sequence number.
             txid (str): Represents the reference transaction identifier.
             txinwitness ([str]):
@@ -226,7 +226,7 @@ class ListConfirmedTransactionsByAddressRIBSZVin(ModelNormal):
         Args:
             addresses ([str]):
             coinbase (str): Represents the coinbase hex.
-            script_sig (ListConfirmedTransactionsByAddressRIBSZScriptSig):
+            script_sig (GetTransactionDetailsByTransactionIDRIBSZScriptSig):
             sequence (int): Represents the script sequence number.
             txid (str): Represents the reference transaction identifier.
             txinwitness ([str]):

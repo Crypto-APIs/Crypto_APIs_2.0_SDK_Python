@@ -22,16 +22,24 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
+from cryptoapis.model.get_asset_details_by_asset_idr import GetAssetDetailsByAssetIDR
+from cryptoapis.model.get_asset_details_by_asset_symbol_r import GetAssetDetailsByAssetSymbolR
+from cryptoapis.model.inline_response40089 import InlineResponse40089
+from cryptoapis.model.inline_response40090 import InlineResponse40090
+from cryptoapis.model.inline_response40091 import InlineResponse40091
+from cryptoapis.model.inline_response40189 import InlineResponse40189
+from cryptoapis.model.inline_response40190 import InlineResponse40190
+from cryptoapis.model.inline_response40191 import InlineResponse40191
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40389 import InlineResponse40389
+from cryptoapis.model.inline_response40390 import InlineResponse40390
+from cryptoapis.model.inline_response40391 import InlineResponse40391
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.list_assets_details_r import ListAssetsDetailsR
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 
 
 class AssetsApi(object):
@@ -45,6 +53,118 @@ class AssetsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.get_asset_details_by_asset_id_endpoint = _Endpoint(
+            settings={
+                'response_type': (GetAssetDetailsByAssetIDR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/market-data/assets/assetId/{assetId}',
+                'operation_id': 'get_asset_details_by_asset_id',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'asset_id',
+                    'context',
+                ],
+                'required': [
+                    'asset_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'asset_id':
+                        (str,),
+                    'context':
+                        (str,),
+                },
+                'attribute_map': {
+                    'asset_id': 'assetId',
+                    'context': 'context',
+                },
+                'location_map': {
+                    'asset_id': 'path',
+                    'context': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_asset_details_by_asset_symbol_endpoint = _Endpoint(
+            settings={
+                'response_type': (GetAssetDetailsByAssetSymbolR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/market-data/assets/{assetSymbol}',
+                'operation_id': 'get_asset_details_by_asset_symbol',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'asset_symbol',
+                    'context',
+                ],
+                'required': [
+                    'asset_symbol',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'asset_symbol':
+                        (str,),
+                    'context':
+                        (str,),
+                },
+                'attribute_map': {
+                    'asset_symbol': 'assetSymbol',
+                    'context': 'context',
+                },
+                'location_map': {
+                    'asset_symbol': 'path',
+                    'context': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.list_assets_details_endpoint = _Endpoint(
             settings={
                 'response_type': (ListAssetsDetailsR,),
@@ -132,6 +252,150 @@ class AssetsApi(object):
             api_client=api_client
         )
 
+    def get_asset_details_by_asset_id(
+        self,
+        asset_id,
+        **kwargs
+    ):
+        """Get Asset Details By Asset ID  # noqa: E501
+
+        Through this endpoint users can obtain information on assets by `assetId`.    The details returned could include information on the latest rate and rate fluctuation of different periods of time - 24 hours, a week, one hour, the encoding of the logo, and more.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_asset_details_by_asset_id(asset_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            asset_id (str): Defines the unique ID of the specific asset.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GetAssetDetailsByAssetIDR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
+        return self.get_asset_details_by_asset_id_endpoint.call_with_http_info(**kwargs)
+
+    def get_asset_details_by_asset_symbol(
+        self,
+        asset_symbol,
+        **kwargs
+    ):
+        """Get Asset Details By Asset Symbol  # noqa: E501
+
+        Through this endpoint users can obtain information on assets by asset symbol.    The details returned could include information on the latest rate and rate fluctuation of different periods of time - 24 hours, a week, one hour, the encoding of the logo, and more.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_asset_details_by_asset_symbol(asset_symbol, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            asset_symbol (str): Specifies the asset's unique symbol in the Crypto APIs listings.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GetAssetDetailsByAssetSymbolR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_symbol'] = \
+            asset_symbol
+        return self.get_asset_details_by_asset_symbol_endpoint.call_with_http_info(**kwargs)
+
     def list_assets_details(
         self,
         **kwargs
@@ -168,6 +432,9 @@ class AssetsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -196,6 +463,8 @@ class AssetsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.list_assets_details_endpoint.call_with_http_info(**kwargs)
 

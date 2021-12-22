@@ -12,6 +12,9 @@ Name | Type | Description | Notes
 **timestamp** | **int** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 
 **transaction_id** | **str** | Represents the unique TD of the transaction. | 
 **value** | [**ListWalletTransactionsRIValue**](ListWalletTransactionsRIValue.md) |  | 
+**fungible_tokens** | [**[ListWalletTransactionsRIFungibleTokens]**](ListWalletTransactionsRIFungibleTokens.md) | Represents fungible tokens&#39;es detailed information | [optional] 
+**internal_transactions** | [**[ListWalletTransactionsRIInternalTransactions]**](ListWalletTransactionsRIInternalTransactions.md) |  | [optional] 
+**non_fungible_tokens** | [**[ListWalletTransactionsRINonFungibleTokens]**](ListWalletTransactionsRINonFungibleTokens.md) | Represents non-fungible tokens&#39;es detailed information. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

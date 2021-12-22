@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.unsupported_media_type_error import UnsupportedMediaTypeError
-globals()['UnsupportedMediaTypeError'] = UnsupportedMediaTypeError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 
 

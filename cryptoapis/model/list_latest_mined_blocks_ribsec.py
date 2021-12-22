@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -82,11 +82,14 @@ class ListLatestMinedBlocksRIBSEC(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'difficulty': (str,),  # noqa: E501
             'extra_data': (str,),  # noqa: E501
             'gas_limit': (str,),  # noqa: E501
             'gas_used': (str,),  # noqa: E501
             'mined_in_seconds': (int,),  # noqa: E501
+            'nonce': (str,),  # noqa: E501
             'sha3_uncles': (str,),  # noqa: E501
+            'size': (int,),  # noqa: E501
             'total_difficulty': (str,),  # noqa: E501
             'uncles': ([str],),  # noqa: E501
         }
@@ -97,11 +100,14 @@ class ListLatestMinedBlocksRIBSEC(ModelNormal):
 
 
     attribute_map = {
+        'difficulty': 'difficulty',  # noqa: E501
         'extra_data': 'extraData',  # noqa: E501
         'gas_limit': 'gasLimit',  # noqa: E501
         'gas_used': 'gasUsed',  # noqa: E501
         'mined_in_seconds': 'minedInSeconds',  # noqa: E501
+        'nonce': 'nonce',  # noqa: E501
         'sha3_uncles': 'sha3Uncles',  # noqa: E501
+        'size': 'size',  # noqa: E501
         'total_difficulty': 'totalDifficulty',  # noqa: E501
         'uncles': 'uncles',  # noqa: E501
     }
@@ -113,15 +119,18 @@ class ListLatestMinedBlocksRIBSEC(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, extra_data, gas_limit, gas_used, mined_in_seconds, sha3_uncles, total_difficulty, uncles, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, difficulty, extra_data, gas_limit, gas_used, mined_in_seconds, nonce, sha3_uncles, size, total_difficulty, uncles, *args, **kwargs):  # noqa: E501
         """ListLatestMinedBlocksRIBSEC - a model defined in OpenAPI
 
         Args:
+            difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.
             extra_data (str): Represents any data that can be included by the miner in the block.
             gas_limit (str): Defines the total gas limit of all transactions in the block.
             gas_used (str): Represents the total amount of gas used by all transactions in this block.
             mined_in_seconds (int): Specifies the amount of time required for the block to be mined in seconds.
+            nonce (str): Represents a random value that can be adjusted to satisfy the proof of work
             sha3_uncles (str): Defines the combined hash of all uncles for a given parent.
+            size (int): Represents the total size of the block in Bytes.
             total_difficulty (str): Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block.
             uncles ([str]):
 
@@ -183,11 +192,14 @@ class ListLatestMinedBlocksRIBSEC(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.difficulty = difficulty
         self.extra_data = extra_data
         self.gas_limit = gas_limit
         self.gas_used = gas_used
         self.mined_in_seconds = mined_in_seconds
+        self.nonce = nonce
         self.sha3_uncles = sha3_uncles
+        self.size = size
         self.total_difficulty = total_difficulty
         self.uncles = uncles
         for var_name, var_value in kwargs.items():
@@ -210,15 +222,18 @@ class ListLatestMinedBlocksRIBSEC(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, extra_data, gas_limit, gas_used, mined_in_seconds, sha3_uncles, total_difficulty, uncles, *args, **kwargs):  # noqa: E501
+    def __init__(self, difficulty, extra_data, gas_limit, gas_used, mined_in_seconds, nonce, sha3_uncles, size, total_difficulty, uncles, *args, **kwargs):  # noqa: E501
         """ListLatestMinedBlocksRIBSEC - a model defined in OpenAPI
 
         Args:
+            difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.
             extra_data (str): Represents any data that can be included by the miner in the block.
             gas_limit (str): Defines the total gas limit of all transactions in the block.
             gas_used (str): Represents the total amount of gas used by all transactions in this block.
             mined_in_seconds (int): Specifies the amount of time required for the block to be mined in seconds.
+            nonce (str): Represents a random value that can be adjusted to satisfy the proof of work
             sha3_uncles (str): Defines the combined hash of all uncles for a given parent.
+            size (int): Represents the total size of the block in Bytes.
             total_difficulty (str): Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block.
             uncles ([str]):
 
@@ -278,11 +293,14 @@ class ListLatestMinedBlocksRIBSEC(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.difficulty = difficulty
         self.extra_data = extra_data
         self.gas_limit = gas_limit
         self.gas_used = gas_used
         self.mined_in_seconds = mined_in_seconds
+        self.nonce = nonce
         self.sha3_uncles = sha3_uncles
+        self.size = size
         self.total_difficulty = total_difficulty
         self.uncles = uncles
         for var_name, var_value in kwargs.items():

@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.xpub_sync_in_progress_error import XpubSyncInProgressError
-globals()['XpubSyncInProgressError'] = XpubSyncInProgressError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.xpub_sync_in_progress import XpubSyncInProgress
 
 

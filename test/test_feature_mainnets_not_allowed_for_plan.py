@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan_error import FeatureMainnetsNotAllowedForPlanError
-globals()['FeatureMainnetsNotAllowedForPlanError'] = FeatureMainnetsNotAllowedForPlanError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 
 

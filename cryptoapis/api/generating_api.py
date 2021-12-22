@@ -24,16 +24,16 @@ from cryptoapis.model_utils import (  # noqa: F401
 )
 from cryptoapis.model.generate_deposit_address_r import GenerateDepositAddressR
 from cryptoapis.model.generate_deposit_address_rb import GenerateDepositAddressRB
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.resource_not_found import ResourceNotFound
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
-from cryptoapis.model.wallet_as_a_service_deposit_addresses_limit_reached import WalletAsAServiceDepositAddressesLimitReached
+from cryptoapis.model.inline_response4008 import InlineResponse4008
+from cryptoapis.model.inline_response4018 import InlineResponse4018
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response4038 import InlineResponse4038
+from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response500 import InlineResponse500
 
 
 class GeneratingApi(object):
@@ -92,13 +92,16 @@ class GeneratingApi(object):
                         "DOGECOIN": "dogecoin",
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
-                        "ZCASH": "zcash"
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "ZCASH": "zcash",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
                         "TESTNET": "testnet",
-                        "ROPSTEN": "ropsten"
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor"
                     },
                 },
                 'openapi_types': {
@@ -179,6 +182,9 @@ class GeneratingApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -207,6 +213,8 @@ class GeneratingApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain

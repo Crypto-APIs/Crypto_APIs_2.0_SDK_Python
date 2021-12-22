@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -88,12 +88,12 @@ class GetTransactionDetailsByTransactionIDRIBSBSC(ModelNormal):
         """
         lazy_import()
         return {
+            'contract': (str,),  # noqa: E501
             'gas_limit': (str,),  # noqa: E501
             'gas_price': (GetTransactionDetailsByTransactionIDRIBSBSCGasPrice,),  # noqa: E501
             'gas_used': (str,),  # noqa: E501
             'input_data': (str,),  # noqa: E501
             'nonce': (int,),  # noqa: E501
-            'contract': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -102,12 +102,12 @@ class GetTransactionDetailsByTransactionIDRIBSBSC(ModelNormal):
 
 
     attribute_map = {
+        'contract': 'contract',  # noqa: E501
         'gas_limit': 'gasLimit',  # noqa: E501
         'gas_price': 'gasPrice',  # noqa: E501
         'gas_used': 'gasUsed',  # noqa: E501
         'input_data': 'inputData',  # noqa: E501
         'nonce': 'nonce',  # noqa: E501
-        'contract': 'contract',  # noqa: E501
     }
 
     read_only_vars = {
@@ -117,10 +117,11 @@ class GetTransactionDetailsByTransactionIDRIBSBSC(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, gas_limit, gas_price, gas_used, input_data, nonce, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, contract, gas_limit, gas_price, gas_used, input_data, nonce, *args, **kwargs):  # noqa: E501
         """GetTransactionDetailsByTransactionIDRIBSBSC - a model defined in OpenAPI
 
         Args:
+            contract (str): Represents the specific transaction contract
             gas_limit (str): Represents the amount of gas used by this specific transaction alone.
             gas_price (GetTransactionDetailsByTransactionIDRIBSBSCGasPrice):
             gas_used (str): Defines the unit of the gas price amount, e.g. BTC, ETH, XRP.
@@ -158,7 +159,6 @@ class GetTransactionDetailsByTransactionIDRIBSBSC(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            contract (str): Represents the specific transaction contract. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -186,6 +186,7 @@ class GetTransactionDetailsByTransactionIDRIBSBSC(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.contract = contract
         self.gas_limit = gas_limit
         self.gas_price = gas_price
         self.gas_used = gas_used
@@ -211,10 +212,11 @@ class GetTransactionDetailsByTransactionIDRIBSBSC(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, gas_limit, gas_price, gas_used, input_data, nonce, *args, **kwargs):  # noqa: E501
+    def __init__(self, contract, gas_limit, gas_price, gas_used, input_data, nonce, *args, **kwargs):  # noqa: E501
         """GetTransactionDetailsByTransactionIDRIBSBSC - a model defined in OpenAPI
 
         Args:
+            contract (str): Represents the specific transaction contract
             gas_limit (str): Represents the amount of gas used by this specific transaction alone.
             gas_price (GetTransactionDetailsByTransactionIDRIBSBSCGasPrice):
             gas_used (str): Defines the unit of the gas price amount, e.g. BTC, ETH, XRP.
@@ -252,7 +254,6 @@ class GetTransactionDetailsByTransactionIDRIBSBSC(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            contract (str): Represents the specific transaction contract. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -278,6 +279,7 @@ class GetTransactionDetailsByTransactionIDRIBSBSC(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.contract = contract
         self.gas_limit = gas_limit
         self.gas_price = gas_price
         self.gas_used = gas_used

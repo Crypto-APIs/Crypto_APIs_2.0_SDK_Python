@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addresses** | **[str]** |  | 
 **script_sig** | [**GetTransactionDetailsByTransactionIDRIBSDScriptSig**](GetTransactionDetailsByTransactionIDRIBSDScriptSig.md) |  | 
-**sequence** | **str** | Represents the script sequence number. | 
+**sequence** | **int** | Represents the script sequence number. | 
 **txinwitness** | **[str]** |  | 
 **value** | **str** | Represents the sent/received amount. | 
 **coinbase** | **str** | Represents the coinbase hex. | [optional] 

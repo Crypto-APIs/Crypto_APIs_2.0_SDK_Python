@@ -4,8 +4,224 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**get_asset_details_by_asset_id**](AssetsApi.md#get_asset_details_by_asset_id) | **GET** /market-data/assets/assetId/{assetId} | Get Asset Details By Asset ID
+[**get_asset_details_by_asset_symbol**](AssetsApi.md#get_asset_details_by_asset_symbol) | **GET** /market-data/assets/{assetSymbol} | Get Asset Details By Asset Symbol
 [**list_assets_details**](AssetsApi.md#list_assets_details) | **GET** /market-data/assets/details | List Assets Details
 
+
+# **get_asset_details_by_asset_id**
+> GetAssetDetailsByAssetIDR get_asset_details_by_asset_id(asset_id)
+
+Get Asset Details By Asset ID
+
+Through this endpoint users can obtain information on assets by `assetId`.    The details returned could include information on the latest rate and rate fluctuation of different periods of time - 24 hours, a week, one hour, the encoding of the logo, and more.
+
+### Example
+
+* Api Key Authentication (ApiKey):
+
+```python
+import time
+import cryptoapis
+from cryptoapis.api import assets_api
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.get_asset_details_by_asset_idr import GetAssetDetailsByAssetIDR
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response40090 import InlineResponse40090
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40190 import InlineResponse40190
+from cryptoapis.model.inline_response40390 import InlineResponse40390
+from pprint import pprint
+# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cryptoapis.Configuration(
+    host = "https://rest.cryptoapis.io/v2"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with cryptoapis.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = assets_api.AssetsApi(api_client)
+    asset_id = "5b1ea92e584bf50020130612" # str | Defines the unique ID of the specific asset.
+    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get Asset Details By Asset ID
+        api_response = api_instance.get_asset_details_by_asset_id(asset_id)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling AssetsApi->get_asset_details_by_asset_id: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get Asset Details By Asset ID
+        api_response = api_instance.get_asset_details_by_asset_id(asset_id, context=context)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling AssetsApi->get_asset_details_by_asset_id: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **asset_id** | **str**| Defines the unique ID of the specific asset. |
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+
+### Return type
+
+[**GetAssetDetailsByAssetIDR**](GetAssetDetailsByAssetIDR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The request has been successful. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
+**402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
+**403** | 403 |  -  |
+**409** | The data provided seems to be invalid. |  -  |
+**415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
+**422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
+**429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
+**500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_asset_details_by_asset_symbol**
+> GetAssetDetailsByAssetSymbolR get_asset_details_by_asset_symbol(asset_symbol)
+
+Get Asset Details By Asset Symbol
+
+Through this endpoint users can obtain information on assets by asset symbol.    The details returned could include information on the latest rate and rate fluctuation of different periods of time - 24 hours, a week, one hour, the encoding of the logo, and more.
+
+### Example
+
+* Api Key Authentication (ApiKey):
+
+```python
+import time
+import cryptoapis
+from cryptoapis.api import assets_api
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40091 import InlineResponse40091
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40191 import InlineResponse40191
+from cryptoapis.model.get_asset_details_by_asset_symbol_r import GetAssetDetailsByAssetSymbolR
+from cryptoapis.model.inline_response40391 import InlineResponse40391
+from pprint import pprint
+# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cryptoapis.Configuration(
+    host = "https://rest.cryptoapis.io/v2"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with cryptoapis.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = assets_api.AssetsApi(api_client)
+    asset_symbol = "BTC" # str | Specifies the asset's unique symbol in the Crypto APIs listings.
+    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get Asset Details By Asset Symbol
+        api_response = api_instance.get_asset_details_by_asset_symbol(asset_symbol)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling AssetsApi->get_asset_details_by_asset_symbol: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get Asset Details By Asset Symbol
+        api_response = api_instance.get_asset_details_by_asset_symbol(asset_symbol, context=context)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling AssetsApi->get_asset_details_by_asset_symbol: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **asset_symbol** | **str**| Specifies the asset&#39;s unique symbol in the Crypto APIs listings. |
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+
+### Return type
+
+[**GetAssetDetailsByAssetSymbolR**](GetAssetDetailsByAssetSymbolR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The request has been successful. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
+**402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
+**403** | 403 |  -  |
+**409** | The data provided seems to be invalid. |  -  |
+**415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
+**422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
+**429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
+**500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_assets_details**
 > ListAssetsDetailsR list_assets_details()
@@ -22,16 +238,16 @@ This endpoint will return a list of details on assets. These could be cryptocurr
 import time
 import cryptoapis
 from cryptoapis.api import assets_api
-from cryptoapis.model.insufficient_credits import InsufficientCredits
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.list_assets_details_r import ListAssetsDetailsR
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response40389 import InlineResponse40389
+from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40089 import InlineResponse40089
+from cryptoapis.model.inline_response40189 import InlineResponse40189
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -102,10 +318,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
-**400** | The pagination attributes that have been used are invalid. Please check the Documentation to see details on pagination. |  -  |
-**401** | The provided API key is invalid. Please, generate a new one from your Dashboard. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
 **402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
-**403** | Mainnets access is not available for your current subscription plan, please upgrade your plan to be able to use it. |  -  |
+**403** | 403 |  -  |
 **409** | The data provided seems to be invalid. |  -  |
 **415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
 **422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |

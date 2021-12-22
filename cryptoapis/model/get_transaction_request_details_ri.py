@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -67,6 +67,7 @@ class GetTransactionRequestDetailsRI(ModelNormal):
             'DOGECOIN': "dogecoin",
             'DASH': "dash",
             'ETHEREUM': "ethereum",
+            'ETHEREUM-CLASSIC': "ethereum-classic",
             'ZCASH': "zcash",
         },
         ('fee_priority',): {
@@ -78,6 +79,7 @@ class GetTransactionRequestDetailsRI(ModelNormal):
             'MAINNET': "mainnet",
             'TESTNET': "testnet",
             'ROPSTEN': "ropsten",
+            'MORDOR': "mordor",
         },
         ('transaction_request_status',): {
             'CREATED': "created",

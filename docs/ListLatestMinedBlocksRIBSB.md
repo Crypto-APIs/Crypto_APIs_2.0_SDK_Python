@@ -12,6 +12,9 @@ Name | Type | Description | Notes
 **version** | **int** | Represents the version of the specific block on the blockchain. | 
 **version_hex** | **str** | Is the hexadecimal string representation of the block&#39;s version. | 
 **weight** | **int** | Represents a measurement to compare the size of different transactions to each other in proportion to the block size limit. | 
+**difficulty** | **str** | Represents a mathematical value of how hard it is to find a valid hash for this block. | [optional] 
+**nonce** | **int** | Represents a random value that can be adjusted to satisfy the proof of work | [optional] 
+**size** | **int** | Represents the block size | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

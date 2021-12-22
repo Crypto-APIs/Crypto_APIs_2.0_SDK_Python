@@ -22,19 +22,25 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from cryptoapis.model.blockchain_data_internal_transaction_not_found import BlockchainDataInternalTransactionNotFound
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.get_internal_transaction_by_transaction_hash_and_operation_id_r import GetInternalTransactionByTransactionHashAndOperationIdR
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
+from cryptoapis.model.inline_response40048 import InlineResponse40048
+from cryptoapis.model.inline_response40050 import InlineResponse40050
+from cryptoapis.model.inline_response40051 import InlineResponse40051
+from cryptoapis.model.inline_response40148 import InlineResponse40148
+from cryptoapis.model.inline_response40150 import InlineResponse40150
+from cryptoapis.model.inline_response40151 import InlineResponse40151
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40348 import InlineResponse40348
+from cryptoapis.model.inline_response40350 import InlineResponse40350
+from cryptoapis.model.inline_response40351 import InlineResponse40351
+from cryptoapis.model.inline_response4043 import InlineResponse4043
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.list_internal_transaction_details_by_transaction_hash_r import ListInternalTransactionDetailsByTransactionHashR
 from cryptoapis.model.list_internal_transactions_by_address_r import ListInternalTransactionsByAddressR
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 
 
 class InternalApi(object):
@@ -96,7 +102,8 @@ class InternalApi(object):
 
                         "MAINNET": "mainnet",
                         "TESTNET": "testnet",
-                        "MORDOR": "mordor"
+                        "MORDOR": "mordor",
+                        "ROPSTEN": "ropsten"
                     },
                 },
                 'openapi_types': {
@@ -184,7 +191,8 @@ class InternalApi(object):
 
                         "MAINNET": "mainnet",
                         "TESTNET": "testnet",
-                        "MORDOR": "mordor"
+                        "MORDOR": "mordor",
+                        "ROPSTEN": "ropsten"
                     },
                 },
                 'openapi_types': {
@@ -362,6 +370,9 @@ class InternalApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -390,6 +401,8 @@ class InternalApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -441,6 +454,9 @@ class InternalApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -469,6 +485,8 @@ class InternalApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -487,6 +505,7 @@ class InternalApi(object):
     ):
         """List Internal Transactions By Address  # noqa: E501
 
+        Through this endpoint customers can list internal transactions by the `address` attribute.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -495,7 +514,7 @@ class InternalApi(object):
 
         Args:
             blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
             address (str): String identifier of the address document represented in CryptoAPIs
 
         Keyword Args:
@@ -517,6 +536,9 @@ class InternalApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -545,6 +567,8 @@ class InternalApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain

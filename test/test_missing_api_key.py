@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.missing_api_key_error import MissingApiKeyError
-globals()['MissingApiKeyError'] = MissingApiKeyError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.missing_api_key import MissingApiKey
 
 

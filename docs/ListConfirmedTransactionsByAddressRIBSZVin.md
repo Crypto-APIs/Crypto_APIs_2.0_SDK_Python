@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addresses** | **[str]** |  | 
 **coinbase** | **str** | Represents the coinbase hex. | 
-**script_sig** | [**ListConfirmedTransactionsByAddressRIBSZScriptSig**](ListConfirmedTransactionsByAddressRIBSZScriptSig.md) |  | 
+**script_sig** | [**GetTransactionDetailsByTransactionIDRIBSZScriptSig**](GetTransactionDetailsByTransactionIDRIBSZScriptSig.md) |  | 
 **sequence** | **int** | Represents the script sequence number. | 
 **txid** | **str** | Represents the reference transaction identifier. | 
 **txinwitness** | **[str]** |  | 

@@ -22,21 +22,28 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from cryptoapis.model.already_exists import AlreadyExists
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_details_r import GetHDWalletXPubYPubZPubDetailsR
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_xpub import InvalidXpub
+from cryptoapis.model.inline_response40043 import InlineResponse40043
+from cryptoapis.model.inline_response40047 import InlineResponse40047
+from cryptoapis.model.inline_response40049 import InlineResponse40049
+from cryptoapis.model.inline_response40143 import InlineResponse40143
+from cryptoapis.model.inline_response40147 import InlineResponse40147
+from cryptoapis.model.inline_response40149 import InlineResponse40149
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40343 import InlineResponse40343
+from cryptoapis.model.inline_response40347 import InlineResponse40347
+from cryptoapis.model.inline_response40349 import InlineResponse40349
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response4095 import InlineResponse4095
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response4221 import InlineResponse4221
+from cryptoapis.model.inline_response4222 import InlineResponse4222
+from cryptoapis.model.inline_response4223 import InlineResponse4223
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_transactions_r import ListHDWalletXPubYPubZPubTransactionsR
-from cryptoapis.model.request_limit_reached import RequestLimitReached
 from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub_r import SyncHDWalletXPubYPubZPubR
 from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub_rb import SyncHDWalletXPubYPubZPubRB
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
-from cryptoapis.model.xpub_not_synced import XpubNotSynced
-from cryptoapis.model.xpub_sync_in_progress import XpubSyncInProgress
 
 
 class HDWalletsApi(object):
@@ -374,6 +381,9 @@ class HDWalletsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -402,6 +412,8 @@ class HDWalletsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -452,6 +464,9 @@ class HDWalletsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -480,6 +495,8 @@ class HDWalletsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
@@ -526,6 +543,9 @@ class HDWalletsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -554,6 +574,8 @@ class HDWalletsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain

@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.wallet_as_a_service_wallet_balance_not_enough_error import WalletAsAServiceWalletBalanceNotEnoughError
-globals()['WalletAsAServiceWalletBalanceNotEnoughError'] = WalletAsAServiceWalletBalanceNotEnoughError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.wallet_as_a_service_wallet_balance_not_enough import WalletAsAServiceWalletBalanceNotEnough
 
 

@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -87,7 +87,7 @@ class GetBlockDetailsByBlockHashRIBSZ(ModelNormal):
             'size': (int,),  # noqa: E501
             'bits': (str,),  # noqa: E501
             'chainwork': (str,),  # noqa: E501
-            'merkleroot': (str,),  # noqa: E501
+            'merkle_root': (str,),  # noqa: E501
             'version': (int,),  # noqa: E501
         }
 
@@ -102,7 +102,7 @@ class GetBlockDetailsByBlockHashRIBSZ(ModelNormal):
         'size': 'size',  # noqa: E501
         'bits': 'bits',  # noqa: E501
         'chainwork': 'chainwork',  # noqa: E501
-        'merkleroot': 'merkleroot',  # noqa: E501
+        'merkle_root': 'merkleRoot',  # noqa: E501
         'version': 'version',  # noqa: E501
     }
 
@@ -113,7 +113,7 @@ class GetBlockDetailsByBlockHashRIBSZ(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, difficulty, nonce, size, bits, chainwork, merkleroot, version, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, difficulty, nonce, size, bits, chainwork, merkle_root, version, *args, **kwargs):  # noqa: E501
         """GetBlockDetailsByBlockHashRIBSZ - a model defined in OpenAPI
 
         Args:
@@ -122,7 +122,7 @@ class GetBlockDetailsByBlockHashRIBSZ(ModelNormal):
             size (int): Represents the total size of the block in Bytes.
             bits (str): Represents a specific sub-unit of Zcash. Bits have two-decimal precision
             chainwork (str): Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
-            merkleroot (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
+            merkle_root (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
             version (int): Represents the block version number.
 
         Keyword Args:
@@ -188,7 +188,7 @@ class GetBlockDetailsByBlockHashRIBSZ(ModelNormal):
         self.size = size
         self.bits = bits
         self.chainwork = chainwork
-        self.merkleroot = merkleroot
+        self.merkle_root = merkle_root
         self.version = version
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -210,7 +210,7 @@ class GetBlockDetailsByBlockHashRIBSZ(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, difficulty, nonce, size, bits, chainwork, merkleroot, version, *args, **kwargs):  # noqa: E501
+    def __init__(self, difficulty, nonce, size, bits, chainwork, merkle_root, version, *args, **kwargs):  # noqa: E501
         """GetBlockDetailsByBlockHashRIBSZ - a model defined in OpenAPI
 
         Args:
@@ -219,7 +219,7 @@ class GetBlockDetailsByBlockHashRIBSZ(ModelNormal):
             size (int): Represents the total size of the block in Bytes.
             bits (str): Represents a specific sub-unit of Zcash. Bits have two-decimal precision
             chainwork (str): Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
-            merkleroot (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
+            merkle_root (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
             version (int): Represents the block version number.
 
         Keyword Args:
@@ -283,7 +283,7 @@ class GetBlockDetailsByBlockHashRIBSZ(ModelNormal):
         self.size = size
         self.bits = bits
         self.chainwork = chainwork
-        self.merkleroot = merkleroot
+        self.merkle_root = merkle_root
         self.version = version
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

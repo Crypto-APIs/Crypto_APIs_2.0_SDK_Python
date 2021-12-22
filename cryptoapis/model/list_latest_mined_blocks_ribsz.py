@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -82,6 +82,7 @@ class ListLatestMinedBlocksRIBSZ(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'difficulty': (str,),  # noqa: E501
             'ds_block': (int,),  # noqa: E501
             'ds_difficulty': (str,),  # noqa: E501
             'ds_leader': (str,),  # noqa: E501
@@ -96,6 +97,7 @@ class ListLatestMinedBlocksRIBSZ(ModelNormal):
 
 
     attribute_map = {
+        'difficulty': 'difficulty',  # noqa: E501
         'ds_block': 'dsBlock',  # noqa: E501
         'ds_difficulty': 'dsDifficulty',  # noqa: E501
         'ds_leader': 'dsLeader',  # noqa: E501
@@ -111,10 +113,11 @@ class ListLatestMinedBlocksRIBSZ(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, ds_block, ds_difficulty, ds_leader, gas_limit, gas_used, micro_blocks, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, difficulty, ds_block, ds_difficulty, ds_leader, gas_limit, gas_used, micro_blocks, *args, **kwargs):  # noqa: E501
         """ListLatestMinedBlocksRIBSZ - a model defined in OpenAPI
 
         Args:
+            difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.
             ds_block (int): Represents the Directory Service block which contains metadata about the miners who participate in the consensus protocol.
             ds_difficulty (str): Defines how difficult it is to mine the dsBlocks.
             ds_leader (str): Represents a part of the DS Committee which leads the consensus protocol for the epoch.
@@ -180,6 +183,7 @@ class ListLatestMinedBlocksRIBSZ(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.difficulty = difficulty
         self.ds_block = ds_block
         self.ds_difficulty = ds_difficulty
         self.ds_leader = ds_leader
@@ -206,10 +210,11 @@ class ListLatestMinedBlocksRIBSZ(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, ds_block, ds_difficulty, ds_leader, gas_limit, gas_used, micro_blocks, *args, **kwargs):  # noqa: E501
+    def __init__(self, difficulty, ds_block, ds_difficulty, ds_leader, gas_limit, gas_used, micro_blocks, *args, **kwargs):  # noqa: E501
         """ListLatestMinedBlocksRIBSZ - a model defined in OpenAPI
 
         Args:
+            difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.
             ds_block (int): Represents the Directory Service block which contains metadata about the miners who participate in the consensus protocol.
             ds_difficulty (str): Defines how difficult it is to mine the dsBlocks.
             ds_leader (str): Represents a part of the DS Committee which leads the consensus protocol for the epoch.
@@ -273,6 +278,7 @@ class ListLatestMinedBlocksRIBSZ(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.difficulty = difficulty
         self.ds_block = ds_block
         self.ds_difficulty = ds_difficulty
         self.ds_leader = ds_leader

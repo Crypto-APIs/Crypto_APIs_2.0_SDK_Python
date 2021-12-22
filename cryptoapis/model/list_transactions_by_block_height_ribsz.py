@@ -25,18 +25,18 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.list_confirmed_transactions_by_address_ribszv_shielded_spend import ListConfirmedTransactionsByAddressRIBSZVShieldedSpend
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_spend import GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
     from cryptoapis.model.list_transactions_by_block_height_ribsz_vin import ListTransactionsByBlockHeightRIBSZVin
     from cryptoapis.model.list_transactions_by_block_height_ribsz_vout import ListTransactionsByBlockHeightRIBSZVout
     from cryptoapis.model.list_transactions_by_block_height_ribszv_join_split import ListTransactionsByBlockHeightRIBSZVJoinSplit
     from cryptoapis.model.list_transactions_by_block_height_ribszv_shielded_output import ListTransactionsByBlockHeightRIBSZVShieldedOutput
-    globals()['ListConfirmedTransactionsByAddressRIBSZVShieldedSpend'] = ListConfirmedTransactionsByAddressRIBSZVShieldedSpend
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
     globals()['ListTransactionsByBlockHeightRIBSZVJoinSplit'] = ListTransactionsByBlockHeightRIBSZVJoinSplit
     globals()['ListTransactionsByBlockHeightRIBSZVShieldedOutput'] = ListTransactionsByBlockHeightRIBSZVShieldedOutput
     globals()['ListTransactionsByBlockHeightRIBSZVin'] = ListTransactionsByBlockHeightRIBSZVin
@@ -105,7 +105,7 @@ class ListTransactionsByBlockHeightRIBSZ(ModelNormal):
             'size': (int,),  # noqa: E501
             'v_join_split': ([ListTransactionsByBlockHeightRIBSZVJoinSplit],),  # noqa: E501
             'v_shielded_output': ([ListTransactionsByBlockHeightRIBSZVShieldedOutput],),  # noqa: E501
-            'v_shielded_spend': ([ListConfirmedTransactionsByAddressRIBSZVShieldedSpend],),  # noqa: E501
+            'v_shielded_spend': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend],),  # noqa: E501
             'value_balance': (str,),  # noqa: E501
             'version': (int,),  # noqa: E501
             'version_group_id': (str,),  # noqa: E501
@@ -156,7 +156,7 @@ class ListTransactionsByBlockHeightRIBSZ(ModelNormal):
             size (int): Represents the total size of this transaction.
             v_join_split ([ListTransactionsByBlockHeightRIBSZVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
             v_shielded_output ([ListTransactionsByBlockHeightRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions
-            v_shielded_spend ([ListConfirmedTransactionsByAddressRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions
+            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions
             value_balance (str): Defines the transaction value balance.
             version (int): Represents the transaction version number.
             version_group_id (str): Represents the transaction version group ID.
@@ -269,7 +269,7 @@ class ListTransactionsByBlockHeightRIBSZ(ModelNormal):
             size (int): Represents the total size of this transaction.
             v_join_split ([ListTransactionsByBlockHeightRIBSZVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
             v_shielded_output ([ListTransactionsByBlockHeightRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions
-            v_shielded_spend ([ListConfirmedTransactionsByAddressRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions
+            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions
             value_balance (str): Defines the transaction value balance.
             version (int): Represents the transaction version number.
             version_group_id (str): Represents the transaction version group ID.

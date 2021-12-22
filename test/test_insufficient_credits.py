@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.insufficient_credits_error import InsufficientCreditsError
-globals()['InsufficientCreditsError'] = InsufficientCreditsError
+from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
 from cryptoapis.model.insufficient_credits import InsufficientCredits
 
 

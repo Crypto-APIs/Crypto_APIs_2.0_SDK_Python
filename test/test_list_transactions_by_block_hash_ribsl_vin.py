@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_transaction_details_by_transaction_idribsl_script_sig import GetTransactionDetailsByTransactionIDRIBSLScriptSig
-globals()['GetTransactionDetailsByTransactionIDRIBSLScriptSig'] = GetTransactionDetailsByTransactionIDRIBSLScriptSig
+from cryptoapis.model.list_transactions_by_block_hash_ribsl_script_sig import ListTransactionsByBlockHashRIBSLScriptSig
+globals()['ListTransactionsByBlockHashRIBSLScriptSig'] = ListTransactionsByBlockHashRIBSLScriptSig
 from cryptoapis.model.list_transactions_by_block_hash_ribsl_vin import ListTransactionsByBlockHashRIBSLVin
 
 

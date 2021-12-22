@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addresses** | **[str]** |  | 
-**script_sig** | [**GetTransactionDetailsByTransactionIDRIBSLScriptSig**](GetTransactionDetailsByTransactionIDRIBSLScriptSig.md) |  | 
+**script_sig** | [**ListTransactionsByBlockHashRIBSLScriptSig**](ListTransactionsByBlockHashRIBSLScriptSig.md) |  | 
 **sequence** | **str** | Represents the script sequence number. | 
 **txid** | **str** | Represents the reference transaction identifier. | 
 **txinwitness** | **[str]** |  | 

@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -84,7 +84,10 @@ class ListLatestMinedBlocksRIBSL(ModelNormal):
         return {
             'bits': (str,),  # noqa: E501
             'chainwork': (str,),  # noqa: E501
+            'difficulty': (str,),  # noqa: E501
             'merkle_root': (str,),  # noqa: E501
+            'nonce': (int,),  # noqa: E501
+            'size': (int,),  # noqa: E501
             'stripped_size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
             'version_hex': (str,),  # noqa: E501
@@ -99,7 +102,10 @@ class ListLatestMinedBlocksRIBSL(ModelNormal):
     attribute_map = {
         'bits': 'bits',  # noqa: E501
         'chainwork': 'chainwork',  # noqa: E501
+        'difficulty': 'difficulty',  # noqa: E501
         'merkle_root': 'merkleRoot',  # noqa: E501
+        'nonce': 'nonce',  # noqa: E501
+        'size': 'size',  # noqa: E501
         'stripped_size': 'strippedSize',  # noqa: E501
         'version': 'version',  # noqa: E501
         'version_hex': 'versionHex',  # noqa: E501
@@ -113,13 +119,16 @@ class ListLatestMinedBlocksRIBSL(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, bits, chainwork, merkle_root, stripped_size, version, version_hex, weight, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, bits, chainwork, difficulty, merkle_root, nonce, size, stripped_size, version, version_hex, weight, *args, **kwargs):  # noqa: E501
         """ListLatestMinedBlocksRIBSL - a model defined in OpenAPI
 
         Args:
             bits (str): Represents a specific sub-unit of Litecoin. Bits have two-decimal precision.
             chainwork (str): Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
+            difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.
             merkle_root (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
+            nonce (int): Represents a random value that can be adjusted to satisfy the proof of work
+            size (int): Represents the total size of the block in Bytes.
             stripped_size (int): Defines the numeric representation of the block size excluding the witness data.
             version (int): Represents the version of the specific block on the blockchain.
             version_hex (str): Is the hexadecimal string representation of the block's version.
@@ -185,7 +194,10 @@ class ListLatestMinedBlocksRIBSL(ModelNormal):
 
         self.bits = bits
         self.chainwork = chainwork
+        self.difficulty = difficulty
         self.merkle_root = merkle_root
+        self.nonce = nonce
+        self.size = size
         self.stripped_size = stripped_size
         self.version = version
         self.version_hex = version_hex
@@ -210,13 +222,16 @@ class ListLatestMinedBlocksRIBSL(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, bits, chainwork, merkle_root, stripped_size, version, version_hex, weight, *args, **kwargs):  # noqa: E501
+    def __init__(self, bits, chainwork, difficulty, merkle_root, nonce, size, stripped_size, version, version_hex, weight, *args, **kwargs):  # noqa: E501
         """ListLatestMinedBlocksRIBSL - a model defined in OpenAPI
 
         Args:
             bits (str): Represents a specific sub-unit of Litecoin. Bits have two-decimal precision.
             chainwork (str): Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
+            difficulty (str): Represents a mathematical value of how hard it is to find a valid hash for this block.
             merkle_root (str): Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
+            nonce (int): Represents a random value that can be adjusted to satisfy the proof of work
+            size (int): Represents the total size of the block in Bytes.
             stripped_size (int): Defines the numeric representation of the block size excluding the witness data.
             version (int): Represents the version of the specific block on the blockchain.
             version_hex (str): Is the hexadecimal string representation of the block's version.
@@ -280,7 +295,10 @@ class ListLatestMinedBlocksRIBSL(ModelNormal):
 
         self.bits = bits
         self.chainwork = chainwork
+        self.difficulty = difficulty
         self.merkle_root = merkle_root
+        self.nonce = nonce
+        self.size = size
         self.stripped_size = stripped_size
         self.version = version
         self.version_hex = version_hex

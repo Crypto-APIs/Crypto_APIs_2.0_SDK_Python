@@ -22,23 +22,26 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from cryptoapis.model.already_exists import AlreadyExists
 from cryptoapis.model.broadcast_locally_signed_transaction_r import BroadcastLocallySignedTransactionR
 from cryptoapis.model.broadcast_locally_signed_transaction_rb import BroadcastLocallySignedTransactionRB
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
-from cryptoapis.model.generate_address_r import GenerateAddressR
-from cryptoapis.model.generate_address_rb import GenerateAddressRB
 from cryptoapis.model.get_eip1559_fee_recommendations_r import GetEIP1559FeeRecommendationsR
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_network import InvalidNetwork
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.resource_not_found import ResourceNotFound
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
+from cryptoapis.model.inline_response40083 import InlineResponse40083
+from cryptoapis.model.inline_response40084 import InlineResponse40084
+from cryptoapis.model.inline_response40085 import InlineResponse40085
+from cryptoapis.model.inline_response40183 import InlineResponse40183
+from cryptoapis.model.inline_response40184 import InlineResponse40184
+from cryptoapis.model.inline_response40185 import InlineResponse40185
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40383 import InlineResponse40383
+from cryptoapis.model.inline_response40384 import InlineResponse40384
+from cryptoapis.model.inline_response40385 import InlineResponse40385
+from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response40917 import InlineResponse40917
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.validate_address_r import ValidateAddressR
 from cryptoapis.model.validate_address_rb import ValidateAddressRB
 
@@ -98,7 +101,9 @@ class FeaturesApi(object):
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
                         "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "ZCASH": "zcash"
+                        "ZCASH": "zcash",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain",
+                        "XRP": "xrp"
                     },
                     ('network',): {
 
@@ -128,96 +133,6 @@ class FeaturesApi(object):
                     'network': 'path',
                     'context': 'query',
                     'broadcast_locally_signed_transaction_rb': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-        self.generate_address_endpoint = _Endpoint(
-            settings={
-                'response_type': (GenerateAddressR,),
-                'auth': [
-                    'ApiKey'
-                ],
-                'endpoint_path': '/blockchain-tools/{blockchain}/{network}/addresses/generate',
-                'operation_id': 'generate_address',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'blockchain',
-                    'network',
-                    'context',
-                    'generate_address_rb',
-                ],
-                'required': [
-                    'blockchain',
-                    'network',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                    'blockchain',
-                    'network',
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                    ('blockchain',): {
-
-                        "BITCOIN": "bitcoin",
-                        "BITCOIN-CASH": "bitcoin-cash",
-                        "LITECOIN": "litecoin",
-                        "DOGECOIN": "dogecoin",
-                        "DASH": "dash",
-                        "ETHEREUM": "ethereum",
-                        "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "XRP": "xrp",
-                        "ZILLIQA": "zilliqa",
-                        "ZCASH": "zcash"
-                    },
-                    ('network',): {
-
-                        "MAINNET": "mainnet",
-                        "TESTNET": "testnet",
-                        "ROPSTEN": "ropsten",
-                        "MORDOR": "mordor"
-                    },
-                },
-                'openapi_types': {
-                    'blockchain':
-                        (str,),
-                    'network':
-                        (str,),
-                    'context':
-                        (str,),
-                    'generate_address_rb':
-                        (GenerateAddressRB,),
-                },
-                'attribute_map': {
-                    'blockchain': 'blockchain',
-                    'network': 'network',
-                    'context': 'context',
-                },
-                'location_map': {
-                    'blockchain': 'path',
-                    'network': 'path',
-                    'context': 'query',
-                    'generate_address_rb': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -404,7 +319,7 @@ class FeaturesApi(object):
     ):
         """Broadcast Locally Signed Transaction  # noqa: E501
 
-        Through this endpoint customers can broadcast transactions that have been already signed locally. Instead of using a node for broadcasting a signed transaction users can use this endpoint. We then keep the user posted about the status by sending you a callback with a success or failure status.  # noqa: E501
+        Through this endpoint customers can broadcast transactions that have been already signed locally. Instead of using a node for broadcasting a signed transaction users can use this endpoint. We then keep the user posted about the status by sending you a callback with a success or failure status.    {warning}This can be prepared and signed **only** locally, not through the API. We can provide support only for the process of broadcasting.{/warning}  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -433,6 +348,9 @@ class FeaturesApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -461,84 +379,14 @@ class FeaturesApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
             network
         return self.broadcast_locally_signed_transaction_endpoint.call_with_http_info(**kwargs)
-
-    def generate_address(
-        self,
-        blockchain,
-        network,
-        **kwargs
-    ):
-        """Generate Address  # noqa: E501
-
-        This endpoint will generate a unique address for the user along with the specific transaction script, e.g. P2PKH, a private and a public key, and WIF.     Users **must** keep their private keys and WIFs secure and accessible to only them at all times. Losing those exposes a risk of losing their funds associated with the respective address.     {warning}We generate, but **do not** save or record the response in any data base, log or anywhere else on our side! In the case a user loses their private key or WIF, Crypto APIs 2.0 **will not be able** to retrieve it.{/warning}  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.generate_address(blockchain, network, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-
-        Keyword Args:
-            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
-            generate_address_rb (GenerateAddressRB): [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            GenerateAddressR
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['blockchain'] = \
-            blockchain
-        kwargs['network'] = \
-            network
-        return self.generate_address_endpoint.call_with_http_info(**kwargs)
 
     def get_eip_1559_fee_recommendations(
         self,
@@ -576,6 +424,9 @@ class FeaturesApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -604,6 +455,8 @@ class FeaturesApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -648,6 +501,9 @@ class FeaturesApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -676,6 +532,8 @@ class FeaturesApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['blockchain'] = \
             blockchain

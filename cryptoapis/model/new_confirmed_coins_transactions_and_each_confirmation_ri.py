@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -90,7 +90,6 @@ class NewConfirmedCoinsTransactionsAndEachConfirmationRI(ModelNormal):
             'event_type': (str,),  # noqa: E501
             'is_active': (bool,),  # noqa: E501
             'reference_id': (str,),  # noqa: E501
-            'transaction_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -107,7 +106,6 @@ class NewConfirmedCoinsTransactionsAndEachConfirmationRI(ModelNormal):
         'event_type': 'eventType',  # noqa: E501
         'is_active': 'isActive',  # noqa: E501
         'reference_id': 'referenceId',  # noqa: E501
-        'transaction_id': 'transactionId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -117,7 +115,7 @@ class NewConfirmedCoinsTransactionsAndEachConfirmationRI(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, address, callback_secret_key, callback_url, confirmations_count, created_timestamp, event_type, is_active, reference_id, transaction_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, address, callback_secret_key, callback_url, confirmations_count, created_timestamp, event_type, is_active, reference_id, *args, **kwargs):  # noqa: E501
         """NewConfirmedCoinsTransactionsAndEachConfirmationRI - a model defined in OpenAPI
 
         Args:
@@ -129,7 +127,6 @@ class NewConfirmedCoinsTransactionsAndEachConfirmationRI(ModelNormal):
             event_type (str): Defines the type of the specific event available for the customer to subscribe to for callback notification.
             is_active (bool): Defines whether the subscription is active or not. Set as boolean.
             reference_id (str): Represents a unique ID used to reference the specific callback subscription.
-            transaction_id (str): Represents the unique identification string that defines the transaction.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -197,7 +194,6 @@ class NewConfirmedCoinsTransactionsAndEachConfirmationRI(ModelNormal):
         self.event_type = event_type
         self.is_active = is_active
         self.reference_id = reference_id
-        self.transaction_id = transaction_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -218,7 +214,7 @@ class NewConfirmedCoinsTransactionsAndEachConfirmationRI(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, address, callback_secret_key, callback_url, confirmations_count, created_timestamp, event_type, is_active, reference_id, transaction_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, address, callback_secret_key, callback_url, confirmations_count, created_timestamp, event_type, is_active, reference_id, *args, **kwargs):  # noqa: E501
         """NewConfirmedCoinsTransactionsAndEachConfirmationRI - a model defined in OpenAPI
 
         Args:
@@ -230,7 +226,6 @@ class NewConfirmedCoinsTransactionsAndEachConfirmationRI(ModelNormal):
             event_type (str): Defines the type of the specific event available for the customer to subscribe to for callback notification.
             is_active (bool): Defines whether the subscription is active or not. Set as boolean.
             reference_id (str): Represents a unique ID used to reference the specific callback subscription.
-            transaction_id (str): Represents the unique identification string that defines the transaction.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -296,7 +291,6 @@ class NewConfirmedCoinsTransactionsAndEachConfirmationRI(ModelNormal):
         self.event_type = event_type
         self.is_active = is_active
         self.reference_id = reference_id
-        self.transaction_id = transaction_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

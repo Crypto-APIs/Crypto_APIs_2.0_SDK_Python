@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -85,12 +85,10 @@ class NewConfirmedTokensTransactionsRI(ModelNormal):
             'address': (str,),  # noqa: E501
             'callback_secret_key': (str,),  # noqa: E501
             'callback_url': (str,),  # noqa: E501
-            'confirmations_count': (str,),  # noqa: E501
             'created_timestamp': (int,),  # noqa: E501
             'event_type': (str,),  # noqa: E501
             'is_active': (bool,),  # noqa: E501
             'reference_id': (str,),  # noqa: E501
-            'transaction_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -102,12 +100,10 @@ class NewConfirmedTokensTransactionsRI(ModelNormal):
         'address': 'address',  # noqa: E501
         'callback_secret_key': 'callbackSecretKey',  # noqa: E501
         'callback_url': 'callbackUrl',  # noqa: E501
-        'confirmations_count': 'confirmationsCount',  # noqa: E501
         'created_timestamp': 'createdTimestamp',  # noqa: E501
         'event_type': 'eventType',  # noqa: E501
         'is_active': 'isActive',  # noqa: E501
         'reference_id': 'referenceId',  # noqa: E501
-        'transaction_id': 'transactionId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -117,19 +113,17 @@ class NewConfirmedTokensTransactionsRI(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, address, callback_secret_key, callback_url, confirmations_count, created_timestamp, event_type, is_active, reference_id, transaction_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, address, callback_secret_key, callback_url, created_timestamp, event_type, is_active, reference_id, *args, **kwargs):  # noqa: E501
         """NewConfirmedTokensTransactionsRI - a model defined in OpenAPI
 
         Args:
             address (str): Represents the address of the transaction, per which the result is returned.
             callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
             callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
-            confirmations_count (str): Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
             created_timestamp (int): Defines the specific time/date when the subscription was created in Unix Timestamp.
             event_type (str): Defines the type of the specific event available for the customer to subscribe to for callback notification.
             is_active (bool): Defines whether the subscription is active or not. Set as boolean.
             reference_id (str): Represents a unique ID used to reference the specific callback subscription.
-            transaction_id (str): Represents the unique identification string that defines the transaction.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -192,12 +186,10 @@ class NewConfirmedTokensTransactionsRI(ModelNormal):
         self.address = address
         self.callback_secret_key = callback_secret_key
         self.callback_url = callback_url
-        self.confirmations_count = confirmations_count
         self.created_timestamp = created_timestamp
         self.event_type = event_type
         self.is_active = is_active
         self.reference_id = reference_id
-        self.transaction_id = transaction_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -218,19 +210,17 @@ class NewConfirmedTokensTransactionsRI(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, address, callback_secret_key, callback_url, confirmations_count, created_timestamp, event_type, is_active, reference_id, transaction_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, address, callback_secret_key, callback_url, created_timestamp, event_type, is_active, reference_id, *args, **kwargs):  # noqa: E501
         """NewConfirmedTokensTransactionsRI - a model defined in OpenAPI
 
         Args:
             address (str): Represents the address of the transaction, per which the result is returned.
             callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
             callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
-            confirmations_count (str): Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
             created_timestamp (int): Defines the specific time/date when the subscription was created in Unix Timestamp.
             event_type (str): Defines the type of the specific event available for the customer to subscribe to for callback notification.
             is_active (bool): Defines whether the subscription is active or not. Set as boolean.
             reference_id (str): Represents a unique ID used to reference the specific callback subscription.
-            transaction_id (str): Represents the unique identification string that defines the transaction.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -291,12 +281,10 @@ class NewConfirmedTokensTransactionsRI(ModelNormal):
         self.address = address
         self.callback_secret_key = callback_secret_key
         self.callback_url = callback_url
-        self.confirmations_count = confirmations_count
         self.created_timestamp = created_timestamp
         self.event_type = event_type
         self.is_active = is_active
         self.reference_id = reference_id
-        self.transaction_id = transaction_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

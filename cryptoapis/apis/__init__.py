@@ -17,6 +17,7 @@
 from cryptoapis.api.assets_api import AssetsApi
 from cryptoapis.api.automatic_coins_forwarding_api import AutomaticCoinsForwardingApi
 from cryptoapis.api.automatic_tokens_forwarding_api import AutomaticTokensForwardingApi
+from cryptoapis.api.callback_data_api import CallbackDataApi
 from cryptoapis.api.create_subscriptions_for_api import CreateSubscriptionsForApi
 from cryptoapis.api.exchange_rates_api import ExchangeRatesApi
 from cryptoapis.api.features_api import FeaturesApi

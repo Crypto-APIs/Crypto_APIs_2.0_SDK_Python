@@ -25,8 +25,8 @@ from cryptoapis.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from cryptoapis.exceptions import ApiAttributeError
 
 
@@ -175,7 +175,7 @@ class ListAssetsDetailsRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            slug (str): Asset`s unique slug string in Crypto APIs listings. [optional]  # noqa: E501
+            slug (str): Represents the asset`s unique slug string in Crypto APIs listings.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -275,7 +275,7 @@ class ListAssetsDetailsRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            slug (str): Asset`s unique slug string in Crypto APIs listings. [optional]  # noqa: E501
+            slug (str): Represents the asset`s unique slug string in Crypto APIs listings.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

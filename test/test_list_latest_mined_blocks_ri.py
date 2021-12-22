@@ -13,12 +13,12 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_latest_mined_xrp_ripple_block_ri_total_coins import GetLatestMinedXRPRippleBlockRITotalCoins
-from cryptoapis.model.get_latest_mined_xrp_ripple_block_ri_total_fees import GetLatestMinedXRPRippleBlockRITotalFees
+from cryptoapis.model.list_latest_mined_blocks_ri_total_coins import ListLatestMinedBlocksRITotalCoins
+from cryptoapis.model.list_latest_mined_blocks_ri_total_fees import ListLatestMinedBlocksRITotalFees
 from cryptoapis.model.list_latest_mined_blocks_ribs import ListLatestMinedBlocksRIBS
-globals()['GetLatestMinedXRPRippleBlockRITotalCoins'] = GetLatestMinedXRPRippleBlockRITotalCoins
-globals()['GetLatestMinedXRPRippleBlockRITotalFees'] = GetLatestMinedXRPRippleBlockRITotalFees
 globals()['ListLatestMinedBlocksRIBS'] = ListLatestMinedBlocksRIBS
+globals()['ListLatestMinedBlocksRITotalCoins'] = ListLatestMinedBlocksRITotalCoins
+globals()['ListLatestMinedBlocksRITotalFees'] = ListLatestMinedBlocksRITotalFees
 from cryptoapis.model.list_latest_mined_blocks_ri import ListLatestMinedBlocksRI
 
 

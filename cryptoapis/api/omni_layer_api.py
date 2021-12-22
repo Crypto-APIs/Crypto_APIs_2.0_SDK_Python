@@ -22,24 +22,45 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from cryptoapis.model.blockchain_data_transaction_not_found import BlockchainDataTransactionNotFound
-from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 from cryptoapis.model.get_omni_transaction_details_by_transaction_id_txid_r import GetOmniTransactionDetailsByTransactionIDTxidR
 from cryptoapis.model.get_unconfirmed_omni_transaction_by_transaction_id_txid_r import GetUnconfirmedOmniTransactionByTransactionIDTxidR
-from cryptoapis.model.insufficient_credits import InsufficientCredits
-from cryptoapis.model.invalid_api_key import InvalidApiKey
-from cryptoapis.model.invalid_data import InvalidData
-from cryptoapis.model.invalid_pagination import InvalidPagination
-from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
+from cryptoapis.model.inline_response4001 import InlineResponse4001
+from cryptoapis.model.inline_response40012 import InlineResponse40012
+from cryptoapis.model.inline_response40019 import InlineResponse40019
+from cryptoapis.model.inline_response40028 import InlineResponse40028
+from cryptoapis.model.inline_response40032 import InlineResponse40032
+from cryptoapis.model.inline_response40038 import InlineResponse40038
+from cryptoapis.model.inline_response40044 import InlineResponse40044
+from cryptoapis.model.inline_response4005 import InlineResponse4005
+from cryptoapis.model.inline_response4011 import InlineResponse4011
+from cryptoapis.model.inline_response40112 import InlineResponse40112
+from cryptoapis.model.inline_response40119 import InlineResponse40119
+from cryptoapis.model.inline_response40128 import InlineResponse40128
+from cryptoapis.model.inline_response40132 import InlineResponse40132
+from cryptoapis.model.inline_response40138 import InlineResponse40138
+from cryptoapis.model.inline_response40144 import InlineResponse40144
+from cryptoapis.model.inline_response4015 import InlineResponse4015
+from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response4031 import InlineResponse4031
+from cryptoapis.model.inline_response40312 import InlineResponse40312
+from cryptoapis.model.inline_response40319 import InlineResponse40319
+from cryptoapis.model.inline_response40328 import InlineResponse40328
+from cryptoapis.model.inline_response40332 import InlineResponse40332
+from cryptoapis.model.inline_response40338 import InlineResponse40338
+from cryptoapis.model.inline_response40344 import InlineResponse40344
+from cryptoapis.model.inline_response4035 import InlineResponse4035
+from cryptoapis.model.inline_response404 import InlineResponse404
+from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.list_omni_tokens_by_address_r import ListOmniTokensByAddressR
 from cryptoapis.model.list_omni_transactions_by_address_r import ListOmniTransactionsByAddressR
 from cryptoapis.model.list_omni_transactions_by_block_hash_r import ListOmniTransactionsByBlockHashR
 from cryptoapis.model.list_omni_transactions_by_block_height_r import ListOmniTransactionsByBlockHeightR
 from cryptoapis.model.list_unconfirmed_omni_transactions_by_address_r import ListUnconfirmedOmniTransactionsByAddressR
 from cryptoapis.model.list_unconfirmed_omni_transactions_by_property_idr import ListUnconfirmedOmniTransactionsByPropertyIDR
-from cryptoapis.model.request_limit_reached import RequestLimitReached
-from cryptoapis.model.unexpected_server_error import UnexpectedServerError
-from cryptoapis.model.unsupported_media_type import UnsupportedMediaType
 
 
 class OmniLayerApi(object):
@@ -774,6 +795,9 @@ class OmniLayerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -802,6 +826,8 @@ class OmniLayerApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -849,6 +875,9 @@ class OmniLayerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -877,6 +906,8 @@ class OmniLayerApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -924,6 +955,9 @@ class OmniLayerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -952,6 +986,8 @@ class OmniLayerApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -1001,6 +1037,9 @@ class OmniLayerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1029,6 +1068,8 @@ class OmniLayerApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -1078,6 +1119,9 @@ class OmniLayerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1106,6 +1150,8 @@ class OmniLayerApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -1155,6 +1201,9 @@ class OmniLayerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1183,6 +1232,8 @@ class OmniLayerApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -1232,6 +1283,9 @@ class OmniLayerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1260,6 +1314,8 @@ class OmniLayerApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
@@ -1309,6 +1365,9 @@ class OmniLayerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1337,6 +1396,8 @@ class OmniLayerApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['network'] = \
             network
