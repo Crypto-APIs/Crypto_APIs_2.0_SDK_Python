@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_internal_transaction_details_by_transaction_hash_e403 import ListInternalTransactionDetailsByTransactionHashE403
-globals()['ListInternalTransactionDetailsByTransactionHashE403'] = ListInternalTransactionDetailsByTransactionHashE403
+from cryptoapis.model.list_wallet_transactions_e403 import ListWalletTransactionsE403
+globals()['ListWalletTransactionsE403'] = ListWalletTransactionsE403
 from cryptoapis.model.inline_response40348 import InlineResponse40348
 
 

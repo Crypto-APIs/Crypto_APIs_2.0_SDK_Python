@@ -22,16 +22,16 @@ This endpoint will return a list of supported assets. The asset could be a crypt
 import time
 import cryptoapis
 from cryptoapis.api import metadata_api
+from cryptoapis.model.inline_response403105 import InlineResponse403105
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40186 import InlineResponse40186
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.list_supported_assets_r import ListSupportedAssetsR
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40386 import InlineResponse40386
-from cryptoapis.model.inline_response40086 import InlineResponse40086
+from cryptoapis.model.inline_response400105 import InlineResponse400105
+from cryptoapis.model.inline_response401105 import InlineResponse401105
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -54,10 +54,10 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     asset_type = "crypto" # str | Defines the type of the supported asset. This could be either \"crypto\" or \"fiat\". (optional)
     limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 10 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
 
     # example passing only required values which don't have defaults set
     # and optional values

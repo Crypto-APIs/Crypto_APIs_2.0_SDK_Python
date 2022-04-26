@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub_e401 import SyncHDWalletXPubYPubZPubE401
-globals()['SyncHDWalletXPubYPubZPubE401'] = SyncHDWalletXPubYPubZPubE401
+from cryptoapis.model.get_latest_mined_zilliqa_block_e401 import GetLatestMinedZilliqaBlockE401
+globals()['GetLatestMinedZilliqaBlockE401'] = GetLatestMinedZilliqaBlockE401
 from cryptoapis.model.inline_response40143 import InlineResponse40143
 
 

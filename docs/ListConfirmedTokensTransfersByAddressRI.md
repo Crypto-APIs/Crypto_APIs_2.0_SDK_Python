@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **token_type** | **str** | Defines the specific token type. | 
 **transaction_hash** | **str** | Represents the hash of the transaction, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | 
 **transaction_timestamp** | **int** | Defines the specific time/date when the transaction was created in Unix Timestamp. | 
+**transaction_fee** | [**ListTokensTransfersByTransactionHashRITransactionFee**](ListTokensTransfersByTransactionHashRITransactionFee.md) |  | 
 **token_id** | **str** | Represents the unique token identifier. | [optional] 
 **tokens_amount** | **str** | Defines the token amount of the transfer. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

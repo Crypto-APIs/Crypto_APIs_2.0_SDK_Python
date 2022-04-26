@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_xrp_ripple_transactions_by_block_hash_e403 import ListXRPRippleTransactionsByBlockHashE403
-globals()['ListXRPRippleTransactionsByBlockHashE403'] = ListXRPRippleTransactionsByBlockHashE403
+from cryptoapis.model.list_transactions_by_block_hash_e403 import ListTransactionsByBlockHashE403
+globals()['ListTransactionsByBlockHashE403'] = ListTransactionsByBlockHashE403
 from cryptoapis.model.inline_response40318 import InlineResponse40318
 
 

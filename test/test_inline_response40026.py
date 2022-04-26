@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_block_details_by_block_height_e400 import GetBlockDetailsByBlockHeightE400
-globals()['GetBlockDetailsByBlockHeightE400'] = GetBlockDetailsByBlockHeightE400
+from cryptoapis.model.create_coins_transaction_from_address_for_whole_amount_e400 import CreateCoinsTransactionFromAddressForWholeAmountE400
+globals()['CreateCoinsTransactionFromAddressForWholeAmountE400'] = CreateCoinsTransactionFromAddressForWholeAmountE400
 from cryptoapis.model.inline_response40026 import InlineResponse40026
 
 

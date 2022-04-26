@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_unconfirmed_omni_transaction_by_transaction_id_txid_e400 import GetUnconfirmedOmniTransactionByTransactionIDTxidE400
-globals()['GetUnconfirmedOmniTransactionByTransactionIDTxidE400'] = GetUnconfirmedOmniTransactionByTransactionIDTxidE400
+from cryptoapis.model.list_xrp_ripple_transactions_by_block_hash_e400 import ListXRPRippleTransactionsByBlockHashE400
+globals()['ListXRPRippleTransactionsByBlockHashE400'] = ListXRPRippleTransactionsByBlockHashE400
 from cryptoapis.model.inline_response40019 import InlineResponse40019
 
 

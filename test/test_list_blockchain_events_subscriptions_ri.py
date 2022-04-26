@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
+from cryptoapis.model.list_blockchain_events_subscriptions_ri_deactivation_reasons import ListBlockchainEventsSubscriptionsRIDeactivationReasons
+globals()['ListBlockchainEventsSubscriptionsRIDeactivationReasons'] = ListBlockchainEventsSubscriptionsRIDeactivationReasons
 from cryptoapis.model.list_blockchain_events_subscriptions_ri import ListBlockchainEventsSubscriptionsRI
 
 

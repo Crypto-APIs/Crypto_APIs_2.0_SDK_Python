@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_zilliqa_transactions_by_block_height_e403 import ListZilliqaTransactionsByBlockHeightE403
-globals()['ListZilliqaTransactionsByBlockHeightE403'] = ListZilliqaTransactionsByBlockHeightE403
+from cryptoapis.model.list_zilliqa_transactions_by_block_hash_e403 import ListZilliqaTransactionsByBlockHashE403
+globals()['ListZilliqaTransactionsByBlockHashE403'] = ListZilliqaTransactionsByBlockHashE403
 from cryptoapis.model.inline_response40322 import InlineResponse40322
 
 

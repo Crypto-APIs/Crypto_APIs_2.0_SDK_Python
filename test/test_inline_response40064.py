@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.mined_transaction_e400 import MinedTransactionE400
-globals()['MinedTransactionE400'] = MinedTransactionE400
+from cryptoapis.model.list_confirmed_tokens_transfers_by_address_e400 import ListConfirmedTokensTransfersByAddressE400
+globals()['ListConfirmedTokensTransfersByAddressE400'] = ListConfirmedTokensTransfersByAddressE400
 from cryptoapis.model.inline_response40064 import InlineResponse40064
 
 

@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_fee_address_details_e400 import GetFeeAddressDetailsE400
-globals()['GetFeeAddressDetailsE400'] = GetFeeAddressDetailsE400
+from cryptoapis.model.activate_blockchain_event_subscription_e400 import ActivateBlockchainEventSubscriptionE400
+globals()['ActivateBlockchainEventSubscriptionE400'] = ActivateBlockchainEventSubscriptionE400
 from cryptoapis.model.inline_response40081 import InlineResponse40081
 
 

@@ -24,6 +24,13 @@ class TestUnifiedEndpointsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_estimate_transaction_smart_fee(self):
+        """Test case for estimate_transaction_smart_fee
+
+        Estimate Transaction Smart Fee  # noqa: E501
+        """
+        pass
+
     def test_get_address_details(self):
         """Test case for get_address_details
 
@@ -59,6 +66,20 @@ class TestUnifiedEndpointsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_next_available_nonce(self):
+        """Test case for get_next_available_nonce
+
+        Get Next Available Nonce  # noqa: E501
+        """
+        pass
+
+    def test_get_raw_transaction_data(self):
+        """Test case for get_raw_transaction_data
+
+        Get Raw Transaction Data  # noqa: E501
+        """
+        pass
+
     def test_get_transaction_details_by_transaction_id(self):
         """Test case for get_transaction_details_by_transaction_id
 
@@ -73,10 +94,31 @@ class TestUnifiedEndpointsApi(unittest.TestCase):
         """
         pass
 
+    def test_list_confirmed_tokens_transfers_by_address_and_time_range(self):
+        """Test case for list_confirmed_tokens_transfers_by_address_and_time_range
+
+        List Confirmed Tokens Transfers By Address And Time Range  # noqa: E501
+        """
+        pass
+
     def test_list_confirmed_transactions_by_address(self):
         """Test case for list_confirmed_transactions_by_address
 
         List Confirmed Transactions By Address  # noqa: E501
+        """
+        pass
+
+    def test_list_confirmed_transactions_by_address_and_time_range(self):
+        """Test case for list_confirmed_transactions_by_address_and_time_range
+
+        List Confirmed Transactions By Address And Time Range  # noqa: E501
+        """
+        pass
+
+    def test_list_internal_transactions_by_address_and_time_range(self):
+        """Test case for list_internal_transactions_by_address_and_time_range
+
+        List Internal Transactions By Address And Time Range  # noqa: E501
         """
         pass
 
@@ -105,6 +147,13 @@ class TestUnifiedEndpointsApi(unittest.TestCase):
         """Test case for list_unconfirmed_transactions_by_address
 
         List Unconfirmed Transactions by Address  # noqa: E501
+        """
+        pass
+
+    def test_list_unspent_transaction_outputs_by_address(self):
+        """Test case for list_unspent_transaction_outputs_by_address
+
+        List Unspent Transaction Outputs By Address  # noqa: E501
         """
         pass
 

@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.create_fungible_tokens_transaction_request_from_address_e401 import CreateFungibleTokensTransactionRequestFromAddressE401
-globals()['CreateFungibleTokensTransactionRequestFromAddressE401'] = CreateFungibleTokensTransactionRequestFromAddressE401
+from cryptoapis.model.get_wallet_asset_details_e401 import GetWalletAssetDetailsE401
+globals()['GetWalletAssetDetailsE401'] = GetWalletAssetDetailsE401
 from cryptoapis.model.inline_response40136 import InlineResponse40136
 
 

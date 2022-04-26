@@ -59,9 +59,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     wallet_id = "60c9d9921c38030006675ff6" # str | Represents the unique ID of the specific Wallet.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     generate_deposit_address_rb = GenerateDepositAddressRB(
-        context="context_example",
+        context="yourExampleString",
         data=GenerateDepositAddressRBData(
             item=GenerateDepositAddressRBDataItem(
                 label="yourLabelStringHere",

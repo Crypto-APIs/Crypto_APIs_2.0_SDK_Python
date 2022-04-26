@@ -22,26 +22,36 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_assets_r import GetHDWalletXPubYPubZPubAssetsR
 from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_details_r import GetHDWalletXPubYPubZPubDetailsR
-from cryptoapis.model.inline_response40043 import InlineResponse40043
-from cryptoapis.model.inline_response40047 import InlineResponse40047
-from cryptoapis.model.inline_response40049 import InlineResponse40049
-from cryptoapis.model.inline_response40143 import InlineResponse40143
-from cryptoapis.model.inline_response40147 import InlineResponse40147
-from cryptoapis.model.inline_response40149 import InlineResponse40149
+from cryptoapis.model.inline_response40046 import InlineResponse40046
+from cryptoapis.model.inline_response40050 import InlineResponse40050
+from cryptoapis.model.inline_response40051 import InlineResponse40051
+from cryptoapis.model.inline_response40053 import InlineResponse40053
+from cryptoapis.model.inline_response40055 import InlineResponse40055
+from cryptoapis.model.inline_response40146 import InlineResponse40146
+from cryptoapis.model.inline_response40150 import InlineResponse40150
+from cryptoapis.model.inline_response40151 import InlineResponse40151
+from cryptoapis.model.inline_response40153 import InlineResponse40153
+from cryptoapis.model.inline_response40155 import InlineResponse40155
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40343 import InlineResponse40343
-from cryptoapis.model.inline_response40347 import InlineResponse40347
-from cryptoapis.model.inline_response40349 import InlineResponse40349
+from cryptoapis.model.inline_response40346 import InlineResponse40346
+from cryptoapis.model.inline_response40350 import InlineResponse40350
+from cryptoapis.model.inline_response40351 import InlineResponse40351
+from cryptoapis.model.inline_response40353 import InlineResponse40353
+from cryptoapis.model.inline_response40355 import InlineResponse40355
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response4095 import InlineResponse4095
 from cryptoapis.model.inline_response415 import InlineResponse415
 from cryptoapis.model.inline_response4221 import InlineResponse4221
 from cryptoapis.model.inline_response4222 import InlineResponse4222
 from cryptoapis.model.inline_response4223 import InlineResponse4223
+from cryptoapis.model.inline_response4224 import InlineResponse4224
+from cryptoapis.model.inline_response4225 import InlineResponse4225
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_transactions_r import ListHDWalletXPubYPubZPubTransactionsR
+from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_utxos_r import ListHDWalletXPubYPubZPubUTXOsR
 from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub_r import SyncHDWalletXPubYPubZPubR
 from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub_rb import SyncHDWalletXPubYPubZPubRB
 
@@ -57,6 +67,107 @@ class HDWalletsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.get_hd_wallet__x_pub_y_pub_z_pub_assets_endpoint = _Endpoint(
+            settings={
+                'response_type': (GetHDWalletXPubYPubZPubAssetsR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/blockchain-data/{blockchain}/{network}/hd/{extendedPublicKey}/assets',
+                'operation_id': 'get_hd_wallet__x_pub_y_pub_z_pub_assets',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'blockchain',
+                    'extended_public_key',
+                    'network',
+                    'context',
+                    'derivation',
+                ],
+                'required': [
+                    'blockchain',
+                    'extended_public_key',
+                    'network',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'blockchain',
+                    'network',
+                    'derivation',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('blockchain',): {
+
+                        "BITCOIN": "bitcoin",
+                        "BITCOIN-CASH": "bitcoin-cash",
+                        "LITECOIN": "litecoin",
+                        "DOGECOIN": "dogecoin",
+                        "DASH": "dash",
+                        "ETHEREUM": "ethereum",
+                        "ZCASH": "zcash",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain",
+                        "XRP": "xrp"
+                    },
+                    ('network',): {
+
+                        "MAINNET": "mainnet",
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor"
+                    },
+                    ('derivation',): {
+
+                        "ACCOUNT": "account",
+                        "BIP32": "bip32"
+                    },
+                },
+                'openapi_types': {
+                    'blockchain':
+                        (str,),
+                    'extended_public_key':
+                        (str,),
+                    'network':
+                        (str,),
+                    'context':
+                        (str,),
+                    'derivation':
+                        (str,),
+                },
+                'attribute_map': {
+                    'blockchain': 'blockchain',
+                    'extended_public_key': 'extendedPublicKey',
+                    'network': 'network',
+                    'context': 'context',
+                    'derivation': 'derivation',
+                },
+                'location_map': {
+                    'blockchain': 'path',
+                    'extended_public_key': 'path',
+                    'network': 'path',
+                    'context': 'query',
+                    'derivation': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_hd_wallet__x_pub_y_pub_z_pub_details_endpoint = _Endpoint(
             settings={
                 'response_type': (GetHDWalletXPubYPubZPubDetailsR,),
@@ -102,12 +213,18 @@ class HDWalletsApi(object):
                         "LITECOIN": "litecoin",
                         "DOGECOIN": "dogecoin",
                         "DASH": "dash",
-                        "ZCASH": "zcash"
+                        "ETHEREUM": "ethereum",
+                        "ZCASH": "zcash",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain",
+                        "XRP": "xrp"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
-                        "TESTNET": "testnet"
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor"
                     },
                     ('derivation',): {
 
@@ -160,6 +277,117 @@ class HDWalletsApi(object):
                 ],
                 'endpoint_path': '/blockchain-data/{blockchain}/{network}/hd/{extendedPublicKey}/transactions',
                 'operation_id': 'list_hd_wallet__x_pub_y_pub_z_pub_transactions',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'blockchain',
+                    'extended_public_key',
+                    'network',
+                    'context',
+                    'derivation',
+                    'limit',
+                    'offset',
+                ],
+                'required': [
+                    'blockchain',
+                    'extended_public_key',
+                    'network',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'blockchain',
+                    'network',
+                    'derivation',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('blockchain',): {
+
+                        "BITCOIN": "bitcoin",
+                        "BITCOIN-CASH": "bitcoin-cash",
+                        "LITECOIN": "litecoin",
+                        "DOGECOIN": "dogecoin",
+                        "DASH": "dash",
+                        "ETHEREUM": "ethereum",
+                        "ZCASH": "zcash",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain",
+                        "XRP": "xrp"
+                    },
+                    ('network',): {
+
+                        "MAINNET": "mainnet",
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor"
+                    },
+                    ('derivation',): {
+
+                        "ACCOUNT": "account",
+                        "BIP32": "bip32"
+                    },
+                },
+                'openapi_types': {
+                    'blockchain':
+                        (str,),
+                    'extended_public_key':
+                        (str,),
+                    'network':
+                        (str,),
+                    'context':
+                        (str,),
+                    'derivation':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'blockchain': 'blockchain',
+                    'extended_public_key': 'extendedPublicKey',
+                    'network': 'network',
+                    'context': 'context',
+                    'derivation': 'derivation',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'blockchain': 'path',
+                    'extended_public_key': 'path',
+                    'network': 'path',
+                    'context': 'query',
+                    'derivation': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_hd_wallet__x_pub_y_pub_z_pub_utxos_endpoint = _Endpoint(
+            settings={
+                'response_type': (ListHDWalletXPubYPubZPubUTXOsR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/blockchain-data/{blockchain}/{network}/hd/{extendedPublicKey}/utxos',
+                'operation_id': 'list_hd_wallet__x_pub_y_pub_z_pub_utxos',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -299,12 +527,18 @@ class HDWalletsApi(object):
                         "LITECOIN": "litecoin",
                         "DOGECOIN": "dogecoin",
                         "DASH": "dash",
-                        "ZCASH": "zcash"
+                        "ETHEREUM": "ethereum",
+                        "ZCASH": "zcash",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain",
+                        "XRP": "xrp"
                     },
                     ('network',): {
 
                         "MAINNET": "mainnet",
-                        "TESTNET": "testnet"
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor"
                     },
                 },
                 'openapi_types': {
@@ -341,6 +575,99 @@ class HDWalletsApi(object):
             },
             api_client=api_client
         )
+
+    def get_hd_wallet__x_pub_y_pub_z_pub_assets(
+        self,
+        blockchain,
+        extended_public_key,
+        network,
+        **kwargs
+    ):
+        """Get HD Wallet (xPub, yPub, zPub) Assets  # noqa: E501
+
+        This endpoint will return details on assets we support for a specified from the customer extended public key (xPub). These could be cryptocurrencies, fungible or non-fungible (NFT) tokens. Each asset has a unique identifier - assetId, and a unique symbol in the form of a string, e.g. \"USDT\".  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_hd_wallet__x_pub_y_pub_z_pub_assets(blockchain, extended_public_key, network, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            extended_public_key (str): Defines the account extended publicly known key which is used to derive all child public keys.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            derivation (str): The way how the HD walled derives, for example when the type is ACCOUNT, it derives change and receive addresses while when the type is BIP32 it derives directly.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GetHDWalletXPubYPubZPubAssetsR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['extended_public_key'] = \
+            extended_public_key
+        kwargs['network'] = \
+            network
+        return self.get_hd_wallet__x_pub_y_pub_z_pub_assets_endpoint.call_with_http_info(**kwargs)
 
     def get_hd_wallet__x_pub_y_pub_z_pub_details(
         self,
@@ -381,12 +708,20 @@ class HDWalletsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -412,9 +747,13 @@ class HDWalletsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['extended_public_key'] = \
@@ -464,12 +803,20 @@ class HDWalletsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -495,9 +842,13 @@ class HDWalletsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['extended_public_key'] = \
@@ -505,6 +856,101 @@ class HDWalletsApi(object):
         kwargs['network'] = \
             network
         return self.list_hd_wallet__x_pub_y_pub_z_pub_transactions_endpoint.call_with_http_info(**kwargs)
+
+    def list_hd_wallet__x_pub_y_pub_z_pub_utxos(
+        self,
+        blockchain,
+        extended_public_key,
+        network,
+        **kwargs
+    ):
+        """List HD Wallet (xPub, yPub, zPub) UTXOs  # noqa: E501
+
+        Through this endpoint you can list HD wallet's UTXOs (Unspent Transaction Outputs) by providing extended public key of an already synced HD wallet.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_hd_wallet__x_pub_y_pub_z_pub_utxos(blockchain, extended_public_key, network, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            extended_public_key (str): Defines the account extended publicly known key which is used to derive all child public keys.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            derivation (str): The way how the HD walled derives, for example when the type is ACCOUNT, it derives change and receive addresses while when the type is BIP32 it derives directly.. [optional]
+            limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
+            offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ListHDWalletXPubYPubZPubUTXOsR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['extended_public_key'] = \
+            extended_public_key
+        kwargs['network'] = \
+            network
+        return self.list_hd_wallet__x_pub_y_pub_z_pub_utxos_endpoint.call_with_http_info(**kwargs)
 
     def sync_hd_wallet__x_pub_y_pub_z_pub(
         self,
@@ -543,12 +989,20 @@ class HDWalletsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -574,9 +1028,13 @@ class HDWalletsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \

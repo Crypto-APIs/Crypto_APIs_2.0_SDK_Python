@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_transactions_e400 import ListHDWalletXPubYPubZPubTransactionsE400
-globals()['ListHDWalletXPubYPubZPubTransactionsE400'] = ListHDWalletXPubYPubZPubTransactionsE400
+from cryptoapis.model.get_wallet_transaction_details_by_transaction_ide400 import GetWalletTransactionDetailsByTransactionIDE400
+globals()['GetWalletTransactionDetailsByTransactionIDE400'] = GetWalletTransactionDetailsByTransactionIDE400
 from cryptoapis.model.inline_response40049 import InlineResponse40049
 
 

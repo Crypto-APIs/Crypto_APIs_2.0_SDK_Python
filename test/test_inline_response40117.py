@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_transactions_by_block_hash_e401 import ListTransactionsByBlockHashE401
-globals()['ListTransactionsByBlockHashE401'] = ListTransactionsByBlockHashE401
+from cryptoapis.model.list_all_unconfirmed_transactions_e401 import ListAllUnconfirmedTransactionsE401
+globals()['ListAllUnconfirmedTransactionsE401'] = ListAllUnconfirmedTransactionsE401
 from cryptoapis.model.inline_response40117 import InlineResponse40117
 
 

@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_coins_forwarding_automations_e400 import ListCoinsForwardingAutomationsE400
-globals()['ListCoinsForwardingAutomationsE400'] = ListCoinsForwardingAutomationsE400
+from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_e400 import NewConfirmedTokensTransactionsAndEachConfirmationE400
+globals()['NewConfirmedTokensTransactionsAndEachConfirmationE400'] = NewConfirmedTokensTransactionsAndEachConfirmationE400
 from cryptoapis.model.inline_response40075 import InlineResponse40075
 
 

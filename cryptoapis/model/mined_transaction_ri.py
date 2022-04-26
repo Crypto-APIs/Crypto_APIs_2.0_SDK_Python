@@ -82,10 +82,8 @@ class MinedTransactionRI(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'address': (str,),  # noqa: E501
             'callback_secret_key': (str,),  # noqa: E501
             'callback_url': (str,),  # noqa: E501
-            'confirmations_count': (int,),  # noqa: E501
             'created_timestamp': (int,),  # noqa: E501
             'event_type': (str,),  # noqa: E501
             'is_active': (bool,),  # noqa: E501
@@ -99,10 +97,8 @@ class MinedTransactionRI(ModelNormal):
 
 
     attribute_map = {
-        'address': 'address',  # noqa: E501
         'callback_secret_key': 'callbackSecretKey',  # noqa: E501
         'callback_url': 'callbackUrl',  # noqa: E501
-        'confirmations_count': 'confirmationsCount',  # noqa: E501
         'created_timestamp': 'createdTimestamp',  # noqa: E501
         'event_type': 'eventType',  # noqa: E501
         'is_active': 'isActive',  # noqa: E501
@@ -117,14 +113,12 @@ class MinedTransactionRI(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, address, callback_secret_key, callback_url, confirmations_count, created_timestamp, event_type, is_active, reference_id, transaction_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, callback_secret_key, callback_url, created_timestamp, event_type, is_active, reference_id, transaction_id, *args, **kwargs):  # noqa: E501
         """MinedTransactionRI - a model defined in OpenAPI
 
         Args:
-            address (str): Represents the address of the transaction.
             callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
-            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
-            confirmations_count (int): Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
+            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
             created_timestamp (int): Defines the specific time/date when the subscription was created in Unix Timestamp.
             event_type (str): Defines the type of the specific event available for the customer to subscribe to for callback notification.
             is_active (bool): Defines whether the subscription is active or not. Set as boolean.
@@ -165,7 +159,7 @@ class MinedTransactionRI(ModelNormal):
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -173,14 +167,18 @@ class MinedTransactionRI(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -189,10 +187,8 @@ class MinedTransactionRI(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.address = address
         self.callback_secret_key = callback_secret_key
         self.callback_url = callback_url
-        self.confirmations_count = confirmations_count
         self.created_timestamp = created_timestamp
         self.event_type = event_type
         self.is_active = is_active
@@ -218,14 +214,12 @@ class MinedTransactionRI(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, address, callback_secret_key, callback_url, confirmations_count, created_timestamp, event_type, is_active, reference_id, transaction_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, callback_secret_key, callback_url, created_timestamp, event_type, is_active, reference_id, transaction_id, *args, **kwargs):  # noqa: E501
         """MinedTransactionRI - a model defined in OpenAPI
 
         Args:
-            address (str): Represents the address of the transaction.
             callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
-            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
-            confirmations_count (int): Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
+            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
             created_timestamp (int): Defines the specific time/date when the subscription was created in Unix Timestamp.
             event_type (str): Defines the type of the specific event available for the customer to subscribe to for callback notification.
             is_active (bool): Defines whether the subscription is active or not. Set as boolean.
@@ -272,14 +266,18 @@ class MinedTransactionRI(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -288,10 +286,8 @@ class MinedTransactionRI(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.address = address
         self.callback_secret_key = callback_secret_key
         self.callback_url = callback_url
-        self.confirmations_count = confirmations_count
         self.created_timestamp = created_timestamp
         self.event_type = event_type
         self.is_active = is_active

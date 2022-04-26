@@ -28,29 +28,29 @@ from cryptoapis.model.get_zilliqa_block_details_by_block_hash_r import GetZilliq
 from cryptoapis.model.get_zilliqa_block_details_by_block_height_r import GetZilliqaBlockDetailsByBlockHeightR
 from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_idr import GetZilliqaTransactionDetailsByTransactionIDR
 from cryptoapis.model.inline_response40014 import InlineResponse40014
-from cryptoapis.model.inline_response40021 import InlineResponse40021
 from cryptoapis.model.inline_response40022 import InlineResponse40022
-from cryptoapis.model.inline_response40029 import InlineResponse40029
+from cryptoapis.model.inline_response40023 import InlineResponse40023
 from cryptoapis.model.inline_response4003 import InlineResponse4003
-from cryptoapis.model.inline_response40033 import InlineResponse40033
-from cryptoapis.model.inline_response40040 import InlineResponse40040
+from cryptoapis.model.inline_response40030 import InlineResponse40030
+from cryptoapis.model.inline_response40034 import InlineResponse40034
+from cryptoapis.model.inline_response40043 import InlineResponse40043
 from cryptoapis.model.inline_response4009 import InlineResponse4009
 from cryptoapis.model.inline_response40114 import InlineResponse40114
-from cryptoapis.model.inline_response40121 import InlineResponse40121
 from cryptoapis.model.inline_response40122 import InlineResponse40122
-from cryptoapis.model.inline_response40129 import InlineResponse40129
+from cryptoapis.model.inline_response40123 import InlineResponse40123
 from cryptoapis.model.inline_response4013 import InlineResponse4013
-from cryptoapis.model.inline_response40133 import InlineResponse40133
-from cryptoapis.model.inline_response40140 import InlineResponse40140
+from cryptoapis.model.inline_response40130 import InlineResponse40130
+from cryptoapis.model.inline_response40134 import InlineResponse40134
+from cryptoapis.model.inline_response40143 import InlineResponse40143
 from cryptoapis.model.inline_response4019 import InlineResponse4019
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response40314 import InlineResponse40314
-from cryptoapis.model.inline_response40321 import InlineResponse40321
 from cryptoapis.model.inline_response40322 import InlineResponse40322
-from cryptoapis.model.inline_response40329 import InlineResponse40329
+from cryptoapis.model.inline_response40323 import InlineResponse40323
 from cryptoapis.model.inline_response4033 import InlineResponse4033
-from cryptoapis.model.inline_response40333 import InlineResponse40333
-from cryptoapis.model.inline_response40340 import InlineResponse40340
+from cryptoapis.model.inline_response40330 import InlineResponse40330
+from cryptoapis.model.inline_response40334 import InlineResponse40334
+from cryptoapis.model.inline_response40343 import InlineResponse40343
 from cryptoapis.model.inline_response4039 import InlineResponse4039
 from cryptoapis.model.inline_response404 import InlineResponse404
 from cryptoapis.model.inline_response4042 import InlineResponse4042
@@ -670,12 +670,20 @@ class ZilliqaApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -701,9 +709,13 @@ class ZilliqaApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['network'] = \
             network
         return self.get_latest_mined_zilliqa_block_endpoint.call_with_http_info(**kwargs)
@@ -744,12 +756,20 @@ class ZilliqaApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -775,9 +795,13 @@ class ZilliqaApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['network'] = \
             network
         kwargs['address'] = \
@@ -820,12 +844,20 @@ class ZilliqaApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -851,9 +883,13 @@ class ZilliqaApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['network'] = \
             network
         kwargs['block_hash'] = \
@@ -896,12 +932,20 @@ class ZilliqaApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -927,9 +971,13 @@ class ZilliqaApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['network'] = \
             network
         kwargs['block_height'] = \
@@ -972,12 +1020,20 @@ class ZilliqaApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1003,9 +1059,13 @@ class ZilliqaApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['network'] = \
             network
         kwargs['transaction_hash'] = \
@@ -1050,12 +1110,20 @@ class ZilliqaApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1081,9 +1149,13 @@ class ZilliqaApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['network'] = \
             network
         kwargs['address'] = \
@@ -1128,12 +1200,20 @@ class ZilliqaApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1159,9 +1239,13 @@ class ZilliqaApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['network'] = \
             network
         kwargs['block_hash'] = \
@@ -1206,12 +1290,20 @@ class ZilliqaApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1237,9 +1329,13 @@ class ZilliqaApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['network'] = \
             network
         kwargs['block_height'] = \

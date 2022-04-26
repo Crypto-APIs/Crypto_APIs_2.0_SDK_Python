@@ -24,15 +24,15 @@ import time
 import cryptoapis
 from cryptoapis.api import exchange_rates_api
 from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40187 import InlineResponse40187
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response4224 import InlineResponse4224
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40387 import InlineResponse40387
+from cryptoapis.model.inline_response401106 import InlineResponse401106
+from cryptoapis.model.inline_response400106 import InlineResponse400106
 from cryptoapis.model.get_exchange_rate_by_asset_symbols_r import GetExchangeRateByAssetSymbolsR
-from cryptoapis.model.inline_response40087 import InlineResponse40087
+from cryptoapis.model.inline_response4226 import InlineResponse4226
+from cryptoapis.model.inline_response403106 import InlineResponse403106
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -57,7 +57,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = exchange_rates_api.ExchangeRatesApi(api_client)
     from_asset_symbol = "btc" # str | Defines the base asset symbol to get a rate for.
     to_asset_symbol = "usd" # str | Defines the relation asset symbol in which the base asset rate will be displayed.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     calculation_timestamp = 1635514425 # int | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. (optional)
 
     # example passing only required values which don't have defaults set
@@ -135,15 +135,15 @@ import time
 import cryptoapis
 from cryptoapis.api import exchange_rates_api
 from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40188 import InlineResponse40188
 from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response4225 import InlineResponse4225
+from cryptoapis.model.inline_response400107 import InlineResponse400107
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40388 import InlineResponse40388
 from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response401107 import InlineResponse401107
 from cryptoapis.model.get_exchange_rate_by_assets_ids_r import GetExchangeRateByAssetsIDsR
-from cryptoapis.model.inline_response40088 import InlineResponse40088
+from cryptoapis.model.inline_response403107 import InlineResponse403107
+from cryptoapis.model.inline_response4227 import InlineResponse4227
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -168,7 +168,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = exchange_rates_api.ExchangeRatesApi(api_client)
     from_asset_id = "5b1ea92e584bf50020130612" # str | Defines the base asset Reference ID to get a rate for.
     to_asset_id = "5b1ea92e584bf50020130615" # str | Defines the relation asset Reference ID in which the base asset rate will be displayed.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     calculation_timestamp = 1618577849 # int | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. (optional)
 
     # example passing only required values which don't have defaults set

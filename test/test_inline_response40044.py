@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_omni_transactions_by_block_hash_e400 import ListOmniTransactionsByBlockHashE400
-globals()['ListOmniTransactionsByBlockHashE400'] = ListOmniTransactionsByBlockHashE400
+from cryptoapis.model.get_transaction_request_details_e400 import GetTransactionRequestDetailsE400
+globals()['GetTransactionRequestDetailsE400'] = GetTransactionRequestDetailsE400
 from cryptoapis.model.inline_response40044 import InlineResponse40044
 
 

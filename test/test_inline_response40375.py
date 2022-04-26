@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_coins_forwarding_automations_e403 import ListCoinsForwardingAutomationsE403
-globals()['ListCoinsForwardingAutomationsE403'] = ListCoinsForwardingAutomationsE403
+from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_e403 import NewConfirmedTokensTransactionsAndEachConfirmationE403
+globals()['NewConfirmedTokensTransactionsAndEachConfirmationE403'] = NewConfirmedTokensTransactionsAndEachConfirmationE403
 from cryptoapis.model.inline_response40375 import InlineResponse40375
 
 

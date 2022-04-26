@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_confirmed_tokens_transfers_by_address_e401 import ListConfirmedTokensTransfersByAddressE401
-globals()['ListConfirmedTokensTransfersByAddressE401'] = ListConfirmedTokensTransfersByAddressE401
+from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_utxos_e401 import ListHDWalletXPubYPubZPubUTXOsE401
+globals()['ListHDWalletXPubYPubZPubUTXOsE401'] = ListHDWalletXPubYPubZPubUTXOsE401
 from cryptoapis.model.inline_response40155 import InlineResponse40155
 
 

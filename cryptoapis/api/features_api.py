@@ -24,17 +24,44 @@ from cryptoapis.model_utils import (  # noqa: F401
 )
 from cryptoapis.model.broadcast_locally_signed_transaction_r import BroadcastLocallySignedTransactionR
 from cryptoapis.model.broadcast_locally_signed_transaction_rb import BroadcastLocallySignedTransactionRB
+from cryptoapis.model.decode_raw_transaction_hex_r import DecodeRawTransactionHexR
+from cryptoapis.model.decode_raw_transaction_hex_rb import DecodeRawTransactionHexRB
+from cryptoapis.model.decode_x_address_r import DecodeXAddressR
+from cryptoapis.model.derive_hd_wallet_x_pub_y_pub_z_pub_change_or_receiving_addresses_r import DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesR
+from cryptoapis.model.encode_x_address_r import EncodeXAddressR
+from cryptoapis.model.estimate_gas_limit_r import EstimateGasLimitR
+from cryptoapis.model.estimate_gas_limit_rb import EstimateGasLimitRB
+from cryptoapis.model.estimate_token_gas_limit_r import EstimateTokenGasLimitR
+from cryptoapis.model.estimate_token_gas_limit_rb import EstimateTokenGasLimitRB
 from cryptoapis.model.get_eip1559_fee_recommendations_r import GetEIP1559FeeRecommendationsR
-from cryptoapis.model.inline_response40083 import InlineResponse40083
-from cryptoapis.model.inline_response40084 import InlineResponse40084
-from cryptoapis.model.inline_response40085 import InlineResponse40085
-from cryptoapis.model.inline_response40183 import InlineResponse40183
-from cryptoapis.model.inline_response40184 import InlineResponse40184
-from cryptoapis.model.inline_response40185 import InlineResponse40185
+from cryptoapis.model.inline_response400100 import InlineResponse400100
+from cryptoapis.model.inline_response400101 import InlineResponse400101
+from cryptoapis.model.inline_response400102 import InlineResponse400102
+from cryptoapis.model.inline_response400103 import InlineResponse400103
+from cryptoapis.model.inline_response400104 import InlineResponse400104
+from cryptoapis.model.inline_response40070 import InlineResponse40070
+from cryptoapis.model.inline_response40097 import InlineResponse40097
+from cryptoapis.model.inline_response40098 import InlineResponse40098
+from cryptoapis.model.inline_response40099 import InlineResponse40099
+from cryptoapis.model.inline_response401100 import InlineResponse401100
+from cryptoapis.model.inline_response401101 import InlineResponse401101
+from cryptoapis.model.inline_response401102 import InlineResponse401102
+from cryptoapis.model.inline_response401103 import InlineResponse401103
+from cryptoapis.model.inline_response401104 import InlineResponse401104
+from cryptoapis.model.inline_response40170 import InlineResponse40170
+from cryptoapis.model.inline_response40197 import InlineResponse40197
+from cryptoapis.model.inline_response40198 import InlineResponse40198
+from cryptoapis.model.inline_response40199 import InlineResponse40199
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40383 import InlineResponse40383
-from cryptoapis.model.inline_response40384 import InlineResponse40384
-from cryptoapis.model.inline_response40385 import InlineResponse40385
+from cryptoapis.model.inline_response403100 import InlineResponse403100
+from cryptoapis.model.inline_response403101 import InlineResponse403101
+from cryptoapis.model.inline_response403102 import InlineResponse403102
+from cryptoapis.model.inline_response403103 import InlineResponse403103
+from cryptoapis.model.inline_response403104 import InlineResponse403104
+from cryptoapis.model.inline_response40370 import InlineResponse40370
+from cryptoapis.model.inline_response40397 import InlineResponse40397
+from cryptoapis.model.inline_response40398 import InlineResponse40398
+from cryptoapis.model.inline_response40399 import InlineResponse40399
 from cryptoapis.model.inline_response4041 import InlineResponse4041
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response40917 import InlineResponse40917
@@ -133,6 +160,546 @@ class FeaturesApi(object):
                     'network': 'path',
                     'context': 'query',
                     'broadcast_locally_signed_transaction_rb': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.decode_raw_transaction_hex_endpoint = _Endpoint(
+            settings={
+                'response_type': (DecodeRawTransactionHexR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/blockchain-tools/{blockchain}/{network}/decode-raw-transaction',
+                'operation_id': 'decode_raw_transaction_hex',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'blockchain',
+                    'network',
+                    'context',
+                    'decode_raw_transaction_hex_rb',
+                ],
+                'required': [
+                    'blockchain',
+                    'network',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'blockchain',
+                    'network',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('blockchain',): {
+
+                        "BITCOIN": "bitcoin",
+                        "BITCOIN-CASH": "bitcoin-cash",
+                        "LITECOIN": "litecoin",
+                        "DOGECOIN": "dogecoin",
+                        "DASH": "dash",
+                        "ETHEREUM": "ethereum",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain",
+                        "ZCASH": "zcash"
+                    },
+                    ('network',): {
+
+                        "MAINNET": "mainnet",
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor"
+                    },
+                },
+                'openapi_types': {
+                    'blockchain':
+                        (str,),
+                    'network':
+                        (str,),
+                    'context':
+                        (str,),
+                    'decode_raw_transaction_hex_rb':
+                        (DecodeRawTransactionHexRB,),
+                },
+                'attribute_map': {
+                    'blockchain': 'blockchain',
+                    'network': 'network',
+                    'context': 'context',
+                },
+                'location_map': {
+                    'blockchain': 'path',
+                    'network': 'path',
+                    'context': 'query',
+                    'decode_raw_transaction_hex_rb': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.decode_x_address_endpoint = _Endpoint(
+            settings={
+                'response_type': (DecodeXAddressR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/blockchain-tools/{blockchain}/{network}/decode-x-address/{xAddress}',
+                'operation_id': 'decode_x_address',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'blockchain',
+                    'network',
+                    'x_address',
+                    'context',
+                ],
+                'required': [
+                    'blockchain',
+                    'network',
+                    'x_address',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'blockchain',
+                    'network',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('blockchain',): {
+
+                        "XRP": "xrp"
+                    },
+                    ('network',): {
+
+                        "MAINNET": "mainnet",
+                        "TESTNET": "testnet"
+                    },
+                },
+                'openapi_types': {
+                    'blockchain':
+                        (str,),
+                    'network':
+                        (str,),
+                    'x_address':
+                        (str,),
+                    'context':
+                        (str,),
+                },
+                'attribute_map': {
+                    'blockchain': 'blockchain',
+                    'network': 'network',
+                    'x_address': 'xAddress',
+                    'context': 'context',
+                },
+                'location_map': {
+                    'blockchain': 'path',
+                    'network': 'path',
+                    'x_address': 'path',
+                    'context': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.derive_hd_wallet__x_pub_y_pub_z_pub_change_or_receiving_addresses_endpoint = _Endpoint(
+            settings={
+                'response_type': (DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/blockchain-tools/{blockchain}/{network}/hd/{extendedPublicKey}/addresses/derive-address',
+                'operation_id': 'derive_hd_wallet__x_pub_y_pub_z_pub_change_or_receiving_addresses',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'blockchain',
+                    'extended_public_key',
+                    'network',
+                    'context',
+                    'address_format',
+                    'addresses_count',
+                    'is_change',
+                    'start_index',
+                ],
+                'required': [
+                    'blockchain',
+                    'extended_public_key',
+                    'network',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'blockchain',
+                    'network',
+                    'address_format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('blockchain',): {
+
+                        "BITCOIN": "bitcoin",
+                        "BITCOIN-CASH": "bitcoin-cash",
+                        "LITECOIN": "litecoin",
+                        "DOGECOIN": "dogecoin",
+                        "DASH": "dash",
+                        "ETHEREUM": "ethereum",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "XRP": "xrp",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain",
+                        "ZCASH": "zcash"
+                    },
+                    ('network',): {
+
+                        "MAINNET": "mainnet",
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor"
+                    },
+                    ('address_format',): {
+
+                        "P2PKH": "p2pkh",
+                        "P2SH": "p2sh",
+                        "P2WPKH": "p2wpkh",
+                        "STANDARD": "standard",
+                        "P2SH-CASH": "p2sh-cash",
+                        "P2PKH-CASH": "p2pkh-cash",
+                        "CLASSIC": "classic"
+                    },
+                },
+                'openapi_types': {
+                    'blockchain':
+                        (str,),
+                    'extended_public_key':
+                        (str,),
+                    'network':
+                        (str,),
+                    'context':
+                        (str,),
+                    'address_format':
+                        (str,),
+                    'addresses_count':
+                        (int,),
+                    'is_change':
+                        (bool,),
+                    'start_index':
+                        (int,),
+                },
+                'attribute_map': {
+                    'blockchain': 'blockchain',
+                    'extended_public_key': 'extendedPublicKey',
+                    'network': 'network',
+                    'context': 'context',
+                    'address_format': 'addressFormat',
+                    'addresses_count': 'addressesCount',
+                    'is_change': 'isChange',
+                    'start_index': 'startIndex',
+                },
+                'location_map': {
+                    'blockchain': 'path',
+                    'extended_public_key': 'path',
+                    'network': 'path',
+                    'context': 'query',
+                    'address_format': 'query',
+                    'addresses_count': 'query',
+                    'is_change': 'query',
+                    'start_index': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.encode_x_address_endpoint = _Endpoint(
+            settings={
+                'response_type': (EncodeXAddressR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/blockchain-tools/{blockchain}/{network}/encode-x-address/{classicAddress}/{addressTag}',
+                'operation_id': 'encode_x_address',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'address_tag',
+                    'blockchain',
+                    'classic_address',
+                    'network',
+                    'context',
+                ],
+                'required': [
+                    'address_tag',
+                    'blockchain',
+                    'classic_address',
+                    'network',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'blockchain',
+                    'network',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('blockchain',): {
+
+                        "XRP": "xrp"
+                    },
+                    ('network',): {
+
+                        "MAINNET": "mainnet",
+                        "TESTNET": "testnet"
+                    },
+                },
+                'openapi_types': {
+                    'address_tag':
+                        (int,),
+                    'blockchain':
+                        (str,),
+                    'classic_address':
+                        (str,),
+                    'network':
+                        (str,),
+                    'context':
+                        (str,),
+                },
+                'attribute_map': {
+                    'address_tag': 'addressTag',
+                    'blockchain': 'blockchain',
+                    'classic_address': 'classicAddress',
+                    'network': 'network',
+                    'context': 'context',
+                },
+                'location_map': {
+                    'address_tag': 'path',
+                    'blockchain': 'path',
+                    'classic_address': 'path',
+                    'network': 'path',
+                    'context': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.estimate_gas_limit_endpoint = _Endpoint(
+            settings={
+                'response_type': (EstimateGasLimitR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/blockchain-tools/{blockchain}/{network}/gas-limit',
+                'operation_id': 'estimate_gas_limit',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'blockchain',
+                    'network',
+                    'context',
+                    'estimate_gas_limit_rb',
+                ],
+                'required': [
+                    'blockchain',
+                    'network',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'blockchain',
+                    'network',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('blockchain',): {
+
+                        "ETHEREUM": "ethereum",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain"
+                    },
+                    ('network',): {
+
+                        "ROPSTEN": "ropsten",
+                        "MAINNET": "mainnet",
+                        "MORDOR": "mordor",
+                        "TESTNET": "testnet"
+                    },
+                },
+                'openapi_types': {
+                    'blockchain':
+                        (str,),
+                    'network':
+                        (str,),
+                    'context':
+                        (str,),
+                    'estimate_gas_limit_rb':
+                        (EstimateGasLimitRB,),
+                },
+                'attribute_map': {
+                    'blockchain': 'blockchain',
+                    'network': 'network',
+                    'context': 'context',
+                },
+                'location_map': {
+                    'blockchain': 'path',
+                    'network': 'path',
+                    'context': 'query',
+                    'estimate_gas_limit_rb': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.estimate_token_gas_limit_endpoint = _Endpoint(
+            settings={
+                'response_type': (EstimateTokenGasLimitR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/blockchain-tools/{blockchain}/{network}/gas-limit/contract',
+                'operation_id': 'estimate_token_gas_limit',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'blockchain',
+                    'network',
+                    'context',
+                    'estimate_token_gas_limit_rb',
+                ],
+                'required': [
+                    'blockchain',
+                    'network',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'blockchain',
+                    'network',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('blockchain',): {
+
+                        "ETHEREUM": "ethereum",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain"
+                    },
+                    ('network',): {
+
+                        "ROPSTEN": "ropsten",
+                        "MAINNET": "mainnet",
+                        "MORDOR": "mordor",
+                        "TESTNET": "testnet"
+                    },
+                },
+                'openapi_types': {
+                    'blockchain':
+                        (str,),
+                    'network':
+                        (str,),
+                    'context':
+                        (str,),
+                    'estimate_token_gas_limit_rb':
+                        (EstimateTokenGasLimitRB,),
+                },
+                'attribute_map': {
+                    'blockchain': 'blockchain',
+                    'network': 'network',
+                    'context': 'context',
+                },
+                'location_map': {
+                    'blockchain': 'path',
+                    'network': 'path',
+                    'context': 'query',
+                    'estimate_token_gas_limit_rb': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -266,6 +833,7 @@ class FeaturesApi(object):
                         "ETHEREUM-CLASSIC": "ethereum-classic",
                         "XRP": "xrp",
                         "ZILLIQA": "zilliqa",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain",
                         "ZCASH": "zcash"
                     },
                     ('network',): {
@@ -348,12 +916,20 @@ class FeaturesApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -379,14 +955,569 @@ class FeaturesApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
             network
         return self.broadcast_locally_signed_transaction_endpoint.call_with_http_info(**kwargs)
+
+    def decode_raw_transaction_hex(
+        self,
+        blockchain,
+        network,
+        **kwargs
+    ):
+        """Decode Raw Transaction Hex  # noqa: E501
+
+        Through this endpoint customers can decode a raw transaction hex and see the decoded transactions' details.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.decode_raw_transaction_hex(blockchain, network, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            decode_raw_transaction_hex_rb (DecodeRawTransactionHexRB): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            DecodeRawTransactionHexR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        return self.decode_raw_transaction_hex_endpoint.call_with_http_info(**kwargs)
+
+    def decode_x_address(
+        self,
+        network,
+        x_address,
+        blockchain="xrp",
+        **kwargs
+    ):
+        """Decode X-Address  # noqa: E501
+
+        Through this endpoint, customers can decode an encoded XRP address with tag, by providing the specific x-address. The response includes the decoded classic address and the tag.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.decode_x_address(network, x_address, blockchain="xrp", async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+            x_address (str): Represents the encoded classic address with its destination tag.
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.. defaults to "xrp", must be one of ["xrp"]
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            DecodeXAddressR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        kwargs['x_address'] = \
+            x_address
+        return self.decode_x_address_endpoint.call_with_http_info(**kwargs)
+
+    def derive_hd_wallet__x_pub_y_pub_z_pub_change_or_receiving_addresses(
+        self,
+        blockchain,
+        extended_public_key,
+        network,
+        **kwargs
+    ):
+        """Derive HD Wallet (xPub, yPub, zPub) Change Or Receiving Addresses  # noqa: E501
+
+        Through this endpoint, customers can derive up to 10 addresses - both change and receive, from a certain HD Wallet (xPub, yPub, zPub), by providing an extended public key. By default the system creates a receiving/deposit address, unless the isChange attribute is set to 'true'. In that case the system derives a 'change' address. The change address can be derived only for UTXO based blockchains, for all the rest, this endpoint always creates a deposit/receiving address.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.derive_hd_wallet__x_pub_y_pub_z_pub_change_or_receiving_addresses(blockchain, extended_public_key, network, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            extended_public_key (str): Defines the account extended publicly known key which is used to derive all child public keys.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            address_format (str): Represents the format of the address.. [optional]
+            addresses_count (int): Represents the addresses count.. [optional]
+            is_change (bool): Defines if the specific address is a change or deposit address. If the value is True - it is a change address, if it is False - it is a Deposit address.. [optional]
+            start_index (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['extended_public_key'] = \
+            extended_public_key
+        kwargs['network'] = \
+            network
+        return self.derive_hd_wallet__x_pub_y_pub_z_pub_change_or_receiving_addresses_endpoint.call_with_http_info(**kwargs)
+
+    def encode_x_address(
+        self,
+        address_tag,
+        classic_address,
+        network,
+        blockchain="xrp",
+        **kwargs
+    ):
+        """Encode X-Address  # noqa: E501
+
+        Through this endpoint, customers can encode an encoded XRP address with tag, by providing the specific x-address. The response includes the encoded classic address and the tag.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.encode_x_address(address_tag, classic_address, network, blockchain="xrp", async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            address_tag (int): Defines a specific Tag that is an additional XRP address feature. It helps identifying a transaction recipient beyond a wallet address.
+            classic_address (str): Represents the public address, which is a compressed and shortened form of a public key.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.. defaults to "xrp", must be one of ["xrp"]
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EncodeXAddressR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['address_tag'] = \
+            address_tag
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['classic_address'] = \
+            classic_address
+        kwargs['network'] = \
+            network
+        return self.encode_x_address_endpoint.call_with_http_info(**kwargs)
+
+    def estimate_gas_limit(
+        self,
+        blockchain,
+        network,
+        **kwargs
+    ):
+        """Estimate Gas Limit  # noqa: E501
+
+        This endpoint helps customer in estimating the gas limit needed for a transaction. It gives information for gas expenses when sending ether to contracts or making a transaction with additional data in it.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.estimate_gas_limit(blockchain, network, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            estimate_gas_limit_rb (EstimateGasLimitRB): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EstimateGasLimitR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        return self.estimate_gas_limit_endpoint.call_with_http_info(**kwargs)
+
+    def estimate_token_gas_limit(
+        self,
+        blockchain,
+        network,
+        **kwargs
+    ):
+        """Estimate Token Gas Limit  # noqa: E501
+
+        This endpoint helps customer in estimating the Contract Gas Limit needed for a transaction. It gives information for gas expenses for a specific contract when sending ethers or making a transaction with additional data in it.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.estimate_token_gas_limit(blockchain, network, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            estimate_token_gas_limit_rb (EstimateTokenGasLimitRB): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EstimateTokenGasLimitR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        return self.estimate_token_gas_limit_endpoint.call_with_http_info(**kwargs)
 
     def get_eip_1559_fee_recommendations(
         self,
@@ -424,12 +1555,20 @@ class FeaturesApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -455,9 +1594,13 @@ class FeaturesApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['network'] = \
             network
         kwargs['blockchain'] = \
@@ -501,12 +1644,20 @@ class FeaturesApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -532,9 +1683,13 @@ class FeaturesApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \

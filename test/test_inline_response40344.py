@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_omni_transactions_by_block_hash_e403 import ListOmniTransactionsByBlockHashE403
-globals()['ListOmniTransactionsByBlockHashE403'] = ListOmniTransactionsByBlockHashE403
+from cryptoapis.model.get_transaction_request_details_e403 import GetTransactionRequestDetailsE403
+globals()['GetTransactionRequestDetailsE403'] = GetTransactionRequestDetailsE403
 from cryptoapis.model.inline_response40344 import InlineResponse40344
 
 

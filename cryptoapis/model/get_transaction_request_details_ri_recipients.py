@@ -85,6 +85,8 @@ class GetTransactionRequestDetailsRIRecipients(ModelNormal):
             'address': (str,),  # noqa: E501
             'amount': (str,),  # noqa: E501
             'unit': (str,),  # noqa: E501
+            'address_tag': (int,),  # noqa: E501
+            'classic_address': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -96,6 +98,8 @@ class GetTransactionRequestDetailsRIRecipients(ModelNormal):
         'address': 'address',  # noqa: E501
         'amount': 'amount',  # noqa: E501
         'unit': 'unit',  # noqa: E501
+        'address_tag': 'addressTag',  # noqa: E501
+        'classic_address': 'classicAddress',  # noqa: E501
     }
 
     read_only_vars = {
@@ -144,10 +148,12 @@ class GetTransactionRequestDetailsRIRecipients(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            address_tag (int): Defines a specific Tag that is an additional XRP address feature. It helps identify a transaction recipient beyond a wallet address. The tag that was encoded into the x-Address along with the Classic Address.. [optional]  # noqa: E501
+            classic_address (str): Represents the public address, which is a compressed and shortened form of a public key. A classic address is shown when the destination address is an x-Address.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -155,14 +161,18 @@ class GetTransactionRequestDetailsRIRecipients(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -233,6 +243,8 @@ class GetTransactionRequestDetailsRIRecipients(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            address_tag (int): Defines a specific Tag that is an additional XRP address feature. It helps identify a transaction recipient beyond a wallet address. The tag that was encoded into the x-Address along with the Classic Address.. [optional]  # noqa: E501
+            classic_address (str): Represents the public address, which is a compressed and shortened form of a public key. A classic address is shown when the destination address is an x-Address.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -242,14 +254,18 @@ class GetTransactionRequestDetailsRIRecipients(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.assets_api import AssetsApi
+#   from cryptoapis.api.assets_api import AssetsApi
 #
 # or import this package, but before doing it, use:
 #
@@ -29,8 +29,7 @@ from cryptoapis.api.metadata_api import MetadataApi
 from cryptoapis.api.omni_layer_api import OmniLayerApi
 from cryptoapis.api.tokens_api import TokensApi
 from cryptoapis.api.transactions_api import TransactionsApi
-from cryptoapis.api.utxo_based_api import UTXOBasedApi
 from cryptoapis.api.unified_endpoints_api import UnifiedEndpointsApi
-from cryptoapis.api.xrp__ripple_api import XRPRippleApi
+from cryptoapis.api.xrp_ripple_api import XRPRippleApi
 from cryptoapis.api.zilliqa_api import ZilliqaApi
 from cryptoapis.api.internal_api import InternalApi

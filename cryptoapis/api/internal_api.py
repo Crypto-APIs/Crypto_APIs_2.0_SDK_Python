@@ -23,16 +23,16 @@ from cryptoapis.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from cryptoapis.model.get_internal_transaction_by_transaction_hash_and_operation_id_r import GetInternalTransactionByTransactionHashAndOperationIdR
-from cryptoapis.model.inline_response40048 import InlineResponse40048
-from cryptoapis.model.inline_response40050 import InlineResponse40050
-from cryptoapis.model.inline_response40051 import InlineResponse40051
-from cryptoapis.model.inline_response40148 import InlineResponse40148
-from cryptoapis.model.inline_response40150 import InlineResponse40150
-from cryptoapis.model.inline_response40151 import InlineResponse40151
+from cryptoapis.model.inline_response40052 import InlineResponse40052
+from cryptoapis.model.inline_response40054 import InlineResponse40054
+from cryptoapis.model.inline_response40056 import InlineResponse40056
+from cryptoapis.model.inline_response40152 import InlineResponse40152
+from cryptoapis.model.inline_response40154 import InlineResponse40154
+from cryptoapis.model.inline_response40156 import InlineResponse40156
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40348 import InlineResponse40348
-from cryptoapis.model.inline_response40350 import InlineResponse40350
-from cryptoapis.model.inline_response40351 import InlineResponse40351
+from cryptoapis.model.inline_response40352 import InlineResponse40352
+from cryptoapis.model.inline_response40354 import InlineResponse40354
+from cryptoapis.model.inline_response40356 import InlineResponse40356
 from cryptoapis.model.inline_response4043 import InlineResponse4043
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response415 import InlineResponse415
@@ -370,12 +370,20 @@ class InternalApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -401,9 +409,13 @@ class InternalApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -454,12 +466,20 @@ class InternalApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -485,9 +505,13 @@ class InternalApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -536,12 +560,20 @@ class InternalApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -567,9 +599,13 @@ class InternalApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \

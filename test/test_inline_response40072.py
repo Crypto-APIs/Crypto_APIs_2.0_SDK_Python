@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_block_details_by_block_height_from_callback_e400 import GetBlockDetailsByBlockHeightFromCallbackE400
-globals()['GetBlockDetailsByBlockHeightFromCallbackE400'] = GetBlockDetailsByBlockHeightFromCallbackE400
+from cryptoapis.model.new_unconfirmed_tokens_transactions_e400 import NewUnconfirmedTokensTransactionsE400
+globals()['NewUnconfirmedTokensTransactionsE400'] = NewUnconfirmedTokensTransactionsE400
 from cryptoapis.model.inline_response40072 import InlineResponse40072
 
 

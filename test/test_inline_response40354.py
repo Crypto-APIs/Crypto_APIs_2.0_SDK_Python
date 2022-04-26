@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_tokens_transfers_by_transaction_hash_e403 import ListTokensTransfersByTransactionHashE403
-globals()['ListTokensTransfersByTransactionHashE403'] = ListTokensTransfersByTransactionHashE403
+from cryptoapis.model.get_internal_transaction_by_transaction_hash_and_operation_id_e403 import GetInternalTransactionByTransactionHashAndOperationIdE403
+globals()['GetInternalTransactionByTransactionHashAndOperationIdE403'] = GetInternalTransactionByTransactionHashAndOperationIdE403
 from cryptoapis.model.inline_response40354 import InlineResponse40354
 
 

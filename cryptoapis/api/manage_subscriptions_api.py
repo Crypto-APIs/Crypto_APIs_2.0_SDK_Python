@@ -25,16 +25,20 @@ from cryptoapis.model_utils import (  # noqa: F401
 from cryptoapis.model.activate_blockchain_event_subscription_r import ActivateBlockchainEventSubscriptionR
 from cryptoapis.model.activate_blockchain_event_subscription_rb import ActivateBlockchainEventSubscriptionRB
 from cryptoapis.model.delete_blockchain_event_subscription_r import DeleteBlockchainEventSubscriptionR
-from cryptoapis.model.inline_response40066 import InlineResponse40066
-from cryptoapis.model.inline_response40067 import InlineResponse40067
-from cryptoapis.model.inline_response40068 import InlineResponse40068
-from cryptoapis.model.inline_response40166 import InlineResponse40166
-from cryptoapis.model.inline_response40167 import InlineResponse40167
-from cryptoapis.model.inline_response40168 import InlineResponse40168
+from cryptoapis.model.get_blockchain_event_subscription_details_by_reference_idr import GetBlockchainEventSubscriptionDetailsByReferenceIDR
+from cryptoapis.model.inline_response40079 import InlineResponse40079
+from cryptoapis.model.inline_response40080 import InlineResponse40080
+from cryptoapis.model.inline_response40081 import InlineResponse40081
+from cryptoapis.model.inline_response40082 import InlineResponse40082
+from cryptoapis.model.inline_response40179 import InlineResponse40179
+from cryptoapis.model.inline_response40180 import InlineResponse40180
+from cryptoapis.model.inline_response40181 import InlineResponse40181
+from cryptoapis.model.inline_response40182 import InlineResponse40182
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40366 import InlineResponse40366
-from cryptoapis.model.inline_response40367 import InlineResponse40367
-from cryptoapis.model.inline_response40368 import InlineResponse40368
+from cryptoapis.model.inline_response40379 import InlineResponse40379
+from cryptoapis.model.inline_response40380 import InlineResponse40380
+from cryptoapis.model.inline_response40381 import InlineResponse40381
+from cryptoapis.model.inline_response40382 import InlineResponse40382
 from cryptoapis.model.inline_response4041 import InlineResponse4041
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response415 import InlineResponse415
@@ -165,8 +169,7 @@ class ManageSubscriptionsApi(object):
                         "XRP": "xrp",
                         "ZILLIQA": "zilliqa",
                         "BINANCE-SMART-CHAIN": "binance-smart-chain",
-                        "ZCASH": "zcash",
-                        "BITCOIN-SATOSHI-VISION": "bitcoin-satoshi-vision"
+                        "ZCASH": "zcash"
                     },
                     ('network',): {
 
@@ -195,6 +198,62 @@ class ManageSubscriptionsApi(object):
                 'location_map': {
                     'blockchain': 'path',
                     'network': 'path',
+                    'reference_id': 'path',
+                    'context': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_blockchain_event_subscription_details_by_reference_id_endpoint = _Endpoint(
+            settings={
+                'response_type': (GetBlockchainEventSubscriptionDetailsByReferenceIDR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/blockchain-events/subscriptions/{referenceId}',
+                'operation_id': 'get_blockchain_event_subscription_details_by_reference_id',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'reference_id',
+                    'context',
+                ],
+                'required': [
+                    'reference_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'reference_id':
+                        (str,),
+                    'context':
+                        (str,),
+                },
+                'attribute_map': {
+                    'reference_id': 'referenceId',
+                    'context': 'context',
+                },
+                'location_map': {
                     'reference_id': 'path',
                     'context': 'query',
                 },
@@ -340,12 +399,20 @@ class ManageSubscriptionsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -371,9 +438,13 @@ class ManageSubscriptionsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['reference_id'] = \
             reference_id
         return self.activate_blockchain_event_subscription_endpoint.call_with_http_info(**kwargs)
@@ -416,12 +487,20 @@ class ManageSubscriptionsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -447,9 +526,13 @@ class ManageSubscriptionsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -457,6 +540,90 @@ class ManageSubscriptionsApi(object):
         kwargs['reference_id'] = \
             reference_id
         return self.delete_blockchain_event_subscription_endpoint.call_with_http_info(**kwargs)
+
+    def get_blockchain_event_subscription_details_by_reference_id(
+        self,
+        reference_id,
+        **kwargs
+    ):
+        """Get Blockchain Event Subscription Details By Reference ID  # noqa: E501
+
+        Through this endpoint the customer can get detailed information for a callback subscription by providing its reference ID.    Currently Crypto APIs 2.0 offers certain Blockchain event endpoints which allow the user to subscribe for one/a few/all and receive callback notifications when the specific event occurs.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_blockchain_event_subscription_details_by_reference_id(reference_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            reference_id (str): Represents a unique ID used to reference the specific callback subscription.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GetBlockchainEventSubscriptionDetailsByReferenceIDR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['reference_id'] = \
+            reference_id
+        return self.get_blockchain_event_subscription_details_by_reference_id_endpoint.call_with_http_info(**kwargs)
 
     def list_blockchain_events_subscriptions(
         self,
@@ -496,12 +663,20 @@ class ManageSubscriptionsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -527,9 +702,13 @@ class ManageSubscriptionsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \

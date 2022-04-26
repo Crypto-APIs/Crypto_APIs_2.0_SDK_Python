@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_xrp_ripple_transactions_by_block_height_e401 import ListXRPRippleTransactionsByBlockHeightE401
-globals()['ListXRPRippleTransactionsByBlockHeightE401'] = ListXRPRippleTransactionsByBlockHeightE401
+from cryptoapis.model.list_zilliqa_transactions_by_block_height_e401 import ListZilliqaTransactionsByBlockHeightE401
+globals()['ListZilliqaTransactionsByBlockHeightE401'] = ListZilliqaTransactionsByBlockHeightE401
 from cryptoapis.model.inline_response40123 import InlineResponse40123
 
 

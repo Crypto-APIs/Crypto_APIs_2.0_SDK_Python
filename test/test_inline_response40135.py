@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_wallet_asset_details_e401 import GetWalletAssetDetailsE401
-globals()['GetWalletAssetDetailsE401'] = GetWalletAssetDetailsE401
+from cryptoapis.model.list_supported_tokens_e401 import ListSupportedTokensE401
+globals()['ListSupportedTokensE401'] = ListSupportedTokensE401
 from cryptoapis.model.inline_response40135 import InlineResponse40135
 
 

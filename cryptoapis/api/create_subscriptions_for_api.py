@@ -22,37 +22,37 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from cryptoapis.model.inline_response40058 import InlineResponse40058
-from cryptoapis.model.inline_response40059 import InlineResponse40059
-from cryptoapis.model.inline_response40060 import InlineResponse40060
-from cryptoapis.model.inline_response40061 import InlineResponse40061
-from cryptoapis.model.inline_response40062 import InlineResponse40062
-from cryptoapis.model.inline_response40063 import InlineResponse40063
-from cryptoapis.model.inline_response40064 import InlineResponse40064
-from cryptoapis.model.inline_response40065 import InlineResponse40065
+from cryptoapis.model.inline_response40071 import InlineResponse40071
+from cryptoapis.model.inline_response40072 import InlineResponse40072
 from cryptoapis.model.inline_response40073 import InlineResponse40073
 from cryptoapis.model.inline_response40074 import InlineResponse40074
-from cryptoapis.model.inline_response40158 import InlineResponse40158
-from cryptoapis.model.inline_response40159 import InlineResponse40159
-from cryptoapis.model.inline_response40160 import InlineResponse40160
-from cryptoapis.model.inline_response40161 import InlineResponse40161
-from cryptoapis.model.inline_response40162 import InlineResponse40162
-from cryptoapis.model.inline_response40163 import InlineResponse40163
-from cryptoapis.model.inline_response40164 import InlineResponse40164
-from cryptoapis.model.inline_response40165 import InlineResponse40165
+from cryptoapis.model.inline_response40075 import InlineResponse40075
+from cryptoapis.model.inline_response40076 import InlineResponse40076
+from cryptoapis.model.inline_response40077 import InlineResponse40077
+from cryptoapis.model.inline_response40078 import InlineResponse40078
+from cryptoapis.model.inline_response40087 import InlineResponse40087
+from cryptoapis.model.inline_response40088 import InlineResponse40088
+from cryptoapis.model.inline_response40171 import InlineResponse40171
+from cryptoapis.model.inline_response40172 import InlineResponse40172
 from cryptoapis.model.inline_response40173 import InlineResponse40173
 from cryptoapis.model.inline_response40174 import InlineResponse40174
+from cryptoapis.model.inline_response40175 import InlineResponse40175
+from cryptoapis.model.inline_response40176 import InlineResponse40176
+from cryptoapis.model.inline_response40177 import InlineResponse40177
+from cryptoapis.model.inline_response40178 import InlineResponse40178
+from cryptoapis.model.inline_response40187 import InlineResponse40187
+from cryptoapis.model.inline_response40188 import InlineResponse40188
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40358 import InlineResponse40358
-from cryptoapis.model.inline_response40359 import InlineResponse40359
-from cryptoapis.model.inline_response40360 import InlineResponse40360
-from cryptoapis.model.inline_response40361 import InlineResponse40361
-from cryptoapis.model.inline_response40362 import InlineResponse40362
-from cryptoapis.model.inline_response40363 import InlineResponse40363
-from cryptoapis.model.inline_response40364 import InlineResponse40364
-from cryptoapis.model.inline_response40365 import InlineResponse40365
+from cryptoapis.model.inline_response40371 import InlineResponse40371
+from cryptoapis.model.inline_response40372 import InlineResponse40372
 from cryptoapis.model.inline_response40373 import InlineResponse40373
 from cryptoapis.model.inline_response40374 import InlineResponse40374
+from cryptoapis.model.inline_response40375 import InlineResponse40375
+from cryptoapis.model.inline_response40376 import InlineResponse40376
+from cryptoapis.model.inline_response40377 import InlineResponse40377
+from cryptoapis.model.inline_response40378 import InlineResponse40378
+from cryptoapis.model.inline_response40387 import InlineResponse40387
+from cryptoapis.model.inline_response40388 import InlineResponse40388
 from cryptoapis.model.inline_response40910 import InlineResponse40910
 from cryptoapis.model.inline_response40911 import InlineResponse40911
 from cryptoapis.model.inline_response40912 import InlineResponse40912
@@ -1008,12 +1008,20 @@ class CreateSubscriptionsForApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1039,9 +1047,13 @@ class CreateSubscriptionsForApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -1085,12 +1097,20 @@ class CreateSubscriptionsForApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1116,9 +1136,13 @@ class CreateSubscriptionsForApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -1162,12 +1186,20 @@ class CreateSubscriptionsForApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1193,9 +1225,13 @@ class CreateSubscriptionsForApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -1239,12 +1275,20 @@ class CreateSubscriptionsForApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1270,9 +1314,13 @@ class CreateSubscriptionsForApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -1316,12 +1364,20 @@ class CreateSubscriptionsForApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1347,9 +1403,13 @@ class CreateSubscriptionsForApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -1393,12 +1453,20 @@ class CreateSubscriptionsForApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1424,9 +1492,13 @@ class CreateSubscriptionsForApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -1470,12 +1542,20 @@ class CreateSubscriptionsForApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1501,9 +1581,13 @@ class CreateSubscriptionsForApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -1547,12 +1631,20 @@ class CreateSubscriptionsForApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1578,9 +1670,13 @@ class CreateSubscriptionsForApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -1624,12 +1720,20 @@ class CreateSubscriptionsForApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1655,9 +1759,13 @@ class CreateSubscriptionsForApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -1701,12 +1809,20 @@ class CreateSubscriptionsForApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1732,9 +1848,13 @@ class CreateSubscriptionsForApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \

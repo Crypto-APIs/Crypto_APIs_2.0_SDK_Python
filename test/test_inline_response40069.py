@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_address_details_from_callback_e400 import GetAddressDetailsFromCallbackE400
-globals()['GetAddressDetailsFromCallbackE400'] = GetAddressDetailsFromCallbackE400
+from cryptoapis.model.get_token_details_by_contract_address_e400 import GetTokenDetailsByContractAddressE400
+globals()['GetTokenDetailsByContractAddressE400'] = GetTokenDetailsByContractAddressE400
 from cryptoapis.model.inline_response40069 import InlineResponse40069
 
 

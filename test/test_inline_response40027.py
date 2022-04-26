@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_xrp_ripple_block_details_by_block_height_e400 import GetXRPRippleBlockDetailsByBlockHeightE400
-globals()['GetXRPRippleBlockDetailsByBlockHeightE400'] = GetXRPRippleBlockDetailsByBlockHeightE400
+from cryptoapis.model.get_block_details_by_block_height_e400 import GetBlockDetailsByBlockHeightE400
+globals()['GetBlockDetailsByBlockHeightE400'] = GetBlockDetailsByBlockHeightE400
 from cryptoapis.model.inline_response40027 import InlineResponse40027
 
 

@@ -31,15 +31,15 @@ import cryptoapis
 from cryptoapis.api import omni_layer_api
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.get_omni_transaction_details_by_transaction_id_txid_r import GetOmniTransactionDetailsByTransactionIDTxidR
+from cryptoapis.model.inline_response40033 import InlineResponse40033
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response404 import InlineResponse404
 from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40032 import InlineResponse40032
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40132 import InlineResponse40132
+from cryptoapis.model.inline_response40133 import InlineResponse40133
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40332 import InlineResponse40332
+from cryptoapis.model.inline_response40333 import InlineResponse40333
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -64,7 +64,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = omni_layer_api.OmniLayerApi(api_client)
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     transaction_id = "d237ff4a681617b767bf22c4e1e8f5115b95c8c168d6cf53bbdec68529f91ecb" # str | Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -147,11 +147,11 @@ from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response404 import InlineResponse404
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40319 import InlineResponse40319
+from cryptoapis.model.inline_response40020 import InlineResponse40020
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40019 import InlineResponse40019
-from cryptoapis.model.inline_response40119 import InlineResponse40119
+from cryptoapis.model.inline_response40120 import InlineResponse40120
+from cryptoapis.model.inline_response40320 import InlineResponse40320
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -176,7 +176,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = omni_layer_api.OmniLayerApi(api_client)
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     transaction_id = "92f17d3d16a1baf7de570a86179cc263cb9866c66778feec2dce111430f41c08" # str | Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -287,7 +287,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = omni_layer_api.OmniLayerApi(api_client)
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     address = "mi7iSsKcvyFYNsiYdDZqJmH75RmoHomwmo" # str | Represents the public address, which is a compressed and shortened form of a public key.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -397,9 +397,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = omni_layer_api.OmniLayerApi(api_client)
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     address = "mi7iSsKcvyFYNsiYdDZqJmH75RmoHomwmo" # str | Represents the public address, which is a compressed and shortened form of a public key.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 10 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
 
     # example passing only required values which don't have defaults set
     try:
@@ -478,15 +478,15 @@ import time
 import cryptoapis
 from cryptoapis.api import omni_layer_api
 from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40044 import InlineResponse40044
+from cryptoapis.model.inline_response40147 import InlineResponse40147
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40144 import InlineResponse40144
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40344 import InlineResponse40344
+from cryptoapis.model.inline_response40347 import InlineResponse40347
 from cryptoapis.model.list_omni_transactions_by_block_hash_r import ListOmniTransactionsByBlockHashR
+from cryptoapis.model.inline_response40047 import InlineResponse40047
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -511,9 +511,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = omni_layer_api.OmniLayerApi(api_client)
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     block_hash = "000000000000001f50c9d33d122562daa7fc9582df0b415e626216c37d015818" # str | Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 10 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
 
     # example passing only required values which don't have defaults set
     try:
@@ -591,15 +591,15 @@ This endpoint will list Omni transactions by an attribute `blockHeight`. The tra
 import time
 import cryptoapis
 from cryptoapis.api import omni_layer_api
-from cryptoapis.model.inline_response40138 import InlineResponse40138
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response40041 import InlineResponse40041
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40338 import InlineResponse40338
+from cryptoapis.model.inline_response40141 import InlineResponse40141
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40038 import InlineResponse40038
+from cryptoapis.model.inline_response40341 import InlineResponse40341
 from cryptoapis.model.list_omni_transactions_by_block_height_r import ListOmniTransactionsByBlockHeightR
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -625,9 +625,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = omni_layer_api.OmniLayerApi(api_client)
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     block_height = "1941222" # str | Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 10 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
 
     # example passing only required values which don't have defaults set
     try:
@@ -739,9 +739,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = omni_layer_api.OmniLayerApi(api_client)
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     address = "mi7iSsKcvyFYNsiYdDZqJmH75RmoHomwmo" # str | Represents the public address, which is a compressed and shortened form of a public key.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 10 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
 
     # example passing only required values which don't have defaults set
     try:
@@ -819,16 +819,16 @@ This endpoint will list unconfirmed Omni transactions by an attribute `propertyI
 import time
 import cryptoapis
 from cryptoapis.api import omni_layer_api
-from cryptoapis.model.inline_response40128 import InlineResponse40128
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40329 import InlineResponse40329
 from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40328 import InlineResponse40328
 from cryptoapis.model.inline_response415 import InlineResponse415
 from cryptoapis.model.list_unconfirmed_omni_transactions_by_property_idr import ListUnconfirmedOmniTransactionsByPropertyIDR
-from cryptoapis.model.inline_response40028 import InlineResponse40028
+from cryptoapis.model.inline_response40029 import InlineResponse40029
+from cryptoapis.model.inline_response40129 import InlineResponse40129
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -853,9 +853,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = omni_layer_api.OmniLayerApi(api_client)
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     property_id = "2" # str | Represents the identifier of the tokens to send.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 10 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
 
     # example passing only required values which don't have defaults set
     try:

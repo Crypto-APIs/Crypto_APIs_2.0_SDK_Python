@@ -24,6 +24,13 @@ class TestHDWalletsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_get_hd_wallet__x_pub_y_pub_z_pub_assets(self):
+        """Test case for get_hd_wallet__x_pub_y_pub_z_pub_assets
+
+        Get HD Wallet (xPub, yPub, zPub) Assets  # noqa: E501
+        """
+        pass
+
     def test_get_hd_wallet__x_pub_y_pub_z_pub_details(self):
         """Test case for get_hd_wallet__x_pub_y_pub_z_pub_details
 
@@ -35,6 +42,13 @@ class TestHDWalletsApi(unittest.TestCase):
         """Test case for list_hd_wallet__x_pub_y_pub_z_pub_transactions
 
         List HD Wallet (xPub, yPub, zPub) Transactions  # noqa: E501
+        """
+        pass
+
+    def test_list_hd_wallet__x_pub_y_pub_z_pub_utxos(self):
+        """Test case for list_hd_wallet__x_pub_y_pub_z_pub_utxos
+
+        List HD Wallet (xPub, yPub, zPub) UTXOs  # noqa: E501
         """
         pass
 

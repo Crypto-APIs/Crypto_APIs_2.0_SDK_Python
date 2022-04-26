@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.new_unconfirmed_coins_transactions_e401 import NewUnconfirmedCoinsTransactionsE401
-globals()['NewUnconfirmedCoinsTransactionsE401'] = NewUnconfirmedCoinsTransactionsE401
+from cryptoapis.model.get_next_available_nonce_e401 import GetNextAvailableNonceE401
+globals()['GetNextAvailableNonceE401'] = GetNextAvailableNonceE401
 from cryptoapis.model.inline_response40158 import InlineResponse40158
 
 

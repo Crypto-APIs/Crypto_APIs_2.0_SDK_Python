@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.new_block_e400 import NewBlockE400
-globals()['NewBlockE400'] = NewBlockE400
+from cryptoapis.model.get_raw_transaction_data_e400 import GetRawTransactionDataE400
+globals()['GetRawTransactionDataE400'] = GetRawTransactionDataE400
 from cryptoapis.model.inline_response40065 import InlineResponse40065
 
 

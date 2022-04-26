@@ -26,19 +26,19 @@ from cryptoapis.model.get_address_details_from_callback_r import GetAddressDetai
 from cryptoapis.model.get_block_details_by_block_hash_from_callback_r import GetBlockDetailsByBlockHashFromCallbackR
 from cryptoapis.model.get_block_details_by_block_height_from_callback_r import GetBlockDetailsByBlockHeightFromCallbackR
 from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback_r import GetTransactionDetailsByTransactionIDFromCallbackR
-from cryptoapis.model.inline_response40069 import InlineResponse40069
-from cryptoapis.model.inline_response40070 import InlineResponse40070
-from cryptoapis.model.inline_response40071 import InlineResponse40071
-from cryptoapis.model.inline_response40072 import InlineResponse40072
-from cryptoapis.model.inline_response40169 import InlineResponse40169
-from cryptoapis.model.inline_response40170 import InlineResponse40170
-from cryptoapis.model.inline_response40171 import InlineResponse40171
-from cryptoapis.model.inline_response40172 import InlineResponse40172
+from cryptoapis.model.inline_response40083 import InlineResponse40083
+from cryptoapis.model.inline_response40084 import InlineResponse40084
+from cryptoapis.model.inline_response40085 import InlineResponse40085
+from cryptoapis.model.inline_response40086 import InlineResponse40086
+from cryptoapis.model.inline_response40183 import InlineResponse40183
+from cryptoapis.model.inline_response40184 import InlineResponse40184
+from cryptoapis.model.inline_response40185 import InlineResponse40185
+from cryptoapis.model.inline_response40186 import InlineResponse40186
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40369 import InlineResponse40369
-from cryptoapis.model.inline_response40370 import InlineResponse40370
-from cryptoapis.model.inline_response40371 import InlineResponse40371
-from cryptoapis.model.inline_response40372 import InlineResponse40372
+from cryptoapis.model.inline_response40383 import InlineResponse40383
+from cryptoapis.model.inline_response40384 import InlineResponse40384
+from cryptoapis.model.inline_response40385 import InlineResponse40385
+from cryptoapis.model.inline_response40386 import InlineResponse40386
 from cryptoapis.model.inline_response4041 import InlineResponse4041
 from cryptoapis.model.inline_response4042 import InlineResponse4042
 from cryptoapis.model.inline_response4044 import InlineResponse4044
@@ -463,12 +463,20 @@ class CallbackDataApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -494,9 +502,13 @@ class CallbackDataApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -543,12 +555,20 @@ class CallbackDataApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -574,9 +594,13 @@ class CallbackDataApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -623,12 +647,20 @@ class CallbackDataApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -654,9 +686,13 @@ class CallbackDataApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -703,12 +739,20 @@ class CallbackDataApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -734,9 +778,13 @@ class CallbackDataApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \

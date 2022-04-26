@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.delete_automatic_tokens_forwarding_e400 import DeleteAutomaticTokensForwardingE400
-globals()['DeleteAutomaticTokensForwardingE400'] = DeleteAutomaticTokensForwardingE400
+from cryptoapis.model.delete_blockchain_event_subscription_e400 import DeleteBlockchainEventSubscriptionE400
+globals()['DeleteBlockchainEventSubscriptionE400'] = DeleteBlockchainEventSubscriptionE400
 from cryptoapis.model.inline_response40082 import InlineResponse40082
 
 

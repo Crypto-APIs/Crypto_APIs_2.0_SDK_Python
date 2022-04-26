@@ -128,7 +128,7 @@ class CreateAutomaticTokensForwardingRBDataItem(ModelNormal):
         """CreateAutomaticTokensForwardingRBDataItem - a model defined in OpenAPI
 
         Args:
-            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
             confirmations_count (str): Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
             fee_priority (str): Represents the fee priority of the automation, whether it is \"SLOW\", \"STANDARD\" or \"FAST\".
             minimum_transfer_amount (str): Represents the minimum transfer amount of the currency in the `fromAddress` that can be allowed for an automatic forwarding.
@@ -170,7 +170,7 @@ class CreateAutomaticTokensForwardingRBDataItem(ModelNormal):
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -178,14 +178,18 @@ class CreateAutomaticTokensForwardingRBDataItem(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -224,7 +228,7 @@ class CreateAutomaticTokensForwardingRBDataItem(ModelNormal):
         """CreateAutomaticTokensForwardingRBDataItem - a model defined in OpenAPI
 
         Args:
-            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
             confirmations_count (str): Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
             fee_priority (str): Represents the fee priority of the automation, whether it is \"SLOW\", \"STANDARD\" or \"FAST\".
             minimum_transfer_amount (str): Represents the minimum transfer amount of the currency in the `fromAddress` that can be allowed for an automatic forwarding.
@@ -272,14 +276,18 @@ class CreateAutomaticTokensForwardingRBDataItem(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

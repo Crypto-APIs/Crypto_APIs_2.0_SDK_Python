@@ -86,6 +86,7 @@ class NewConfirmedInternalTransactionsRBDataItem(ModelNormal):
             'allow_duplicates': (bool,),  # noqa: E501
             'callback_secret_key': (str,),  # noqa: E501
             'callback_url': (str,),  # noqa: E501
+            'receive_callback_on': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -98,6 +99,7 @@ class NewConfirmedInternalTransactionsRBDataItem(ModelNormal):
         'allow_duplicates': 'allowDuplicates',  # noqa: E501
         'callback_secret_key': 'callbackSecretKey',  # noqa: E501
         'callback_url': 'callbackUrl',  # noqa: E501
+        'receive_callback_on': 'receiveCallbackOn',  # noqa: E501
     }
 
     read_only_vars = {
@@ -113,7 +115,7 @@ class NewConfirmedInternalTransactionsRBDataItem(ModelNormal):
         Args:
             address (str): Defines the specific address of the internal transaction.
             callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
-            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
 
         Keyword Args:
             allow_duplicates (bool): Flag that permits or denies creation of duplicates. defaults to False  # noqa: E501
@@ -147,11 +149,12 @@ class NewConfirmedInternalTransactionsRBDataItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            receive_callback_on (int): Represents the exact confirmation, on which the user wants to receive callback.. [optional]  # noqa: E501
         """
 
         allow_duplicates = kwargs.get('allow_duplicates', False)
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -159,14 +162,18 @@ class NewConfirmedInternalTransactionsRBDataItem(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -205,7 +212,7 @@ class NewConfirmedInternalTransactionsRBDataItem(ModelNormal):
         Args:
             address (str): Defines the specific address of the internal transaction.
             callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
-            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+            callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
 
         Keyword Args:
             allow_duplicates (bool): Flag that permits or denies creation of duplicates. defaults to False  # noqa: E501
@@ -239,6 +246,7 @@ class NewConfirmedInternalTransactionsRBDataItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            receive_callback_on (int): Represents the exact confirmation, on which the user wants to receive callback.. [optional]  # noqa: E501
         """
 
         allow_duplicates = kwargs.get('allow_duplicates', False)
@@ -249,14 +257,18 @@ class NewConfirmedInternalTransactionsRBDataItem(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

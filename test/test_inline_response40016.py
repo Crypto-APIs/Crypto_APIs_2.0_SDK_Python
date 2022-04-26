@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_all_unconfirmed_transactions_e400 import ListAllUnconfirmedTransactionsE400
-globals()['ListAllUnconfirmedTransactionsE400'] = ListAllUnconfirmedTransactionsE400
+from cryptoapis.model.list_xrp_ripple_transactions_by_address_and_time_range_e400 import ListXRPRippleTransactionsByAddressAndTimeRangeE400
+globals()['ListXRPRippleTransactionsByAddressAndTimeRangeE400'] = ListXRPRippleTransactionsByAddressAndTimeRangeE400
 from cryptoapis.model.inline_response40016 import InlineResponse40016
 
 

@@ -27,16 +27,16 @@ import time
 import cryptoapis
 from cryptoapis.api import automatic_tokens_forwarding_api
 from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40094 import InlineResponse40094
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.add_tokens_to_existing_from_address_rb import AddTokensToExistingFromAddressRB
-from cryptoapis.model.inline_response40080 import InlineResponse40080
+from cryptoapis.model.inline_response40194 import InlineResponse40194
 from cryptoapis.model.inline_response4041 import InlineResponse4041
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40180 import InlineResponse40180
-from cryptoapis.model.inline_response40380 import InlineResponse40380
+from cryptoapis.model.inline_response40394 import InlineResponse40394
 from cryptoapis.model.add_tokens_to_existing_from_address_r import AddTokensToExistingFromAddressR
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -62,9 +62,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = automatic_tokens_forwarding_api.AutomaticTokensForwardingApi(api_client)
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     add_tokens_to_existing_from_address_rb = AddTokensToExistingFromAddressRB(
-        context="context_example",
+        context="yourExampleString",
         data=AddTokensToExistingFromAddressRBData(
             item=AddTokensToExistingFromAddressRBDataItem(
                 callback_secret_key="yourSecretString",
@@ -156,15 +156,15 @@ import cryptoapis
 from cryptoapis.api import automatic_tokens_forwarding_api
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.create_automatic_tokens_forwarding_rb import CreateAutomaticTokensForwardingRB
+from cryptoapis.model.inline_response40093 import InlineResponse40093
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40379 import InlineResponse40379
 from cryptoapis.model.inline_response4041 import InlineResponse4041
+from cryptoapis.model.inline_response40193 import InlineResponse40193
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40079 import InlineResponse40079
-from cryptoapis.model.inline_response40179 import InlineResponse40179
+from cryptoapis.model.inline_response40393 import InlineResponse40393
 from cryptoapis.model.create_automatic_tokens_forwarding_r import CreateAutomaticTokensForwardingR
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -190,9 +190,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = automatic_tokens_forwarding_api.AutomaticTokensForwardingApi(api_client)
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     create_automatic_tokens_forwarding_rb = CreateAutomaticTokensForwardingRB(
-        context="context_example",
+        context="yourExampleString",
         data=CreateAutomaticTokensForwardingRBData(
             item=CreateAutomaticTokensForwardingRBDataItem(
                 callback_secret_key="yourSecretString",
@@ -284,14 +284,14 @@ from cryptoapis.api import automatic_tokens_forwarding_api
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40082 import InlineResponse40082
+from cryptoapis.model.inline_response40196 import InlineResponse40196
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.delete_automatic_tokens_forwarding_r import DeleteAutomaticTokensForwardingR
 from cryptoapis.model.inline_response4041 import InlineResponse4041
 from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40182 import InlineResponse40182
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40382 import InlineResponse40382
+from cryptoapis.model.inline_response40396 import InlineResponse40396
+from cryptoapis.model.inline_response40096 import InlineResponse40096
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -317,7 +317,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     reference_id = "6017dd02a309213863be9e55" # str | Represents a unique ID used to reference the specific callback subscription.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -394,17 +394,17 @@ Through this endpoint customers can obtain details about a fee address. Only one
 import time
 import cryptoapis
 from cryptoapis.api import automatic_tokens_forwarding_api
+from cryptoapis.model.inline_response40095 import InlineResponse40095
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response40195 import InlineResponse40195
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40081 import InlineResponse40081
 from cryptoapis.model.inline_response4041 import InlineResponse4041
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40181 import InlineResponse40181
 from cryptoapis.model.get_fee_address_details_r import GetFeeAddressDetailsR
-from cryptoapis.model.inline_response40381 import InlineResponse40381
+from cryptoapis.model.inline_response40395 import InlineResponse40395
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -429,7 +429,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = automatic_tokens_forwarding_api.AutomaticTokensForwardingApi(api_client)
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -505,17 +505,17 @@ Through this endpoint customers can list all of their **tokens** forwarding auto
 import time
 import cryptoapis
 from cryptoapis.api import automatic_tokens_forwarding_api
-from cryptoapis.model.inline_response40178 import InlineResponse40178
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.list_tokens_forwarding_automations_r import ListTokensForwardingAutomationsR
 from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response40092 import InlineResponse40092
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response4041 import InlineResponse4041
 from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40378 import InlineResponse40378
+from cryptoapis.model.inline_response40192 import InlineResponse40192
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40078 import InlineResponse40078
+from cryptoapis.model.inline_response40392 import InlineResponse40392
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -540,9 +540,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = automatic_tokens_forwarding_api.AutomaticTokensForwardingApi(api_client)
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 10 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
 
     # example passing only required values which don't have defaults set
     try:

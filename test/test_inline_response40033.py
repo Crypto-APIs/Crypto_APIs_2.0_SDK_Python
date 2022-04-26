@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_zilliqa_block_details_by_block_hash_e400 import GetZilliqaBlockDetailsByBlockHashE400
-globals()['GetZilliqaBlockDetailsByBlockHashE400'] = GetZilliqaBlockDetailsByBlockHashE400
+from cryptoapis.model.get_omni_transaction_details_by_transaction_id_txid_e400 import GetOmniTransactionDetailsByTransactionIDTxidE400
+globals()['GetOmniTransactionDetailsByTransactionIDTxidE400'] = GetOmniTransactionDetailsByTransactionIDTxidE400
 from cryptoapis.model.inline_response40033 import InlineResponse40033
 
 

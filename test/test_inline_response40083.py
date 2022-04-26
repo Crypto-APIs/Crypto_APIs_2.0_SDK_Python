@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.validate_address_e400 import ValidateAddressE400
-globals()['ValidateAddressE400'] = ValidateAddressE400
+from cryptoapis.model.get_address_details_from_callback_e400 import GetAddressDetailsFromCallbackE400
+globals()['GetAddressDetailsFromCallbackE400'] = GetAddressDetailsFromCallbackE400
 from cryptoapis.model.inline_response40083 import InlineResponse40083
 
 

@@ -25,17 +25,17 @@ Through this endpoint customers can create a new transaction from address for **
 import time
 import cryptoapis
 from cryptoapis.api import transactions_api
-from cryptoapis.model.inline_response40025 import InlineResponse40025
 from cryptoapis.model.inline_response4093 import InlineResponse4093
 from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40126 import InlineResponse40126
 from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response40125 import InlineResponse40125
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
 from cryptoapis.model.create_coins_transaction_from_address_for_whole_amount_r import CreateCoinsTransactionFromAddressForWholeAmountR
+from cryptoapis.model.inline_response40326 import InlineResponse40326
 from cryptoapis.model.create_coins_transaction_from_address_for_whole_amount_rb import CreateCoinsTransactionFromAddressForWholeAmountRB
-from cryptoapis.model.inline_response40325 import InlineResponse40325
+from cryptoapis.model.inline_response40026 import InlineResponse40026
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,9 +62,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "ropsten" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     wallet_id = "609e221675d04500068718dc" # str | Represents the sender's specific and unique Wallet ID of the sender.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     create_coins_transaction_from_address_for_whole_amount_rb = CreateCoinsTransactionFromAddressForWholeAmountRB(
-        context="context_example",
+        context="yourExampleString",
         data=CreateCoinsTransactionFromAddressForWholeAmountRBData(
             item=CreateCoinsTransactionFromAddressForWholeAmountRBDataItem(
                 callback_secret_key="yourSecretString",
@@ -155,14 +155,14 @@ from cryptoapis.api import transactions_api
 from cryptoapis.model.create_coins_transaction_request_from_address_r import CreateCoinsTransactionRequestFromAddressR
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.inline_response40021 import InlineResponse40021
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40020 import InlineResponse40020
 from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response40121 import InlineResponse40121
 from cryptoapis.model.inline_response4092 import InlineResponse4092
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40120 import InlineResponse40120
 from cryptoapis.model.create_coins_transaction_request_from_address_rb import CreateCoinsTransactionRequestFromAddressRB
-from cryptoapis.model.inline_response40320 import InlineResponse40320
+from cryptoapis.model.inline_response40321 import InlineResponse40321
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -185,13 +185,13 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transactions_api.TransactionsApi(api_client)
-    address = "0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5" # str | Defines the specific source address for the transaction.
+    address = "0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5" # str | Defines the specific source address for the transaction. For XRP we also support the X-address format.
     blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "ropsten" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     wallet_id = "609e221675d04500068718dc" # str | Represents the sender's specific and unique Wallet ID of the sender.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     create_coins_transaction_request_from_address_rb = CreateCoinsTransactionRequestFromAddressRB(
-        context="context_example",
+        context="yourExampleString",
         data=CreateCoinsTransactionRequestFromAddressRBData(
             item=CreateCoinsTransactionRequestFromAddressRBDataItem(
                 amount="0.2",
@@ -227,7 +227,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **address** | **str**| Defines the specific source address for the transaction. |
+ **address** | **str**| Defines the specific source address for the transaction. For XRP we also support the X-address format. |
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
  **wallet_id** | **str**| Represents the sender&#39;s specific and unique Wallet ID of the sender. |
@@ -315,9 +315,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = transactions_api.TransactionsApi(api_client)
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     wallet_id = "609e221675d04500068718dc" # str | Represents the sender's specific and unique Wallet ID of the sender.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     create_coins_transaction_request_from_wallet_rb = CreateCoinsTransactionRequestFromWalletRB(
-        context="context_example",
+        context="yourExampleString",
         data=CreateCoinsTransactionRequestFromWalletRBData(
             item=CreateCoinsTransactionRequestFromWalletRBDataItem(
                 callback_secret_key="yourSecretKey",
@@ -412,15 +412,15 @@ import cryptoapis
 from cryptoapis.api import transactions_api
 from cryptoapis.model.inline_response4094 import InlineResponse4094
 from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40137 import InlineResponse40137
 from cryptoapis.model.create_fungible_tokens_transaction_request_from_address_r import CreateFungibleTokensTransactionRequestFromAddressR
-from cryptoapis.model.inline_response40136 import InlineResponse40136
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40336 import InlineResponse40336
+from cryptoapis.model.inline_response40337 import InlineResponse40337
+from cryptoapis.model.inline_response40037 import InlineResponse40037
 from cryptoapis.model.create_fungible_tokens_transaction_request_from_address_rb import CreateFungibleTokensTransactionRequestFromAddressRB
-from cryptoapis.model.inline_response40036 import InlineResponse40036
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -445,9 +445,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = transactions_api.TransactionsApi(api_client)
     sender_address = "0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5" # str | Defines the specific source address for the transaction.
     wallet_id = "609e221675d04500068718dc" # str | Defines the unique ID of the Wallet.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     create_fungible_tokens_transaction_request_from_address_rb = CreateFungibleTokensTransactionRequestFromAddressRB(
-        context="context_example",
+        context="yourExampleString",
         data=CreateFungibleTokensTransactionRequestFromAddressRBData(
             item=CreateFungibleTokensTransactionRequestFromAddressRBDataItem(
                 amount="0.2",

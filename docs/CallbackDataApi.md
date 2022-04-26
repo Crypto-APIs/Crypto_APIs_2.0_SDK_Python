@@ -27,15 +27,15 @@ import cryptoapis
 from cryptoapis.api import callback_data_api
 from cryptoapis.model.inline_response4044 import InlineResponse4044
 from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40083 import InlineResponse40083
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40369 import InlineResponse40369
+from cryptoapis.model.inline_response40183 import InlineResponse40183
 from cryptoapis.model.inline_response415 import InlineResponse415
 from cryptoapis.model.get_address_details_from_callback_r import GetAddressDetailsFromCallbackR
-from cryptoapis.model.inline_response40069 import InlineResponse40069
-from cryptoapis.model.inline_response40169 import InlineResponse40169
+from cryptoapis.model.inline_response40383 import InlineResponse40383
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -61,7 +61,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     address = "mzYijhgmzZrmuB7wBDazRKirnChKyow4M3" # str | Represents the public address, which is a compressed and shortened form of a public key.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -138,16 +138,16 @@ This endpoint creates a shortcut to obtain information from Blockchain data by g
 import time
 import cryptoapis
 from cryptoapis.api import callback_data_api
+from cryptoapis.model.inline_response40085 import InlineResponse40085
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response4042 import InlineResponse4042
-from cryptoapis.model.inline_response40071 import InlineResponse40071
+from cryptoapis.model.inline_response40185 import InlineResponse40185
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40171 import InlineResponse40171
-from cryptoapis.model.inline_response40371 import InlineResponse40371
+from cryptoapis.model.inline_response40385 import InlineResponse40385
 from cryptoapis.model.get_block_details_by_block_hash_from_callback_r import GetBlockDetailsByBlockHashFromCallbackR
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -174,7 +174,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     block_hash = "000000000000000bdea8ba7df4bfd9f398e428fde8ee47152bcf93834ee48e8a" # str | Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -254,13 +254,13 @@ from cryptoapis.api import callback_data_api
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response40186 import InlineResponse40186
 from cryptoapis.model.inline_response4042 import InlineResponse4042
-from cryptoapis.model.inline_response40072 import InlineResponse40072
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40172 import InlineResponse40172
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40372 import InlineResponse40372
+from cryptoapis.model.inline_response40386 import InlineResponse40386
+from cryptoapis.model.inline_response40086 import InlineResponse40086
 from cryptoapis.model.get_block_details_by_block_height_from_callback_r import GetBlockDetailsByBlockHeightFromCallbackR
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -287,7 +287,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     block_height = "blockHeight_example" # str | Numeric representation of the block height
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -365,16 +365,16 @@ import time
 import cryptoapis
 from cryptoapis.api import callback_data_api
 from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40084 import InlineResponse40084
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback_r import GetTransactionDetailsByTransactionIDFromCallbackR
-from cryptoapis.model.inline_response40070 import InlineResponse40070
+from cryptoapis.model.inline_response40184 import InlineResponse40184
 from cryptoapis.model.inline_response4041 import InlineResponse4041
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40170 import InlineResponse40170
-from cryptoapis.model.inline_response40370 import InlineResponse40370
+from cryptoapis.model.inline_response40384 import InlineResponse40384
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -400,7 +400,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     transaction_id = "8888f6c8168ff69aaf6438ab185c690e8c76c63e5f9c472c1c86f08406ea74f2" # str | String identifier of the transaction
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:

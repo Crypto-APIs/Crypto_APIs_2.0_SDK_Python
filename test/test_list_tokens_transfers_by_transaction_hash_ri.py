@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
+from cryptoapis.model.list_tokens_transfers_by_transaction_hash_ri_transaction_fee import ListTokensTransfersByTransactionHashRITransactionFee
+globals()['ListTokensTransfersByTransactionHashRITransactionFee'] = ListTokensTransfersByTransactionHashRITransactionFee
 from cryptoapis.model.list_tokens_transfers_by_transaction_hash_ri import ListTokensTransfersByTransactionHashRI
 
 

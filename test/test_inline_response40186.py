@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_supported_assets_e401 import ListSupportedAssetsE401
-globals()['ListSupportedAssetsE401'] = ListSupportedAssetsE401
+from cryptoapis.model.get_block_details_by_block_height_from_callback_e401 import GetBlockDetailsByBlockHeightFromCallbackE401
+globals()['GetBlockDetailsByBlockHeightFromCallbackE401'] = GetBlockDetailsByBlockHeightFromCallbackE401
 from cryptoapis.model.inline_response40186 import InlineResponse40186
 
 

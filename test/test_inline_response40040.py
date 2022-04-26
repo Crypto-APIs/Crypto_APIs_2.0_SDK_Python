@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_latest_mined_zilliqa_block_e400 import GetLatestMinedZilliqaBlockE400
-globals()['GetLatestMinedZilliqaBlockE400'] = GetLatestMinedZilliqaBlockE400
+from cryptoapis.model.get_last_mined_block_e400 import GetLastMinedBlockE400
+globals()['GetLastMinedBlockE400'] = GetLastMinedBlockE400
 from cryptoapis.model.inline_response40040 import InlineResponse40040
 
 

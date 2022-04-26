@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_fee_recommendations_e400 import GetFeeRecommendationsE400
-globals()['GetFeeRecommendationsE400'] = GetFeeRecommendationsE400
+from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_transactions_e400 import ListHDWalletXPubYPubZPubTransactionsE400
+globals()['ListHDWalletXPubYPubZPubTransactionsE400'] = ListHDWalletXPubYPubZPubTransactionsE400
 from cryptoapis.model.inline_response40053 import InlineResponse40053
 
 

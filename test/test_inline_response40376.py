@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.create_automatic_coins_forwarding_e403 import CreateAutomaticCoinsForwardingE403
-globals()['CreateAutomaticCoinsForwardingE403'] = CreateAutomaticCoinsForwardingE403
+from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation_e403 import NewConfirmedCoinsTransactionsAndEachConfirmationE403
+globals()['NewConfirmedCoinsTransactionsAndEachConfirmationE403'] = NewConfirmedCoinsTransactionsAndEachConfirmationE403
 from cryptoapis.model.inline_response40376 import InlineResponse40376
 
 

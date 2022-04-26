@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_eip1559_fee_recommendations_e401 import GetEIP1559FeeRecommendationsE401
-globals()['GetEIP1559FeeRecommendationsE401'] = GetEIP1559FeeRecommendationsE401
+from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback_e401 import GetTransactionDetailsByTransactionIDFromCallbackE401
+globals()['GetTransactionDetailsByTransactionIDFromCallbackE401'] = GetTransactionDetailsByTransactionIDFromCallbackE401
 from cryptoapis.model.inline_response40184 import InlineResponse40184
 
 

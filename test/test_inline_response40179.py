@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.create_automatic_tokens_forwarding_e401 import CreateAutomaticTokensForwardingE401
-globals()['CreateAutomaticTokensForwardingE401'] = CreateAutomaticTokensForwardingE401
+from cryptoapis.model.list_blockchain_events_subscriptions_e401 import ListBlockchainEventsSubscriptionsE401
+globals()['ListBlockchainEventsSubscriptionsE401'] = ListBlockchainEventsSubscriptionsE401
 from cryptoapis.model.inline_response40179 import InlineResponse40179
 
 

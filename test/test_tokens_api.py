@@ -52,6 +52,13 @@ class TestTokensApi(unittest.TestCase):
         """
         pass
 
+    def test_list_unconfirmed_tokens_transfers_by_address(self):
+        """Test case for list_unconfirmed_tokens_transfers_by_address
+
+        List Unconfirmed Tokens Transfers By Address  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

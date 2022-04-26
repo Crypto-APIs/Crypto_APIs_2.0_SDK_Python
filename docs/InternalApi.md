@@ -25,16 +25,16 @@ import time
 import cryptoapis
 from cryptoapis.api import internal_api
 from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40054 import InlineResponse40054
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response40154 import InlineResponse40154
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40050 import InlineResponse40050
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40150 import InlineResponse40150
 from cryptoapis.model.get_internal_transaction_by_transaction_hash_and_operation_id_r import GetInternalTransactionByTransactionHashAndOperationIdR
+from cryptoapis.model.inline_response40354 import InlineResponse40354
 from cryptoapis.model.inline_response4043 import InlineResponse4043
-from cryptoapis.model.inline_response40350 import InlineResponse40350
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -61,7 +61,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     network = "mainnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     operation_id = "call_4" # str | Represents the unique internal transaction ID in regards to the parent transaction (type trace address).
     transaction_hash = "0x92bb77e16444e0417c8b50dfab68e89c7ad27d4140a766c3bbd4d0ac195f12fc" # str | String identifier of the parent transaction of the internal transaction represented in CryptoAPIs.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -139,15 +139,15 @@ Through this endpoint customers can list internal transactions along with their 
 import time
 import cryptoapis
 from cryptoapis.api import internal_api
-from cryptoapis.model.inline_response40148 import InlineResponse40148
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response40052 import InlineResponse40052
 from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40152 import InlineResponse40152
 from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40348 import InlineResponse40348
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40048 import InlineResponse40048
+from cryptoapis.model.inline_response40352 import InlineResponse40352
 from cryptoapis.model.list_internal_transaction_details_by_transaction_hash_r import ListInternalTransactionDetailsByTransactionHashR
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -174,7 +174,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "mainnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     transaction_hash = "0x5d4ea0471b70de09fa3d6a4bc32f703ec44483bffa4d6169fa0a36c6a1dc108a" # str | String identifier of the parent transaction of the internal transaction represented in CryptoAPIs.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
     offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
 
@@ -255,15 +255,15 @@ import time
 import cryptoapis
 from cryptoapis.api import internal_api
 from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40156 import InlineResponse40156
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40051 import InlineResponse40051
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40151 import InlineResponse40151
 from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40356 import InlineResponse40356
 from cryptoapis.model.list_internal_transactions_by_address_r import ListInternalTransactionsByAddressR
-from cryptoapis.model.inline_response40351 import InlineResponse40351
+from cryptoapis.model.inline_response40056 import InlineResponse40056
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -289,7 +289,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "ropsten" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     address = "0xc8fe2ceac93ad50e496b497357ae5385192dd28d" # str | String identifier of the address document represented in CryptoAPIs
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
     offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
 

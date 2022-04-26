@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_wallet_transaction_details_by_transaction_ide403 import GetWalletTransactionDetailsByTransactionIDE403
-globals()['GetWalletTransactionDetailsByTransactionIDE403'] = GetWalletTransactionDetailsByTransactionIDE403
+from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub_e403 import SyncHDWalletXPubYPubZPubE403
+globals()['SyncHDWalletXPubYPubZPubE403'] = SyncHDWalletXPubYPubZPubE403
 from cryptoapis.model.inline_response40346 import InlineResponse40346
 
 

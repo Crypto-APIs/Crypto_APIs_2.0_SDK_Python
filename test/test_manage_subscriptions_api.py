@@ -38,6 +38,13 @@ class TestManageSubscriptionsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_blockchain_event_subscription_details_by_reference_id(self):
+        """Test case for get_blockchain_event_subscription_details_by_reference_id
+
+        Get Blockchain Event Subscription Details By Reference ID  # noqa: E501
+        """
+        pass
+
     def test_list_blockchain_events_subscriptions(self):
         """Test case for list_blockchain_events_subscriptions
 

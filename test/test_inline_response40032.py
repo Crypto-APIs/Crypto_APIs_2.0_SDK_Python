@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_omni_transaction_details_by_transaction_id_txid_e400 import GetOmniTransactionDetailsByTransactionIDTxidE400
-globals()['GetOmniTransactionDetailsByTransactionIDTxidE400'] = GetOmniTransactionDetailsByTransactionIDTxidE400
+from cryptoapis.model.get_xrp_ripple_block_details_by_block_hash_e400 import GetXRPRippleBlockDetailsByBlockHashE400
+globals()['GetXRPRippleBlockDetailsByBlockHashE400'] = GetXRPRippleBlockDetailsByBlockHashE400
 from cryptoapis.model.inline_response40032 import InlineResponse40032
 
 

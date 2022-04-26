@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_exchange_rate_by_asset_symbols_e401 import GetExchangeRateByAssetSymbolsE401
-globals()['GetExchangeRateByAssetSymbolsE401'] = GetExchangeRateByAssetSymbolsE401
+from cryptoapis.model.new_confirmed_internal_transactions_e401 import NewConfirmedInternalTransactionsE401
+globals()['NewConfirmedInternalTransactionsE401'] = NewConfirmedInternalTransactionsE401
 from cryptoapis.model.inline_response40187 import InlineResponse40187
 
 

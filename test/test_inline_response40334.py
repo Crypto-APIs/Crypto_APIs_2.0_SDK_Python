@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_supported_tokens_e403 import ListSupportedTokensE403
-globals()['ListSupportedTokensE403'] = ListSupportedTokensE403
+from cryptoapis.model.get_zilliqa_block_details_by_block_hash_e403 import GetZilliqaBlockDetailsByBlockHashE403
+globals()['GetZilliqaBlockDetailsByBlockHashE403'] = GetZilliqaBlockDetailsByBlockHashE403
 from cryptoapis.model.inline_response40334 import InlineResponse40334
 
 

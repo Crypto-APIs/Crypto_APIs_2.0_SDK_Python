@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_asset_details_by_asset_ide400 import GetAssetDetailsByAssetIDE400
-globals()['GetAssetDetailsByAssetIDE400'] = GetAssetDetailsByAssetIDE400
+from cryptoapis.model.create_automatic_coins_forwarding_e400 import CreateAutomaticCoinsForwardingE400
+globals()['CreateAutomaticCoinsForwardingE400'] = CreateAutomaticCoinsForwardingE400
 from cryptoapis.model.inline_response40090 import InlineResponse40090
 
 

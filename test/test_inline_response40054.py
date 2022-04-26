@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_tokens_transfers_by_transaction_hash_e400 import ListTokensTransfersByTransactionHashE400
-globals()['ListTokensTransfersByTransactionHashE400'] = ListTokensTransfersByTransactionHashE400
+from cryptoapis.model.get_internal_transaction_by_transaction_hash_and_operation_id_e400 import GetInternalTransactionByTransactionHashAndOperationIdE400
+globals()['GetInternalTransactionByTransactionHashAndOperationIdE400'] = GetInternalTransactionByTransactionHashAndOperationIdE400
 from cryptoapis.model.inline_response40054 import InlineResponse40054
 
 

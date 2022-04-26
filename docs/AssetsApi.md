@@ -25,15 +25,15 @@ import time
 import cryptoapis
 from cryptoapis.api import assets_api
 from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response400109 import InlineResponse400109
 from cryptoapis.model.get_asset_details_by_asset_idr import GetAssetDetailsByAssetIDR
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response401109 import InlineResponse401109
 from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40090 import InlineResponse40090
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40190 import InlineResponse40190
-from cryptoapis.model.inline_response40390 import InlineResponse40390
+from cryptoapis.model.inline_response403109 import InlineResponse403109
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -57,7 +57,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_api.AssetsApi(api_client)
     asset_id = "5b1ea92e584bf50020130612" # str | Defines the unique ID of the specific asset.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -134,13 +134,13 @@ from cryptoapis.api import assets_api
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response400110 import InlineResponse400110
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40091 import InlineResponse40091
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40191 import InlineResponse40191
+from cryptoapis.model.inline_response401110 import InlineResponse401110
 from cryptoapis.model.get_asset_details_by_asset_symbol_r import GetAssetDetailsByAssetSymbolR
-from cryptoapis.model.inline_response40391 import InlineResponse40391
+from cryptoapis.model.inline_response403110 import InlineResponse403110
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -164,7 +164,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_api.AssetsApi(api_client)
     asset_symbol = "BTC" # str | Specifies the asset's unique symbol in the Crypto APIs listings.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -241,13 +241,13 @@ from cryptoapis.api import assets_api
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.inline_response401108 import InlineResponse401108
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.list_assets_details_r import ListAssetsDetailsR
-from cryptoapis.model.inline_response40389 import InlineResponse40389
+from cryptoapis.model.inline_response400108 import InlineResponse400108
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40089 import InlineResponse40089
-from cryptoapis.model.inline_response40189 import InlineResponse40189
+from cryptoapis.model.inline_response403108 import InlineResponse403108
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -270,11 +270,11 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_api.AssetsApi(api_client)
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     asset_type = "crypto" # str | Defines the type of the supported asset. This could be either \"crypto\" or \"fiat\". (optional)
     crypto_type = "coin" # str | Subtype of the crypto assets. Could be COIN or TOKEN (optional)
     limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 10 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
     waas_enabled = True # bool | Show only if WaaS is/not enabled (optional)
 
     # example passing only required values which don't have defaults set

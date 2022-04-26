@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_exchange_rate_by_assets_ids_e422 import GetExchangeRateByAssetsIDsE422
-globals()['GetExchangeRateByAssetsIDsE422'] = GetExchangeRateByAssetsIDsE422
+from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_utxos_e422 import ListHDWalletXPubYPubZPubUTXOsE422
+globals()['ListHDWalletXPubYPubZPubUTXOsE422'] = ListHDWalletXPubYPubZPubUTXOsE422
 from cryptoapis.model.inline_response4225 import InlineResponse4225
 
 

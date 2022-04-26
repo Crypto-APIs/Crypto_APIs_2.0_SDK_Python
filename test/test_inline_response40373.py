@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.new_confirmed_internal_transactions_e403 import NewConfirmedInternalTransactionsE403
-globals()['NewConfirmedInternalTransactionsE403'] = NewConfirmedInternalTransactionsE403
+from cryptoapis.model.new_confirmed_coins_transactions_e403 import NewConfirmedCoinsTransactionsE403
+globals()['NewConfirmedCoinsTransactionsE403'] = NewConfirmedCoinsTransactionsE403
 from cryptoapis.model.inline_response40373 import InlineResponse40373
 
 

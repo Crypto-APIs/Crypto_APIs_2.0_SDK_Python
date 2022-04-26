@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.new_confirmed_coins_transactions_e401 import NewConfirmedCoinsTransactionsE401
-globals()['NewConfirmedCoinsTransactionsE401'] = NewConfirmedCoinsTransactionsE401
+from cryptoapis.model.list_tokens_transfers_by_transaction_hash_e401 import ListTokensTransfersByTransactionHashE401
+globals()['ListTokensTransfersByTransactionHashE401'] = ListTokensTransfersByTransactionHashE401
 from cryptoapis.model.inline_response40160 import InlineResponse40160
 
 

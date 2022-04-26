@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_details_e401 import GetHDWalletXPubYPubZPubDetailsE401
-globals()['GetHDWalletXPubYPubZPubDetailsE401'] = GetHDWalletXPubYPubZPubDetailsE401
+from cryptoapis.model.list_omni_transactions_by_block_hash_e401 import ListOmniTransactionsByBlockHashE401
+globals()['ListOmniTransactionsByBlockHashE401'] = ListOmniTransactionsByBlockHashE401
 from cryptoapis.model.inline_response40147 import InlineResponse40147
 
 

@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.broadcast_locally_signed_transaction_e400 import BroadcastLocallySignedTransactionE400
-globals()['BroadcastLocallySignedTransactionE400'] = BroadcastLocallySignedTransactionE400
+from cryptoapis.model.get_block_details_by_block_hash_from_callback_e400 import GetBlockDetailsByBlockHashFromCallbackE400
+globals()['GetBlockDetailsByBlockHashFromCallbackE400'] = GetBlockDetailsByBlockHashFromCallbackE400
 from cryptoapis.model.inline_response40085 import InlineResponse40085
 
 

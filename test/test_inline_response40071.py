@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_block_details_by_block_hash_from_callback_e400 import GetBlockDetailsByBlockHashFromCallbackE400
-globals()['GetBlockDetailsByBlockHashFromCallbackE400'] = GetBlockDetailsByBlockHashFromCallbackE400
+from cryptoapis.model.new_unconfirmed_coins_transactions_e400 import NewUnconfirmedCoinsTransactionsE400
+globals()['NewUnconfirmedCoinsTransactionsE400'] = NewUnconfirmedCoinsTransactionsE400
 from cryptoapis.model.inline_response40071 import InlineResponse40071
 
 

@@ -33,10 +33,12 @@ from cryptoapis.exceptions import ApiAttributeError
 def lazy_import():
     from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
     from cryptoapis.model.invalid_data import InvalidData
+    from cryptoapis.model.wallet_as_a_service_address_balance_not_enough import WalletAsAServiceAddressBalanceNotEnough
     from cryptoapis.model.wallet_as_a_service_no_deposit_addresses_found import WalletAsAServiceNoDepositAddressesFound
     from cryptoapis.model.wallet_as_a_service_wallet_balance_not_enough import WalletAsAServiceWalletBalanceNotEnough
     globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
     globals()['InvalidData'] = InvalidData
+    globals()['WalletAsAServiceAddressBalanceNotEnough'] = WalletAsAServiceAddressBalanceNotEnough
     globals()['WalletAsAServiceNoDepositAddressesFound'] = WalletAsAServiceNoDepositAddressesFound
     globals()['WalletAsAServiceWalletBalanceNotEnough'] = WalletAsAServiceWalletBalanceNotEnough
 
@@ -163,14 +165,18 @@ class CreateCoinsTransactionRequestFromWalletE409(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -263,14 +269,18 @@ class CreateCoinsTransactionRequestFromWalletE409(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -322,6 +332,7 @@ class CreateCoinsTransactionRequestFromWalletE409(ModelComposed):
           ],
           'oneOf': [
               InvalidData,
+              WalletAsAServiceAddressBalanceNotEnough,
               WalletAsAServiceNoDepositAddressesFound,
               WalletAsAServiceWalletBalanceNotEnough,
           ],

@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_assets_details_e401 import ListAssetsDetailsE401
-globals()['ListAssetsDetailsE401'] = ListAssetsDetailsE401
+from cryptoapis.model.list_coins_forwarding_automations_e401 import ListCoinsForwardingAutomationsE401
+globals()['ListCoinsForwardingAutomationsE401'] = ListCoinsForwardingAutomationsE401
 from cryptoapis.model.inline_response40189 import InlineResponse40189
 
 

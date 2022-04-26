@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_zilliqa_block_details_by_block_height_e400 import GetZilliqaBlockDetailsByBlockHeightE400
-globals()['GetZilliqaBlockDetailsByBlockHeightE400'] = GetZilliqaBlockDetailsByBlockHeightE400
+from cryptoapis.model.list_unconfirmed_omni_transactions_by_property_ide400 import ListUnconfirmedOmniTransactionsByPropertyIDE400
+globals()['ListUnconfirmedOmniTransactionsByPropertyIDE400'] = ListUnconfirmedOmniTransactionsByPropertyIDE400
 from cryptoapis.model.inline_response40029 import InlineResponse40029
 
 

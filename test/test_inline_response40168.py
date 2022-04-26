@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.delete_blockchain_event_subscription_e401 import DeleteBlockchainEventSubscriptionE401
-globals()['DeleteBlockchainEventSubscriptionE401'] = DeleteBlockchainEventSubscriptionE401
+from cryptoapis.model.estimate_transaction_smart_fee_e401 import EstimateTransactionSmartFeeE401
+globals()['EstimateTransactionSmartFeeE401'] = EstimateTransactionSmartFeeE401
 from cryptoapis.model.inline_response40168 import InlineResponse40168
 
 

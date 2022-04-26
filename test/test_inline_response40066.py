@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_blockchain_events_subscriptions_e400 import ListBlockchainEventsSubscriptionsE400
-globals()['ListBlockchainEventsSubscriptionsE400'] = ListBlockchainEventsSubscriptionsE400
+from cryptoapis.model.list_unconfirmed_tokens_transfers_by_address_e400 import ListUnconfirmedTokensTransfersByAddressE400
+globals()['ListUnconfirmedTokensTransfersByAddressE400'] = ListUnconfirmedTokensTransfersByAddressE400
 from cryptoapis.model.inline_response40066 import InlineResponse40066
 
 

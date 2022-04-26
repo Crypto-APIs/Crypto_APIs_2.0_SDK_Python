@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_zilliqa_transactions_by_block_hash_e401 import ListZilliqaTransactionsByBlockHashE401
-globals()['ListZilliqaTransactionsByBlockHashE401'] = ListZilliqaTransactionsByBlockHashE401
+from cryptoapis.model.create_coins_transaction_request_from_address_e401 import CreateCoinsTransactionRequestFromAddressE401
+globals()['CreateCoinsTransactionRequestFromAddressE401'] = CreateCoinsTransactionRequestFromAddressE401
 from cryptoapis.model.inline_response40121 import InlineResponse40121
 
 

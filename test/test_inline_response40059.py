@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.new_unconfirmed_tokens_transactions_e400 import NewUnconfirmedTokensTransactionsE400
-globals()['NewUnconfirmedTokensTransactionsE400'] = NewUnconfirmedTokensTransactionsE400
+from cryptoapis.model.list_unspent_transaction_outputs_by_address_e400 import ListUnspentTransactionOutputsByAddressE400
+globals()['ListUnspentTransactionOutputsByAddressE400'] = ListUnspentTransactionOutputsByAddressE400
 from cryptoapis.model.inline_response40059 import InlineResponse40059
 
 

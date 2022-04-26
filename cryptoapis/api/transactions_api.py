@@ -31,18 +31,18 @@ from cryptoapis.model.create_coins_transaction_request_from_wallet_rb import Cre
 from cryptoapis.model.create_fungible_tokens_transaction_request_from_address_r import CreateFungibleTokensTransactionRequestFromAddressR
 from cryptoapis.model.create_fungible_tokens_transaction_request_from_address_rb import CreateFungibleTokensTransactionRequestFromAddressRB
 from cryptoapis.model.inline_response40013 import InlineResponse40013
-from cryptoapis.model.inline_response40020 import InlineResponse40020
-from cryptoapis.model.inline_response40025 import InlineResponse40025
-from cryptoapis.model.inline_response40036 import InlineResponse40036
+from cryptoapis.model.inline_response40021 import InlineResponse40021
+from cryptoapis.model.inline_response40026 import InlineResponse40026
+from cryptoapis.model.inline_response40037 import InlineResponse40037
 from cryptoapis.model.inline_response40113 import InlineResponse40113
-from cryptoapis.model.inline_response40120 import InlineResponse40120
-from cryptoapis.model.inline_response40125 import InlineResponse40125
-from cryptoapis.model.inline_response40136 import InlineResponse40136
+from cryptoapis.model.inline_response40121 import InlineResponse40121
+from cryptoapis.model.inline_response40126 import InlineResponse40126
+from cryptoapis.model.inline_response40137 import InlineResponse40137
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response40313 import InlineResponse40313
-from cryptoapis.model.inline_response40320 import InlineResponse40320
-from cryptoapis.model.inline_response40325 import InlineResponse40325
-from cryptoapis.model.inline_response40336 import InlineResponse40336
+from cryptoapis.model.inline_response40321 import InlineResponse40321
+from cryptoapis.model.inline_response40326 import InlineResponse40326
+from cryptoapis.model.inline_response40337 import InlineResponse40337
 from cryptoapis.model.inline_response4091 import InlineResponse4091
 from cryptoapis.model.inline_response4092 import InlineResponse4092
 from cryptoapis.model.inline_response4093 import InlineResponse4093
@@ -202,7 +202,8 @@ class TransactionsApi(object):
 
                         "ETHEREUM": "ethereum",
                         "ETHEREUM-CLASSIC": "ethereum-classic",
-                        "BINANCE-SMART-CHAIN": "binance-smart-chain"
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain",
+                        "XRP": "xrp"
                     },
                     ('network',): {
 
@@ -481,12 +482,20 @@ class TransactionsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -512,9 +521,13 @@ class TransactionsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['address'] = \
             address
         kwargs['blockchain'] = \
@@ -543,7 +556,7 @@ class TransactionsApi(object):
         >>> result = thread.get()
 
         Args:
-            address (str): Defines the specific source address for the transaction.
+            address (str): Defines the specific source address for the transaction. For XRP we also support the X-address format.
             blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
             network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
             wallet_id (str): Represents the sender's specific and unique Wallet ID of the sender.
@@ -566,12 +579,20 @@ class TransactionsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -597,9 +618,13 @@ class TransactionsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['address'] = \
             address
         kwargs['blockchain'] = \
@@ -649,12 +674,20 @@ class TransactionsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -680,9 +713,13 @@ class TransactionsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -732,12 +769,20 @@ class TransactionsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -763,9 +808,13 @@ class TransactionsApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \

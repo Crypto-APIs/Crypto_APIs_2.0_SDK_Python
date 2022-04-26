@@ -45,6 +45,20 @@ class TestInformativeApi(unittest.TestCase):
         """
         pass
 
+    def test_list_all_assets_by_wallet_id(self):
+        """Test case for list_all_assets_by_wallet_id
+
+        List All Assets By Wallet ID  # noqa: E501
+        """
+        pass
+
+    def test_list_all_assets_from_all_wallets(self):
+        """Test case for list_all_assets_from_all_wallets
+
+        List All Assets From All Wallets  # noqa: E501
+        """
+        pass
+
     def test_list_deposit_addresses(self):
         """Test case for list_deposit_addresses
 

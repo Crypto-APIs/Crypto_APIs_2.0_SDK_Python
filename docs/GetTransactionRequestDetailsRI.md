@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **transaction_type** | **str** | Defines the transaction type, if it is for coins or tokens. | 
 **unit** | **str** | Defines the unit of the amount. | 
 **wallet_id** | **str** | Defines the unique ID of the Wallet. | 
+**transaction_id** | **str** | Represents the unique identifier of a transaction, i.e. it could be transactionId in UTXO-based protocols like Bitcoin, and transaction hash in Ethereum blockchain. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

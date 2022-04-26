@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.create_coins_transaction_request_from_address_e400 import CreateCoinsTransactionRequestFromAddressE400
-globals()['CreateCoinsTransactionRequestFromAddressE400'] = CreateCoinsTransactionRequestFromAddressE400
+from cryptoapis.model.get_unconfirmed_omni_transaction_by_transaction_id_txid_e400 import GetUnconfirmedOmniTransactionByTransactionIDTxidE400
+globals()['GetUnconfirmedOmniTransactionByTransactionIDTxidE400'] = GetUnconfirmedOmniTransactionByTransactionIDTxidE400
 from cryptoapis.model.inline_response40020 import InlineResponse40020
 
 

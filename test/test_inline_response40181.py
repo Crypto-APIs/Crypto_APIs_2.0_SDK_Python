@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_fee_address_details_e401 import GetFeeAddressDetailsE401
-globals()['GetFeeAddressDetailsE401'] = GetFeeAddressDetailsE401
+from cryptoapis.model.activate_blockchain_event_subscription_e401 import ActivateBlockchainEventSubscriptionE401
+globals()['ActivateBlockchainEventSubscriptionE401'] = ActivateBlockchainEventSubscriptionE401
 from cryptoapis.model.inline_response40181 import InlineResponse40181
 
 

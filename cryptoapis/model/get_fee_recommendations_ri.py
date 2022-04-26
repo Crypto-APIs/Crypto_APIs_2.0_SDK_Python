@@ -86,6 +86,7 @@ class GetFeeRecommendationsRI(ModelNormal):
             'fast': (str,),  # noqa: E501
             'slow': (str,),  # noqa: E501
             'standard': (str,),  # noqa: E501
+            'fee_cushion_multiplier': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -98,6 +99,7 @@ class GetFeeRecommendationsRI(ModelNormal):
         'fast': 'fast',  # noqa: E501
         'slow': 'slow',  # noqa: E501
         'standard': 'standard',  # noqa: E501
+        'fee_cushion_multiplier': 'feeCushionMultiplier',  # noqa: E501
     }
 
     read_only_vars = {
@@ -107,7 +109,7 @@ class GetFeeRecommendationsRI(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, unit, fast, slow, standard, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, unit, fast, slow, standard, fee_cushion_multiplier, *args, **kwargs):  # noqa: E501
         """GetFeeRecommendationsRI - a model defined in OpenAPI
 
         Args:
@@ -115,6 +117,7 @@ class GetFeeRecommendationsRI(ModelNormal):
             fast (str): Fast fee per byte calculated from unconfirmed transactions
             slow (str): Slow fee per byte calculated from unconfirmed transactions
             standard (str): Standard fee per byte calculated from unconfirmed transactions
+            fee_cushion_multiplier (str): Represents the fee cushion multiplier used to multiply the base fee.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -150,7 +153,7 @@ class GetFeeRecommendationsRI(ModelNormal):
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -158,14 +161,18 @@ class GetFeeRecommendationsRI(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -178,6 +185,7 @@ class GetFeeRecommendationsRI(ModelNormal):
         self.fast = fast
         self.slow = slow
         self.standard = standard
+        self.fee_cushion_multiplier = fee_cushion_multiplier
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -198,7 +206,7 @@ class GetFeeRecommendationsRI(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, unit, fast, slow, standard, *args, **kwargs):  # noqa: E501
+    def __init__(self, unit, fast, slow, standard, fee_cushion_multiplier, *args, **kwargs):  # noqa: E501
         """GetFeeRecommendationsRI - a model defined in OpenAPI
 
         Args:
@@ -206,6 +214,7 @@ class GetFeeRecommendationsRI(ModelNormal):
             fast (str): Fast fee per byte calculated from unconfirmed transactions
             slow (str): Slow fee per byte calculated from unconfirmed transactions
             standard (str): Standard fee per byte calculated from unconfirmed transactions
+            fee_cushion_multiplier (str): Represents the fee cushion multiplier used to multiply the base fee.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -247,14 +256,18 @@ class GetFeeRecommendationsRI(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -267,6 +280,7 @@ class GetFeeRecommendationsRI(ModelNormal):
         self.fast = fast
         self.slow = slow
         self.standard = standard
+        self.fee_cushion_multiplier = fee_cushion_multiplier
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

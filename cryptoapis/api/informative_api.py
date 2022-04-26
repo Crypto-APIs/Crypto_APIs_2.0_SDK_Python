@@ -25,24 +25,30 @@ from cryptoapis.model_utils import (  # noqa: F401
 from cryptoapis.model.get_transaction_request_details_r import GetTransactionRequestDetailsR
 from cryptoapis.model.get_wallet_asset_details_r import GetWalletAssetDetailsR
 from cryptoapis.model.get_wallet_transaction_details_by_transaction_idr import GetWalletTransactionDetailsByTransactionIDR
-from cryptoapis.model.inline_response40034 import InlineResponse40034
 from cryptoapis.model.inline_response40035 import InlineResponse40035
-from cryptoapis.model.inline_response40041 import InlineResponse40041
-from cryptoapis.model.inline_response40045 import InlineResponse40045
-from cryptoapis.model.inline_response40046 import InlineResponse40046
+from cryptoapis.model.inline_response40036 import InlineResponse40036
+from cryptoapis.model.inline_response40038 import InlineResponse40038
+from cryptoapis.model.inline_response40039 import InlineResponse40039
+from cryptoapis.model.inline_response40044 import InlineResponse40044
+from cryptoapis.model.inline_response40048 import InlineResponse40048
+from cryptoapis.model.inline_response40049 import InlineResponse40049
 from cryptoapis.model.inline_response4007 import InlineResponse4007
-from cryptoapis.model.inline_response40134 import InlineResponse40134
 from cryptoapis.model.inline_response40135 import InlineResponse40135
-from cryptoapis.model.inline_response40141 import InlineResponse40141
-from cryptoapis.model.inline_response40145 import InlineResponse40145
-from cryptoapis.model.inline_response40146 import InlineResponse40146
+from cryptoapis.model.inline_response40136 import InlineResponse40136
+from cryptoapis.model.inline_response40138 import InlineResponse40138
+from cryptoapis.model.inline_response40139 import InlineResponse40139
+from cryptoapis.model.inline_response40144 import InlineResponse40144
+from cryptoapis.model.inline_response40148 import InlineResponse40148
+from cryptoapis.model.inline_response40149 import InlineResponse40149
 from cryptoapis.model.inline_response4017 import InlineResponse4017
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40334 import InlineResponse40334
 from cryptoapis.model.inline_response40335 import InlineResponse40335
-from cryptoapis.model.inline_response40341 import InlineResponse40341
-from cryptoapis.model.inline_response40345 import InlineResponse40345
-from cryptoapis.model.inline_response40346 import InlineResponse40346
+from cryptoapis.model.inline_response40336 import InlineResponse40336
+from cryptoapis.model.inline_response40338 import InlineResponse40338
+from cryptoapis.model.inline_response40339 import InlineResponse40339
+from cryptoapis.model.inline_response40344 import InlineResponse40344
+from cryptoapis.model.inline_response40348 import InlineResponse40348
+from cryptoapis.model.inline_response40349 import InlineResponse40349
 from cryptoapis.model.inline_response4037 import InlineResponse4037
 from cryptoapis.model.inline_response4041 import InlineResponse4041
 from cryptoapis.model.inline_response409 import InlineResponse409
@@ -50,6 +56,8 @@ from cryptoapis.model.inline_response415 import InlineResponse415
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.list_all_assets_by_wallet_idr import ListAllAssetsByWalletIDR
+from cryptoapis.model.list_all_assets_from_all_wallets_r import ListAllAssetsFromAllWalletsR
 from cryptoapis.model.list_deposit_addresses_r import ListDepositAddressesR
 from cryptoapis.model.list_supported_tokens_r import ListSupportedTokensR
 from cryptoapis.model.list_wallet_transactions_r import ListWalletTransactionsR
@@ -167,6 +175,7 @@ class InformativeApi(object):
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
                         "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "XRP": "xrp",
                         "ZCASH": "zcash",
                         "BINANCE-SMART-CHAIN": "binance-smart-chain"
                     },
@@ -300,6 +309,121 @@ class InformativeApi(object):
             },
             api_client=api_client
         )
+        self.list_all_assets_by_wallet_id_endpoint = _Endpoint(
+            settings={
+                'response_type': (ListAllAssetsByWalletIDR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/wallet-as-a-service/wallets/{walletId}/assets',
+                'operation_id': 'list_all_assets_by_wallet_id',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'wallet_id',
+                    'context',
+                ],
+                'required': [
+                    'wallet_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'wallet_id':
+                        (str,),
+                    'context':
+                        (str,),
+                },
+                'attribute_map': {
+                    'wallet_id': 'walletId',
+                    'context': 'context',
+                },
+                'location_map': {
+                    'wallet_id': 'path',
+                    'context': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_all_assets_from_all_wallets_endpoint = _Endpoint(
+            settings={
+                'response_type': (ListAllAssetsFromAllWalletsR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/wallet-as-a-service/wallets/all-assets',
+                'operation_id': 'list_all_assets_from_all_wallets',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'context',
+                    'limit',
+                    'offset',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'context':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'context': 'context',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'context': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.list_deposit_addresses_endpoint = _Endpoint(
             settings={
                 'response_type': (ListDepositAddressesR,),
@@ -345,6 +469,7 @@ class InformativeApi(object):
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
                         "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "XRP": "xrp",
                         "ZCASH": "zcash",
                         "BINANCE-SMART-CHAIN": "binance-smart-chain"
                     },
@@ -523,6 +648,7 @@ class InformativeApi(object):
                         "DASH": "dash",
                         "ETHEREUM": "ethereum",
                         "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "XRP": "xrp",
                         "ZCASH": "zcash",
                         "BINANCE-SMART-CHAIN": "binance-smart-chain"
                     },
@@ -610,12 +736,20 @@ class InformativeApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -641,9 +775,13 @@ class InformativeApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['transaction_request_id'] = \
             transaction_request_id
         return self.get_transaction_request_details_endpoint.call_with_http_info(**kwargs)
@@ -657,7 +795,7 @@ class InformativeApi(object):
     ):
         """Get Wallet Asset Details  # noqa: E501
 
-        Through this endpoint customers can obtain details about a specific Wallet/Vault.  # noqa: E501
+        Through this endpoint customers can obtain details on all assets (coins, fungible tokens, non-fungible tokens) for the entire Wallet.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -686,12 +824,20 @@ class InformativeApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -717,9 +863,13 @@ class InformativeApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -766,12 +916,20 @@ class InformativeApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -797,9 +955,13 @@ class InformativeApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -807,6 +969,171 @@ class InformativeApi(object):
         kwargs['transaction_id'] = \
             transaction_id
         return self.get_wallet_transaction_details_by_transaction_id_endpoint.call_with_http_info(**kwargs)
+
+    def list_all_assets_by_wallet_id(
+        self,
+        wallet_id,
+        **kwargs
+    ):
+        """List All Assets By Wallet ID  # noqa: E501
+
+        Through this endpoint customers can obtain information about available assets in one of their wallets, regardless of the blockchain protocol or network, by providing walletId.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_all_assets_by_wallet_id(wallet_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            wallet_id (str): Defines the unique ID of the Wallet.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ListAllAssetsByWalletIDR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['wallet_id'] = \
+            wallet_id
+        return self.list_all_assets_by_wallet_id_endpoint.call_with_http_info(**kwargs)
+
+    def list_all_assets_from_all_wallets(
+        self,
+        **kwargs
+    ):
+        """List All Assets From All Wallets  # noqa: E501
+
+        Through this endpoint customers can obtain information about available assets in all of their wallets, regardless of the blockchain protocol or network.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_all_assets_from_all_wallets(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            limit (int): Defines how many items should be returned in the response per page basis.. [optional] if omitted the server will use the default value of 50
+            offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.. [optional] if omitted the server will use the default value of 0
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ListAllAssetsFromAllWalletsR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.list_all_assets_from_all_wallets_endpoint.call_with_http_info(**kwargs)
 
     def list_deposit_addresses(
         self,
@@ -846,12 +1173,20 @@ class InformativeApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -877,9 +1212,13 @@ class InformativeApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -926,12 +1265,20 @@ class InformativeApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -957,9 +1304,13 @@ class InformativeApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -1006,12 +1357,20 @@ class InformativeApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1037,9 +1396,13 @@ class InformativeApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \

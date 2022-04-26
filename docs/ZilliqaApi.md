@@ -30,16 +30,16 @@ import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
 from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40043 import InlineResponse40043
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response4042 import InlineResponse4042
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40040 import InlineResponse40040
+from cryptoapis.model.inline_response40143 import InlineResponse40143
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40140 import InlineResponse40140
 from cryptoapis.model.get_latest_mined_zilliqa_block_r import GetLatestMinedZilliqaBlockR
-from cryptoapis.model.inline_response40340 import InlineResponse40340
+from cryptoapis.model.inline_response40343 import InlineResponse40343
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,7 +62,7 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = zilliqa_api.ZilliqaApi(api_client)
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -170,7 +170,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = zilliqa_api.ZilliqaApi(api_client)
     address = "zil17v9gs6ctn9pq6wka8k668umdlaj88nrfej7rnm" # str | Defines the specific transaction's address.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -246,15 +246,15 @@ import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
 from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40033 import InlineResponse40033
+from cryptoapis.model.inline_response40034 import InlineResponse40034
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response4042 import InlineResponse4042
+from cryptoapis.model.inline_response40134 import InlineResponse40134
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40133 import InlineResponse40133
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40333 import InlineResponse40333
+from cryptoapis.model.inline_response40334 import InlineResponse40334
 from cryptoapis.model.get_zilliqa_block_details_by_block_hash_r import GetZilliqaBlockDetailsByBlockHashR
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -279,7 +279,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = zilliqa_api.ZilliqaApi(api_client)
     block_hash = "0xf679d0b5387f0b0b3c3c1f368305512b23860888ba4415063d464a09b8bb6205" # str | Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -360,12 +360,12 @@ from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response4042 import InlineResponse4042
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40329 import InlineResponse40329
+from cryptoapis.model.inline_response40030 import InlineResponse40030
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40130 import InlineResponse40130
 from cryptoapis.model.get_zilliqa_block_details_by_block_height_r import GetZilliqaBlockDetailsByBlockHeightR
-from cryptoapis.model.inline_response40029 import InlineResponse40029
-from cryptoapis.model.inline_response40129 import InlineResponse40129
+from cryptoapis.model.inline_response40330 import InlineResponse40330
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -389,7 +389,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = zilliqa_api.ZilliqaApi(api_client)
     block_height = 1244298 # int | Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -499,7 +499,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = zilliqa_api.ZilliqaApi(api_client)
     transaction_hash = "0xe649afbe2849c70a7a8b3087bee2c7b2fa0b6b77ab658b4fff390a1d06f0a8bc" # str | String identifier of the transaction
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -608,9 +608,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = zilliqa_api.ZilliqaApi(api_client)
     address = "zil17v9gs6ctn9pq6wka8k668umdlaj88nrfej7rnm" # str | Defines the specific address of the sender.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 10 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
 
     # example passing only required values which don't have defaults set
     try:
@@ -690,13 +690,13 @@ from cryptoapis.api import zilliqa_api
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40021 import InlineResponse40021
+from cryptoapis.model.inline_response40022 import InlineResponse40022
 from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40122 import InlineResponse40122
 from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40121 import InlineResponse40121
 from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40322 import InlineResponse40322
 from cryptoapis.model.list_zilliqa_transactions_by_block_hash_r import ListZilliqaTransactionsByBlockHashR
-from cryptoapis.model.inline_response40321 import InlineResponse40321
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -720,9 +720,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = zilliqa_api.ZilliqaApi(api_client)
     block_hash = "0x3160ca05ac12f60023de6b6987596eccbf084629f1a92b59534c5c021bf27041" # str | Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 10 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
 
     # example passing only required values which don't have defaults set
     try:
@@ -800,15 +800,15 @@ import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
 from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40023 import InlineResponse40023
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40022 import InlineResponse40022
 from cryptoapis.model.list_zilliqa_transactions_by_block_height_r import ListZilliqaTransactionsByBlockHeightR
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40122 import InlineResponse40122
+from cryptoapis.model.inline_response40123 import InlineResponse40123
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40322 import InlineResponse40322
+from cryptoapis.model.inline_response40323 import InlineResponse40323
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -832,9 +832,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = zilliqa_api.ZilliqaApi(api_client)
     block_height = 1250392 # int | Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 10 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
 
     # example passing only required values which don't have defaults set
     try:

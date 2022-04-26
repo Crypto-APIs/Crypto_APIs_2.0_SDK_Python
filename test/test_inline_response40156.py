@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_tokens_by_address_e401 import ListTokensByAddressE401
-globals()['ListTokensByAddressE401'] = ListTokensByAddressE401
+from cryptoapis.model.list_internal_transactions_by_address_e401 import ListInternalTransactionsByAddressE401
+globals()['ListInternalTransactionsByAddressE401'] = ListInternalTransactionsByAddressE401
 from cryptoapis.model.inline_response40156 import InlineResponse40156
 
 

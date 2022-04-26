@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_wallet_transactions_e403 import ListWalletTransactionsE403
-globals()['ListWalletTransactionsE403'] = ListWalletTransactionsE403
+from cryptoapis.model.list_latest_mined_blocks_e403 import ListLatestMinedBlocksE403
+globals()['ListLatestMinedBlocksE403'] = ListLatestMinedBlocksE403
 from cryptoapis.model.inline_response40345 import InlineResponse40345
 
 

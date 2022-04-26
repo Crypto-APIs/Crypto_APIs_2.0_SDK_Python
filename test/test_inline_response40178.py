@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_tokens_forwarding_automations_e401 import ListTokensForwardingAutomationsE401
-globals()['ListTokensForwardingAutomationsE401'] = ListTokensForwardingAutomationsE401
+from cryptoapis.model.new_block_e401 import NewBlockE401
+globals()['NewBlockE401'] = NewBlockE401
 from cryptoapis.model.inline_response40178 import InlineResponse40178
 
 

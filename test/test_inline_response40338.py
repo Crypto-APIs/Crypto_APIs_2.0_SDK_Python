@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_omni_transactions_by_block_height_e403 import ListOmniTransactionsByBlockHeightE403
-globals()['ListOmniTransactionsByBlockHeightE403'] = ListOmniTransactionsByBlockHeightE403
+from cryptoapis.model.list_all_assets_from_all_wallets_e403 import ListAllAssetsFromAllWalletsE403
+globals()['ListAllAssetsFromAllWalletsE403'] = ListAllAssetsFromAllWalletsE403
 from cryptoapis.model.inline_response40338 import InlineResponse40338
 
 

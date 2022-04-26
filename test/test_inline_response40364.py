@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.mined_transaction_e403 import MinedTransactionE403
-globals()['MinedTransactionE403'] = MinedTransactionE403
+from cryptoapis.model.list_confirmed_tokens_transfers_by_address_e403 import ListConfirmedTokensTransfersByAddressE403
+globals()['ListConfirmedTokensTransfersByAddressE403'] = ListConfirmedTokensTransfersByAddressE403
 from cryptoapis.model.inline_response40364 import InlineResponse40364
 
 

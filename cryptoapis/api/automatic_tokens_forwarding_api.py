@@ -28,22 +28,22 @@ from cryptoapis.model.create_automatic_tokens_forwarding_r import CreateAutomati
 from cryptoapis.model.create_automatic_tokens_forwarding_rb import CreateAutomaticTokensForwardingRB
 from cryptoapis.model.delete_automatic_tokens_forwarding_r import DeleteAutomaticTokensForwardingR
 from cryptoapis.model.get_fee_address_details_r import GetFeeAddressDetailsR
-from cryptoapis.model.inline_response40078 import InlineResponse40078
-from cryptoapis.model.inline_response40079 import InlineResponse40079
-from cryptoapis.model.inline_response40080 import InlineResponse40080
-from cryptoapis.model.inline_response40081 import InlineResponse40081
-from cryptoapis.model.inline_response40082 import InlineResponse40082
-from cryptoapis.model.inline_response40178 import InlineResponse40178
-from cryptoapis.model.inline_response40179 import InlineResponse40179
-from cryptoapis.model.inline_response40180 import InlineResponse40180
-from cryptoapis.model.inline_response40181 import InlineResponse40181
-from cryptoapis.model.inline_response40182 import InlineResponse40182
+from cryptoapis.model.inline_response40092 import InlineResponse40092
+from cryptoapis.model.inline_response40093 import InlineResponse40093
+from cryptoapis.model.inline_response40094 import InlineResponse40094
+from cryptoapis.model.inline_response40095 import InlineResponse40095
+from cryptoapis.model.inline_response40096 import InlineResponse40096
+from cryptoapis.model.inline_response40192 import InlineResponse40192
+from cryptoapis.model.inline_response40193 import InlineResponse40193
+from cryptoapis.model.inline_response40194 import InlineResponse40194
+from cryptoapis.model.inline_response40195 import InlineResponse40195
+from cryptoapis.model.inline_response40196 import InlineResponse40196
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40378 import InlineResponse40378
-from cryptoapis.model.inline_response40379 import InlineResponse40379
-from cryptoapis.model.inline_response40380 import InlineResponse40380
-from cryptoapis.model.inline_response40381 import InlineResponse40381
-from cryptoapis.model.inline_response40382 import InlineResponse40382
+from cryptoapis.model.inline_response40392 import InlineResponse40392
+from cryptoapis.model.inline_response40393 import InlineResponse40393
+from cryptoapis.model.inline_response40394 import InlineResponse40394
+from cryptoapis.model.inline_response40395 import InlineResponse40395
+from cryptoapis.model.inline_response40396 import InlineResponse40396
 from cryptoapis.model.inline_response4041 import InlineResponse4041
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response415 import InlineResponse415
@@ -505,12 +505,20 @@ class AutomaticTokensForwardingApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -536,9 +544,13 @@ class AutomaticTokensForwardingApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -582,12 +594,20 @@ class AutomaticTokensForwardingApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -613,9 +633,13 @@ class AutomaticTokensForwardingApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -660,12 +684,20 @@ class AutomaticTokensForwardingApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -691,9 +723,13 @@ class AutomaticTokensForwardingApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -738,12 +774,20 @@ class AutomaticTokensForwardingApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -769,9 +813,13 @@ class AutomaticTokensForwardingApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \
@@ -816,12 +864,20 @@ class AutomaticTokensForwardingApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -847,9 +903,13 @@ class AutomaticTokensForwardingApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['blockchain'] = \
             blockchain
         kwargs['network'] = \

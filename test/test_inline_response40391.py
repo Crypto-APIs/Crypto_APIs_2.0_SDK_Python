@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_asset_details_by_asset_symbol_e403 import GetAssetDetailsByAssetSymbolE403
-globals()['GetAssetDetailsByAssetSymbolE403'] = GetAssetDetailsByAssetSymbolE403
+from cryptoapis.model.delete_automatic_coins_forwarding_e403 import DeleteAutomaticCoinsForwardingE403
+globals()['DeleteAutomaticCoinsForwardingE403'] = DeleteAutomaticCoinsForwardingE403
 from cryptoapis.model.inline_response40391 import InlineResponse40391
 
 

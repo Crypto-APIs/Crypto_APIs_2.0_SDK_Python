@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_unspent_transaction_outputs_by_address_e401 import ListUnspentTransactionOutputsByAddressE401
-globals()['ListUnspentTransactionOutputsByAddressE401'] = ListUnspentTransactionOutputsByAddressE401
+from cryptoapis.model.list_internal_transaction_details_by_transaction_hash_e401 import ListInternalTransactionDetailsByTransactionHashE401
+globals()['ListInternalTransactionDetailsByTransactionHashE401'] = ListInternalTransactionDetailsByTransactionHashE401
 from cryptoapis.model.inline_response40152 import InlineResponse40152
 
 

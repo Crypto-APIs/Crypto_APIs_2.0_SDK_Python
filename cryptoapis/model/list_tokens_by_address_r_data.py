@@ -88,8 +88,8 @@ class ListTokensByAddressRData(ModelNormal):
         """
         lazy_import()
         return {
-            'offset': (int,),  # noqa: E501
             'limit': (int,),  # noqa: E501
+            'offset': (int,),  # noqa: E501
             'total': (int,),  # noqa: E501
             'items': ([ListTokensByAddressRI],),  # noqa: E501
         }
@@ -100,8 +100,8 @@ class ListTokensByAddressRData(ModelNormal):
 
 
     attribute_map = {
-        'offset': 'offset',  # noqa: E501
         'limit': 'limit',  # noqa: E501
+        'offset': 'offset',  # noqa: E501
         'total': 'total',  # noqa: E501
         'items': 'items',  # noqa: E501
     }
@@ -113,12 +113,12 @@ class ListTokensByAddressRData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, offset, limit, total, items, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, limit, offset, total, items, *args, **kwargs):  # noqa: E501
         """ListTokensByAddressRData - a model defined in OpenAPI
 
         Args:
-            offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.
             limit (int): Defines how many items should be returned in the response per page basis.
+            offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.
             total (int): Defines the total number of items returned in the response.
             items ([ListTokensByAddressRI]):
 
@@ -156,7 +156,7 @@ class ListTokensByAddressRData(ModelNormal):
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -164,14 +164,18 @@ class ListTokensByAddressRData(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -180,8 +184,8 @@ class ListTokensByAddressRData(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.offset = offset
         self.limit = limit
+        self.offset = offset
         self.total = total
         self.items = items
         for var_name, var_value in kwargs.items():
@@ -204,12 +208,12 @@ class ListTokensByAddressRData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, offset, limit, total, items, *args, **kwargs):  # noqa: E501
+    def __init__(self, limit, offset, total, items, *args, **kwargs):  # noqa: E501
         """ListTokensByAddressRData - a model defined in OpenAPI
 
         Args:
-            offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.
             limit (int): Defines how many items should be returned in the response per page basis.
+            offset (int): The starting index of the response items, i.e. where the response should start listing the returned items.
             total (int): Defines the total number of items returned in the response.
             items ([ListTokensByAddressRI]):
 
@@ -253,14 +257,18 @@ class ListTokensByAddressRData(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -269,8 +277,8 @@ class ListTokensByAddressRData(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.offset = offset
         self.limit = limit
+        self.offset = offset
         self.total = total
         self.items = items
         for var_name, var_value in kwargs.items():

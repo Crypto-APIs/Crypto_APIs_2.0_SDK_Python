@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.activate_blockchain_event_subscription_e401 import ActivateBlockchainEventSubscriptionE401
-globals()['ActivateBlockchainEventSubscriptionE401'] = ActivateBlockchainEventSubscriptionE401
+from cryptoapis.model.list_tokens_by_address_e401 import ListTokensByAddressE401
+globals()['ListTokensByAddressE401'] = ListTokensByAddressE401
 from cryptoapis.model.inline_response40167 import InlineResponse40167
 
 

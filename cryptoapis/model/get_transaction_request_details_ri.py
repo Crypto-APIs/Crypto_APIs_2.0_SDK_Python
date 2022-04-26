@@ -68,6 +68,7 @@ class GetTransactionRequestDetailsRI(ModelNormal):
             'DASH': "dash",
             'ETHEREUM': "ethereum",
             'ETHEREUM-CLASSIC': "ethereum-classic",
+            'XRP': "xrp",
             'ZCASH': "zcash",
         },
         ('fee_priority',): {
@@ -135,6 +136,7 @@ class GetTransactionRequestDetailsRI(ModelNormal):
             'transaction_type': (str,),  # noqa: E501
             'unit': (str,),  # noqa: E501
             'wallet_id': (str,),  # noqa: E501
+            'transaction_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -153,6 +155,7 @@ class GetTransactionRequestDetailsRI(ModelNormal):
         'transaction_type': 'transactionType',  # noqa: E501
         'unit': 'unit',  # noqa: E501
         'wallet_id': 'walletId',  # noqa: E501
+        'transaction_id': 'transactionId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -208,10 +211,11 @@ class GetTransactionRequestDetailsRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            transaction_id (str): Represents the unique identifier of a transaction, i.e. it could be transactionId in UTXO-based protocols like Bitcoin, and transaction hash in Ethereum blockchain.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -219,14 +223,18 @@ class GetTransactionRequestDetailsRI(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -311,6 +319,7 @@ class GetTransactionRequestDetailsRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            transaction_id (str): Represents the unique identifier of a transaction, i.e. it could be transactionId in UTXO-based protocols like Bitcoin, and transaction hash in Ethereum blockchain.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -320,14 +329,18 @@ class GetTransactionRequestDetailsRI(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

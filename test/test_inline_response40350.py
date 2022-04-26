@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_internal_transaction_by_transaction_hash_and_operation_id_e403 import GetInternalTransactionByTransactionHashAndOperationIdE403
-globals()['GetInternalTransactionByTransactionHashAndOperationIdE403'] = GetInternalTransactionByTransactionHashAndOperationIdE403
+from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_assets_e403 import GetHDWalletXPubYPubZPubAssetsE403
+globals()['GetHDWalletXPubYPubZPubAssetsE403'] = GetHDWalletXPubYPubZPubAssetsE403
 from cryptoapis.model.inline_response40350 import InlineResponse40350
 
 

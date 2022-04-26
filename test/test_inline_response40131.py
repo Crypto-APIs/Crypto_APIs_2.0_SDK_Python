@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_xrp_ripple_block_details_by_block_hash_e401 import GetXRPRippleBlockDetailsByBlockHashE401
-globals()['GetXRPRippleBlockDetailsByBlockHashE401'] = GetXRPRippleBlockDetailsByBlockHashE401
+from cryptoapis.model.get_block_details_by_block_hash_e401 import GetBlockDetailsByBlockHashE401
+globals()['GetBlockDetailsByBlockHashE401'] = GetBlockDetailsByBlockHashE401
 from cryptoapis.model.inline_response40131 import InlineResponse40131
 
 

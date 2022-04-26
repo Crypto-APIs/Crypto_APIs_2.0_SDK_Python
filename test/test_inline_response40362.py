@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_e403 import NewConfirmedTokensTransactionsAndEachConfirmationE403
-globals()['NewConfirmedTokensTransactionsAndEachConfirmationE403'] = NewConfirmedTokensTransactionsAndEachConfirmationE403
+from cryptoapis.model.list_confirmed_tokens_transfers_by_address_and_time_range_e403 import ListConfirmedTokensTransfersByAddressAndTimeRangeE403
+globals()['ListConfirmedTokensTransfersByAddressAndTimeRangeE403'] = ListConfirmedTokensTransfersByAddressAndTimeRangeE403
 from cryptoapis.model.inline_response40362 import InlineResponse40362
 
 

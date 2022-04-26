@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.add_tokens_to_existing_from_address_e401 import AddTokensToExistingFromAddressE401
-globals()['AddTokensToExistingFromAddressE401'] = AddTokensToExistingFromAddressE401
+from cryptoapis.model.get_blockchain_event_subscription_details_by_reference_ide401 import GetBlockchainEventSubscriptionDetailsByReferenceIDE401
+globals()['GetBlockchainEventSubscriptionDetailsByReferenceIDE401'] = GetBlockchainEventSubscriptionDetailsByReferenceIDE401
 from cryptoapis.model.inline_response40180 import InlineResponse40180
 
 

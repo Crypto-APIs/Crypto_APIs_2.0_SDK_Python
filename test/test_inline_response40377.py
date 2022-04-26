@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.delete_automatic_coins_forwarding_e403 import DeleteAutomaticCoinsForwardingE403
-globals()['DeleteAutomaticCoinsForwardingE403'] = DeleteAutomaticCoinsForwardingE403
+from cryptoapis.model.mined_transaction_e403 import MinedTransactionE403
+globals()['MinedTransactionE403'] = MinedTransactionE403
 from cryptoapis.model.inline_response40377 import InlineResponse40377
 
 

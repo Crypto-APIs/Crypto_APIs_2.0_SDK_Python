@@ -33,15 +33,15 @@ import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
 from cryptoapis.model.inline_response40912 import InlineResponse40912
 from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40064 import InlineResponse40064
+from cryptoapis.model.inline_response40177 import InlineResponse40177
 from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response40164 import InlineResponse40164
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40377 import InlineResponse40377
 from cryptoapis.model.mined_transaction_rb import MinedTransactionRB
 from cryptoapis.model.mined_transaction_r import MinedTransactionR
-from cryptoapis.model.inline_response40364 import InlineResponse40364
+from cryptoapis.model.inline_response40077 import InlineResponse40077
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -66,14 +66,14 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = create_subscriptions_for_api.CreateSubscriptionsForApi(api_client)
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     mined_transaction_rb = MinedTransactionRB(
-        context="context_example",
+        context="yourExampleString",
         data=MinedTransactionRBData(
             item=MinedTransactionRBDataItem(
                 allow_duplicates=False,
                 callback_secret_key="yourSecretKey",
-                callback_url="http://example.com",
+                callback_url="https://example.com",
                 transaction_id="df2690ff97e72c1f8b0f2102a8cb5c1d0fa8fb8754d543c9bc0edc4d4bc34bfc",
             ),
         ),
@@ -153,15 +153,15 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.inline_response40065 import InlineResponse40065
+from cryptoapis.model.inline_response40178 import InlineResponse40178
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response40165 import InlineResponse40165
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response40378 import InlineResponse40378
 from cryptoapis.model.inline_response415 import InlineResponse415
 from cryptoapis.model.new_block_rb import NewBlockRB
-from cryptoapis.model.inline_response40365 import InlineResponse40365
+from cryptoapis.model.inline_response40078 import InlineResponse40078
 from cryptoapis.model.new_block_r import NewBlockR
 from cryptoapis.model.inline_response40913 import InlineResponse40913
 from pprint import pprint
@@ -188,14 +188,14 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = create_subscriptions_for_api.CreateSubscriptionsForApi(api_client)
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     new_block_rb = NewBlockRB(
-        context="context_example",
+        context="yourExampleString",
         data=NewBlockRBData(
             item=NewBlockRBDataItem(
                 allow_duplicates=True,
                 callback_secret_key="yourSecretKey",
-                callback_url="http://example.com",
+                callback_url="https://example.com",
             ),
         ),
     ) # NewBlockRB |  (optional)
@@ -276,15 +276,15 @@ import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.new_confirmed_coins_transactions_rb import NewConfirmedCoinsTransactionsRB
+from cryptoapis.model.inline_response40073 import InlineResponse40073
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response4098 import InlineResponse4098
-from cryptoapis.model.inline_response40060 import InlineResponse40060
+from cryptoapis.model.inline_response40173 import InlineResponse40173
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
 from cryptoapis.model.new_confirmed_coins_transactions_r import NewConfirmedCoinsTransactionsR
-from cryptoapis.model.inline_response40160 import InlineResponse40160
-from cryptoapis.model.inline_response40360 import InlineResponse40360
+from cryptoapis.model.inline_response40373 import InlineResponse40373
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -309,15 +309,16 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = create_subscriptions_for_api.CreateSubscriptionsForApi(api_client)
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     new_confirmed_coins_transactions_rb = NewConfirmedCoinsTransactionsRB(
-        context="context_example",
+        context="yourExampleString",
         data=NewConfirmedCoinsTransactionsRBData(
             item=NewConfirmedCoinsTransactionsRBDataItem(
                 address="mho4jHBcrNCncKt38trJahXakuaBnS7LK5",
                 allow_duplicates=True,
                 callback_secret_key="yourSecretKey",
-                callback_url="http://example.com",
+                callback_url="https://example.com",
+                receive_callback_on=3,
             ),
         ),
     ) # NewConfirmedCoinsTransactionsRB |  (optional)
@@ -400,13 +401,13 @@ from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation_r import NewConfirmedCoinsTransactionsAndEachConfirmationR
 from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation_rb import NewConfirmedCoinsTransactionsAndEachConfirmationRB
 from cryptoapis.model.inline_response40911 import InlineResponse40911
-from cryptoapis.model.inline_response40063 import InlineResponse40063
+from cryptoapis.model.inline_response40176 import InlineResponse40176
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40163 import InlineResponse40163
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40363 import InlineResponse40363
+from cryptoapis.model.inline_response40376 import InlineResponse40376
+from cryptoapis.model.inline_response40076 import InlineResponse40076
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -431,15 +432,15 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = create_subscriptions_for_api.CreateSubscriptionsForApi(api_client)
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     new_confirmed_coins_transactions_and_each_confirmation_rb = NewConfirmedCoinsTransactionsAndEachConfirmationRB(
-        context="context_example",
+        context="yourExampleString",
         data=NewConfirmedCoinsTransactionsAndEachConfirmationRBData(
             item=NewConfirmedCoinsTransactionsAndEachConfirmationRBDataItem(
                 address="mho4jHBcrNCncKt38trJahXakuaBnS7LK5",
                 allow_duplicates=True,
                 callback_secret_key="yourSecretKey",
-                callback_url="http://example.com",
+                callback_url="https://example.com",
                 confirmations_count=3,
             ),
         ),
@@ -520,14 +521,14 @@ import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
 from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40073 import InlineResponse40073
+from cryptoapis.model.inline_response40187 import InlineResponse40187
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40173 import InlineResponse40173
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40387 import InlineResponse40387
 from cryptoapis.model.new_confirmed_internal_transactions_r import NewConfirmedInternalTransactionsR
-from cryptoapis.model.inline_response40373 import InlineResponse40373
+from cryptoapis.model.inline_response40087 import InlineResponse40087
 from cryptoapis.model.inline_response40914 import InlineResponse40914
 from cryptoapis.model.new_confirmed_internal_transactions_rb import NewConfirmedInternalTransactionsRB
 from pprint import pprint
@@ -554,15 +555,16 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = create_subscriptions_for_api.CreateSubscriptionsForApi(api_client)
     blockchain = "ethereum-classic" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "mordor" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     new_confirmed_internal_transactions_rb = NewConfirmedInternalTransactionsRB(
-        context="context_example",
+        context="yourExampleString",
         data=NewConfirmedInternalTransactionsRBData(
             item=NewConfirmedInternalTransactionsRBDataItem(
                 address="0xbcc817f057950b0df41206c5d7125e6225cae18e",
                 allow_duplicates=True,
                 callback_secret_key="yourSecretKey",
-                callback_url="http://example.com",
+                callback_url="https://example.com",
+                receive_callback_on=3,
             ),
         ),
     ) # NewConfirmedInternalTransactionsRB |  (optional)
@@ -643,14 +645,14 @@ import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation_r import NewConfirmedInternalTransactionsAndEachConfirmationR
-from cryptoapis.model.inline_response40074 import InlineResponse40074
+from cryptoapis.model.inline_response40188 import InlineResponse40188
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40174 import InlineResponse40174
 from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.inline_response40388 import InlineResponse40388
 from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation_rb import NewConfirmedInternalTransactionsAndEachConfirmationRB
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40374 import InlineResponse40374
+from cryptoapis.model.inline_response40088 import InlineResponse40088
 from cryptoapis.model.inline_response40915 import InlineResponse40915
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -676,9 +678,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = create_subscriptions_for_api.CreateSubscriptionsForApi(api_client)
     blockchain = "ethereum-classic" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "mordor" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     new_confirmed_internal_transactions_and_each_confirmation_rb = NewConfirmedInternalTransactionsAndEachConfirmationRB(
-        context="context_example",
+        context="yourExampleString",
         data=NewConfirmedInternalTransactionsAndEachConfirmationRBData(
             item=NewConfirmedInternalTransactionsAndEachConfirmationRBDataItem(
                 address="0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
@@ -765,16 +767,16 @@ import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
 from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.inline_response40074 import InlineResponse40074
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.new_confirmed_tokens_transactions_rb import NewConfirmedTokensTransactionsRB
-from cryptoapis.model.inline_response40061 import InlineResponse40061
 from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.inline_response40174 import InlineResponse40174
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40161 import InlineResponse40161
 from cryptoapis.model.inline_response4099 import InlineResponse4099
+from cryptoapis.model.inline_response40374 import InlineResponse40374
 from cryptoapis.model.new_confirmed_tokens_transactions_r import NewConfirmedTokensTransactionsR
-from cryptoapis.model.inline_response40361 import InlineResponse40361
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -799,15 +801,16 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = create_subscriptions_for_api.CreateSubscriptionsForApi(api_client)
     blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "ropsten" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     new_confirmed_tokens_transactions_rb = NewConfirmedTokensTransactionsRB(
-        context="context_example",
+        context="yourExampleString",
         data=NewConfirmedTokensTransactionsRBData(
             item=NewConfirmedTokensTransactionsRBDataItem(
                 address="0xbf16582e53d6fd892f11de8a3e29e8c3b65d77c2",
                 allow_duplicates=True,
                 callback_secret_key="yourSecretKey",
-                callback_url="http://example.com",
+                callback_url="https://example.com",
+                receive_callback_on=3,
             ),
         ),
     ) # NewConfirmedTokensTransactionsRB |  (optional)
@@ -886,17 +889,17 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
+from cryptoapis.model.inline_response40075 import InlineResponse40075
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_r import NewConfirmedTokensTransactionsAndEachConfirmationR
 from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response40062 import InlineResponse40062
+from cryptoapis.model.inline_response40175 import InlineResponse40175
 from cryptoapis.model.inline_response40910 import InlineResponse40910
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40162 import InlineResponse40162
 from cryptoapis.model.inline_response500 import InlineResponse500
 from cryptoapis.model.inline_response415 import InlineResponse415
 from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_rb import NewConfirmedTokensTransactionsAndEachConfirmationRB
-from cryptoapis.model.inline_response40362 import InlineResponse40362
+from cryptoapis.model.inline_response40375 import InlineResponse40375
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -921,15 +924,15 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = create_subscriptions_for_api.CreateSubscriptionsForApi(api_client)
     blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "ropsten" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     new_confirmed_tokens_transactions_and_each_confirmation_rb = NewConfirmedTokensTransactionsAndEachConfirmationRB(
-        context="context_example",
+        context="yourExampleString",
         data=NewConfirmedTokensTransactionsAndEachConfirmationRBData(
             item=NewConfirmedTokensTransactionsAndEachConfirmationRBDataItem(
                 address="0x033ef6db9fbd0ee60e2931906b987fe0280471a0",
                 allow_duplicates=True,
                 callback_secret_key="yourSecretKey",
-                callback_url="http://example.com",
+                callback_url="https://example.com",
                 confirmations_count=3,
             ),
         ),
@@ -1010,16 +1013,16 @@ import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
 from cryptoapis.model.new_unconfirmed_coins_transactions_r import NewUnconfirmedCoinsTransactionsR
-from cryptoapis.model.inline_response40158 import InlineResponse40158
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.inline_response4096 import InlineResponse4096
+from cryptoapis.model.inline_response40071 import InlineResponse40071
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40358 import InlineResponse40358
 from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.inline_response40171 import InlineResponse40171
 from cryptoapis.model.new_unconfirmed_coins_transactions_rb import NewUnconfirmedCoinsTransactionsRB
-from cryptoapis.model.inline_response40058 import InlineResponse40058
+from cryptoapis.model.inline_response40371 import InlineResponse40371
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1044,15 +1047,15 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = create_subscriptions_for_api.CreateSubscriptionsForApi(api_client)
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     new_unconfirmed_coins_transactions_rb = NewUnconfirmedCoinsTransactionsRB(
-        context="context_example",
+        context="yourExampleString",
         data=NewUnconfirmedCoinsTransactionsRBData(
             item=NewUnconfirmedCoinsTransactionsRBDataItem(
                 address="mho4jHBcrNCncKt38trJahXakuaBnS7LK5",
                 allow_duplicates=True,
                 callback_secret_key="yourSecretKey",
-                callback_url="http://example.com",
+                callback_url="https://example.com",
             ),
         ),
     ) # NewUnconfirmedCoinsTransactionsRB |  (optional)
@@ -1134,14 +1137,14 @@ from cryptoapis.api import create_subscriptions_for_api
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.new_unconfirmed_tokens_transactions_r import NewUnconfirmedTokensTransactionsR
+from cryptoapis.model.inline_response40072 import InlineResponse40072
 from cryptoapis.model.inline_response4097 import InlineResponse4097
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40359 import InlineResponse40359
+from cryptoapis.model.inline_response40172 import InlineResponse40172
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40059 import InlineResponse40059
+from cryptoapis.model.inline_response40372 import InlineResponse40372
 from cryptoapis.model.new_unconfirmed_tokens_transactions_rb import NewUnconfirmedTokensTransactionsRB
-from cryptoapis.model.inline_response40159 import InlineResponse40159
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1166,15 +1169,15 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = create_subscriptions_for_api.CreateSubscriptionsForApi(api_client)
     blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "ropsten" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context = "context_example" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     new_unconfirmed_tokens_transactions_rb = NewUnconfirmedTokensTransactionsRB(
-        context="context_example",
+        context="yourExampleString",
         data=NewUnconfirmedTokensTransactionsRBData(
             item=NewUnconfirmedTokensTransactionsRBDataItem(
                 address="0x033ef6db9fbd0ee60e2931906b987fe0280471a0",
                 allow_duplicates=True,
                 callback_secret_key="yourSecretKey",
-                callback_url="http://example.com",
+                callback_url="https://example.com",
             ),
         ),
     ) # NewUnconfirmedTokensTransactionsRB |  (optional)

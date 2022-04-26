@@ -24,17 +24,17 @@ from cryptoapis.model_utils import (  # noqa: F401
 )
 from cryptoapis.model.get_exchange_rate_by_asset_symbols_r import GetExchangeRateByAssetSymbolsR
 from cryptoapis.model.get_exchange_rate_by_assets_ids_r import GetExchangeRateByAssetsIDsR
-from cryptoapis.model.inline_response40087 import InlineResponse40087
-from cryptoapis.model.inline_response40088 import InlineResponse40088
-from cryptoapis.model.inline_response40187 import InlineResponse40187
-from cryptoapis.model.inline_response40188 import InlineResponse40188
+from cryptoapis.model.inline_response400106 import InlineResponse400106
+from cryptoapis.model.inline_response400107 import InlineResponse400107
+from cryptoapis.model.inline_response401106 import InlineResponse401106
+from cryptoapis.model.inline_response401107 import InlineResponse401107
 from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40387 import InlineResponse40387
-from cryptoapis.model.inline_response40388 import InlineResponse40388
+from cryptoapis.model.inline_response403106 import InlineResponse403106
+from cryptoapis.model.inline_response403107 import InlineResponse403107
 from cryptoapis.model.inline_response409 import InlineResponse409
 from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response4224 import InlineResponse4224
-from cryptoapis.model.inline_response4225 import InlineResponse4225
+from cryptoapis.model.inline_response4226 import InlineResponse4226
+from cryptoapis.model.inline_response4227 import InlineResponse4227
 from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.inline_response500 import InlineResponse500
 
@@ -222,12 +222,20 @@ class ExchangeRatesApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -253,9 +261,13 @@ class ExchangeRatesApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['from_asset_symbol'] = \
             from_asset_symbol
         kwargs['to_asset_symbol'] = \
@@ -299,12 +311,20 @@ class ExchangeRatesApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -330,9 +350,13 @@ class ExchangeRatesApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['from_asset_id'] = \
             from_asset_id
         kwargs['to_asset_id'] = \

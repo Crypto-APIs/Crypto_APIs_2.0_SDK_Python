@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_latest_mined_blocks_e403 import ListLatestMinedBlocksE403
-globals()['ListLatestMinedBlocksE403'] = ListLatestMinedBlocksE403
+from cryptoapis.model.get_latest_mined_xrp_ripple_block_e403 import GetLatestMinedXRPRippleBlockE403
+globals()['GetLatestMinedXRPRippleBlockE403'] = GetLatestMinedXRPRippleBlockE403
 from cryptoapis.model.inline_response40342 import InlineResponse40342
 
 

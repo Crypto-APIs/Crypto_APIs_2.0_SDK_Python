@@ -26,28 +26,28 @@ from cryptoapis.model.get_omni_transaction_details_by_transaction_id_txid_r impo
 from cryptoapis.model.get_unconfirmed_omni_transaction_by_transaction_id_txid_r import GetUnconfirmedOmniTransactionByTransactionIDTxidR
 from cryptoapis.model.inline_response4001 import InlineResponse4001
 from cryptoapis.model.inline_response40012 import InlineResponse40012
-from cryptoapis.model.inline_response40019 import InlineResponse40019
-from cryptoapis.model.inline_response40028 import InlineResponse40028
-from cryptoapis.model.inline_response40032 import InlineResponse40032
-from cryptoapis.model.inline_response40038 import InlineResponse40038
-from cryptoapis.model.inline_response40044 import InlineResponse40044
+from cryptoapis.model.inline_response40020 import InlineResponse40020
+from cryptoapis.model.inline_response40029 import InlineResponse40029
+from cryptoapis.model.inline_response40033 import InlineResponse40033
+from cryptoapis.model.inline_response40041 import InlineResponse40041
+from cryptoapis.model.inline_response40047 import InlineResponse40047
 from cryptoapis.model.inline_response4005 import InlineResponse4005
 from cryptoapis.model.inline_response4011 import InlineResponse4011
 from cryptoapis.model.inline_response40112 import InlineResponse40112
-from cryptoapis.model.inline_response40119 import InlineResponse40119
-from cryptoapis.model.inline_response40128 import InlineResponse40128
-from cryptoapis.model.inline_response40132 import InlineResponse40132
-from cryptoapis.model.inline_response40138 import InlineResponse40138
-from cryptoapis.model.inline_response40144 import InlineResponse40144
+from cryptoapis.model.inline_response40120 import InlineResponse40120
+from cryptoapis.model.inline_response40129 import InlineResponse40129
+from cryptoapis.model.inline_response40133 import InlineResponse40133
+from cryptoapis.model.inline_response40141 import InlineResponse40141
+from cryptoapis.model.inline_response40147 import InlineResponse40147
 from cryptoapis.model.inline_response4015 import InlineResponse4015
 from cryptoapis.model.inline_response402 import InlineResponse402
 from cryptoapis.model.inline_response4031 import InlineResponse4031
 from cryptoapis.model.inline_response40312 import InlineResponse40312
-from cryptoapis.model.inline_response40319 import InlineResponse40319
-from cryptoapis.model.inline_response40328 import InlineResponse40328
-from cryptoapis.model.inline_response40332 import InlineResponse40332
-from cryptoapis.model.inline_response40338 import InlineResponse40338
-from cryptoapis.model.inline_response40344 import InlineResponse40344
+from cryptoapis.model.inline_response40320 import InlineResponse40320
+from cryptoapis.model.inline_response40329 import InlineResponse40329
+from cryptoapis.model.inline_response40333 import InlineResponse40333
+from cryptoapis.model.inline_response40341 import InlineResponse40341
+from cryptoapis.model.inline_response40347 import InlineResponse40347
 from cryptoapis.model.inline_response4035 import InlineResponse4035
 from cryptoapis.model.inline_response404 import InlineResponse404
 from cryptoapis.model.inline_response409 import InlineResponse409
@@ -795,12 +795,20 @@ class OmniLayerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -826,9 +834,13 @@ class OmniLayerApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['network'] = \
             network
         kwargs['blockchain'] = \
@@ -875,12 +887,20 @@ class OmniLayerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -906,9 +926,13 @@ class OmniLayerApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['network'] = \
             network
         kwargs['blockchain'] = \
@@ -955,12 +979,20 @@ class OmniLayerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -986,9 +1018,13 @@ class OmniLayerApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['network'] = \
             network
         kwargs['blockchain'] = \
@@ -1037,12 +1073,20 @@ class OmniLayerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1068,9 +1112,13 @@ class OmniLayerApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['network'] = \
             network
         kwargs['blockchain'] = \
@@ -1119,12 +1167,20 @@ class OmniLayerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1150,9 +1206,13 @@ class OmniLayerApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['network'] = \
             network
         kwargs['blockchain'] = \
@@ -1201,12 +1261,20 @@ class OmniLayerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1232,9 +1300,13 @@ class OmniLayerApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['network'] = \
             network
         kwargs['blockchain'] = \
@@ -1283,12 +1355,20 @@ class OmniLayerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1314,9 +1394,13 @@ class OmniLayerApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['network'] = \
             network
         kwargs['blockchain'] = \
@@ -1365,12 +1449,20 @@ class OmniLayerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
             _content_type (str/None): force body content-type.
                 Default is None and content-type will be predicted by allowed
                 content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1396,9 +1488,13 @@ class OmniLayerApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['network'] = \
             network
         kwargs['blockchain'] = \

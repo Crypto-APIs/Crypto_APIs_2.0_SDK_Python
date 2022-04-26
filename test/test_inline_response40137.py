@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_last_mined_block_e401 import GetLastMinedBlockE401
-globals()['GetLastMinedBlockE401'] = GetLastMinedBlockE401
+from cryptoapis.model.create_fungible_tokens_transaction_request_from_address_e401 import CreateFungibleTokensTransactionRequestFromAddressE401
+globals()['CreateFungibleTokensTransactionRequestFromAddressE401'] = CreateFungibleTokensTransactionRequestFromAddressE401
 from cryptoapis.model.inline_response40137 import InlineResponse40137
 
 

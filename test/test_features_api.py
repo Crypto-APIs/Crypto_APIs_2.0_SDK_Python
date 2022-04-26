@@ -31,6 +31,48 @@ class TestFeaturesApi(unittest.TestCase):
         """
         pass
 
+    def test_decode_raw_transaction_hex(self):
+        """Test case for decode_raw_transaction_hex
+
+        Decode Raw Transaction Hex  # noqa: E501
+        """
+        pass
+
+    def test_decode_x_address(self):
+        """Test case for decode_x_address
+
+        Decode X-Address  # noqa: E501
+        """
+        pass
+
+    def test_derive_hd_wallet__x_pub_y_pub_z_pub_change_or_receiving_addresses(self):
+        """Test case for derive_hd_wallet__x_pub_y_pub_z_pub_change_or_receiving_addresses
+
+        Derive HD Wallet (xPub, yPub, zPub) Change Or Receiving Addresses  # noqa: E501
+        """
+        pass
+
+    def test_encode_x_address(self):
+        """Test case for encode_x_address
+
+        Encode X-Address  # noqa: E501
+        """
+        pass
+
+    def test_estimate_gas_limit(self):
+        """Test case for estimate_gas_limit
+
+        Estimate Gas Limit  # noqa: E501
+        """
+        pass
+
+    def test_estimate_token_gas_limit(self):
+        """Test case for estimate_token_gas_limit
+
+        Estimate Token Gas Limit  # noqa: E501
+        """
+        pass
+
     def test_get_eip_1559_fee_recommendations(self):
         """Test case for get_eip_1559_fee_recommendations
 

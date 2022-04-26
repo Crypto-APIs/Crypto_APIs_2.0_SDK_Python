@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_token_details_by_contract_address_e401 import GetTokenDetailsByContractAddressE401
-globals()['GetTokenDetailsByContractAddressE401'] = GetTokenDetailsByContractAddressE401
+from cryptoapis.model.get_fee_recommendations_e401 import GetFeeRecommendationsE401
+globals()['GetFeeRecommendationsE401'] = GetFeeRecommendationsE401
 from cryptoapis.model.inline_response40157 import InlineResponse40157
 
 

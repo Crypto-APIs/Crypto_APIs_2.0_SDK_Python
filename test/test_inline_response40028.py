@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_unconfirmed_omni_transactions_by_property_ide400 import ListUnconfirmedOmniTransactionsByPropertyIDE400
-globals()['ListUnconfirmedOmniTransactionsByPropertyIDE400'] = ListUnconfirmedOmniTransactionsByPropertyIDE400
+from cryptoapis.model.get_xrp_ripple_block_details_by_block_height_e400 import GetXRPRippleBlockDetailsByBlockHeightE400
+globals()['GetXRPRippleBlockDetailsByBlockHeightE400'] = GetXRPRippleBlockDetailsByBlockHeightE400
 from cryptoapis.model.inline_response40028 import InlineResponse40028
 
 
