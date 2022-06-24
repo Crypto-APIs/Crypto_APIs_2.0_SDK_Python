@@ -31,10 +31,10 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback_ribsd2_vin import GetTransactionDetailsByTransactionIDFromCallbackRIBSD2Vin
-    from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback_ribsd2_vout import GetTransactionDetailsByTransactionIDFromCallbackRIBSD2Vout
-    globals()['GetTransactionDetailsByTransactionIDFromCallbackRIBSD2Vin'] = GetTransactionDetailsByTransactionIDFromCallbackRIBSD2Vin
-    globals()['GetTransactionDetailsByTransactionIDFromCallbackRIBSD2Vout'] = GetTransactionDetailsByTransactionIDFromCallbackRIBSD2Vout
+    from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback_ribsd2_vin_inner import GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VinInner
+    from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback_ribsd2_vout_inner import GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner
+    globals()['GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VinInner'] = GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VinInner
+    globals()['GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner'] = GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner
 
 
 class GetTransactionDetailsByTransactionIDFromCallbackRIBSD2(ModelNormal):
@@ -93,8 +93,8 @@ class GetTransactionDetailsByTransactionIDFromCallbackRIBSD2(ModelNormal):
             'locktime': (int,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
-            'vin': ([GetTransactionDetailsByTransactionIDFromCallbackRIBSD2Vin],),  # noqa: E501
-            'vout': ([GetTransactionDetailsByTransactionIDFromCallbackRIBSD2Vout],),  # noqa: E501
+            'vin': ([GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VinInner],),  # noqa: E501
+            'vout': ([GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner],),  # noqa: E501
         }
 
     @cached_property
@@ -124,8 +124,8 @@ class GetTransactionDetailsByTransactionIDFromCallbackRIBSD2(ModelNormal):
             locktime (int): Represents the time at which a particular transaction can be added to the blockchain.
             size (int): Represents the total size of this transaction.
             version (int): Represents transaction version number.
-            vin ([GetTransactionDetailsByTransactionIDFromCallbackRIBSD2Vin]): Represents the transaction inputs.
-            vout ([GetTransactionDetailsByTransactionIDFromCallbackRIBSD2Vout]): Represents the transaction outputs.
+            vin ([GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VinInner]): Represents the transaction inputs.
+            vout ([GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -221,8 +221,8 @@ class GetTransactionDetailsByTransactionIDFromCallbackRIBSD2(ModelNormal):
             locktime (int): Represents the time at which a particular transaction can be added to the blockchain.
             size (int): Represents the total size of this transaction.
             version (int): Represents transaction version number.
-            vin ([GetTransactionDetailsByTransactionIDFromCallbackRIBSD2Vin]): Represents the transaction inputs.
-            vout ([GetTransactionDetailsByTransactionIDFromCallbackRIBSD2Vout]): Represents the transaction outputs.
+            vin ([GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VinInner]): Represents the transaction inputs.
+            vout ([GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

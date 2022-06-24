@@ -86,7 +86,7 @@ class GetFeeRecommendationsRI(ModelNormal):
             'fast': (str,),  # noqa: E501
             'slow': (str,),  # noqa: E501
             'standard': (str,),  # noqa: E501
-            'fee_cushion_multiplier': (str,),  # noqa: E501
+            'fee_multiplier': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -99,7 +99,7 @@ class GetFeeRecommendationsRI(ModelNormal):
         'fast': 'fast',  # noqa: E501
         'slow': 'slow',  # noqa: E501
         'standard': 'standard',  # noqa: E501
-        'fee_cushion_multiplier': 'feeCushionMultiplier',  # noqa: E501
+        'fee_multiplier': 'feeMultiplier',  # noqa: E501
     }
 
     read_only_vars = {
@@ -109,7 +109,7 @@ class GetFeeRecommendationsRI(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, unit, fast, slow, standard, fee_cushion_multiplier, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, unit, fast, slow, standard, *args, **kwargs):  # noqa: E501
         """GetFeeRecommendationsRI - a model defined in OpenAPI
 
         Args:
@@ -117,7 +117,6 @@ class GetFeeRecommendationsRI(ModelNormal):
             fast (str): Fast fee per byte calculated from unconfirmed transactions
             slow (str): Slow fee per byte calculated from unconfirmed transactions
             standard (str): Standard fee per byte calculated from unconfirmed transactions
-            fee_cushion_multiplier (str): Represents the fee cushion multiplier used to multiply the base fee.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -150,6 +149,7 @@ class GetFeeRecommendationsRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            fee_multiplier (str): Represents the fee cushion multiplier used to multiply the base fee.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -185,7 +185,6 @@ class GetFeeRecommendationsRI(ModelNormal):
         self.fast = fast
         self.slow = slow
         self.standard = standard
-        self.fee_cushion_multiplier = fee_cushion_multiplier
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -206,7 +205,7 @@ class GetFeeRecommendationsRI(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, unit, fast, slow, standard, fee_cushion_multiplier, *args, **kwargs):  # noqa: E501
+    def __init__(self, unit, fast, slow, standard, *args, **kwargs):  # noqa: E501
         """GetFeeRecommendationsRI - a model defined in OpenAPI
 
         Args:
@@ -214,7 +213,6 @@ class GetFeeRecommendationsRI(ModelNormal):
             fast (str): Fast fee per byte calculated from unconfirmed transactions
             slow (str): Slow fee per byte calculated from unconfirmed transactions
             standard (str): Standard fee per byte calculated from unconfirmed transactions
-            fee_cushion_multiplier (str): Represents the fee cushion multiplier used to multiply the base fee.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -247,6 +245,7 @@ class GetFeeRecommendationsRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            fee_multiplier (str): Represents the fee cushion multiplier used to multiply the base fee.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -280,7 +279,6 @@ class GetFeeRecommendationsRI(ModelNormal):
         self.fast = fast
         self.slow = slow
         self.standard = standard
-        self.fee_cushion_multiplier = fee_cushion_multiplier
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

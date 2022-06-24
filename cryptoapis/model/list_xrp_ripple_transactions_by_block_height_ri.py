@@ -34,14 +34,14 @@ def lazy_import():
     from cryptoapis.model.list_xrp_ripple_transactions_by_block_height_ri_fee import ListXRPRippleTransactionsByBlockHeightRIFee
     from cryptoapis.model.list_xrp_ripple_transactions_by_block_height_ri_offer import ListXRPRippleTransactionsByBlockHeightRIOffer
     from cryptoapis.model.list_xrp_ripple_transactions_by_block_height_ri_receive import ListXRPRippleTransactionsByBlockHeightRIReceive
-    from cryptoapis.model.list_xrp_ripple_transactions_by_block_height_ri_recipients import ListXRPRippleTransactionsByBlockHeightRIRecipients
-    from cryptoapis.model.list_xrp_ripple_transactions_by_block_height_ri_senders import ListXRPRippleTransactionsByBlockHeightRISenders
+    from cryptoapis.model.list_xrp_ripple_transactions_by_block_height_ri_recipients_inner import ListXRPRippleTransactionsByBlockHeightRIRecipientsInner
+    from cryptoapis.model.list_xrp_ripple_transactions_by_block_height_ri_senders_inner import ListXRPRippleTransactionsByBlockHeightRISendersInner
     from cryptoapis.model.list_xrp_ripple_transactions_by_block_height_ri_value import ListXRPRippleTransactionsByBlockHeightRIValue
     globals()['ListXRPRippleTransactionsByBlockHeightRIFee'] = ListXRPRippleTransactionsByBlockHeightRIFee
     globals()['ListXRPRippleTransactionsByBlockHeightRIOffer'] = ListXRPRippleTransactionsByBlockHeightRIOffer
     globals()['ListXRPRippleTransactionsByBlockHeightRIReceive'] = ListXRPRippleTransactionsByBlockHeightRIReceive
-    globals()['ListXRPRippleTransactionsByBlockHeightRIRecipients'] = ListXRPRippleTransactionsByBlockHeightRIRecipients
-    globals()['ListXRPRippleTransactionsByBlockHeightRISenders'] = ListXRPRippleTransactionsByBlockHeightRISenders
+    globals()['ListXRPRippleTransactionsByBlockHeightRIRecipientsInner'] = ListXRPRippleTransactionsByBlockHeightRIRecipientsInner
+    globals()['ListXRPRippleTransactionsByBlockHeightRISendersInner'] = ListXRPRippleTransactionsByBlockHeightRISendersInner
     globals()['ListXRPRippleTransactionsByBlockHeightRIValue'] = ListXRPRippleTransactionsByBlockHeightRIValue
 
 
@@ -100,8 +100,8 @@ class ListXRPRippleTransactionsByBlockHeightRI(ModelNormal):
         return {
             'index': (int,),  # noqa: E501
             'mined_in_block_hash': (str,),  # noqa: E501
-            'recipients': ([ListXRPRippleTransactionsByBlockHeightRIRecipients],),  # noqa: E501
-            'senders': ([ListXRPRippleTransactionsByBlockHeightRISenders],),  # noqa: E501
+            'recipients': ([ListXRPRippleTransactionsByBlockHeightRIRecipientsInner],),  # noqa: E501
+            'senders': ([ListXRPRippleTransactionsByBlockHeightRISendersInner],),  # noqa: E501
             'sequence': (int,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'timestamp': (int,),  # noqa: E501
@@ -151,8 +151,8 @@ class ListXRPRippleTransactionsByBlockHeightRI(ModelNormal):
         Args:
             index (int):
             mined_in_block_hash (str):
-            recipients ([ListXRPRippleTransactionsByBlockHeightRIRecipients]): Object Array representation of transaction receivers
-            senders ([ListXRPRippleTransactionsByBlockHeightRISenders]): Object Array representation of transaction senders
+            recipients ([ListXRPRippleTransactionsByBlockHeightRIRecipientsInner]): Object Array representation of transaction receivers
+            senders ([ListXRPRippleTransactionsByBlockHeightRISendersInner]): Object Array representation of transaction senders
             sequence (int):
             status (str):
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
@@ -266,8 +266,8 @@ class ListXRPRippleTransactionsByBlockHeightRI(ModelNormal):
         Args:
             index (int):
             mined_in_block_hash (str):
-            recipients ([ListXRPRippleTransactionsByBlockHeightRIRecipients]): Object Array representation of transaction receivers
-            senders ([ListXRPRippleTransactionsByBlockHeightRISenders]): Object Array representation of transaction senders
+            recipients ([ListXRPRippleTransactionsByBlockHeightRIRecipientsInner]): Object Array representation of transaction receivers
+            senders ([ListXRPRippleTransactionsByBlockHeightRISendersInner]): Object Array representation of transaction senders
             sequence (int):
             status (str):
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.

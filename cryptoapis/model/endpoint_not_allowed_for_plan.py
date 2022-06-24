@@ -31,8 +31,8 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
-    globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
+    from cryptoapis.model.banned_ip_address_details_inner import BannedIpAddressDetailsInner
+    globals()['BannedIpAddressDetailsInner'] = BannedIpAddressDetailsInner
 
 
 class EndpointNotAllowedForPlan(ModelNormal):
@@ -90,7 +90,7 @@ class EndpointNotAllowedForPlan(ModelNormal):
         return {
             'code': (str,),  # noqa: E501
             'message': (str,),  # noqa: E501
-            'details': ([BannedIpAddressDetails],),  # noqa: E501
+            'details': ([BannedIpAddressDetailsInner],),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +149,7 @@ class EndpointNotAllowedForPlan(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            details ([BannedIpAddressDetails]): [optional]  # noqa: E501
+            details ([BannedIpAddressDetailsInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -241,7 +241,7 @@ class EndpointNotAllowedForPlan(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            details ([BannedIpAddressDetails]): [optional]  # noqa: E501
+            details ([BannedIpAddressDetailsInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

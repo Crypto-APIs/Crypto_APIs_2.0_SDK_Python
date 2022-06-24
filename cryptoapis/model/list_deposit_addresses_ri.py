@@ -32,11 +32,11 @@ from cryptoapis.exceptions import ApiAttributeError
 
 def lazy_import():
     from cryptoapis.model.list_deposit_addresses_ri_confirmed_balance import ListDepositAddressesRIConfirmedBalance
-    from cryptoapis.model.list_deposit_addresses_ri_fungible_tokens import ListDepositAddressesRIFungibleTokens
-    from cryptoapis.model.list_deposit_addresses_ri_non_fungible_tokens import ListDepositAddressesRINonFungibleTokens
+    from cryptoapis.model.list_deposit_addresses_ri_fungible_tokens_inner import ListDepositAddressesRIFungibleTokensInner
+    from cryptoapis.model.list_deposit_addresses_ri_non_fungible_tokens_inner import ListDepositAddressesRINonFungibleTokensInner
     globals()['ListDepositAddressesRIConfirmedBalance'] = ListDepositAddressesRIConfirmedBalance
-    globals()['ListDepositAddressesRIFungibleTokens'] = ListDepositAddressesRIFungibleTokens
-    globals()['ListDepositAddressesRINonFungibleTokens'] = ListDepositAddressesRINonFungibleTokens
+    globals()['ListDepositAddressesRIFungibleTokensInner'] = ListDepositAddressesRIFungibleTokensInner
+    globals()['ListDepositAddressesRINonFungibleTokensInner'] = ListDepositAddressesRINonFungibleTokensInner
 
 
 class ListDepositAddressesRI(ModelNormal):
@@ -95,10 +95,10 @@ class ListDepositAddressesRI(ModelNormal):
             'address': (str,),  # noqa: E501
             'confirmed_balance': (ListDepositAddressesRIConfirmedBalance,),  # noqa: E501
             'created_timestamp': (int,),  # noqa: E501
-            'fungible_tokens': ([ListDepositAddressesRIFungibleTokens],),  # noqa: E501
+            'fungible_tokens': ([ListDepositAddressesRIFungibleTokensInner],),  # noqa: E501
             'index': (str,),  # noqa: E501
             'label': (str,),  # noqa: E501
-            'non_fungible_tokens': ([ListDepositAddressesRINonFungibleTokens],),  # noqa: E501
+            'non_fungible_tokens': ([ListDepositAddressesRINonFungibleTokensInner],),  # noqa: E501
         }
 
     @cached_property
@@ -130,10 +130,10 @@ class ListDepositAddressesRI(ModelNormal):
             address (str): Specifies the specific address's unique string value.
             confirmed_balance (ListDepositAddressesRIConfirmedBalance):
             created_timestamp (int): Defines the specific UNIX time when the deposit address was created.
-            fungible_tokens ([ListDepositAddressesRIFungibleTokens]): Represents fungible tokens'es detailed information
+            fungible_tokens ([ListDepositAddressesRIFungibleTokensInner]): Represents fungible tokens'es detailed information
             index (str): Represents the index of the address in the wallet.
             label (str): Represents a custom tag that customers can set up for their Wallets and addresses. E.g. custom label named \"Special addresses\".
-            non_fungible_tokens ([ListDepositAddressesRINonFungibleTokens]): Represents non-fungible tokens'es detailed information.
+            non_fungible_tokens ([ListDepositAddressesRINonFungibleTokensInner]): Represents non-fungible tokens'es detailed information.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -231,10 +231,10 @@ class ListDepositAddressesRI(ModelNormal):
             address (str): Specifies the specific address's unique string value.
             confirmed_balance (ListDepositAddressesRIConfirmedBalance):
             created_timestamp (int): Defines the specific UNIX time when the deposit address was created.
-            fungible_tokens ([ListDepositAddressesRIFungibleTokens]): Represents fungible tokens'es detailed information
+            fungible_tokens ([ListDepositAddressesRIFungibleTokensInner]): Represents fungible tokens'es detailed information
             index (str): Represents the index of the address in the wallet.
             label (str): Represents a custom tag that customers can set up for their Wallets and addresses. E.g. custom label named \"Special addresses\".
-            non_fungible_tokens ([ListDepositAddressesRINonFungibleTokens]): Represents non-fungible tokens'es detailed information.
+            non_fungible_tokens ([ListDepositAddressesRINonFungibleTokensInner]): Represents non-fungible tokens'es detailed information.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

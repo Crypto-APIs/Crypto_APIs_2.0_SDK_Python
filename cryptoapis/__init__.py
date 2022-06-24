@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "1.5.0"
+__version__ = "1.6.0"
 
 # import ApiClient
 from cryptoapis.api_client import ApiClient

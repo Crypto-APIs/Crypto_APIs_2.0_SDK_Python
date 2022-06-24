@@ -24,16 +24,16 @@ Through this endpoint users can obtain information on assets by `assetId`.    Th
 import time
 import cryptoapis
 from cryptoapis.api import assets_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response400109 import InlineResponse400109
 from cryptoapis.model.get_asset_details_by_asset_idr import GetAssetDetailsByAssetIDR
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response401109 import InlineResponse401109
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response403109 import InlineResponse403109
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_asset_details_by_asset_id401_response import GetAssetDetailsByAssetID401Response
+from cryptoapis.model.get_asset_details_by_asset_id400_response import GetAssetDetailsByAssetID400Response
+from cryptoapis.model.get_asset_details_by_asset_id403_response import GetAssetDetailsByAssetID403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -131,16 +131,16 @@ Through this endpoint users can obtain information on assets by asset symbol.   
 import time
 import cryptoapis
 from cryptoapis.api import assets_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response400110 import InlineResponse400110
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response401110 import InlineResponse401110
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_asset_details_by_asset_symbol403_response import GetAssetDetailsByAssetSymbol403Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_asset_details_by_asset_symbol401_response import GetAssetDetailsByAssetSymbol401Response
+from cryptoapis.model.get_asset_details_by_asset_symbol400_response import GetAssetDetailsByAssetSymbol400Response
 from cryptoapis.model.get_asset_details_by_asset_symbol_r import GetAssetDetailsByAssetSymbolR
-from cryptoapis.model.inline_response403110 import InlineResponse403110
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -238,16 +238,16 @@ This endpoint will return a list of details on assets. These could be cryptocurr
 import time
 import cryptoapis
 from cryptoapis.api import assets_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response401108 import InlineResponse401108
-from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.list_assets_details403_response import ListAssetsDetails403Response
 from cryptoapis.model.list_assets_details_r import ListAssetsDetailsR
-from cryptoapis.model.inline_response400108 import InlineResponse400108
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response403108 import InlineResponse403108
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_assets_details400_response import ListAssetsDetails400Response
+from cryptoapis.model.list_assets_details401_response import ListAssetsDetails401Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.

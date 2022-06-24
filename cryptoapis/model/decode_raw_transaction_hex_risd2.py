@@ -31,10 +31,10 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.decode_raw_transaction_hex_risd2_vin import DecodeRawTransactionHexRISD2Vin
-    from cryptoapis.model.decode_raw_transaction_hex_risd2_vout import DecodeRawTransactionHexRISD2Vout
-    globals()['DecodeRawTransactionHexRISD2Vin'] = DecodeRawTransactionHexRISD2Vin
-    globals()['DecodeRawTransactionHexRISD2Vout'] = DecodeRawTransactionHexRISD2Vout
+    from cryptoapis.model.decode_raw_transaction_hex_risd2_vin_inner import DecodeRawTransactionHexRISD2VinInner
+    from cryptoapis.model.decode_raw_transaction_hex_risd2_vout_inner import DecodeRawTransactionHexRISD2VoutInner
+    globals()['DecodeRawTransactionHexRISD2VinInner'] = DecodeRawTransactionHexRISD2VinInner
+    globals()['DecodeRawTransactionHexRISD2VoutInner'] = DecodeRawTransactionHexRISD2VoutInner
 
 
 class DecodeRawTransactionHexRISD2(ModelNormal):
@@ -94,8 +94,8 @@ class DecodeRawTransactionHexRISD2(ModelNormal):
             'transaction_hash': (str,),  # noqa: E501
             'v_size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
-            'vin': ([DecodeRawTransactionHexRISD2Vin],),  # noqa: E501
-            'vout': ([DecodeRawTransactionHexRISD2Vout],),  # noqa: E501
+            'vin': ([DecodeRawTransactionHexRISD2VinInner],),  # noqa: E501
+            'vout': ([DecodeRawTransactionHexRISD2VoutInner],),  # noqa: E501
             'weight': (int,),  # noqa: E501
         }
 
@@ -129,8 +129,8 @@ class DecodeRawTransactionHexRISD2(ModelNormal):
             transaction_hash (str): Represents the same as transactionId for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols hash is different from transactionId for SegWit transactions.
             v_size (int): Represents the virtual size of this transaction.
             version (int): Represents transaction version number
-            vin ([DecodeRawTransactionHexRISD2Vin]): Represents the transaction inputs.
-            vout ([DecodeRawTransactionHexRISD2Vout]): Represents the transaction outputs.
+            vin ([DecodeRawTransactionHexRISD2VinInner]): Represents the transaction inputs.
+            vout ([DecodeRawTransactionHexRISD2VoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -229,8 +229,8 @@ class DecodeRawTransactionHexRISD2(ModelNormal):
             transaction_hash (str): Represents the same as transactionId for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols hash is different from transactionId for SegWit transactions.
             v_size (int): Represents the virtual size of this transaction.
             version (int): Represents transaction version number
-            vin ([DecodeRawTransactionHexRISD2Vin]): Represents the transaction inputs.
-            vout ([DecodeRawTransactionHexRISD2Vout]): Represents the transaction outputs.
+            vin ([DecodeRawTransactionHexRISD2VinInner]): Represents the transaction inputs.
+            vout ([DecodeRawTransactionHexRISD2VoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

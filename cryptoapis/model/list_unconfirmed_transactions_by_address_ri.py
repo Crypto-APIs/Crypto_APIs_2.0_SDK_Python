@@ -31,12 +31,12 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.list_unconfirmed_transactions_by_address_ri_recipients import ListUnconfirmedTransactionsByAddressRIRecipients
-    from cryptoapis.model.list_unconfirmed_transactions_by_address_ri_senders import ListUnconfirmedTransactionsByAddressRISenders
+    from cryptoapis.model.list_unconfirmed_transactions_by_address_ri_recipients_inner import ListUnconfirmedTransactionsByAddressRIRecipientsInner
+    from cryptoapis.model.list_unconfirmed_transactions_by_address_ri_senders_inner import ListUnconfirmedTransactionsByAddressRISendersInner
     from cryptoapis.model.list_unconfirmed_transactions_by_address_ribs import ListUnconfirmedTransactionsByAddressRIBS
     globals()['ListUnconfirmedTransactionsByAddressRIBS'] = ListUnconfirmedTransactionsByAddressRIBS
-    globals()['ListUnconfirmedTransactionsByAddressRIRecipients'] = ListUnconfirmedTransactionsByAddressRIRecipients
-    globals()['ListUnconfirmedTransactionsByAddressRISenders'] = ListUnconfirmedTransactionsByAddressRISenders
+    globals()['ListUnconfirmedTransactionsByAddressRIRecipientsInner'] = ListUnconfirmedTransactionsByAddressRIRecipientsInner
+    globals()['ListUnconfirmedTransactionsByAddressRISendersInner'] = ListUnconfirmedTransactionsByAddressRISendersInner
 
 
 class ListUnconfirmedTransactionsByAddressRI(ModelNormal):
@@ -92,8 +92,8 @@ class ListUnconfirmedTransactionsByAddressRI(ModelNormal):
         """
         lazy_import()
         return {
-            'recipients': ([ListUnconfirmedTransactionsByAddressRIRecipients],),  # noqa: E501
-            'senders': ([ListUnconfirmedTransactionsByAddressRISenders],),  # noqa: E501
+            'recipients': ([ListUnconfirmedTransactionsByAddressRIRecipientsInner],),  # noqa: E501
+            'senders': ([ListUnconfirmedTransactionsByAddressRISendersInner],),  # noqa: E501
             'timestamp': (int,),  # noqa: E501
             'transaction_hash': (str,),  # noqa: E501
             'transaction_id': (str,),  # noqa: E501
@@ -125,8 +125,8 @@ class ListUnconfirmedTransactionsByAddressRI(ModelNormal):
         """ListUnconfirmedTransactionsByAddressRI - a model defined in OpenAPI
 
         Args:
-            recipients ([ListUnconfirmedTransactionsByAddressRIRecipients]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-            senders ([ListUnconfirmedTransactionsByAddressRISenders]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            recipients ([ListUnconfirmedTransactionsByAddressRIRecipientsInner]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            senders ([ListUnconfirmedTransactionsByAddressRISendersInner]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_hash (str): Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.
             transaction_id (str): Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
@@ -224,8 +224,8 @@ class ListUnconfirmedTransactionsByAddressRI(ModelNormal):
         """ListUnconfirmedTransactionsByAddressRI - a model defined in OpenAPI
 
         Args:
-            recipients ([ListUnconfirmedTransactionsByAddressRIRecipients]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-            senders ([ListUnconfirmedTransactionsByAddressRISenders]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            recipients ([ListUnconfirmedTransactionsByAddressRIRecipientsInner]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            senders ([ListUnconfirmedTransactionsByAddressRISendersInner]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_hash (str): Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.
             transaction_id (str): Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.

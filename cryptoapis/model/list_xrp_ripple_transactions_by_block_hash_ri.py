@@ -34,14 +34,14 @@ def lazy_import():
     from cryptoapis.model.list_xrp_ripple_transactions_by_block_hash_ri_fee import ListXRPRippleTransactionsByBlockHashRIFee
     from cryptoapis.model.list_xrp_ripple_transactions_by_block_hash_ri_offer import ListXRPRippleTransactionsByBlockHashRIOffer
     from cryptoapis.model.list_xrp_ripple_transactions_by_block_hash_ri_receive import ListXRPRippleTransactionsByBlockHashRIReceive
-    from cryptoapis.model.list_xrp_ripple_transactions_by_block_hash_ri_recipients import ListXRPRippleTransactionsByBlockHashRIRecipients
-    from cryptoapis.model.list_xrp_ripple_transactions_by_block_hash_ri_senders import ListXRPRippleTransactionsByBlockHashRISenders
+    from cryptoapis.model.list_xrp_ripple_transactions_by_block_hash_ri_recipients_inner import ListXRPRippleTransactionsByBlockHashRIRecipientsInner
+    from cryptoapis.model.list_xrp_ripple_transactions_by_block_hash_ri_senders_inner import ListXRPRippleTransactionsByBlockHashRISendersInner
     from cryptoapis.model.list_xrp_ripple_transactions_by_block_hash_ri_value import ListXRPRippleTransactionsByBlockHashRIValue
     globals()['ListXRPRippleTransactionsByBlockHashRIFee'] = ListXRPRippleTransactionsByBlockHashRIFee
     globals()['ListXRPRippleTransactionsByBlockHashRIOffer'] = ListXRPRippleTransactionsByBlockHashRIOffer
     globals()['ListXRPRippleTransactionsByBlockHashRIReceive'] = ListXRPRippleTransactionsByBlockHashRIReceive
-    globals()['ListXRPRippleTransactionsByBlockHashRIRecipients'] = ListXRPRippleTransactionsByBlockHashRIRecipients
-    globals()['ListXRPRippleTransactionsByBlockHashRISenders'] = ListXRPRippleTransactionsByBlockHashRISenders
+    globals()['ListXRPRippleTransactionsByBlockHashRIRecipientsInner'] = ListXRPRippleTransactionsByBlockHashRIRecipientsInner
+    globals()['ListXRPRippleTransactionsByBlockHashRISendersInner'] = ListXRPRippleTransactionsByBlockHashRISendersInner
     globals()['ListXRPRippleTransactionsByBlockHashRIValue'] = ListXRPRippleTransactionsByBlockHashRIValue
 
 
@@ -100,8 +100,8 @@ class ListXRPRippleTransactionsByBlockHashRI(ModelNormal):
         return {
             'index': (int,),  # noqa: E501
             'mined_in_block_height': (int,),  # noqa: E501
-            'recipients': ([ListXRPRippleTransactionsByBlockHashRIRecipients],),  # noqa: E501
-            'senders': ([ListXRPRippleTransactionsByBlockHashRISenders],),  # noqa: E501
+            'recipients': ([ListXRPRippleTransactionsByBlockHashRIRecipientsInner],),  # noqa: E501
+            'senders': ([ListXRPRippleTransactionsByBlockHashRISendersInner],),  # noqa: E501
             'sequence': (int,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'timestamp': (int,),  # noqa: E501
@@ -151,8 +151,8 @@ class ListXRPRippleTransactionsByBlockHashRI(ModelNormal):
         Args:
             index (int): Represents the index position of the transaction in the specific block.
             mined_in_block_height (int): Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
-            recipients ([ListXRPRippleTransactionsByBlockHashRIRecipients]): Represents an object of addresses that receive the transactions.
-            senders ([ListXRPRippleTransactionsByBlockHashRISenders]): Represents an object of addresses that provide the funds.
+            recipients ([ListXRPRippleTransactionsByBlockHashRIRecipientsInner]): Represents an object of addresses that receive the transactions.
+            senders ([ListXRPRippleTransactionsByBlockHashRISendersInner]): Represents an object of addresses that provide the funds.
             sequence (int): Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
             status (str): Defines the status of the transaction.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
@@ -266,8 +266,8 @@ class ListXRPRippleTransactionsByBlockHashRI(ModelNormal):
         Args:
             index (int): Represents the index position of the transaction in the specific block.
             mined_in_block_height (int): Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
-            recipients ([ListXRPRippleTransactionsByBlockHashRIRecipients]): Represents an object of addresses that receive the transactions.
-            senders ([ListXRPRippleTransactionsByBlockHashRISenders]): Represents an object of addresses that provide the funds.
+            recipients ([ListXRPRippleTransactionsByBlockHashRIRecipientsInner]): Represents an object of addresses that receive the transactions.
+            senders ([ListXRPRippleTransactionsByBlockHashRISendersInner]): Represents an object of addresses that provide the funds.
             sequence (int): Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
             status (str): Defines the status of the transaction.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.

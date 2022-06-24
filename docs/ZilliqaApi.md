@@ -29,17 +29,17 @@ Through this endpoint users can obtain information on the latest block that has 
 import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40043 import InlineResponse40043
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response4042 import InlineResponse4042
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40143 import InlineResponse40143
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.get_latest_mined_zilliqa_block400_response import GetLatestMinedZilliqaBlock400Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_latest_mined_zilliqa_block_r import GetLatestMinedZilliqaBlockR
-from cryptoapis.model.inline_response40343 import InlineResponse40343
+from cryptoapis.model.get_latest_mined_zilliqa_block401_response import GetLatestMinedZilliqaBlock401Response
+from cryptoapis.model.get_latest_mined_zilliqa_block403_response import GetLatestMinedZilliqaBlock403Response
+from cryptoapis.model.list_transactions_by_block_height404_response import ListTransactionsByBlockHeight404Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -137,16 +137,16 @@ Through this endpoint customers can obtain information address details from the 
 import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.get_zilliqa_address_details_r import GetZilliqaAddressDetailsR
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response4013 import InlineResponse4013
-from cryptoapis.model.inline_response4003 import InlineResponse4003
-from cryptoapis.model.inline_response4033 import InlineResponse4033
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_zilliqa_address_details401_response import GetZilliqaAddressDetails401Response
+from cryptoapis.model.get_zilliqa_address_details403_response import GetZilliqaAddressDetails403Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_zilliqa_address_details400_response import GetZilliqaAddressDetails400Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -245,17 +245,17 @@ Through this endpoint customers can obtain block details from the Zilliqa blockc
 import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40034 import InlineResponse40034
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response4042 import InlineResponse4042
-from cryptoapis.model.inline_response40134 import InlineResponse40134
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40334 import InlineResponse40334
+from cryptoapis.model.get_zilliqa_block_details_by_block_hash401_response import GetZilliqaBlockDetailsByBlockHash401Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_zilliqa_block_details_by_block_hash403_response import GetZilliqaBlockDetailsByBlockHash403Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_zilliqa_block_details_by_block_hash400_response import GetZilliqaBlockDetailsByBlockHash400Response
 from cryptoapis.model.get_zilliqa_block_details_by_block_hash_r import GetZilliqaBlockDetailsByBlockHashR
+from cryptoapis.model.list_transactions_by_block_height404_response import ListTransactionsByBlockHeight404Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -355,17 +355,17 @@ Through this endpoint customers can obtain block details from the Zilliqa blockc
 import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response4042 import InlineResponse4042
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40030 import InlineResponse40030
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40130 import InlineResponse40130
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_zilliqa_block_details_by_block_height401_response import GetZilliqaBlockDetailsByBlockHeight401Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_zilliqa_block_details_by_block_height_r import GetZilliqaBlockDetailsByBlockHeightR
-from cryptoapis.model.inline_response40330 import InlineResponse40330
+from cryptoapis.model.get_zilliqa_block_details_by_block_height400_response import GetZilliqaBlockDetailsByBlockHeight400Response
+from cryptoapis.model.get_zilliqa_block_details_by_block_height403_response import GetZilliqaBlockDetailsByBlockHeight403Response
+from cryptoapis.model.list_transactions_by_block_height404_response import ListTransactionsByBlockHeight404Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -465,17 +465,17 @@ Through this endpoint customers can obtain transaction details on the Zilliqa bl
 import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response4009 import InlineResponse4009
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response4019 import InlineResponse4019
-from cryptoapis.model.inline_response404 import InlineResponse404
-from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
 from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_idr import GetZilliqaTransactionDetailsByTransactionIDR
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response4039 import InlineResponse4039
+from cryptoapis.model.get_transaction_details_by_transaction_id404_response import GetTransactionDetailsByTransactionID404Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_id400_response import GetZilliqaTransactionDetailsByTransactionID400Response
+from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_id401_response import GetZilliqaTransactionDetailsByTransactionID401Response
+from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_id403_response import GetZilliqaTransactionDetailsByTransactionID403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -575,16 +575,16 @@ Through this endpoint customers can list transactions on the Zilliqa blockchain 
 import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
-from cryptoapis.model.inline_response40014 import InlineResponse40014
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40114 import InlineResponse40114
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.list_zilliqa_transactions_by_address_r import ListZilliqaTransactionsByAddressR
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40314 import InlineResponse40314
+from cryptoapis.model.list_zilliqa_transactions_by_address403_response import ListZilliqaTransactionsByAddress403Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_zilliqa_transactions_by_address400_response import ListZilliqaTransactionsByAddress400Response
+from cryptoapis.model.list_zilliqa_transactions_by_address401_response import ListZilliqaTransactionsByAddress401Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -687,15 +687,15 @@ Through this endpoint customers can list transactions on the Zilliqa blockchain 
 import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40022 import InlineResponse40022
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40122 import InlineResponse40122
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40322 import InlineResponse40322
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.list_zilliqa_transactions_by_block_hash403_response import ListZilliqaTransactionsByBlockHash403Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.list_zilliqa_transactions_by_block_hash401_response import ListZilliqaTransactionsByBlockHash401Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_zilliqa_transactions_by_block_hash400_response import ListZilliqaTransactionsByBlockHash400Response
 from cryptoapis.model.list_zilliqa_transactions_by_block_hash_r import ListZilliqaTransactionsByBlockHashR
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -799,16 +799,16 @@ Through this endpoint customers can list transactions on the Zilliqa blockchain 
 import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40023 import InlineResponse40023
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.list_zilliqa_transactions_by_block_height401_response import ListZilliqaTransactionsByBlockHeight401Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.list_zilliqa_transactions_by_block_height_r import ListZilliqaTransactionsByBlockHeightR
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40123 import InlineResponse40123
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40323 import InlineResponse40323
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_zilliqa_transactions_by_block_height403_response import ListZilliqaTransactionsByBlockHeight403Response
+from cryptoapis.model.list_zilliqa_transactions_by_block_height400_response import ListZilliqaTransactionsByBlockHeight400Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.

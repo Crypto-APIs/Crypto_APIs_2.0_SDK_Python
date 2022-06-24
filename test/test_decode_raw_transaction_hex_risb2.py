@@ -13,10 +13,10 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.decode_raw_transaction_hex_risb2_vin import DecodeRawTransactionHexRISB2Vin
-from cryptoapis.model.decode_raw_transaction_hex_risb2_vout import DecodeRawTransactionHexRISB2Vout
-globals()['DecodeRawTransactionHexRISB2Vin'] = DecodeRawTransactionHexRISB2Vin
-globals()['DecodeRawTransactionHexRISB2Vout'] = DecodeRawTransactionHexRISB2Vout
+from cryptoapis.model.decode_raw_transaction_hex_risb2_vin_inner import DecodeRawTransactionHexRISB2VinInner
+from cryptoapis.model.decode_raw_transaction_hex_risb2_vout_inner import DecodeRawTransactionHexRISB2VoutInner
+globals()['DecodeRawTransactionHexRISB2VinInner'] = DecodeRawTransactionHexRISB2VinInner
+globals()['DecodeRawTransactionHexRISB2VoutInner'] = DecodeRawTransactionHexRISB2VoutInner
 from cryptoapis.model.decode_raw_transaction_hex_risb2 import DecodeRawTransactionHexRISB2
 
 

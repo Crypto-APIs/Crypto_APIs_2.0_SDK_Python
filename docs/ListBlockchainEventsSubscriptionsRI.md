@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **is_active** | **bool** | Defines whether the subscription is active or not. Set as boolean. | 
 **reference_id** | **str** | Represents a unique ID used to reference the specific callback subscription. | 
 **callback_secret_key** | **str** | Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security). | [optional] 
-**deactivation_reasons** | [**[ListBlockchainEventsSubscriptionsRIDeactivationReasons]**](ListBlockchainEventsSubscriptionsRIDeactivationReasons.md) | Represents the deactivation reason details, available when a blockchain event subscription has status isActive - false. | [optional] 
+**deactivation_reasons** | [**[ListBlockchainEventsSubscriptionsRIDeactivationReasonsInner]**](ListBlockchainEventsSubscriptionsRIDeactivationReasonsInner.md) | Represents the deactivation reason details, available when a blockchain event subscription has status isActive - false. | [optional] 
 **transaction_id** | **str** | Represents the unique identification string that defines the transaction. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

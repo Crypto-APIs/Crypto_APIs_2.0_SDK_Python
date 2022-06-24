@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **value_balance** | **str** | Defines the transaction value balance. | 
 **version** | **int** | Represents the transaction version number. | 
 **version_group_id** | **str** | Represents the transaction version group ID | 
-**vin** | [**[DecodeRawTransactionHexRISZVin]**](DecodeRawTransactionHexRISZVin.md) | Represents the Inputs of the transaction | 
-**vout** | [**[DecodeRawTransactionHexRISZVout]**](DecodeRawTransactionHexRISZVout.md) | Represents the Inputs of the transaction | 
+**vin** | [**[DecodeRawTransactionHexRISZVinInner]**](DecodeRawTransactionHexRISZVinInner.md) | Represents the Inputs of the transaction | 
+**vout** | [**[DecodeRawTransactionHexRISZVoutInner]**](DecodeRawTransactionHexRISZVoutInner.md) | Represents the Inputs of the transaction | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -22,8 +22,8 @@ from cryptoapis.model.decode_raw_transaction_hex_rise import DecodeRawTransactio
 from cryptoapis.model.decode_raw_transaction_hex_rise2 import DecodeRawTransactionHexRISE2
 from cryptoapis.model.decode_raw_transaction_hex_risl import DecodeRawTransactionHexRISL
 from cryptoapis.model.decode_raw_transaction_hex_risz import DecodeRawTransactionHexRISZ
-from cryptoapis.model.decode_raw_transaction_hex_risz_vin import DecodeRawTransactionHexRISZVin
-from cryptoapis.model.decode_raw_transaction_hex_risz_vout import DecodeRawTransactionHexRISZVout
+from cryptoapis.model.decode_raw_transaction_hex_risz_vin_inner import DecodeRawTransactionHexRISZVinInner
+from cryptoapis.model.decode_raw_transaction_hex_risz_vout_inner import DecodeRawTransactionHexRISZVoutInner
 globals()['DecodeRawTransactionHexRISB'] = DecodeRawTransactionHexRISB
 globals()['DecodeRawTransactionHexRISB2'] = DecodeRawTransactionHexRISB2
 globals()['DecodeRawTransactionHexRISB22'] = DecodeRawTransactionHexRISB22
@@ -33,8 +33,8 @@ globals()['DecodeRawTransactionHexRISE'] = DecodeRawTransactionHexRISE
 globals()['DecodeRawTransactionHexRISE2'] = DecodeRawTransactionHexRISE2
 globals()['DecodeRawTransactionHexRISL'] = DecodeRawTransactionHexRISL
 globals()['DecodeRawTransactionHexRISZ'] = DecodeRawTransactionHexRISZ
-globals()['DecodeRawTransactionHexRISZVin'] = DecodeRawTransactionHexRISZVin
-globals()['DecodeRawTransactionHexRISZVout'] = DecodeRawTransactionHexRISZVout
+globals()['DecodeRawTransactionHexRISZVinInner'] = DecodeRawTransactionHexRISZVinInner
+globals()['DecodeRawTransactionHexRISZVoutInner'] = DecodeRawTransactionHexRISZVoutInner
 from cryptoapis.model.decode_raw_transaction_hex_ris import DecodeRawTransactionHexRIS
 
 

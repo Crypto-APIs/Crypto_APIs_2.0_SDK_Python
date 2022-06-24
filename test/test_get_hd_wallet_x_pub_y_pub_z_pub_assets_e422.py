@@ -13,10 +13,10 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+from cryptoapis.model.banned_ip_address_details_inner import BannedIpAddressDetailsInner
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
 from cryptoapis.model.xpub_sync_in_progress import XpubSyncInProgress
-globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
+globals()['BannedIpAddressDetailsInner'] = BannedIpAddressDetailsInner
 globals()['InvalidRequestBodyStructure'] = InvalidRequestBodyStructure
 globals()['XpubSyncInProgress'] = XpubSyncInProgress
 from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_assets_e422 import GetHDWalletXPubYPubZPubAssetsE422

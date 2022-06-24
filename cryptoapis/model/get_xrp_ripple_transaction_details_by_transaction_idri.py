@@ -34,14 +34,14 @@ def lazy_import():
     from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_idri_fee import GetXRPRippleTransactionDetailsByTransactionIDRIFee
     from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_idri_offer import GetXRPRippleTransactionDetailsByTransactionIDRIOffer
     from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_idri_receive import GetXRPRippleTransactionDetailsByTransactionIDRIReceive
-    from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_idri_recipients import GetXRPRippleTransactionDetailsByTransactionIDRIRecipients
-    from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_idri_senders import GetXRPRippleTransactionDetailsByTransactionIDRISenders
+    from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_idri_recipients_inner import GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner
+    from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_idri_senders_inner import GetXRPRippleTransactionDetailsByTransactionIDRISendersInner
     from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_idri_value import GetXRPRippleTransactionDetailsByTransactionIDRIValue
     globals()['GetXRPRippleTransactionDetailsByTransactionIDRIFee'] = GetXRPRippleTransactionDetailsByTransactionIDRIFee
     globals()['GetXRPRippleTransactionDetailsByTransactionIDRIOffer'] = GetXRPRippleTransactionDetailsByTransactionIDRIOffer
     globals()['GetXRPRippleTransactionDetailsByTransactionIDRIReceive'] = GetXRPRippleTransactionDetailsByTransactionIDRIReceive
-    globals()['GetXRPRippleTransactionDetailsByTransactionIDRIRecipients'] = GetXRPRippleTransactionDetailsByTransactionIDRIRecipients
-    globals()['GetXRPRippleTransactionDetailsByTransactionIDRISenders'] = GetXRPRippleTransactionDetailsByTransactionIDRISenders
+    globals()['GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner'] = GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner
+    globals()['GetXRPRippleTransactionDetailsByTransactionIDRISendersInner'] = GetXRPRippleTransactionDetailsByTransactionIDRISendersInner
     globals()['GetXRPRippleTransactionDetailsByTransactionIDRIValue'] = GetXRPRippleTransactionDetailsByTransactionIDRIValue
 
 
@@ -104,8 +104,8 @@ class GetXRPRippleTransactionDetailsByTransactionIDRI(ModelNormal):
             'mined_in_block_height': (str,),  # noqa: E501
             'offer': (GetXRPRippleTransactionDetailsByTransactionIDRIOffer,),  # noqa: E501
             'receive': (GetXRPRippleTransactionDetailsByTransactionIDRIReceive,),  # noqa: E501
-            'recipients': ([GetXRPRippleTransactionDetailsByTransactionIDRIRecipients],),  # noqa: E501
-            'senders': ([GetXRPRippleTransactionDetailsByTransactionIDRISenders],),  # noqa: E501
+            'recipients': ([GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner],),  # noqa: E501
+            'senders': ([GetXRPRippleTransactionDetailsByTransactionIDRISendersInner],),  # noqa: E501
             'sequence': (int,),  # noqa: E501
             'timestamp': (int,),  # noqa: E501
             'transaction_hash': (str,),  # noqa: E501
@@ -157,8 +157,8 @@ class GetXRPRippleTransactionDetailsByTransactionIDRI(ModelNormal):
             mined_in_block_height (str): Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
             offer (GetXRPRippleTransactionDetailsByTransactionIDRIOffer):
             receive (GetXRPRippleTransactionDetailsByTransactionIDRIReceive):
-            recipients ([GetXRPRippleTransactionDetailsByTransactionIDRIRecipients]): Represents an object of addresses that receive the transactions.
-            senders ([GetXRPRippleTransactionDetailsByTransactionIDRISenders]): Represents an object of addresses that provide the funds.
+            recipients ([GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner]): Represents an object of addresses that receive the transactions.
+            senders ([GetXRPRippleTransactionDetailsByTransactionIDRISendersInner]): Represents an object of addresses that provide the funds.
             sequence (int): Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_hash (str): Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.
@@ -274,8 +274,8 @@ class GetXRPRippleTransactionDetailsByTransactionIDRI(ModelNormal):
             mined_in_block_height (str): Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
             offer (GetXRPRippleTransactionDetailsByTransactionIDRIOffer):
             receive (GetXRPRippleTransactionDetailsByTransactionIDRIReceive):
-            recipients ([GetXRPRippleTransactionDetailsByTransactionIDRIRecipients]): Represents an object of addresses that receive the transactions.
-            senders ([GetXRPRippleTransactionDetailsByTransactionIDRISenders]): Represents an object of addresses that provide the funds.
+            recipients ([GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner]): Represents an object of addresses that receive the transactions.
+            senders ([GetXRPRippleTransactionDetailsByTransactionIDRISendersInner]): Represents an object of addresses that provide the funds.
             sequence (int): Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_hash (str): Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.

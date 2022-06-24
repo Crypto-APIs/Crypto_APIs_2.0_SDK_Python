@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
-globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
+from cryptoapis.model.banned_ip_address_details_inner import BannedIpAddressDetailsInner
+globals()['BannedIpAddressDetailsInner'] = BannedIpAddressDetailsInner
 from cryptoapis.model.blockchain_data_block_not_found import BlockchainDataBlockNotFound
 
 

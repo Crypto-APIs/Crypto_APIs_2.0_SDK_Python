@@ -31,10 +31,10 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.list_confirmed_transactions_by_address_ribsb_vin import ListConfirmedTransactionsByAddressRIBSBVin
-    from cryptoapis.model.list_confirmed_transactions_by_address_ribsb_vout import ListConfirmedTransactionsByAddressRIBSBVout
-    globals()['ListConfirmedTransactionsByAddressRIBSBVin'] = ListConfirmedTransactionsByAddressRIBSBVin
-    globals()['ListConfirmedTransactionsByAddressRIBSBVout'] = ListConfirmedTransactionsByAddressRIBSBVout
+    from cryptoapis.model.list_confirmed_transactions_by_address_ribsb_vin_inner import ListConfirmedTransactionsByAddressRIBSBVinInner
+    from cryptoapis.model.list_confirmed_transactions_by_address_ribsb_vout_inner import ListConfirmedTransactionsByAddressRIBSBVoutInner
+    globals()['ListConfirmedTransactionsByAddressRIBSBVinInner'] = ListConfirmedTransactionsByAddressRIBSBVinInner
+    globals()['ListConfirmedTransactionsByAddressRIBSBVoutInner'] = ListConfirmedTransactionsByAddressRIBSBVoutInner
 
 
 class ListConfirmedTransactionsByAddressAndTimeRangeRIBSB(ModelNormal):
@@ -94,8 +94,8 @@ class ListConfirmedTransactionsByAddressAndTimeRangeRIBSB(ModelNormal):
             'size': (int,),  # noqa: E501
             'v_size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
-            'vin': ([ListConfirmedTransactionsByAddressRIBSBVin],),  # noqa: E501
-            'vout': ([ListConfirmedTransactionsByAddressRIBSBVout],),  # noqa: E501
+            'vin': ([ListConfirmedTransactionsByAddressRIBSBVinInner],),  # noqa: E501
+            'vout': ([ListConfirmedTransactionsByAddressRIBSBVoutInner],),  # noqa: E501
         }
 
     @cached_property
@@ -127,8 +127,8 @@ class ListConfirmedTransactionsByAddressAndTimeRangeRIBSB(ModelNormal):
             size (int): Represents the total size of this transaction.
             v_size (int): Defines the transaction's virtual size.
             version (int): Defines the version of the transaction.
-            vin ([ListConfirmedTransactionsByAddressRIBSBVin]): Represents the transaction inputs.
-            vout ([ListConfirmedTransactionsByAddressRIBSBVout]): Represents the transaction outputs.
+            vin ([ListConfirmedTransactionsByAddressRIBSBVinInner]): Represents the transaction inputs.
+            vout ([ListConfirmedTransactionsByAddressRIBSBVoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -226,8 +226,8 @@ class ListConfirmedTransactionsByAddressAndTimeRangeRIBSB(ModelNormal):
             size (int): Represents the total size of this transaction.
             v_size (int): Defines the transaction's virtual size.
             version (int): Defines the version of the transaction.
-            vin ([ListConfirmedTransactionsByAddressRIBSBVin]): Represents the transaction inputs.
-            vout ([ListConfirmedTransactionsByAddressRIBSBVout]): Represents the transaction outputs.
+            vin ([ListConfirmedTransactionsByAddressRIBSBVinInner]): Represents the transaction inputs.
+            vout ([ListConfirmedTransactionsByAddressRIBSBVoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

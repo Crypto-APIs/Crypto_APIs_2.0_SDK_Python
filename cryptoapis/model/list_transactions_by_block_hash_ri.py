@@ -32,13 +32,13 @@ from cryptoapis.exceptions import ApiAttributeError
 
 def lazy_import():
     from cryptoapis.model.list_transactions_by_block_hash_ri_fee import ListTransactionsByBlockHashRIFee
-    from cryptoapis.model.list_transactions_by_block_hash_ri_recipients import ListTransactionsByBlockHashRIRecipients
-    from cryptoapis.model.list_transactions_by_block_hash_ri_senders import ListTransactionsByBlockHashRISenders
+    from cryptoapis.model.list_transactions_by_block_hash_ri_recipients_inner import ListTransactionsByBlockHashRIRecipientsInner
+    from cryptoapis.model.list_transactions_by_block_hash_ri_senders_inner import ListTransactionsByBlockHashRISendersInner
     from cryptoapis.model.list_transactions_by_block_hash_ribs import ListTransactionsByBlockHashRIBS
     globals()['ListTransactionsByBlockHashRIBS'] = ListTransactionsByBlockHashRIBS
     globals()['ListTransactionsByBlockHashRIFee'] = ListTransactionsByBlockHashRIFee
-    globals()['ListTransactionsByBlockHashRIRecipients'] = ListTransactionsByBlockHashRIRecipients
-    globals()['ListTransactionsByBlockHashRISenders'] = ListTransactionsByBlockHashRISenders
+    globals()['ListTransactionsByBlockHashRIRecipientsInner'] = ListTransactionsByBlockHashRIRecipientsInner
+    globals()['ListTransactionsByBlockHashRISendersInner'] = ListTransactionsByBlockHashRISendersInner
 
 
 class ListTransactionsByBlockHashRI(ModelNormal):
@@ -97,8 +97,8 @@ class ListTransactionsByBlockHashRI(ModelNormal):
             'index': (int,),  # noqa: E501
             'mined_in_block_hash': (str,),  # noqa: E501
             'mined_in_block_height': (int,),  # noqa: E501
-            'recipients': ([ListTransactionsByBlockHashRIRecipients],),  # noqa: E501
-            'senders': ([ListTransactionsByBlockHashRISenders],),  # noqa: E501
+            'recipients': ([ListTransactionsByBlockHashRIRecipientsInner],),  # noqa: E501
+            'senders': ([ListTransactionsByBlockHashRISendersInner],),  # noqa: E501
             'timestamp': (int,),  # noqa: E501
             'transaction_hash': (str,),  # noqa: E501
             'transaction_id': (str,),  # noqa: E501
@@ -138,8 +138,8 @@ class ListTransactionsByBlockHashRI(ModelNormal):
             index (int): Represents the index position of the transaction in the specific block.
             mined_in_block_hash (str): Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
             mined_in_block_height (int): Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
-            recipients ([ListTransactionsByBlockHashRIRecipients]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-            senders ([ListTransactionsByBlockHashRISenders]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            recipients ([ListTransactionsByBlockHashRIRecipientsInner]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            senders ([ListTransactionsByBlockHashRISendersInner]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_hash (str): Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.
             transaction_id (str): Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
@@ -245,8 +245,8 @@ class ListTransactionsByBlockHashRI(ModelNormal):
             index (int): Represents the index position of the transaction in the specific block.
             mined_in_block_hash (str): Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
             mined_in_block_height (int): Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
-            recipients ([ListTransactionsByBlockHashRIRecipients]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-            senders ([ListTransactionsByBlockHashRISenders]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            recipients ([ListTransactionsByBlockHashRIRecipientsInner]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            senders ([ListTransactionsByBlockHashRISendersInner]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_hash (str): Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.
             transaction_id (str): Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.

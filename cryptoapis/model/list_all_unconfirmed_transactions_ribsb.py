@@ -31,10 +31,10 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.list_all_unconfirmed_transactions_ribsb_vin import ListAllUnconfirmedTransactionsRIBSBVin
-    from cryptoapis.model.list_unconfirmed_transactions_by_address_ribsb_vout import ListUnconfirmedTransactionsByAddressRIBSBVout
-    globals()['ListAllUnconfirmedTransactionsRIBSBVin'] = ListAllUnconfirmedTransactionsRIBSBVin
-    globals()['ListUnconfirmedTransactionsByAddressRIBSBVout'] = ListUnconfirmedTransactionsByAddressRIBSBVout
+    from cryptoapis.model.list_all_unconfirmed_transactions_ribsb_vin_inner import ListAllUnconfirmedTransactionsRIBSBVinInner
+    from cryptoapis.model.list_unconfirmed_transactions_by_address_ribsb_vout_inner import ListUnconfirmedTransactionsByAddressRIBSBVoutInner
+    globals()['ListAllUnconfirmedTransactionsRIBSBVinInner'] = ListAllUnconfirmedTransactionsRIBSBVinInner
+    globals()['ListUnconfirmedTransactionsByAddressRIBSBVoutInner'] = ListUnconfirmedTransactionsByAddressRIBSBVoutInner
 
 
 class ListAllUnconfirmedTransactionsRIBSB(ModelNormal):
@@ -94,8 +94,8 @@ class ListAllUnconfirmedTransactionsRIBSB(ModelNormal):
             'size': (int,),  # noqa: E501
             'v_size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
-            'vin': ([ListAllUnconfirmedTransactionsRIBSBVin],),  # noqa: E501
-            'vout': ([ListUnconfirmedTransactionsByAddressRIBSBVout],),  # noqa: E501
+            'vin': ([ListAllUnconfirmedTransactionsRIBSBVinInner],),  # noqa: E501
+            'vout': ([ListUnconfirmedTransactionsByAddressRIBSBVoutInner],),  # noqa: E501
         }
 
     @cached_property
@@ -127,8 +127,8 @@ class ListAllUnconfirmedTransactionsRIBSB(ModelNormal):
             size (int): Represents the total size of this transaction.
             v_size (int): Defines the transaction's virtual size.
             version (int): Defines the version of the transaction.
-            vin ([ListAllUnconfirmedTransactionsRIBSBVin]): Represents the transaction inputs.
-            vout ([ListUnconfirmedTransactionsByAddressRIBSBVout]): Represents the transaction outputs.
+            vin ([ListAllUnconfirmedTransactionsRIBSBVinInner]): Represents the transaction inputs.
+            vout ([ListUnconfirmedTransactionsByAddressRIBSBVoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -226,8 +226,8 @@ class ListAllUnconfirmedTransactionsRIBSB(ModelNormal):
             size (int): Represents the total size of this transaction.
             v_size (int): Defines the transaction's virtual size.
             version (int): Defines the version of the transaction.
-            vin ([ListAllUnconfirmedTransactionsRIBSBVin]): Represents the transaction inputs.
-            vout ([ListUnconfirmedTransactionsByAddressRIBSBVout]): Represents the transaction outputs.
+            vin ([ListAllUnconfirmedTransactionsRIBSBVinInner]): Represents the transaction inputs.
+            vout ([ListUnconfirmedTransactionsByAddressRIBSBVoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

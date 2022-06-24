@@ -32,13 +32,13 @@ from cryptoapis.exceptions import ApiAttributeError
 
 def lazy_import():
     from cryptoapis.model.get_wallet_asset_details_ri_confirmed_balance import GetWalletAssetDetailsRIConfirmedBalance
-    from cryptoapis.model.get_wallet_asset_details_ri_fungible_tokens import GetWalletAssetDetailsRIFungibleTokens
-    from cryptoapis.model.get_wallet_asset_details_ri_non_fungible_tokens import GetWalletAssetDetailsRINonFungibleTokens
+    from cryptoapis.model.get_wallet_asset_details_ri_fungible_tokens_inner import GetWalletAssetDetailsRIFungibleTokensInner
+    from cryptoapis.model.get_wallet_asset_details_ri_non_fungible_tokens_inner import GetWalletAssetDetailsRINonFungibleTokensInner
     from cryptoapis.model.get_wallet_asset_details_ri_recieved_confirmed_amount import GetWalletAssetDetailsRIRecievedConfirmedAmount
     from cryptoapis.model.get_wallet_asset_details_ri_sent_confirmed_amount import GetWalletAssetDetailsRISentConfirmedAmount
     globals()['GetWalletAssetDetailsRIConfirmedBalance'] = GetWalletAssetDetailsRIConfirmedBalance
-    globals()['GetWalletAssetDetailsRIFungibleTokens'] = GetWalletAssetDetailsRIFungibleTokens
-    globals()['GetWalletAssetDetailsRINonFungibleTokens'] = GetWalletAssetDetailsRINonFungibleTokens
+    globals()['GetWalletAssetDetailsRIFungibleTokensInner'] = GetWalletAssetDetailsRIFungibleTokensInner
+    globals()['GetWalletAssetDetailsRINonFungibleTokensInner'] = GetWalletAssetDetailsRINonFungibleTokensInner
     globals()['GetWalletAssetDetailsRIRecievedConfirmedAmount'] = GetWalletAssetDetailsRIRecievedConfirmedAmount
     globals()['GetWalletAssetDetailsRISentConfirmedAmount'] = GetWalletAssetDetailsRISentConfirmedAmount
 
@@ -98,9 +98,9 @@ class GetWalletAssetDetailsRI(ModelNormal):
         return {
             'confirmed_balance': (GetWalletAssetDetailsRIConfirmedBalance,),  # noqa: E501
             'deposit_addresses_count': (int,),  # noqa: E501
-            'fungible_tokens': ([GetWalletAssetDetailsRIFungibleTokens],),  # noqa: E501
+            'fungible_tokens': ([GetWalletAssetDetailsRIFungibleTokensInner],),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'non_fungible_tokens': ([GetWalletAssetDetailsRINonFungibleTokens],),  # noqa: E501
+            'non_fungible_tokens': ([GetWalletAssetDetailsRINonFungibleTokensInner],),  # noqa: E501
             'recieved_confirmed_amount': (GetWalletAssetDetailsRIRecievedConfirmedAmount,),  # noqa: E501
             'sent_confirmed_amount': (GetWalletAssetDetailsRISentConfirmedAmount,),  # noqa: E501
         }
@@ -133,9 +133,9 @@ class GetWalletAssetDetailsRI(ModelNormal):
         Args:
             confirmed_balance (GetWalletAssetDetailsRIConfirmedBalance):
             deposit_addresses_count (int): Specifies the count of deposit addresses in the Wallet.
-            fungible_tokens ([GetWalletAssetDetailsRIFungibleTokens]): Represents fungible tokens'es detailed information
+            fungible_tokens ([GetWalletAssetDetailsRIFungibleTokensInner]): Represents fungible tokens'es detailed information
             name (str): Defines the name of the Wallet given to it by the user.
-            non_fungible_tokens ([GetWalletAssetDetailsRINonFungibleTokens]): Represents non-fungible tokens'es detailed information.
+            non_fungible_tokens ([GetWalletAssetDetailsRINonFungibleTokensInner]): Represents non-fungible tokens'es detailed information.
             recieved_confirmed_amount (GetWalletAssetDetailsRIRecievedConfirmedAmount):
             sent_confirmed_amount (GetWalletAssetDetailsRISentConfirmedAmount):
 
@@ -234,9 +234,9 @@ class GetWalletAssetDetailsRI(ModelNormal):
         Args:
             confirmed_balance (GetWalletAssetDetailsRIConfirmedBalance):
             deposit_addresses_count (int): Specifies the count of deposit addresses in the Wallet.
-            fungible_tokens ([GetWalletAssetDetailsRIFungibleTokens]): Represents fungible tokens'es detailed information
+            fungible_tokens ([GetWalletAssetDetailsRIFungibleTokensInner]): Represents fungible tokens'es detailed information
             name (str): Defines the name of the Wallet given to it by the user.
-            non_fungible_tokens ([GetWalletAssetDetailsRINonFungibleTokens]): Represents non-fungible tokens'es detailed information.
+            non_fungible_tokens ([GetWalletAssetDetailsRINonFungibleTokensInner]): Represents non-fungible tokens'es detailed information.
             recieved_confirmed_amount (GetWalletAssetDetailsRIRecievedConfirmedAmount):
             sent_confirmed_amount (GetWalletAssetDetailsRISentConfirmedAmount):
 

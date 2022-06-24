@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **index** | **int** | Represents the index position of the transaction in the specific block. | 
 **mined_in_block_height** | **int** | Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block. | 
-**recipients** | [**[ListXRPRippleTransactionsByBlockHashRIRecipients]**](ListXRPRippleTransactionsByBlockHashRIRecipients.md) | Represents an object of addresses that receive the transactions. | 
-**senders** | [**[ListXRPRippleTransactionsByBlockHashRISenders]**](ListXRPRippleTransactionsByBlockHashRISenders.md) | Represents an object of addresses that provide the funds. | 
+**recipients** | [**[ListXRPRippleTransactionsByBlockHashRIRecipientsInner]**](ListXRPRippleTransactionsByBlockHashRIRecipientsInner.md) | Represents an object of addresses that receive the transactions. | 
+**senders** | [**[ListXRPRippleTransactionsByBlockHashRISendersInner]**](ListXRPRippleTransactionsByBlockHashRISendersInner.md) | Represents an object of addresses that provide the funds. | 
 **sequence** | **int** | Defines the transaction input&#39;s sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | 
 **status** | **str** | Defines the status of the transaction. | 
 **timestamp** | **int** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 

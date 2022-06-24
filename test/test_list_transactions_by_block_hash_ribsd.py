@@ -13,10 +13,10 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.list_transactions_by_block_hash_ribsd_vin import ListTransactionsByBlockHashRIBSDVin
-from cryptoapis.model.list_transactions_by_block_hash_ribsd_vout import ListTransactionsByBlockHashRIBSDVout
-globals()['ListTransactionsByBlockHashRIBSDVin'] = ListTransactionsByBlockHashRIBSDVin
-globals()['ListTransactionsByBlockHashRIBSDVout'] = ListTransactionsByBlockHashRIBSDVout
+from cryptoapis.model.list_transactions_by_block_hash_ribsd_vin_inner import ListTransactionsByBlockHashRIBSDVinInner
+from cryptoapis.model.list_transactions_by_block_hash_ribsd_vout_inner import ListTransactionsByBlockHashRIBSDVoutInner
+globals()['ListTransactionsByBlockHashRIBSDVinInner'] = ListTransactionsByBlockHashRIBSDVinInner
+globals()['ListTransactionsByBlockHashRIBSDVoutInner'] = ListTransactionsByBlockHashRIBSDVoutInner
 from cryptoapis.model.list_transactions_by_block_hash_ribsd import ListTransactionsByBlockHashRIBSD
 
 

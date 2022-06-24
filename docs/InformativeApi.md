@@ -29,16 +29,16 @@ Through this endpoint customers can obtain details on transaction request.    {n
 import time
 import cryptoapis
 from cryptoapis.api import informative_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40044 import InlineResponse40044
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40144 import InlineResponse40144
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40344 import InlineResponse40344
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_transaction_request_details403_response import GetTransactionRequestDetails403Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_transaction_request_details400_response import GetTransactionRequestDetails400Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_transaction_request_details_r import GetTransactionRequestDetailsR
+from cryptoapis.model.get_transaction_request_details401_response import GetTransactionRequestDetails401Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -136,17 +136,17 @@ Through this endpoint customers can obtain details on all assets (coins, fungibl
 import time
 import cryptoapis
 from cryptoapis.api import informative_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40136 import InlineResponse40136
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response4041 import InlineResponse4041
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40336 import InlineResponse40336
+from cryptoapis.model.get_wallet_asset_details401_response import GetWalletAssetDetails401Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_wallet_asset_details403_response import GetWalletAssetDetails403Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
 from cryptoapis.model.get_wallet_asset_details_r import GetWalletAssetDetailsR
-from cryptoapis.model.inline_response40036 import InlineResponse40036
+from cryptoapis.model.get_wallet_asset_details400_response import GetWalletAssetDetails400Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -249,17 +249,17 @@ Through this endpoint users can obtain Wallet transaction information by providi
 import time
 import cryptoapis
 from cryptoapis.api import informative_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response4041 import InlineResponse4041
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40349 import InlineResponse40349
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40049 import InlineResponse40049
+from cryptoapis.model.get_wallet_transaction_details_by_transaction_id401_response import GetWalletTransactionDetailsByTransactionID401Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_wallet_transaction_details_by_transaction_id400_response import GetWalletTransactionDetailsByTransactionID400Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
 from cryptoapis.model.get_wallet_transaction_details_by_transaction_idr import GetWalletTransactionDetailsByTransactionIDR
-from cryptoapis.model.inline_response40149 import InlineResponse40149
+from cryptoapis.model.get_wallet_transaction_details_by_transaction_id403_response import GetWalletTransactionDetailsByTransactionID403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -362,17 +362,17 @@ Through this endpoint customers can obtain information about available assets in
 import time
 import cryptoapis
 from cryptoapis.api import informative_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.list_all_assets_by_wallet_idr import ListAllAssetsByWalletIDR
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response4041 import InlineResponse4041
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40339 import InlineResponse40339
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40039 import InlineResponse40039
-from cryptoapis.model.inline_response40139 import InlineResponse40139
+from cryptoapis.model.list_all_assets_by_wallet_id403_response import ListAllAssetsByWalletID403Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.list_all_assets_by_wallet_id400_response import ListAllAssetsByWalletID400Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
+from cryptoapis.model.list_all_assets_by_wallet_id401_response import ListAllAssetsByWalletID401Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -471,16 +471,16 @@ Through this endpoint customers can obtain information about available assets in
 import time
 import cryptoapis
 from cryptoapis.api import informative_api
-from cryptoapis.model.inline_response40138 import InlineResponse40138
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.list_all_assets_from_all_wallets401_response import ListAllAssetsFromAllWallets401Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.list_all_assets_from_all_wallets_r import ListAllAssetsFromAllWalletsR
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40338 import InlineResponse40338
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40038 import InlineResponse40038
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_all_assets_from_all_wallets400_response import ListAllAssetsFromAllWallets400Response
+from cryptoapis.model.list_all_assets_from_all_wallets403_response import ListAllAssetsFromAllWallets403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -572,17 +572,17 @@ Through this endpoint customers can pull a list of Deposit/Receiving Addresses t
 import time
 import cryptoapis
 from cryptoapis.api import informative_api
-from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.list_deposit_addresses_r import ListDepositAddressesR
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response4041 import InlineResponse4041
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response4037 import InlineResponse4037
-from cryptoapis.model.inline_response4017 import InlineResponse4017
-from cryptoapis.model.inline_response4007 import InlineResponse4007
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.list_deposit_addresses401_response import ListDepositAddresses401Response
+from cryptoapis.model.list_deposit_addresses403_response import ListDepositAddresses403Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_deposit_addresses400_response import ListDepositAddresses400Response
+from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -685,16 +685,16 @@ Through this endpoint customers can obtain information on multiple tokens at onc
 import time
 import cryptoapis
 from cryptoapis.api import informative_api
-from cryptoapis.model.inline_response40035 import InlineResponse40035
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response40135 import InlineResponse40135
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.list_supported_tokens403_response import ListSupportedTokens403Response
 from cryptoapis.model.list_supported_tokens_r import ListSupportedTokensR
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40335 import InlineResponse40335
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_supported_tokens400_response import ListSupportedTokens400Response
+from cryptoapis.model.list_supported_tokens401_response import ListSupportedTokens401Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -798,17 +798,17 @@ Through this endpoint customers can list Transactions from and to their Wallet. 
 import time
 import cryptoapis
 from cryptoapis.api import informative_api
-from cryptoapis.model.inline_response40148 import InlineResponse40148
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.list_wallet_transactions_r import ListWalletTransactionsR
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response4041 import InlineResponse4041
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40348 import InlineResponse40348
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40048 import InlineResponse40048
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.list_wallet_transactions400_response import ListWalletTransactions400Response
+from cryptoapis.model.list_wallet_transactions403_response import ListWalletTransactions403Response
+from cryptoapis.model.list_wallet_transactions401_response import ListWalletTransactions401Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.

@@ -14,10 +14,10 @@ import unittest
 
 import cryptoapis
 from cryptoapis.model.already_exists import AlreadyExists
-from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+from cryptoapis.model.banned_ip_address_details_inner import BannedIpAddressDetailsInner
 from cryptoapis.model.invalid_data import InvalidData
 globals()['AlreadyExists'] = AlreadyExists
-globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
+globals()['BannedIpAddressDetailsInner'] = BannedIpAddressDetailsInner
 globals()['InvalidData'] = InvalidData
 from cryptoapis.model.new_confirmed_tokens_transactions_e409 import NewConfirmedTokensTransactionsE409
 

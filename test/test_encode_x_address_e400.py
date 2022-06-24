@@ -13,13 +13,13 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+from cryptoapis.model.banned_ip_address_details_inner import BannedIpAddressDetailsInner
 from cryptoapis.model.invalid_blockchain import InvalidBlockchain
 from cryptoapis.model.invalid_network import InvalidNetwork
 from cryptoapis.model.invalid_pagination import InvalidPagination
 from cryptoapis.model.limit_greater_than_allowed import LimitGreaterThanAllowed
 from cryptoapis.model.uri_not_found import UriNotFound
-globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
+globals()['BannedIpAddressDetailsInner'] = BannedIpAddressDetailsInner
 globals()['InvalidBlockchain'] = InvalidBlockchain
 globals()['InvalidNetwork'] = InvalidNetwork
 globals()['InvalidPagination'] = InvalidPagination

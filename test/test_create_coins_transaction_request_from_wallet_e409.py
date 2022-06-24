@@ -13,12 +13,12 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+from cryptoapis.model.banned_ip_address_details_inner import BannedIpAddressDetailsInner
 from cryptoapis.model.invalid_data import InvalidData
 from cryptoapis.model.wallet_as_a_service_address_balance_not_enough import WalletAsAServiceAddressBalanceNotEnough
 from cryptoapis.model.wallet_as_a_service_no_deposit_addresses_found import WalletAsAServiceNoDepositAddressesFound
 from cryptoapis.model.wallet_as_a_service_wallet_balance_not_enough import WalletAsAServiceWalletBalanceNotEnough
-globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
+globals()['BannedIpAddressDetailsInner'] = BannedIpAddressDetailsInner
 globals()['InvalidData'] = InvalidData
 globals()['WalletAsAServiceAddressBalanceNotEnough'] = WalletAsAServiceAddressBalanceNotEnough
 globals()['WalletAsAServiceNoDepositAddressesFound'] = WalletAsAServiceNoDepositAddressesFound

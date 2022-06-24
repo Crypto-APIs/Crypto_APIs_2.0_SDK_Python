@@ -31,10 +31,10 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.decode_raw_transaction_hex_risz_vin import DecodeRawTransactionHexRISZVin
-    from cryptoapis.model.decode_raw_transaction_hex_risz_vout import DecodeRawTransactionHexRISZVout
-    globals()['DecodeRawTransactionHexRISZVin'] = DecodeRawTransactionHexRISZVin
-    globals()['DecodeRawTransactionHexRISZVout'] = DecodeRawTransactionHexRISZVout
+    from cryptoapis.model.decode_raw_transaction_hex_risz_vin_inner import DecodeRawTransactionHexRISZVinInner
+    from cryptoapis.model.decode_raw_transaction_hex_risz_vout_inner import DecodeRawTransactionHexRISZVoutInner
+    globals()['DecodeRawTransactionHexRISZVinInner'] = DecodeRawTransactionHexRISZVinInner
+    globals()['DecodeRawTransactionHexRISZVoutInner'] = DecodeRawTransactionHexRISZVoutInner
 
 
 class DecodeRawTransactionHexRISZ(ModelNormal):
@@ -98,8 +98,8 @@ class DecodeRawTransactionHexRISZ(ModelNormal):
             'value_balance': (str,),  # noqa: E501
             'version': (int,),  # noqa: E501
             'version_group_id': (str,),  # noqa: E501
-            'vin': ([DecodeRawTransactionHexRISZVin],),  # noqa: E501
-            'vout': ([DecodeRawTransactionHexRISZVout],),  # noqa: E501
+            'vin': ([DecodeRawTransactionHexRISZVinInner],),  # noqa: E501
+            'vout': ([DecodeRawTransactionHexRISZVoutInner],),  # noqa: E501
         }
 
     @cached_property
@@ -139,8 +139,8 @@ class DecodeRawTransactionHexRISZ(ModelNormal):
             value_balance (str): Defines the transaction value balance.
             version (int): Represents the transaction version number.
             version_group_id (str): Represents the transaction version group ID
-            vin ([DecodeRawTransactionHexRISZVin]): Represents the Inputs of the transaction
-            vout ([DecodeRawTransactionHexRISZVout]): Represents the Inputs of the transaction
+            vin ([DecodeRawTransactionHexRISZVinInner]): Represents the Inputs of the transaction
+            vout ([DecodeRawTransactionHexRISZVoutInner]): Represents the Inputs of the transaction
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -246,8 +246,8 @@ class DecodeRawTransactionHexRISZ(ModelNormal):
             value_balance (str): Defines the transaction value balance.
             version (int): Represents the transaction version number.
             version_group_id (str): Represents the transaction version group ID
-            vin ([DecodeRawTransactionHexRISZVin]): Represents the Inputs of the transaction
-            vout ([DecodeRawTransactionHexRISZVout]): Represents the Inputs of the transaction
+            vin ([DecodeRawTransactionHexRISZVinInner]): Represents the Inputs of the transaction
+            vout ([DecodeRawTransactionHexRISZVoutInner]): Represents the Inputs of the transaction
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

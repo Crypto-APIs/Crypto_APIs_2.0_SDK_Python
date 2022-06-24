@@ -31,8 +31,8 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.get_transaction_request_details_ri_recipients import GetTransactionRequestDetailsRIRecipients
-    globals()['GetTransactionRequestDetailsRIRecipients'] = GetTransactionRequestDetailsRIRecipients
+    from cryptoapis.model.get_transaction_request_details_ri_recipients_inner import GetTransactionRequestDetailsRIRecipientsInner
+    globals()['GetTransactionRequestDetailsRIRecipientsInner'] = GetTransactionRequestDetailsRIRecipientsInner
 
 
 class GetTransactionRequestDetailsRI(ModelNormal):
@@ -130,7 +130,7 @@ class GetTransactionRequestDetailsRI(ModelNormal):
             'blockchain': (str,),  # noqa: E501
             'fee_priority': (str,),  # noqa: E501
             'network': (str,),  # noqa: E501
-            'recipients': ([GetTransactionRequestDetailsRIRecipients],),  # noqa: E501
+            'recipients': ([GetTransactionRequestDetailsRIRecipientsInner],),  # noqa: E501
             'total_transaction_amount': (str,),  # noqa: E501
             'transaction_request_status': (str,),  # noqa: E501
             'transaction_type': (str,),  # noqa: E501
@@ -173,7 +173,7 @@ class GetTransactionRequestDetailsRI(ModelNormal):
             blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
             fee_priority (str): Defines the priority for the fee, if it is \"slow\", \"standard\" or \"fast\".
             network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-            recipients ([GetTransactionRequestDetailsRIRecipients]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            recipients ([GetTransactionRequestDetailsRIRecipientsInner]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             total_transaction_amount (str): Defines the total transaction amount.
             transaction_request_status (str): Defines the status of the transaction request, e.g. pending.
             transaction_type (str): Defines the transaction type, if it is for coins or tokens.
@@ -281,7 +281,7 @@ class GetTransactionRequestDetailsRI(ModelNormal):
             blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
             fee_priority (str): Defines the priority for the fee, if it is \"slow\", \"standard\" or \"fast\".
             network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-            recipients ([GetTransactionRequestDetailsRIRecipients]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            recipients ([GetTransactionRequestDetailsRIRecipientsInner]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             total_transaction_amount (str): Defines the total transaction amount.
             transaction_request_status (str): Defines the status of the transaction request, e.g. pending.
             transaction_type (str): Defines the transaction type, if it is for coins or tokens.

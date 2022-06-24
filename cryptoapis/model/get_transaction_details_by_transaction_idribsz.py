@@ -31,16 +31,16 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.get_transaction_details_by_transaction_idribsz_vin import GetTransactionDetailsByTransactionIDRIBSZVin
-    from cryptoapis.model.get_transaction_details_by_transaction_idribsz_vout import GetTransactionDetailsByTransactionIDRIBSZVout
-    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_join_split import GetTransactionDetailsByTransactionIDRIBSZVJoinSplit
-    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_output import GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput
-    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_spend import GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
-    globals()['GetTransactionDetailsByTransactionIDRIBSZVJoinSplit'] = GetTransactionDetailsByTransactionIDRIBSZVJoinSplit
-    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput
-    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
-    globals()['GetTransactionDetailsByTransactionIDRIBSZVin'] = GetTransactionDetailsByTransactionIDRIBSZVin
-    globals()['GetTransactionDetailsByTransactionIDRIBSZVout'] = GetTransactionDetailsByTransactionIDRIBSZVout
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsz_vin_inner import GetTransactionDetailsByTransactionIDRIBSZVinInner
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsz_vout_inner import GetTransactionDetailsByTransactionIDRIBSZVoutInner
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_join_split_inner import GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_output_inner import GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_spend_inner import GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner'] = GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVinInner'] = GetTransactionDetailsByTransactionIDRIBSZVinInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVoutInner'] = GetTransactionDetailsByTransactionIDRIBSZVoutInner
 
 
 class GetTransactionDetailsByTransactionIDRIBSZ(ModelNormal):
@@ -103,14 +103,14 @@ class GetTransactionDetailsByTransactionIDRIBSZ(ModelNormal):
             'locktime': (int,),  # noqa: E501
             'overwintered': (bool,),  # noqa: E501
             'size': (int,),  # noqa: E501
-            'v_join_split': ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplit],),  # noqa: E501
-            'v_shielded_output': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput],),  # noqa: E501
-            'v_shielded_spend': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend],),  # noqa: E501
+            'v_join_split': ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner],),  # noqa: E501
+            'v_shielded_output': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner],),  # noqa: E501
+            'v_shielded_spend': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner],),  # noqa: E501
             'value_balance': (str,),  # noqa: E501
             'version': (int,),  # noqa: E501
             'version_group_id': (str,),  # noqa: E501
-            'vin': ([GetTransactionDetailsByTransactionIDRIBSZVin],),  # noqa: E501
-            'vout': ([GetTransactionDetailsByTransactionIDRIBSZVout],),  # noqa: E501
+            'vin': ([GetTransactionDetailsByTransactionIDRIBSZVinInner],),  # noqa: E501
+            'vout': ([GetTransactionDetailsByTransactionIDRIBSZVoutInner],),  # noqa: E501
         }
 
     @cached_property
@@ -154,14 +154,14 @@ class GetTransactionDetailsByTransactionIDRIBSZ(ModelNormal):
             locktime (int): Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid.
             overwintered (bool): \"Overwinter\" is the network upgrade for the Zcash blockchain.
             size (int): Represents the total size of this transaction.
-            v_join_split ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
-            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions
-            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions
+            v_join_split ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
+            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner]): Object Array representation of transaction output descriptions
+            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner]): Object Array representation of transaction spend descriptions
             value_balance (str): String representation of the transaction value balance
             version (int): Defines the version of the transaction.
             version_group_id (str): Represents the transaction version group ID.
-            vin ([GetTransactionDetailsByTransactionIDRIBSZVin]): Object Array representation of transaction inputs
-            vout ([GetTransactionDetailsByTransactionIDRIBSZVout]): Object Array representation of transaction outputs
+            vin ([GetTransactionDetailsByTransactionIDRIBSZVinInner]): Object Array representation of transaction inputs
+            vout ([GetTransactionDetailsByTransactionIDRIBSZVoutInner]): Object Array representation of transaction outputs
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -271,14 +271,14 @@ class GetTransactionDetailsByTransactionIDRIBSZ(ModelNormal):
             locktime (int): Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid.
             overwintered (bool): \"Overwinter\" is the network upgrade for the Zcash blockchain.
             size (int): Represents the total size of this transaction.
-            v_join_split ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
-            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions
-            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions
+            v_join_split ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
+            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner]): Object Array representation of transaction output descriptions
+            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner]): Object Array representation of transaction spend descriptions
             value_balance (str): String representation of the transaction value balance
             version (int): Defines the version of the transaction.
             version_group_id (str): Represents the transaction version group ID.
-            vin ([GetTransactionDetailsByTransactionIDRIBSZVin]): Object Array representation of transaction inputs
-            vout ([GetTransactionDetailsByTransactionIDRIBSZVout]): Object Array representation of transaction outputs
+            vin ([GetTransactionDetailsByTransactionIDRIBSZVinInner]): Object Array representation of transaction inputs
+            vout ([GetTransactionDetailsByTransactionIDRIBSZVoutInner]): Object Array representation of transaction outputs
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

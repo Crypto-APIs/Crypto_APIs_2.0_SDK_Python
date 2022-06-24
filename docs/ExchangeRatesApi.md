@@ -23,16 +23,16 @@ Through this endpoint customers can obtain exchange rates by asset symbols. The 
 import time
 import cryptoapis
 from cryptoapis.api import exchange_rates_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response401106 import InlineResponse401106
-from cryptoapis.model.inline_response400106 import InlineResponse400106
+from cryptoapis.model.get_exchange_rate_by_asset_symbols401_response import GetExchangeRateByAssetSymbols401Response
+from cryptoapis.model.get_exchange_rate_by_asset_symbols422_response import GetExchangeRateByAssetSymbols422Response
+from cryptoapis.model.get_exchange_rate_by_asset_symbols403_response import GetExchangeRateByAssetSymbols403Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_exchange_rate_by_asset_symbols400_response import GetExchangeRateByAssetSymbols400Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_exchange_rate_by_asset_symbols_r import GetExchangeRateByAssetSymbolsR
-from cryptoapis.model.inline_response4226 import InlineResponse4226
-from cryptoapis.model.inline_response403106 import InlineResponse403106
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -134,16 +134,16 @@ Through this endpoint customers can obtain exchange rates by asset IDs. The proc
 import time
 import cryptoapis
 from cryptoapis.api import exchange_rates_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response400107 import InlineResponse400107
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response401107 import InlineResponse401107
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_exchange_rate_by_assets_ids401_response import GetExchangeRateByAssetsIDs401Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_exchange_rate_by_assets_ids_r import GetExchangeRateByAssetsIDsR
-from cryptoapis.model.inline_response403107 import InlineResponse403107
-from cryptoapis.model.inline_response4227 import InlineResponse4227
+from cryptoapis.model.get_exchange_rate_by_assets_ids403_response import GetExchangeRateByAssetsIDs403Response
+from cryptoapis.model.get_exchange_rate_by_assets_ids400_response import GetExchangeRateByAssetsIDs400Response
+from cryptoapis.model.get_exchange_rate_by_assets_ids422_response import GetExchangeRateByAssetsIDs422Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.

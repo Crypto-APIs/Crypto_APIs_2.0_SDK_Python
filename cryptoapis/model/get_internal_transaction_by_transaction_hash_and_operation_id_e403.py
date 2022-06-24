@@ -32,12 +32,12 @@ from cryptoapis.exceptions import ApiAttributeError
 
 def lazy_import():
     from cryptoapis.model.banned_ip_address import BannedIpAddress
-    from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+    from cryptoapis.model.banned_ip_address_details_inner import BannedIpAddressDetailsInner
     from cryptoapis.model.endpoint_not_allowed_for_api_key import EndpointNotAllowedForApiKey
     from cryptoapis.model.endpoint_not_allowed_for_plan import EndpointNotAllowedForPlan
     from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
     globals()['BannedIpAddress'] = BannedIpAddress
-    globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
+    globals()['BannedIpAddressDetailsInner'] = BannedIpAddressDetailsInner
     globals()['EndpointNotAllowedForApiKey'] = EndpointNotAllowedForApiKey
     globals()['EndpointNotAllowedForPlan'] = EndpointNotAllowedForPlan
     globals()['FeatureMainnetsNotAllowedForPlan'] = FeatureMainnetsNotAllowedForPlan
@@ -96,7 +96,7 @@ class GetInternalTransactionByTransactionHashAndOperationIdE403(ModelComposed):
         """
         lazy_import()
         return {
-            'details': ([BannedIpAddressDetails],),  # noqa: E501
+            'details': ([BannedIpAddressDetailsInner],),  # noqa: E501
             'code': (str,),  # noqa: E501
             'message': (str,),  # noqa: E501
         }
@@ -151,7 +151,7 @@ class GetInternalTransactionByTransactionHashAndOperationIdE403(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            details ([BannedIpAddressDetails]): [optional]  # noqa: E501
+            details ([BannedIpAddressDetailsInner]): [optional]  # noqa: E501
             code (str): Specifies an error code, e.g. error 404.. [optional]  # noqa: E501
             message (str): Specifies the message of the error, i.e. why the error was returned, e.g. error 404 stands for “not found”.. [optional]  # noqa: E501
         """
@@ -257,7 +257,7 @@ class GetInternalTransactionByTransactionHashAndOperationIdE403(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            details ([BannedIpAddressDetails]): [optional]  # noqa: E501
+            details ([BannedIpAddressDetailsInner]): [optional]  # noqa: E501
             code (str): Specifies an error code, e.g. error 404.. [optional]  # noqa: E501
             message (str): Specifies the message of the error, i.e. why the error was returned, e.g. error 404 stands for “not found”.. [optional]  # noqa: E501
         """

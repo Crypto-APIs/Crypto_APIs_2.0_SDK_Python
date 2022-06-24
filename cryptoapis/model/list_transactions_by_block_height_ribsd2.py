@@ -31,10 +31,10 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.list_transactions_by_block_hash_ribsd_vout import ListTransactionsByBlockHashRIBSDVout
-    from cryptoapis.model.list_transactions_by_block_height_ribsd2_vin import ListTransactionsByBlockHeightRIBSD2Vin
-    globals()['ListTransactionsByBlockHashRIBSDVout'] = ListTransactionsByBlockHashRIBSDVout
-    globals()['ListTransactionsByBlockHeightRIBSD2Vin'] = ListTransactionsByBlockHeightRIBSD2Vin
+    from cryptoapis.model.list_transactions_by_block_hash_ribsd_vout_inner import ListTransactionsByBlockHashRIBSDVoutInner
+    from cryptoapis.model.list_transactions_by_block_height_ribsd2_vin_inner import ListTransactionsByBlockHeightRIBSD2VinInner
+    globals()['ListTransactionsByBlockHashRIBSDVoutInner'] = ListTransactionsByBlockHashRIBSDVoutInner
+    globals()['ListTransactionsByBlockHeightRIBSD2VinInner'] = ListTransactionsByBlockHeightRIBSD2VinInner
 
 
 class ListTransactionsByBlockHeightRIBSD2(ModelNormal):
@@ -93,8 +93,8 @@ class ListTransactionsByBlockHeightRIBSD2(ModelNormal):
             'locktime': (int,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
-            'vin': ([ListTransactionsByBlockHeightRIBSD2Vin],),  # noqa: E501
-            'vout': ([ListTransactionsByBlockHashRIBSDVout],),  # noqa: E501
+            'vin': ([ListTransactionsByBlockHeightRIBSD2VinInner],),  # noqa: E501
+            'vout': ([ListTransactionsByBlockHashRIBSDVoutInner],),  # noqa: E501
         }
 
     @cached_property
@@ -124,8 +124,8 @@ class ListTransactionsByBlockHeightRIBSD2(ModelNormal):
             locktime (int): Represents the time at which a particular transaction can be added to the blockchain.
             size (int): Represents the total size of this transaction.
             version (int): Represents transaction version number.
-            vin ([ListTransactionsByBlockHeightRIBSD2Vin]): Represents the transaction inputs.
-            vout ([ListTransactionsByBlockHashRIBSDVout]): Represents the transaction outputs.
+            vin ([ListTransactionsByBlockHeightRIBSD2VinInner]): Represents the transaction inputs.
+            vout ([ListTransactionsByBlockHashRIBSDVoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -221,8 +221,8 @@ class ListTransactionsByBlockHeightRIBSD2(ModelNormal):
             locktime (int): Represents the time at which a particular transaction can be added to the blockchain.
             size (int): Represents the total size of this transaction.
             version (int): Represents transaction version number.
-            vin ([ListTransactionsByBlockHeightRIBSD2Vin]): Represents the transaction inputs.
-            vout ([ListTransactionsByBlockHashRIBSDVout]): Represents the transaction outputs.
+            vin ([ListTransactionsByBlockHeightRIBSD2VinInner]): Represents the transaction inputs.
+            vout ([ListTransactionsByBlockHashRIBSDVoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

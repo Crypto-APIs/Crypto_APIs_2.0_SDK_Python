@@ -32,11 +32,11 @@ from cryptoapis.exceptions import ApiAttributeError
 
 def lazy_import():
     from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_assets_ri_confirmed_balance import GetHDWalletXPubYPubZPubAssetsRIConfirmedBalance
-    from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_assets_ri_fungible_tokens import GetHDWalletXPubYPubZPubAssetsRIFungibleTokens
-    from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_assets_ri_non_fungible_tokens import GetHDWalletXPubYPubZPubAssetsRINonFungibleTokens
+    from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_assets_ri_fungible_tokens_inner import GetHDWalletXPubYPubZPubAssetsRIFungibleTokensInner
+    from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_assets_ri_non_fungible_tokens_inner import GetHDWalletXPubYPubZPubAssetsRINonFungibleTokensInner
     globals()['GetHDWalletXPubYPubZPubAssetsRIConfirmedBalance'] = GetHDWalletXPubYPubZPubAssetsRIConfirmedBalance
-    globals()['GetHDWalletXPubYPubZPubAssetsRIFungibleTokens'] = GetHDWalletXPubYPubZPubAssetsRIFungibleTokens
-    globals()['GetHDWalletXPubYPubZPubAssetsRINonFungibleTokens'] = GetHDWalletXPubYPubZPubAssetsRINonFungibleTokens
+    globals()['GetHDWalletXPubYPubZPubAssetsRIFungibleTokensInner'] = GetHDWalletXPubYPubZPubAssetsRIFungibleTokensInner
+    globals()['GetHDWalletXPubYPubZPubAssetsRINonFungibleTokensInner'] = GetHDWalletXPubYPubZPubAssetsRINonFungibleTokensInner
 
 
 class GetHDWalletXPubYPubZPubAssetsRI(ModelNormal):
@@ -93,8 +93,8 @@ class GetHDWalletXPubYPubZPubAssetsRI(ModelNormal):
         lazy_import()
         return {
             'confirmed_balance': (GetHDWalletXPubYPubZPubAssetsRIConfirmedBalance,),  # noqa: E501
-            'fungible_tokens': ([GetHDWalletXPubYPubZPubAssetsRIFungibleTokens],),  # noqa: E501
-            'non_fungible_tokens': ([GetHDWalletXPubYPubZPubAssetsRINonFungibleTokens],),  # noqa: E501
+            'fungible_tokens': ([GetHDWalletXPubYPubZPubAssetsRIFungibleTokensInner],),  # noqa: E501
+            'non_fungible_tokens': ([GetHDWalletXPubYPubZPubAssetsRINonFungibleTokensInner],),  # noqa: E501
         }
 
     @cached_property
@@ -152,8 +152,8 @@ class GetHDWalletXPubYPubZPubAssetsRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fungible_tokens ([GetHDWalletXPubYPubZPubAssetsRIFungibleTokens]): Represents fungible tokens'es detailed information. [optional]  # noqa: E501
-            non_fungible_tokens ([GetHDWalletXPubYPubZPubAssetsRINonFungibleTokens]): Represents non-fungible tokens'es detailed information.. [optional]  # noqa: E501
+            fungible_tokens ([GetHDWalletXPubYPubZPubAssetsRIFungibleTokensInner]): Represents fungible tokens'es detailed information. [optional]  # noqa: E501
+            non_fungible_tokens ([GetHDWalletXPubYPubZPubAssetsRINonFungibleTokensInner]): Represents non-fungible tokens'es detailed information.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -243,8 +243,8 @@ class GetHDWalletXPubYPubZPubAssetsRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fungible_tokens ([GetHDWalletXPubYPubZPubAssetsRIFungibleTokens]): Represents fungible tokens'es detailed information. [optional]  # noqa: E501
-            non_fungible_tokens ([GetHDWalletXPubYPubZPubAssetsRINonFungibleTokens]): Represents non-fungible tokens'es detailed information.. [optional]  # noqa: E501
+            fungible_tokens ([GetHDWalletXPubYPubZPubAssetsRIFungibleTokensInner]): Represents fungible tokens'es detailed information. [optional]  # noqa: E501
+            non_fungible_tokens ([GetHDWalletXPubYPubZPubAssetsRINonFungibleTokensInner]): Represents non-fungible tokens'es detailed information.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

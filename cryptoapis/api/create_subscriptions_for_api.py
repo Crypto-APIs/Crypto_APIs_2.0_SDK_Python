@@ -22,69 +22,88 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from cryptoapis.model.inline_response40071 import InlineResponse40071
-from cryptoapis.model.inline_response40072 import InlineResponse40072
-from cryptoapis.model.inline_response40073 import InlineResponse40073
-from cryptoapis.model.inline_response40074 import InlineResponse40074
-from cryptoapis.model.inline_response40075 import InlineResponse40075
-from cryptoapis.model.inline_response40076 import InlineResponse40076
-from cryptoapis.model.inline_response40077 import InlineResponse40077
-from cryptoapis.model.inline_response40078 import InlineResponse40078
-from cryptoapis.model.inline_response40087 import InlineResponse40087
-from cryptoapis.model.inline_response40088 import InlineResponse40088
-from cryptoapis.model.inline_response40171 import InlineResponse40171
-from cryptoapis.model.inline_response40172 import InlineResponse40172
-from cryptoapis.model.inline_response40173 import InlineResponse40173
-from cryptoapis.model.inline_response40174 import InlineResponse40174
-from cryptoapis.model.inline_response40175 import InlineResponse40175
-from cryptoapis.model.inline_response40176 import InlineResponse40176
-from cryptoapis.model.inline_response40177 import InlineResponse40177
-from cryptoapis.model.inline_response40178 import InlineResponse40178
-from cryptoapis.model.inline_response40187 import InlineResponse40187
-from cryptoapis.model.inline_response40188 import InlineResponse40188
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40371 import InlineResponse40371
-from cryptoapis.model.inline_response40372 import InlineResponse40372
-from cryptoapis.model.inline_response40373 import InlineResponse40373
-from cryptoapis.model.inline_response40374 import InlineResponse40374
-from cryptoapis.model.inline_response40375 import InlineResponse40375
-from cryptoapis.model.inline_response40376 import InlineResponse40376
-from cryptoapis.model.inline_response40377 import InlineResponse40377
-from cryptoapis.model.inline_response40378 import InlineResponse40378
-from cryptoapis.model.inline_response40387 import InlineResponse40387
-from cryptoapis.model.inline_response40388 import InlineResponse40388
-from cryptoapis.model.inline_response40910 import InlineResponse40910
-from cryptoapis.model.inline_response40911 import InlineResponse40911
-from cryptoapis.model.inline_response40912 import InlineResponse40912
-from cryptoapis.model.inline_response40913 import InlineResponse40913
-from cryptoapis.model.inline_response40914 import InlineResponse40914
-from cryptoapis.model.inline_response40915 import InlineResponse40915
-from cryptoapis.model.inline_response4096 import InlineResponse4096
-from cryptoapis.model.inline_response4097 import InlineResponse4097
-from cryptoapis.model.inline_response4098 import InlineResponse4098
-from cryptoapis.model.inline_response4099 import InlineResponse4099
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
+from cryptoapis.model.mined_transaction400_response import MinedTransaction400Response
+from cryptoapis.model.mined_transaction401_response import MinedTransaction401Response
+from cryptoapis.model.mined_transaction403_response import MinedTransaction403Response
+from cryptoapis.model.mined_transaction409_response import MinedTransaction409Response
 from cryptoapis.model.mined_transaction_r import MinedTransactionR
 from cryptoapis.model.mined_transaction_rb import MinedTransactionRB
+from cryptoapis.model.new_block400_response import NewBlock400Response
+from cryptoapis.model.new_block401_response import NewBlock401Response
+from cryptoapis.model.new_block403_response import NewBlock403Response
+from cryptoapis.model.new_block409_response import NewBlock409Response
 from cryptoapis.model.new_block_r import NewBlockR
 from cryptoapis.model.new_block_rb import NewBlockRB
+from cryptoapis.model.new_confirmed_coins_transactions400_response import NewConfirmedCoinsTransactions400Response
+from cryptoapis.model.new_confirmed_coins_transactions401_response import NewConfirmedCoinsTransactions401Response
+from cryptoapis.model.new_confirmed_coins_transactions403_response import NewConfirmedCoinsTransactions403Response
+from cryptoapis.model.new_confirmed_coins_transactions409_response import NewConfirmedCoinsTransactions409Response
+from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation400_response import NewConfirmedCoinsTransactionsAndEachConfirmation400Response
+from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation401_response import NewConfirmedCoinsTransactionsAndEachConfirmation401Response
+from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation403_response import NewConfirmedCoinsTransactionsAndEachConfirmation403Response
+from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation409_response import NewConfirmedCoinsTransactionsAndEachConfirmation409Response
 from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation_r import NewConfirmedCoinsTransactionsAndEachConfirmationR
 from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation_rb import NewConfirmedCoinsTransactionsAndEachConfirmationRB
+from cryptoapis.model.new_confirmed_coins_transactions_for_specific_amount400_response import NewConfirmedCoinsTransactionsForSpecificAmount400Response
+from cryptoapis.model.new_confirmed_coins_transactions_for_specific_amount401_response import NewConfirmedCoinsTransactionsForSpecificAmount401Response
+from cryptoapis.model.new_confirmed_coins_transactions_for_specific_amount403_response import NewConfirmedCoinsTransactionsForSpecificAmount403Response
+from cryptoapis.model.new_confirmed_coins_transactions_for_specific_amount409_response import NewConfirmedCoinsTransactionsForSpecificAmount409Response
+from cryptoapis.model.new_confirmed_coins_transactions_for_specific_amount_r import NewConfirmedCoinsTransactionsForSpecificAmountR
+from cryptoapis.model.new_confirmed_coins_transactions_for_specific_amount_rb import NewConfirmedCoinsTransactionsForSpecificAmountRB
 from cryptoapis.model.new_confirmed_coins_transactions_r import NewConfirmedCoinsTransactionsR
 from cryptoapis.model.new_confirmed_coins_transactions_rb import NewConfirmedCoinsTransactionsRB
+from cryptoapis.model.new_confirmed_internal_transactions400_response import NewConfirmedInternalTransactions400Response
+from cryptoapis.model.new_confirmed_internal_transactions401_response import NewConfirmedInternalTransactions401Response
+from cryptoapis.model.new_confirmed_internal_transactions403_response import NewConfirmedInternalTransactions403Response
+from cryptoapis.model.new_confirmed_internal_transactions409_response import NewConfirmedInternalTransactions409Response
+from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation400_response import NewConfirmedInternalTransactionsAndEachConfirmation400Response
+from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation401_response import NewConfirmedInternalTransactionsAndEachConfirmation401Response
+from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation403_response import NewConfirmedInternalTransactionsAndEachConfirmation403Response
+from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation409_response import NewConfirmedInternalTransactionsAndEachConfirmation409Response
 from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation_r import NewConfirmedInternalTransactionsAndEachConfirmationR
 from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation_rb import NewConfirmedInternalTransactionsAndEachConfirmationRB
+from cryptoapis.model.new_confirmed_internal_transactions_for_specific_amount400_response import NewConfirmedInternalTransactionsForSpecificAmount400Response
+from cryptoapis.model.new_confirmed_internal_transactions_for_specific_amount401_response import NewConfirmedInternalTransactionsForSpecificAmount401Response
+from cryptoapis.model.new_confirmed_internal_transactions_for_specific_amount403_response import NewConfirmedInternalTransactionsForSpecificAmount403Response
+from cryptoapis.model.new_confirmed_internal_transactions_for_specific_amount409_response import NewConfirmedInternalTransactionsForSpecificAmount409Response
+from cryptoapis.model.new_confirmed_internal_transactions_for_specific_amount_r import NewConfirmedInternalTransactionsForSpecificAmountR
+from cryptoapis.model.new_confirmed_internal_transactions_for_specific_amount_rb import NewConfirmedInternalTransactionsForSpecificAmountRB
 from cryptoapis.model.new_confirmed_internal_transactions_r import NewConfirmedInternalTransactionsR
 from cryptoapis.model.new_confirmed_internal_transactions_rb import NewConfirmedInternalTransactionsRB
+from cryptoapis.model.new_confirmed_token_transactions_for_specific_amount400_response import NewConfirmedTokenTransactionsForSpecificAmount400Response
+from cryptoapis.model.new_confirmed_token_transactions_for_specific_amount401_response import NewConfirmedTokenTransactionsForSpecificAmount401Response
+from cryptoapis.model.new_confirmed_token_transactions_for_specific_amount403_response import NewConfirmedTokenTransactionsForSpecificAmount403Response
+from cryptoapis.model.new_confirmed_token_transactions_for_specific_amount409_response import NewConfirmedTokenTransactionsForSpecificAmount409Response
+from cryptoapis.model.new_confirmed_token_transactions_for_specific_amount_r import NewConfirmedTokenTransactionsForSpecificAmountR
+from cryptoapis.model.new_confirmed_token_transactions_for_specific_amount_rb import NewConfirmedTokenTransactionsForSpecificAmountRB
+from cryptoapis.model.new_confirmed_tokens_transactions400_response import NewConfirmedTokensTransactions400Response
+from cryptoapis.model.new_confirmed_tokens_transactions401_response import NewConfirmedTokensTransactions401Response
+from cryptoapis.model.new_confirmed_tokens_transactions403_response import NewConfirmedTokensTransactions403Response
+from cryptoapis.model.new_confirmed_tokens_transactions409_response import NewConfirmedTokensTransactions409Response
+from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation400_response import NewConfirmedTokensTransactionsAndEachConfirmation400Response
+from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation401_response import NewConfirmedTokensTransactionsAndEachConfirmation401Response
+from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation403_response import NewConfirmedTokensTransactionsAndEachConfirmation403Response
+from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation409_response import NewConfirmedTokensTransactionsAndEachConfirmation409Response
 from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_r import NewConfirmedTokensTransactionsAndEachConfirmationR
 from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_rb import NewConfirmedTokensTransactionsAndEachConfirmationRB
 from cryptoapis.model.new_confirmed_tokens_transactions_r import NewConfirmedTokensTransactionsR
 from cryptoapis.model.new_confirmed_tokens_transactions_rb import NewConfirmedTokensTransactionsRB
+from cryptoapis.model.new_unconfirmed_coins_transactions400_response import NewUnconfirmedCoinsTransactions400Response
+from cryptoapis.model.new_unconfirmed_coins_transactions401_response import NewUnconfirmedCoinsTransactions401Response
+from cryptoapis.model.new_unconfirmed_coins_transactions403_response import NewUnconfirmedCoinsTransactions403Response
+from cryptoapis.model.new_unconfirmed_coins_transactions409_response import NewUnconfirmedCoinsTransactions409Response
 from cryptoapis.model.new_unconfirmed_coins_transactions_r import NewUnconfirmedCoinsTransactionsR
 from cryptoapis.model.new_unconfirmed_coins_transactions_rb import NewUnconfirmedCoinsTransactionsRB
+from cryptoapis.model.new_unconfirmed_tokens_transactions400_response import NewUnconfirmedTokensTransactions400Response
+from cryptoapis.model.new_unconfirmed_tokens_transactions401_response import NewUnconfirmedTokensTransactions401Response
+from cryptoapis.model.new_unconfirmed_tokens_transactions403_response import NewUnconfirmedTokensTransactions403Response
+from cryptoapis.model.new_unconfirmed_tokens_transactions409_response import NewUnconfirmedTokensTransactions409Response
 from cryptoapis.model.new_unconfirmed_tokens_transactions_r import NewUnconfirmedTokensTransactionsR
 from cryptoapis.model.new_unconfirmed_tokens_transactions_rb import NewUnconfirmedTokensTransactionsRB
 
@@ -464,6 +483,97 @@ class CreateSubscriptionsForApi(object):
             },
             api_client=api_client
         )
+        self.new_confirmed_coins_transactions_for_specific_amount_endpoint = _Endpoint(
+            settings={
+                'response_type': (NewConfirmedCoinsTransactionsForSpecificAmountR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/blockchain-events/{blockchain}/{network}/subscriptions/coins-transactions-for-specific-amount',
+                'operation_id': 'new_confirmed_coins_transactions_for_specific_amount',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'blockchain',
+                    'network',
+                    'context',
+                    'new_confirmed_coins_transactions_for_specific_amount_rb',
+                ],
+                'required': [
+                    'blockchain',
+                    'network',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'blockchain',
+                    'network',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('blockchain',): {
+
+                        "BITCOIN": "bitcoin",
+                        "BITCOIN-CASH": "bitcoin-cash",
+                        "LITECOIN": "litecoin",
+                        "DOGECOIN": "dogecoin",
+                        "DASH": "dash",
+                        "ETHEREUM": "ethereum",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "XRP": "xrp",
+                        "ZILLIQA": "zilliqa",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain",
+                        "ZCASH": "zcash"
+                    },
+                    ('network',): {
+
+                        "MAINNET": "mainnet",
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor"
+                    },
+                },
+                'openapi_types': {
+                    'blockchain':
+                        (str,),
+                    'network':
+                        (str,),
+                    'context':
+                        (str,),
+                    'new_confirmed_coins_transactions_for_specific_amount_rb':
+                        (NewConfirmedCoinsTransactionsForSpecificAmountRB,),
+                },
+                'attribute_map': {
+                    'blockchain': 'blockchain',
+                    'network': 'network',
+                    'context': 'context',
+                },
+                'location_map': {
+                    'blockchain': 'path',
+                    'network': 'path',
+                    'context': 'query',
+                    'new_confirmed_coins_transactions_for_specific_amount_rb': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.new_confirmed_internal_transactions_endpoint = _Endpoint(
             settings={
                 'response_type': (NewConfirmedInternalTransactionsR,),
@@ -616,6 +726,172 @@ class CreateSubscriptionsForApi(object):
                     'network': 'path',
                     'context': 'query',
                     'new_confirmed_internal_transactions_and_each_confirmation_rb': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.new_confirmed_internal_transactions_for_specific_amount_endpoint = _Endpoint(
+            settings={
+                'response_type': (NewConfirmedInternalTransactionsForSpecificAmountR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/blockchain-events/{blockchain}/{network}/subscriptions/internal-transactions-for-specific-amount',
+                'operation_id': 'new_confirmed_internal_transactions_for_specific_amount',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'blockchain',
+                    'network',
+                    'context',
+                    'new_confirmed_internal_transactions_for_specific_amount_rb',
+                ],
+                'required': [
+                    'blockchain',
+                    'network',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'blockchain',
+                    'network',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('blockchain',): {
+
+                        "ETHEREUM": "ethereum",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain"
+                    },
+                    ('network',): {
+
+                        "MAINNET": "mainnet",
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor"
+                    },
+                },
+                'openapi_types': {
+                    'blockchain':
+                        (str,),
+                    'network':
+                        (str,),
+                    'context':
+                        (str,),
+                    'new_confirmed_internal_transactions_for_specific_amount_rb':
+                        (NewConfirmedInternalTransactionsForSpecificAmountRB,),
+                },
+                'attribute_map': {
+                    'blockchain': 'blockchain',
+                    'network': 'network',
+                    'context': 'context',
+                },
+                'location_map': {
+                    'blockchain': 'path',
+                    'network': 'path',
+                    'context': 'query',
+                    'new_confirmed_internal_transactions_for_specific_amount_rb': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.new_confirmed_token_transactions_for_specific_amount_endpoint = _Endpoint(
+            settings={
+                'response_type': (NewConfirmedTokenTransactionsForSpecificAmountR,),
+                'auth': [
+                    'ApiKey'
+                ],
+                'endpoint_path': '/blockchain-events/{blockchain}/{network}/subscriptions/tokens-transfers-for-specific-amount',
+                'operation_id': 'new_confirmed_token_transactions_for_specific_amount',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'blockchain',
+                    'network',
+                    'context',
+                    'new_confirmed_token_transactions_for_specific_amount_rb',
+                ],
+                'required': [
+                    'blockchain',
+                    'network',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'blockchain',
+                    'network',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('blockchain',): {
+
+                        "ETHEREUM": "ethereum",
+                        "ETHEREUM-CLASSIC": "ethereum-classic",
+                        "BINANCE-SMART-CHAIN": "binance-smart-chain"
+                    },
+                    ('network',): {
+
+                        "MAINNET": "mainnet",
+                        "TESTNET": "testnet",
+                        "ROPSTEN": "ropsten",
+                        "MORDOR": "mordor"
+                    },
+                },
+                'openapi_types': {
+                    'blockchain':
+                        (str,),
+                    'network':
+                        (str,),
+                    'context':
+                        (str,),
+                    'new_confirmed_token_transactions_for_specific_amount_rb':
+                        (NewConfirmedTokenTransactionsForSpecificAmountRB,),
+                },
+                'attribute_map': {
+                    'blockchain': 'blockchain',
+                    'network': 'network',
+                    'context': 'context',
+                },
+                'location_map': {
+                    'blockchain': 'path',
+                    'network': 'path',
+                    'context': 'query',
+                    'new_confirmed_token_transactions_for_specific_amount_rb': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1327,6 +1603,95 @@ class CreateSubscriptionsForApi(object):
             network
         return self.new_confirmed_coins_transactions_and_each_confirmation_endpoint.call_with_http_info(**kwargs)
 
+    def new_confirmed_coins_transactions_for_specific_amount(
+        self,
+        blockchain,
+        network,
+        **kwargs
+    ):
+        """New Confirmed Coins Transactions For Specific Amount  # noqa: E501
+
+        Through this endpoint customers can create callback subscriptions for a specific event and \"amountHigherThan\" value. In this case the event is when there are new incoming or outgoing confirmed coins transactions for the specified blockchain and the amount is equal or higher than the value specified.  By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs  filtered for the specified amount. The information is returned per specified address.    Being confirmed means that the transactions are verified by miners and added to the next block.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.new_confirmed_coins_transactions_for_specific_amount(blockchain, network, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            new_confirmed_coins_transactions_for_specific_amount_rb (NewConfirmedCoinsTransactionsForSpecificAmountRB): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            NewConfirmedCoinsTransactionsForSpecificAmountR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        return self.new_confirmed_coins_transactions_for_specific_amount_endpoint.call_with_http_info(**kwargs)
+
     def new_confirmed_internal_transactions(
         self,
         blockchain,
@@ -1504,6 +1869,184 @@ class CreateSubscriptionsForApi(object):
         kwargs['network'] = \
             network
         return self.new_confirmed_internal_transactions_and_each_confirmation_endpoint.call_with_http_info(**kwargs)
+
+    def new_confirmed_internal_transactions_for_specific_amount(
+        self,
+        blockchain,
+        network,
+        **kwargs
+    ):
+        """New Confirmed Internal Transactions For Specific Amount  # noqa: E501
+
+        Through this endpoint customers can create callback subscriptions for a specific event and \"amountHigherThan\" value. In this case the event is when there are new confirmed internal transactions and the amount is equal or higher than a value, specified by the customer. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs, filtered for the specified amount.  Being confirmed means that the transactions are verified by miners and added to the next block  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.new_confirmed_internal_transactions_for_specific_amount(blockchain, network, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            new_confirmed_internal_transactions_for_specific_amount_rb (NewConfirmedInternalTransactionsForSpecificAmountRB): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            NewConfirmedInternalTransactionsForSpecificAmountR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        return self.new_confirmed_internal_transactions_for_specific_amount_endpoint.call_with_http_info(**kwargs)
+
+    def new_confirmed_token_transactions_for_specific_amount(
+        self,
+        blockchain,
+        network,
+        **kwargs
+    ):
+        """New Confirmed Token Transactions For Specific Amount  # noqa: E501
+
+        Through this endpoint customers can create callback subscriptions for a specific event and \"amountHigherThan\" value. In this case the event is when there are new incoming or outgoing confirmed token transactions for the specified blockchain and the amount is equal or higher than the value specified. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs, filtered for the specified amount.  Being confirmed means that the transactions are verified by miners and added to the next block. This endpoint refers to tokens transactions only, not coins.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.new_confirmed_token_transactions_for_specific_amount(blockchain, network, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            blockchain (str): Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+            network (str): Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+
+        Keyword Args:
+            context (str): In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.. [optional]
+            new_confirmed_token_transactions_for_specific_amount_rb (NewConfirmedTokenTransactionsForSpecificAmountRB): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            NewConfirmedTokenTransactionsForSpecificAmountR
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['blockchain'] = \
+            blockchain
+        kwargs['network'] = \
+            network
+        return self.new_confirmed_token_transactions_for_specific_amount_endpoint.call_with_http_info(**kwargs)
 
     def new_confirmed_tokens_transactions(
         self,

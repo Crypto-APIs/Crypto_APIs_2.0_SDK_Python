@@ -31,8 +31,8 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.create_coins_transaction_request_from_wallet_rb_data_item_recipients import CreateCoinsTransactionRequestFromWalletRBDataItemRecipients
-    globals()['CreateCoinsTransactionRequestFromWalletRBDataItemRecipients'] = CreateCoinsTransactionRequestFromWalletRBDataItemRecipients
+    from cryptoapis.model.create_coins_transaction_request_from_wallet_rb_data_item_recipients_inner import CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner
+    globals()['CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner'] = CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner
 
 
 class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
@@ -98,7 +98,7 @@ class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
         lazy_import()
         return {
             'fee_priority': (str,),  # noqa: E501
-            'recipients': ([CreateCoinsTransactionRequestFromWalletRBDataItemRecipients],),  # noqa: E501
+            'recipients': ([CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner],),  # noqa: E501
             'callback_secret_key': (str,),  # noqa: E501
             'callback_url': (str,),  # noqa: E501
             'note': (str,),  # noqa: E501
@@ -131,7 +131,7 @@ class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
 
         Args:
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
-            recipients ([CreateCoinsTransactionRequestFromWalletRBDataItemRecipients]): Defines the destination of the transaction, whether it is incoming or outgoing.
+            recipients ([CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner]): Defines the destination of the transaction, whether it is incoming or outgoing.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -226,7 +226,7 @@ class CreateCoinsTransactionRequestFromWalletRBDataItem(ModelNormal):
 
         Args:
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
-            recipients ([CreateCoinsTransactionRequestFromWalletRBDataItemRecipients]): Defines the destination of the transaction, whether it is incoming or outgoing.
+            recipients ([CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner]): Defines the destination of the transaction, whether it is incoming or outgoing.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -31,10 +31,10 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.create_fungible_tokens_transaction_request_from_address_ri_recipients import CreateFungibleTokensTransactionRequestFromAddressRIRecipients
+    from cryptoapis.model.create_fungible_tokens_transaction_request_from_address_ri_recipients_inner import CreateFungibleTokensTransactionRequestFromAddressRIRecipientsInner
     from cryptoapis.model.create_fungible_tokens_transaction_request_from_address_ri_senders import CreateFungibleTokensTransactionRequestFromAddressRISenders
     from cryptoapis.model.create_fungible_tokens_transaction_request_from_address_ris import CreateFungibleTokensTransactionRequestFromAddressRIS
-    globals()['CreateFungibleTokensTransactionRequestFromAddressRIRecipients'] = CreateFungibleTokensTransactionRequestFromAddressRIRecipients
+    globals()['CreateFungibleTokensTransactionRequestFromAddressRIRecipientsInner'] = CreateFungibleTokensTransactionRequestFromAddressRIRecipientsInner
     globals()['CreateFungibleTokensTransactionRequestFromAddressRIS'] = CreateFungibleTokensTransactionRequestFromAddressRIS
     globals()['CreateFungibleTokensTransactionRequestFromAddressRISenders'] = CreateFungibleTokensTransactionRequestFromAddressRISenders
 
@@ -100,7 +100,7 @@ class CreateFungibleTokensTransactionRequestFromAddressRI(ModelNormal):
             'callback_secret_key': (str,),  # noqa: E501
             'callback_url': (str,),  # noqa: E501
             'fee_priority': (str,),  # noqa: E501
-            'recipients': ([CreateFungibleTokensTransactionRequestFromAddressRIRecipients],),  # noqa: E501
+            'recipients': ([CreateFungibleTokensTransactionRequestFromAddressRIRecipientsInner],),  # noqa: E501
             'senders': (CreateFungibleTokensTransactionRequestFromAddressRISenders,),  # noqa: E501
             'token_type_specific_data': (CreateFungibleTokensTransactionRequestFromAddressRIS,),  # noqa: E501
             'transaction_request_id': (str,),  # noqa: E501
@@ -137,7 +137,7 @@ class CreateFungibleTokensTransactionRequestFromAddressRI(ModelNormal):
             callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
             callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
-            recipients ([CreateFungibleTokensTransactionRequestFromAddressRIRecipients]): Defines the destination for the transaction, i.e. the recipient(s).
+            recipients ([CreateFungibleTokensTransactionRequestFromAddressRIRecipientsInner]): Defines the destination for the transaction, i.e. the recipient(s).
             senders (CreateFungibleTokensTransactionRequestFromAddressRISenders):
             token_type_specific_data (CreateFungibleTokensTransactionRequestFromAddressRIS):
             transaction_request_id (str): Represents a unique identifier of the transaction request (the request sent to make a transaction), which helps in identifying which callback and which `referenceId` concern that specific transaction request.
@@ -239,7 +239,7 @@ class CreateFungibleTokensTransactionRequestFromAddressRI(ModelNormal):
             callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
             callback_url (str): Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
-            recipients ([CreateFungibleTokensTransactionRequestFromAddressRIRecipients]): Defines the destination for the transaction, i.e. the recipient(s).
+            recipients ([CreateFungibleTokensTransactionRequestFromAddressRIRecipientsInner]): Defines the destination for the transaction, i.e. the recipient(s).
             senders (CreateFungibleTokensTransactionRequestFromAddressRISenders):
             token_type_specific_data (CreateFungibleTokensTransactionRequestFromAddressRIS):
             transaction_request_id (str): Represents a unique identifier of the transaction request (the request sent to make a transaction), which helps in identifying which callback and which `referenceId` concern that specific transaction request.

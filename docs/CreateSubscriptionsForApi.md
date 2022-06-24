@@ -8,8 +8,11 @@ Method | HTTP request | Description
 [**new_block**](CreateSubscriptionsForApi.md#new_block) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/block-mined | New Block
 [**new_confirmed_coins_transactions**](CreateSubscriptionsForApi.md#new_confirmed_coins_transactions) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/address-coins-transactions-confirmed | New confirmed coins transactions
 [**new_confirmed_coins_transactions_and_each_confirmation**](CreateSubscriptionsForApi.md#new_confirmed_coins_transactions_and_each_confirmation) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/address-coins-transactions-confirmed-each-confirmation | New confirmed coins transactions and each confirmation
+[**new_confirmed_coins_transactions_for_specific_amount**](CreateSubscriptionsForApi.md#new_confirmed_coins_transactions_for_specific_amount) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/coins-transactions-for-specific-amount | New Confirmed Coins Transactions For Specific Amount
 [**new_confirmed_internal_transactions**](CreateSubscriptionsForApi.md#new_confirmed_internal_transactions) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/address-internal-transactions-confirmed | New confirmed internal transactions
 [**new_confirmed_internal_transactions_and_each_confirmation**](CreateSubscriptionsForApi.md#new_confirmed_internal_transactions_and_each_confirmation) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/address-internal-transactions-confirmed-each-confirmation | New confirmed internal transactions and each confirmation
+[**new_confirmed_internal_transactions_for_specific_amount**](CreateSubscriptionsForApi.md#new_confirmed_internal_transactions_for_specific_amount) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/internal-transactions-for-specific-amount | New Confirmed Internal Transactions For Specific Amount
+[**new_confirmed_token_transactions_for_specific_amount**](CreateSubscriptionsForApi.md#new_confirmed_token_transactions_for_specific_amount) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/tokens-transfers-for-specific-amount | New Confirmed Token Transactions For Specific Amount
 [**new_confirmed_tokens_transactions**](CreateSubscriptionsForApi.md#new_confirmed_tokens_transactions) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/address-tokens-transactions-confirmed | New confirmed tokens transactions
 [**new_confirmed_tokens_transactions_and_each_confirmation**](CreateSubscriptionsForApi.md#new_confirmed_tokens_transactions_and_each_confirmation) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/address-tokens-transactions-confirmed-each-confirmation | New confirmed tokens transactions and each confirmation
 [**new_unconfirmed_coins_transactions**](CreateSubscriptionsForApi.md#new_unconfirmed_coins_transactions) | **POST** /blockchain-events/{blockchain}/{network}/subscriptions/address-coins-transactions-unconfirmed | New unconfirmed coins transactions
@@ -31,17 +34,17 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.inline_response40912 import InlineResponse40912
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40177 import InlineResponse40177
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40377 import InlineResponse40377
+from cryptoapis.model.mined_transaction401_response import MinedTransaction401Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.mined_transaction400_response import MinedTransaction400Response
+from cryptoapis.model.mined_transaction409_response import MinedTransaction409Response
 from cryptoapis.model.mined_transaction_rb import MinedTransactionRB
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.mined_transaction_r import MinedTransactionR
-from cryptoapis.model.inline_response40077 import InlineResponse40077
+from cryptoapis.model.mined_transaction403_response import MinedTransaction403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -153,17 +156,17 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.inline_response40178 import InlineResponse40178
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40378 import InlineResponse40378
-from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.new_block401_response import NewBlock401Response
+from cryptoapis.model.new_block409_response import NewBlock409Response
+from cryptoapis.model.new_block400_response import NewBlock400Response
 from cryptoapis.model.new_block_rb import NewBlockRB
-from cryptoapis.model.inline_response40078 import InlineResponse40078
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.new_block403_response import NewBlock403Response
 from cryptoapis.model.new_block_r import NewBlockR
-from cryptoapis.model.inline_response40913 import InlineResponse40913
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -274,17 +277,17 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.new_confirmed_coins_transactions403_response import NewConfirmedCoinsTransactions403Response
 from cryptoapis.model.new_confirmed_coins_transactions_rb import NewConfirmedCoinsTransactionsRB
-from cryptoapis.model.inline_response40073 import InlineResponse40073
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response4098 import InlineResponse4098
-from cryptoapis.model.inline_response40173 import InlineResponse40173
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.new_confirmed_coins_transactions_r import NewConfirmedCoinsTransactionsR
-from cryptoapis.model.inline_response40373 import InlineResponse40373
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.new_confirmed_coins_transactions409_response import NewConfirmedCoinsTransactions409Response
+from cryptoapis.model.new_confirmed_coins_transactions400_response import NewConfirmedCoinsTransactions400Response
+from cryptoapis.model.new_confirmed_coins_transactions401_response import NewConfirmedCoinsTransactions401Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -397,17 +400,17 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation_r import NewConfirmedCoinsTransactionsAndEachConfirmationR
 from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation_rb import NewConfirmedCoinsTransactionsAndEachConfirmationRB
-from cryptoapis.model.inline_response40911 import InlineResponse40911
-from cryptoapis.model.inline_response40176 import InlineResponse40176
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40376 import InlineResponse40376
-from cryptoapis.model.inline_response40076 import InlineResponse40076
+from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation400_response import NewConfirmedCoinsTransactionsAndEachConfirmation400Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation401_response import NewConfirmedCoinsTransactionsAndEachConfirmation401Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation403_response import NewConfirmedCoinsTransactionsAndEachConfirmation403Response
+from cryptoapis.model.new_confirmed_coins_transactions_and_each_confirmation409_response import NewConfirmedCoinsTransactionsAndEachConfirmation409Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -505,6 +508,128 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **new_confirmed_coins_transactions_for_specific_amount**
+> NewConfirmedCoinsTransactionsForSpecificAmountR new_confirmed_coins_transactions_for_specific_amount(blockchain, network)
+
+New Confirmed Coins Transactions For Specific Amount
+
+Through this endpoint customers can create callback subscriptions for a specific event and \"amountHigherThan\" value. In this case the event is when there are new incoming or outgoing confirmed coins transactions for the specified blockchain and the amount is equal or higher than the value specified.  By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs  filtered for the specified amount. The information is returned per specified address.    Being confirmed means that the transactions are verified by miners and added to the next block.
+
+### Example
+
+* Api Key Authentication (ApiKey):
+
+```python
+import time
+import cryptoapis
+from cryptoapis.api import create_subscriptions_for_api
+from cryptoapis.model.new_confirmed_coins_transactions_for_specific_amount409_response import NewConfirmedCoinsTransactionsForSpecificAmount409Response
+from cryptoapis.model.new_confirmed_coins_transactions_for_specific_amount_rb import NewConfirmedCoinsTransactionsForSpecificAmountRB
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.new_confirmed_coins_transactions_for_specific_amount403_response import NewConfirmedCoinsTransactionsForSpecificAmount403Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.new_confirmed_coins_transactions_for_specific_amount400_response import NewConfirmedCoinsTransactionsForSpecificAmount400Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.new_confirmed_coins_transactions_for_specific_amount_r import NewConfirmedCoinsTransactionsForSpecificAmountR
+from cryptoapis.model.new_confirmed_coins_transactions_for_specific_amount401_response import NewConfirmedCoinsTransactionsForSpecificAmount401Response
+from pprint import pprint
+# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cryptoapis.Configuration(
+    host = "https://rest.cryptoapis.io/v2"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with cryptoapis.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = create_subscriptions_for_api.CreateSubscriptionsForApi(api_client)
+    blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    new_confirmed_coins_transactions_for_specific_amount_rb = NewConfirmedCoinsTransactionsForSpecificAmountRB(
+        context="yourExampleString",
+        data=NewConfirmedCoinsTransactionsForSpecificAmountRBData(
+            item=NewConfirmedCoinsTransactionsForSpecificAmountRBDataItem(
+                allow_duplicates=True,
+                amount_higher_than=2,
+                callback_secret_key="yourSecretKey",
+                callback_url="https://example.com",
+            ),
+        ),
+    ) # NewConfirmedCoinsTransactionsForSpecificAmountRB |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # New Confirmed Coins Transactions For Specific Amount
+        api_response = api_instance.new_confirmed_coins_transactions_for_specific_amount(blockchain, network)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling CreateSubscriptionsForApi->new_confirmed_coins_transactions_for_specific_amount: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # New Confirmed Coins Transactions For Specific Amount
+        api_response = api_instance.new_confirmed_coins_transactions_for_specific_amount(blockchain, network, context=context, new_confirmed_coins_transactions_for_specific_amount_rb=new_confirmed_coins_transactions_for_specific_amount_rb)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling CreateSubscriptionsForApi->new_confirmed_coins_transactions_for_specific_amount: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **new_confirmed_coins_transactions_for_specific_amount_rb** | [**NewConfirmedCoinsTransactionsForSpecificAmountRB**](NewConfirmedCoinsTransactionsForSpecificAmountRB.md)|  | [optional]
+
+### Return type
+
+[**NewConfirmedCoinsTransactionsForSpecificAmountR**](NewConfirmedCoinsTransactionsForSpecificAmountR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | The resource has been successfully created. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
+**402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
+**403** | 403 |  -  |
+**409** | 409 |  -  |
+**415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
+**422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
+**429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
+**500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **new_confirmed_internal_transactions**
 > NewConfirmedInternalTransactionsR new_confirmed_internal_transactions(blockchain, network)
 
@@ -520,16 +645,16 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40187 import InlineResponse40187
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40387 import InlineResponse40387
+from cryptoapis.model.new_confirmed_internal_transactions401_response import NewConfirmedInternalTransactions401Response
+from cryptoapis.model.new_confirmed_internal_transactions403_response import NewConfirmedInternalTransactions403Response
+from cryptoapis.model.new_confirmed_internal_transactions409_response import NewConfirmedInternalTransactions409Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.new_confirmed_internal_transactions400_response import NewConfirmedInternalTransactions400Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.new_confirmed_internal_transactions_r import NewConfirmedInternalTransactionsR
-from cryptoapis.model.inline_response40087 import InlineResponse40087
-from cryptoapis.model.inline_response40914 import InlineResponse40914
 from cryptoapis.model.new_confirmed_internal_transactions_rb import NewConfirmedInternalTransactionsRB
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -643,17 +768,17 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation409_response import NewConfirmedInternalTransactionsAndEachConfirmation409Response
 from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation_r import NewConfirmedInternalTransactionsAndEachConfirmationR
-from cryptoapis.model.inline_response40188 import InlineResponse40188
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40388 import InlineResponse40388
+from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation401_response import NewConfirmedInternalTransactionsAndEachConfirmation401Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation403_response import NewConfirmedInternalTransactionsAndEachConfirmation403Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation_rb import NewConfirmedInternalTransactionsAndEachConfirmationRB
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40088 import InlineResponse40088
-from cryptoapis.model.inline_response40915 import InlineResponse40915
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.new_confirmed_internal_transactions_and_each_confirmation400_response import NewConfirmedInternalTransactionsAndEachConfirmation400Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -751,6 +876,253 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **new_confirmed_internal_transactions_for_specific_amount**
+> NewConfirmedInternalTransactionsForSpecificAmountR new_confirmed_internal_transactions_for_specific_amount(blockchain, network)
+
+New Confirmed Internal Transactions For Specific Amount
+
+Through this endpoint customers can create callback subscriptions for a specific event and \"amountHigherThan\" value. In this case the event is when there are new confirmed internal transactions and the amount is equal or higher than a value, specified by the customer. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs, filtered for the specified amount.  Being confirmed means that the transactions are verified by miners and added to the next block
+
+### Example
+
+* Api Key Authentication (ApiKey):
+
+```python
+import time
+import cryptoapis
+from cryptoapis.api import create_subscriptions_for_api
+from cryptoapis.model.new_confirmed_internal_transactions_for_specific_amount403_response import NewConfirmedInternalTransactionsForSpecificAmount403Response
+from cryptoapis.model.new_confirmed_internal_transactions_for_specific_amount400_response import NewConfirmedInternalTransactionsForSpecificAmount400Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.new_confirmed_internal_transactions_for_specific_amount_rb import NewConfirmedInternalTransactionsForSpecificAmountRB
+from cryptoapis.model.new_confirmed_internal_transactions_for_specific_amount_r import NewConfirmedInternalTransactionsForSpecificAmountR
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.new_confirmed_internal_transactions_for_specific_amount401_response import NewConfirmedInternalTransactionsForSpecificAmount401Response
+from cryptoapis.model.new_confirmed_internal_transactions_for_specific_amount409_response import NewConfirmedInternalTransactionsForSpecificAmount409Response
+from pprint import pprint
+# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cryptoapis.Configuration(
+    host = "https://rest.cryptoapis.io/v2"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with cryptoapis.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = create_subscriptions_for_api.CreateSubscriptionsForApi(api_client)
+    blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network = "ropsten" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    new_confirmed_internal_transactions_for_specific_amount_rb = NewConfirmedInternalTransactionsForSpecificAmountRB(
+        context="yourExampleString",
+        data=NewConfirmedInternalTransactionsForSpecificAmountRBData(
+            item=NewConfirmedInternalTransactionsForSpecificAmountRBDataItem(
+                allow_duplicates=True,
+                amount_higher_than=3,
+                callback_secret_key="yourSecretKey",
+                callback_url="https://example.com",
+            ),
+        ),
+    ) # NewConfirmedInternalTransactionsForSpecificAmountRB |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # New Confirmed Internal Transactions For Specific Amount
+        api_response = api_instance.new_confirmed_internal_transactions_for_specific_amount(blockchain, network)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling CreateSubscriptionsForApi->new_confirmed_internal_transactions_for_specific_amount: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # New Confirmed Internal Transactions For Specific Amount
+        api_response = api_instance.new_confirmed_internal_transactions_for_specific_amount(blockchain, network, context=context, new_confirmed_internal_transactions_for_specific_amount_rb=new_confirmed_internal_transactions_for_specific_amount_rb)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling CreateSubscriptionsForApi->new_confirmed_internal_transactions_for_specific_amount: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **new_confirmed_internal_transactions_for_specific_amount_rb** | [**NewConfirmedInternalTransactionsForSpecificAmountRB**](NewConfirmedInternalTransactionsForSpecificAmountRB.md)|  | [optional]
+
+### Return type
+
+[**NewConfirmedInternalTransactionsForSpecificAmountR**](NewConfirmedInternalTransactionsForSpecificAmountR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | The resource has been successfully created. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
+**402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
+**403** | 403 |  -  |
+**409** | 409 |  -  |
+**415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
+**422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
+**429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
+**500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **new_confirmed_token_transactions_for_specific_amount**
+> NewConfirmedTokenTransactionsForSpecificAmountR new_confirmed_token_transactions_for_specific_amount(blockchain, network)
+
+New Confirmed Token Transactions For Specific Amount
+
+Through this endpoint customers can create callback subscriptions for a specific event and \"amountHigherThan\" value. In this case the event is when there are new incoming or outgoing confirmed token transactions for the specified blockchain and the amount is equal or higher than the value specified. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs, filtered for the specified amount.  Being confirmed means that the transactions are verified by miners and added to the next block. This endpoint refers to tokens transactions only, not coins.
+
+### Example
+
+* Api Key Authentication (ApiKey):
+
+```python
+import time
+import cryptoapis
+from cryptoapis.api import create_subscriptions_for_api
+from cryptoapis.model.new_confirmed_token_transactions_for_specific_amount400_response import NewConfirmedTokenTransactionsForSpecificAmount400Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.new_confirmed_token_transactions_for_specific_amount_r import NewConfirmedTokenTransactionsForSpecificAmountR
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.new_confirmed_token_transactions_for_specific_amount403_response import NewConfirmedTokenTransactionsForSpecificAmount403Response
+from cryptoapis.model.new_confirmed_token_transactions_for_specific_amount_rb import NewConfirmedTokenTransactionsForSpecificAmountRB
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
+from cryptoapis.model.new_confirmed_token_transactions_for_specific_amount409_response import NewConfirmedTokenTransactionsForSpecificAmount409Response
+from cryptoapis.model.new_confirmed_token_transactions_for_specific_amount401_response import NewConfirmedTokenTransactionsForSpecificAmount401Response
+from pprint import pprint
+# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cryptoapis.Configuration(
+    host = "https://rest.cryptoapis.io/v2"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with cryptoapis.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = create_subscriptions_for_api.CreateSubscriptionsForApi(api_client)
+    blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network = "ropsten" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    new_confirmed_token_transactions_for_specific_amount_rb = NewConfirmedTokenTransactionsForSpecificAmountRB(
+        context="yourExampleString",
+        data=NewConfirmedTokenTransactionsForSpecificAmountRBData(
+            item=NewConfirmedTokenTransactionsForSpecificAmountRBDataItem(
+                allow_duplicates=True,
+                amount_higher_than=2,
+                callback_secret_key="yourSecretKey",
+                callback_url="https://example.com",
+                contract_address="0x7495fede000c8a3b77eeae09cf70fa94cd2d53f5",
+            ),
+        ),
+    ) # NewConfirmedTokenTransactionsForSpecificAmountRB |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # New Confirmed Token Transactions For Specific Amount
+        api_response = api_instance.new_confirmed_token_transactions_for_specific_amount(blockchain, network)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling CreateSubscriptionsForApi->new_confirmed_token_transactions_for_specific_amount: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # New Confirmed Token Transactions For Specific Amount
+        api_response = api_instance.new_confirmed_token_transactions_for_specific_amount(blockchain, network, context=context, new_confirmed_token_transactions_for_specific_amount_rb=new_confirmed_token_transactions_for_specific_amount_rb)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling CreateSubscriptionsForApi->new_confirmed_token_transactions_for_specific_amount: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **new_confirmed_token_transactions_for_specific_amount_rb** | [**NewConfirmedTokenTransactionsForSpecificAmountRB**](NewConfirmedTokenTransactionsForSpecificAmountRB.md)|  | [optional]
+
+### Return type
+
+[**NewConfirmedTokenTransactionsForSpecificAmountR**](NewConfirmedTokenTransactionsForSpecificAmountR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | The resource has been successfully created. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
+**402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
+**403** | 403 |  -  |
+**404** | The specified resource has not been found. |  -  |
+**409** | 409 |  -  |
+**415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
+**422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
+**429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
+**500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **new_confirmed_tokens_transactions**
 > NewConfirmedTokensTransactionsR new_confirmed_tokens_transactions(blockchain, network)
 
@@ -766,16 +1138,16 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40074 import InlineResponse40074
-from cryptoapis.model.inline_response422 import InlineResponse422
+from cryptoapis.model.new_confirmed_tokens_transactions409_response import NewConfirmedTokensTransactions409Response
+from cryptoapis.model.new_confirmed_tokens_transactions401_response import NewConfirmedTokensTransactions401Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.new_confirmed_tokens_transactions403_response import NewConfirmedTokensTransactions403Response
 from cryptoapis.model.new_confirmed_tokens_transactions_rb import NewConfirmedTokensTransactionsRB
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40174 import InlineResponse40174
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response4099 import InlineResponse4099
-from cryptoapis.model.inline_response40374 import InlineResponse40374
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.new_confirmed_tokens_transactions400_response import NewConfirmedTokensTransactions400Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.new_confirmed_tokens_transactions_r import NewConfirmedTokensTransactionsR
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -889,17 +1261,17 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.inline_response40075 import InlineResponse40075
-from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_r import NewConfirmedTokensTransactionsAndEachConfirmationR
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response40175 import InlineResponse40175
-from cryptoapis.model.inline_response40910 import InlineResponse40910
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation400_response import NewConfirmedTokensTransactionsAndEachConfirmation400Response
+from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation403_response import NewConfirmedTokensTransactionsAndEachConfirmation403Response
+from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation409_response import NewConfirmedTokensTransactionsAndEachConfirmation409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation_rb import NewConfirmedTokensTransactionsAndEachConfirmationRB
-from cryptoapis.model.inline_response40375 import InlineResponse40375
+from cryptoapis.model.new_confirmed_tokens_transactions_and_each_confirmation401_response import NewConfirmedTokensTransactionsAndEachConfirmation401Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1013,16 +1385,16 @@ import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
 from cryptoapis.model.new_unconfirmed_coins_transactions_r import NewUnconfirmedCoinsTransactionsR
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response4096 import InlineResponse4096
-from cryptoapis.model.inline_response40071 import InlineResponse40071
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40171 import InlineResponse40171
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.new_unconfirmed_coins_transactions400_response import NewUnconfirmedCoinsTransactions400Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.new_unconfirmed_coins_transactions_rb import NewUnconfirmedCoinsTransactionsRB
-from cryptoapis.model.inline_response40371 import InlineResponse40371
+from cryptoapis.model.new_unconfirmed_coins_transactions401_response import NewUnconfirmedCoinsTransactions401Response
+from cryptoapis.model.new_unconfirmed_coins_transactions403_response import NewUnconfirmedCoinsTransactions403Response
+from cryptoapis.model.new_unconfirmed_coins_transactions409_response import NewUnconfirmedCoinsTransactions409Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1134,16 +1506,16 @@ Through this endpoint customers can create callback subscriptions for a specific
 import time
 import cryptoapis
 from cryptoapis.api import create_subscriptions_for_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
 from cryptoapis.model.new_unconfirmed_tokens_transactions_r import NewUnconfirmedTokensTransactionsR
-from cryptoapis.model.inline_response40072 import InlineResponse40072
-from cryptoapis.model.inline_response4097 import InlineResponse4097
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40172 import InlineResponse40172
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40372 import InlineResponse40372
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.new_unconfirmed_tokens_transactions409_response import NewUnconfirmedTokensTransactions409Response
+from cryptoapis.model.new_unconfirmed_tokens_transactions400_response import NewUnconfirmedTokensTransactions400Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.new_unconfirmed_tokens_transactions401_response import NewUnconfirmedTokensTransactions401Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.new_unconfirmed_tokens_transactions403_response import NewUnconfirmedTokensTransactions403Response
 from cryptoapis.model.new_unconfirmed_tokens_transactions_rb import NewUnconfirmedTokensTransactionsRB
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2

@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **gas_used** | **int** | Defines how much of the gas for the block has been used. | 
 **mined_in_block_height** | **int** | Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \&quot;Genesis block\&quot;. | 
 **nonce** | **int** | Represents a random value that can be adjusted to satisfy the Proof of Work. | 
-**recipients** | [**[ListZilliqaTransactionsByAddressRIRecipients]**](ListZilliqaTransactionsByAddressRIRecipients.md) | Defines an object array of the transaction recipients. | 
-**senders** | [**[ListZilliqaTransactionsByAddressRISenders]**](ListZilliqaTransactionsByAddressRISenders.md) | Represents an object of addresses that provide the funds. | 
+**recipients** | [**[ListZilliqaTransactionsByAddressRIRecipientsInner]**](ListZilliqaTransactionsByAddressRIRecipientsInner.md) | Defines an object array of the transaction recipients. | 
+**senders** | [**[ListZilliqaTransactionsByAddressRISendersInner]**](ListZilliqaTransactionsByAddressRISendersInner.md) | Represents an object of addresses that provide the funds. | 
 **timestamp** | **int** | Defines the exact date/time when this block was mined in Unix Timestamp. | 
 **transaction_hash** | **str** | Represents the hash of the transaction, which is its unique identifier. | 
 **transaction_index** | **int** | Defines the numeric representation of the transaction index. | 

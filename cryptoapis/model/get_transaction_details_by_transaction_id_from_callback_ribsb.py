@@ -31,10 +31,10 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback_ribsb_vin import GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin
-    from cryptoapis.model.get_transaction_details_by_transaction_idribsb_vout import GetTransactionDetailsByTransactionIDRIBSBVout
-    globals()['GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin'] = GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin
-    globals()['GetTransactionDetailsByTransactionIDRIBSBVout'] = GetTransactionDetailsByTransactionIDRIBSBVout
+    from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback_ribsb_vin_inner import GetTransactionDetailsByTransactionIDFromCallbackRIBSBVinInner
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsb_vout_inner import GetTransactionDetailsByTransactionIDRIBSBVoutInner
+    globals()['GetTransactionDetailsByTransactionIDFromCallbackRIBSBVinInner'] = GetTransactionDetailsByTransactionIDFromCallbackRIBSBVinInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSBVoutInner'] = GetTransactionDetailsByTransactionIDRIBSBVoutInner
 
 
 class GetTransactionDetailsByTransactionIDFromCallbackRIBSB(ModelNormal):
@@ -94,8 +94,8 @@ class GetTransactionDetailsByTransactionIDFromCallbackRIBSB(ModelNormal):
             'size': (int,),  # noqa: E501
             'v_size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
-            'vin': ([GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin],),  # noqa: E501
-            'vout': ([GetTransactionDetailsByTransactionIDRIBSBVout],),  # noqa: E501
+            'vin': ([GetTransactionDetailsByTransactionIDFromCallbackRIBSBVinInner],),  # noqa: E501
+            'vout': ([GetTransactionDetailsByTransactionIDRIBSBVoutInner],),  # noqa: E501
         }
 
     @cached_property
@@ -127,8 +127,8 @@ class GetTransactionDetailsByTransactionIDFromCallbackRIBSB(ModelNormal):
             size (int): Represents the total size of this transaction.
             v_size (int): Represents the virtual size of this transaction.
             version (int): Represents the transaction version number.
-            vin ([GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin]): Represents the transaction inputs.
-            vout ([GetTransactionDetailsByTransactionIDRIBSBVout]): Represents the transaction outputs.
+            vin ([GetTransactionDetailsByTransactionIDFromCallbackRIBSBVinInner]): Represents the transaction inputs.
+            vout ([GetTransactionDetailsByTransactionIDRIBSBVoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -226,8 +226,8 @@ class GetTransactionDetailsByTransactionIDFromCallbackRIBSB(ModelNormal):
             size (int): Represents the total size of this transaction.
             v_size (int): Represents the virtual size of this transaction.
             version (int): Represents the transaction version number.
-            vin ([GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin]): Represents the transaction inputs.
-            vout ([GetTransactionDetailsByTransactionIDRIBSBVout]): Represents the transaction outputs.
+            vin ([GetTransactionDetailsByTransactionIDFromCallbackRIBSBVinInner]): Represents the transaction inputs.
+            vout ([GetTransactionDetailsByTransactionIDRIBSBVoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -32,11 +32,11 @@ from cryptoapis.exceptions import ApiAttributeError
 
 def lazy_import():
     from cryptoapis.model.list_omni_transactions_by_block_height_ri_fee import ListOmniTransactionsByBlockHeightRIFee
-    from cryptoapis.model.list_omni_transactions_by_block_height_ri_recipients import ListOmniTransactionsByBlockHeightRIRecipients
-    from cryptoapis.model.list_omni_transactions_by_block_height_ri_senders import ListOmniTransactionsByBlockHeightRISenders
+    from cryptoapis.model.list_omni_transactions_by_block_height_ri_recipients_inner import ListOmniTransactionsByBlockHeightRIRecipientsInner
+    from cryptoapis.model.list_omni_transactions_by_block_height_ri_senders_inner import ListOmniTransactionsByBlockHeightRISendersInner
     globals()['ListOmniTransactionsByBlockHeightRIFee'] = ListOmniTransactionsByBlockHeightRIFee
-    globals()['ListOmniTransactionsByBlockHeightRIRecipients'] = ListOmniTransactionsByBlockHeightRIRecipients
-    globals()['ListOmniTransactionsByBlockHeightRISenders'] = ListOmniTransactionsByBlockHeightRISenders
+    globals()['ListOmniTransactionsByBlockHeightRIRecipientsInner'] = ListOmniTransactionsByBlockHeightRIRecipientsInner
+    globals()['ListOmniTransactionsByBlockHeightRISendersInner'] = ListOmniTransactionsByBlockHeightRISendersInner
 
 
 class ListOmniTransactionsByBlockHeightRI(ModelNormal):
@@ -98,8 +98,8 @@ class ListOmniTransactionsByBlockHeightRI(ModelNormal):
             'mined_in_block_height': (int,),  # noqa: E501
             'position_in_block': (int,),  # noqa: E501
             'property_id': (int,),  # noqa: E501
-            'recipients': ([ListOmniTransactionsByBlockHeightRIRecipients],),  # noqa: E501
-            'senders': ([ListOmniTransactionsByBlockHeightRISenders],),  # noqa: E501
+            'recipients': ([ListOmniTransactionsByBlockHeightRIRecipientsInner],),  # noqa: E501
+            'senders': ([ListOmniTransactionsByBlockHeightRISendersInner],),  # noqa: E501
             'timestamp': (int,),  # noqa: E501
             'transaction_id': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
@@ -149,8 +149,8 @@ class ListOmniTransactionsByBlockHeightRI(ModelNormal):
             mined_in_block_height (int): Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
             position_in_block (int): Represents the index position of the transaction in the specific block.
             property_id (int): Represents the identifier of the tokens to send.
-            recipients ([ListOmniTransactionsByBlockHeightRIRecipients]): Represents an object of addresses that receive the transactions.
-            senders ([ListOmniTransactionsByBlockHeightRISenders]): Represents an object of addresses that provide the funds.
+            recipients ([ListOmniTransactionsByBlockHeightRIRecipientsInner]): Represents an object of addresses that receive the transactions.
+            senders ([ListOmniTransactionsByBlockHeightRISendersInner]): Represents an object of addresses that provide the funds.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_id (str): Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
             type (str): Defines the type of the transaction as a string.
@@ -266,8 +266,8 @@ class ListOmniTransactionsByBlockHeightRI(ModelNormal):
             mined_in_block_height (int): Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
             position_in_block (int): Represents the index position of the transaction in the specific block.
             property_id (int): Represents the identifier of the tokens to send.
-            recipients ([ListOmniTransactionsByBlockHeightRIRecipients]): Represents an object of addresses that receive the transactions.
-            senders ([ListOmniTransactionsByBlockHeightRISenders]): Represents an object of addresses that provide the funds.
+            recipients ([ListOmniTransactionsByBlockHeightRIRecipientsInner]): Represents an object of addresses that receive the transactions.
+            senders ([ListOmniTransactionsByBlockHeightRISendersInner]): Represents an object of addresses that provide the funds.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_id (str): Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
             type (str): Defines the type of the transaction as a string.

@@ -31,8 +31,8 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.list_blockchain_events_subscriptions_ri_deactivation_reasons import ListBlockchainEventsSubscriptionsRIDeactivationReasons
-    globals()['ListBlockchainEventsSubscriptionsRIDeactivationReasons'] = ListBlockchainEventsSubscriptionsRIDeactivationReasons
+    from cryptoapis.model.list_blockchain_events_subscriptions_ri_deactivation_reasons_inner import ListBlockchainEventsSubscriptionsRIDeactivationReasonsInner
+    globals()['ListBlockchainEventsSubscriptionsRIDeactivationReasonsInner'] = ListBlockchainEventsSubscriptionsRIDeactivationReasonsInner
 
 
 class GetBlockchainEventSubscriptionDetailsByReferenceIDRI(ModelNormal):
@@ -98,7 +98,7 @@ class GetBlockchainEventSubscriptionDetailsByReferenceIDRI(ModelNormal):
             'address': (str,),  # noqa: E501
             'callback_secret_key': (str,),  # noqa: E501
             'confirmations_count': (int,),  # noqa: E501
-            'deactivation_reasons': ([ListBlockchainEventsSubscriptionsRIDeactivationReasons],),  # noqa: E501
+            'deactivation_reasons': ([ListBlockchainEventsSubscriptionsRIDeactivationReasonsInner],),  # noqa: E501
             'transaction_id': (str,),  # noqa: E501
         }
 
@@ -175,7 +175,7 @@ class GetBlockchainEventSubscriptionDetailsByReferenceIDRI(ModelNormal):
             address (str): Represents the address of the transaction.. [optional]  # noqa: E501
             callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).. [optional]  # noqa: E501
             confirmations_count (int): Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.. [optional]  # noqa: E501
-            deactivation_reasons ([ListBlockchainEventsSubscriptionsRIDeactivationReasons]): Represents the deactivation reason details, available when a blockchain event subscription has status isActive - false.. [optional]  # noqa: E501
+            deactivation_reasons ([ListBlockchainEventsSubscriptionsRIDeactivationReasonsInner]): Represents the deactivation reason details, available when a blockchain event subscription has status isActive - false.. [optional]  # noqa: E501
             transaction_id (str): Represents the unique identification string that defines the transaction.. [optional]  # noqa: E501
         """
 
@@ -281,7 +281,7 @@ class GetBlockchainEventSubscriptionDetailsByReferenceIDRI(ModelNormal):
             address (str): Represents the address of the transaction.. [optional]  # noqa: E501
             callback_secret_key (str): Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).. [optional]  # noqa: E501
             confirmations_count (int): Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.. [optional]  # noqa: E501
-            deactivation_reasons ([ListBlockchainEventsSubscriptionsRIDeactivationReasons]): Represents the deactivation reason details, available when a blockchain event subscription has status isActive - false.. [optional]  # noqa: E501
+            deactivation_reasons ([ListBlockchainEventsSubscriptionsRIDeactivationReasonsInner]): Represents the deactivation reason details, available when a blockchain event subscription has status isActive - false.. [optional]  # noqa: E501
             transaction_id (str): Represents the unique identification string that defines the transaction.. [optional]  # noqa: E501
         """
 

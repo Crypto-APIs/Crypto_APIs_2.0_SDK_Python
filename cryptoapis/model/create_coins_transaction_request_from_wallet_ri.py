@@ -31,8 +31,8 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.create_coins_transaction_request_from_wallet_ri_recipients import CreateCoinsTransactionRequestFromWalletRIRecipients
-    globals()['CreateCoinsTransactionRequestFromWalletRIRecipients'] = CreateCoinsTransactionRequestFromWalletRIRecipients
+    from cryptoapis.model.create_coins_transaction_request_from_wallet_ri_recipients_inner import CreateCoinsTransactionRequestFromWalletRIRecipientsInner
+    globals()['CreateCoinsTransactionRequestFromWalletRIRecipientsInner'] = CreateCoinsTransactionRequestFromWalletRIRecipientsInner
 
 
 class CreateCoinsTransactionRequestFromWalletRI(ModelNormal):
@@ -106,7 +106,7 @@ class CreateCoinsTransactionRequestFromWalletRI(ModelNormal):
         lazy_import()
         return {
             'fee_priority': (str,),  # noqa: E501
-            'recipients': ([CreateCoinsTransactionRequestFromWalletRIRecipients],),  # noqa: E501
+            'recipients': ([CreateCoinsTransactionRequestFromWalletRIRecipientsInner],),  # noqa: E501
             'total_transaction_amount': (str,),  # noqa: E501
             'transaction_request_id': (str,),  # noqa: E501
             'transaction_request_status': (str,),  # noqa: E501
@@ -143,7 +143,7 @@ class CreateCoinsTransactionRequestFromWalletRI(ModelNormal):
 
         Args:
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
-            recipients ([CreateCoinsTransactionRequestFromWalletRIRecipients]): Defines the destination of the transaction, whether it is incoming or outgoing.
+            recipients ([CreateCoinsTransactionRequestFromWalletRIRecipientsInner]): Defines the destination of the transaction, whether it is incoming or outgoing.
             total_transaction_amount (str): Represents the specific amount of the transaction.
             transaction_request_id (str): Represents a unique identifier of the transaction request (the request sent to make a transaction), which helps in identifying which callback and which `referenceId` concern that specific transaction request.
             transaction_request_status (str): Defines the status of the transaction, e.g. \"created, \"await_approval\", \"pending\", \"prepared\", \"signed\", \"broadcasted\", \"success\", \"failed\", \"rejected\", mined\".
@@ -243,7 +243,7 @@ class CreateCoinsTransactionRequestFromWalletRI(ModelNormal):
 
         Args:
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
-            recipients ([CreateCoinsTransactionRequestFromWalletRIRecipients]): Defines the destination of the transaction, whether it is incoming or outgoing.
+            recipients ([CreateCoinsTransactionRequestFromWalletRIRecipientsInner]): Defines the destination of the transaction, whether it is incoming or outgoing.
             total_transaction_amount (str): Represents the specific amount of the transaction.
             transaction_request_id (str): Represents a unique identifier of the transaction request (the request sent to make a transaction), which helps in identifying which callback and which `referenceId` concern that specific transaction request.
             transaction_request_status (str): Defines the status of the transaction, e.g. \"created, \"await_approval\", \"pending\", \"prepared\", \"signed\", \"broadcasted\", \"success\", \"failed\", \"rejected\", mined\".

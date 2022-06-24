@@ -31,10 +31,10 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.get_transaction_details_by_transaction_idribsbc_vout import GetTransactionDetailsByTransactionIDRIBSBCVout
-    from cryptoapis.model.list_confirmed_transactions_by_address_ribsbc_vin import ListConfirmedTransactionsByAddressRIBSBCVin
-    globals()['GetTransactionDetailsByTransactionIDRIBSBCVout'] = GetTransactionDetailsByTransactionIDRIBSBCVout
-    globals()['ListConfirmedTransactionsByAddressRIBSBCVin'] = ListConfirmedTransactionsByAddressRIBSBCVin
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsbc_vout_inner import GetTransactionDetailsByTransactionIDRIBSBCVoutInner
+    from cryptoapis.model.list_confirmed_transactions_by_address_ribsbc_vin_inner import ListConfirmedTransactionsByAddressRIBSBCVinInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSBCVoutInner'] = GetTransactionDetailsByTransactionIDRIBSBCVoutInner
+    globals()['ListConfirmedTransactionsByAddressRIBSBCVinInner'] = ListConfirmedTransactionsByAddressRIBSBCVinInner
 
 
 class ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC(ModelNormal):
@@ -93,8 +93,8 @@ class ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC(ModelNormal):
             'locktime': (int,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
-            'vin': ([ListConfirmedTransactionsByAddressRIBSBCVin],),  # noqa: E501
-            'vout': ([GetTransactionDetailsByTransactionIDRIBSBCVout],),  # noqa: E501
+            'vin': ([ListConfirmedTransactionsByAddressRIBSBCVinInner],),  # noqa: E501
+            'vout': ([GetTransactionDetailsByTransactionIDRIBSBCVoutInner],),  # noqa: E501
         }
 
     @cached_property
@@ -124,7 +124,7 @@ class ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC(ModelNormal):
             locktime (int): Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid.
             size (int): Represents the total size of this transaction.
             version (int): Represents the transaction's version number.
-            vin ([ListConfirmedTransactionsByAddressRIBSBCVin]): Represents the transaction inputs.
+            vin ([ListConfirmedTransactionsByAddressRIBSBCVinInner]): Represents the transaction inputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -157,7 +157,7 @@ class ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            vout ([GetTransactionDetailsByTransactionIDRIBSBCVout]): Represents the transaction outputs.. [optional]  # noqa: E501
+            vout ([GetTransactionDetailsByTransactionIDRIBSBCVoutInner]): Represents the transaction outputs.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,7 +220,7 @@ class ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC(ModelNormal):
             locktime (int): Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid.
             size (int): Represents the total size of this transaction.
             version (int): Represents the transaction's version number.
-            vin ([ListConfirmedTransactionsByAddressRIBSBCVin]): Represents the transaction inputs.
+            vin ([ListConfirmedTransactionsByAddressRIBSBCVinInner]): Represents the transaction inputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -253,7 +253,7 @@ class ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            vout ([GetTransactionDetailsByTransactionIDRIBSBCVout]): Represents the transaction outputs.. [optional]  # noqa: E501
+            vout ([GetTransactionDetailsByTransactionIDRIBSBCVoutInner]): Represents the transaction outputs.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

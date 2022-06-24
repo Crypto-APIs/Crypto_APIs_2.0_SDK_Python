@@ -31,9 +31,9 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.create_coins_transaction_from_address_for_whole_amount_ri_recipients import CreateCoinsTransactionFromAddressForWholeAmountRIRecipients
+    from cryptoapis.model.create_coins_transaction_from_address_for_whole_amount_ri_recipients_inner import CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner
     from cryptoapis.model.create_coins_transaction_from_address_for_whole_amount_ri_senders import CreateCoinsTransactionFromAddressForWholeAmountRISenders
-    globals()['CreateCoinsTransactionFromAddressForWholeAmountRIRecipients'] = CreateCoinsTransactionFromAddressForWholeAmountRIRecipients
+    globals()['CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner'] = CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner
     globals()['CreateCoinsTransactionFromAddressForWholeAmountRISenders'] = CreateCoinsTransactionFromAddressForWholeAmountRISenders
 
 
@@ -108,7 +108,7 @@ class CreateCoinsTransactionFromAddressForWholeAmountRI(ModelNormal):
         lazy_import()
         return {
             'fee_priority': (str,),  # noqa: E501
-            'recipients': ([CreateCoinsTransactionFromAddressForWholeAmountRIRecipients],),  # noqa: E501
+            'recipients': ([CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner],),  # noqa: E501
             'senders': (CreateCoinsTransactionFromAddressForWholeAmountRISenders,),  # noqa: E501
             'transaction_request_id': (str,),  # noqa: E501
             'transaction_request_status': (str,),  # noqa: E501
@@ -145,7 +145,7 @@ class CreateCoinsTransactionFromAddressForWholeAmountRI(ModelNormal):
 
         Args:
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
-            recipients ([CreateCoinsTransactionFromAddressForWholeAmountRIRecipients]): Defines the destination for the transaction, i.e. the recipient(s).
+            recipients ([CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner]): Defines the destination for the transaction, i.e. the recipient(s).
             senders (CreateCoinsTransactionFromAddressForWholeAmountRISenders):
             transaction_request_id (str): Represents a unique identifier of the transaction request (the request sent to make a transaction), which helps in identifying which callback and which `referenceId` concern that specific transaction request.
             transaction_request_status (str): Defines the status of the transaction, e.g. \"created, \"await_approval\", \"pending\", \"prepared\", \"signed\", \"broadcasted\", \"success\", \"failed\", \"rejected\", mined\".
@@ -245,7 +245,7 @@ class CreateCoinsTransactionFromAddressForWholeAmountRI(ModelNormal):
 
         Args:
             fee_priority (str): Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
-            recipients ([CreateCoinsTransactionFromAddressForWholeAmountRIRecipients]): Defines the destination for the transaction, i.e. the recipient(s).
+            recipients ([CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner]): Defines the destination for the transaction, i.e. the recipient(s).
             senders (CreateCoinsTransactionFromAddressForWholeAmountRISenders):
             transaction_request_id (str): Represents a unique identifier of the transaction request (the request sent to make a transaction), which helps in identifying which callback and which `referenceId` concern that specific transaction request.
             transaction_request_status (str): Defines the status of the transaction, e.g. \"created, \"await_approval\", \"pending\", \"prepared\", \"signed\", \"broadcasted\", \"success\", \"failed\", \"rejected\", mined\".

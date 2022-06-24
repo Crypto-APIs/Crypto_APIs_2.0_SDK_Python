@@ -31,10 +31,10 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.get_transaction_details_by_transaction_idribsd_vout import GetTransactionDetailsByTransactionIDRIBSDVout
-    from cryptoapis.model.get_wallet_transaction_details_by_transaction_idribsd_vin import GetWalletTransactionDetailsByTransactionIDRIBSDVin
-    globals()['GetTransactionDetailsByTransactionIDRIBSDVout'] = GetTransactionDetailsByTransactionIDRIBSDVout
-    globals()['GetWalletTransactionDetailsByTransactionIDRIBSDVin'] = GetWalletTransactionDetailsByTransactionIDRIBSDVin
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsd_vout_inner import GetTransactionDetailsByTransactionIDRIBSDVoutInner
+    from cryptoapis.model.get_wallet_transaction_details_by_transaction_idribsd_vin_inner import GetWalletTransactionDetailsByTransactionIDRIBSDVinInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSDVoutInner'] = GetTransactionDetailsByTransactionIDRIBSDVoutInner
+    globals()['GetWalletTransactionDetailsByTransactionIDRIBSDVinInner'] = GetWalletTransactionDetailsByTransactionIDRIBSDVinInner
 
 
 class GetWalletTransactionDetailsByTransactionIDRIBSD(ModelNormal):
@@ -93,8 +93,8 @@ class GetWalletTransactionDetailsByTransactionIDRIBSD(ModelNormal):
             'locktime': (int,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
-            'vin': ([GetWalletTransactionDetailsByTransactionIDRIBSDVin],),  # noqa: E501
-            'vout': ([GetTransactionDetailsByTransactionIDRIBSDVout],),  # noqa: E501
+            'vin': ([GetWalletTransactionDetailsByTransactionIDRIBSDVinInner],),  # noqa: E501
+            'vout': ([GetTransactionDetailsByTransactionIDRIBSDVoutInner],),  # noqa: E501
         }
 
     @cached_property
@@ -124,8 +124,8 @@ class GetWalletTransactionDetailsByTransactionIDRIBSD(ModelNormal):
             locktime (int): Represents the time at which a particular transaction can be added to the blockchain.
             size (int): Represents the total size of this transaction.
             version (int): Represents the transaction version number.
-            vin ([GetWalletTransactionDetailsByTransactionIDRIBSDVin]): Object Array representation of transaction inputs
-            vout ([GetTransactionDetailsByTransactionIDRIBSDVout]): Object Array representation of transaction outputs
+            vin ([GetWalletTransactionDetailsByTransactionIDRIBSDVinInner]): Object Array representation of transaction inputs
+            vout ([GetTransactionDetailsByTransactionIDRIBSDVoutInner]): Object Array representation of transaction outputs
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -221,8 +221,8 @@ class GetWalletTransactionDetailsByTransactionIDRIBSD(ModelNormal):
             locktime (int): Represents the time at which a particular transaction can be added to the blockchain.
             size (int): Represents the total size of this transaction.
             version (int): Represents the transaction version number.
-            vin ([GetWalletTransactionDetailsByTransactionIDRIBSDVin]): Object Array representation of transaction inputs
-            vout ([GetTransactionDetailsByTransactionIDRIBSDVout]): Object Array representation of transaction outputs
+            vin ([GetWalletTransactionDetailsByTransactionIDRIBSDVinInner]): Object Array representation of transaction inputs
+            vout ([GetTransactionDetailsByTransactionIDRIBSDVoutInner]): Object Array representation of transaction outputs
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

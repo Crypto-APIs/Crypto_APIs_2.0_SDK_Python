@@ -26,16 +26,16 @@ This endpoint will return details on assets we support for a specified from the 
 import time
 import cryptoapis
 from cryptoapis.api import hd_wallets_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40050 import InlineResponse40050
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40150 import InlineResponse40150
-from cryptoapis.model.inline_response4222 import InlineResponse4222
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_assets400_response import GetHDWalletXPubYPubZPubAssets400Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_assets403_response import GetHDWalletXPubYPubZPubAssets403Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_assets_r import GetHDWalletXPubYPubZPubAssetsR
-from cryptoapis.model.inline_response40350 import InlineResponse40350
+from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_assets422_response import GetHDWalletXPubYPubZPubAssets422Response
+from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_assets401_response import GetHDWalletXPubYPubZPubAssets401Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -139,16 +139,16 @@ HD wallet details is useful endpoint to get the most important data about HD wal
 import time
 import cryptoapis
 from cryptoapis.api import hd_wallets_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40051 import InlineResponse40051
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40151 import InlineResponse40151
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response4223 import InlineResponse4223
+from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_details422_response import GetHDWalletXPubYPubZPubDetails422Response
+from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_details400_response import GetHDWalletXPubYPubZPubDetails400Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_details403_response import GetHDWalletXPubYPubZPubDetails403Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_details_r import GetHDWalletXPubYPubZPubDetailsR
-from cryptoapis.model.inline_response40351 import InlineResponse40351
+from cryptoapis.model.get_hd_wallet_x_pub_y_pub_z_pub_details401_response import GetHDWalletXPubYPubZPubDetails401Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -252,16 +252,16 @@ This endpoint will list HD Wallet transactions.
 import time
 import cryptoapis
 from cryptoapis.api import hd_wallets_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40053 import InlineResponse40053
-from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_transactions401_response import ListHDWalletXPubYPubZPubTransactions401Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
 from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_transactions_r import ListHDWalletXPubYPubZPubTransactionsR
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40153 import InlineResponse40153
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response4224 import InlineResponse4224
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40353 import InlineResponse40353
+from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_transactions400_response import ListHDWalletXPubYPubZPubTransactions400Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_transactions403_response import ListHDWalletXPubYPubZPubTransactions403Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_transactions422_response import ListHDWalletXPubYPubZPubTransactions422Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -369,16 +369,16 @@ Through this endpoint you can list HD wallet's UTXOs (Unspent Transaction Output
 import time
 import cryptoapis
 from cryptoapis.api import hd_wallets_api
-from cryptoapis.model.inline_response40055 import InlineResponse40055
-from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_utxos_r import ListHDWalletXPubYPubZPubUTXOsR
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40155 import InlineResponse40155
-from cryptoapis.model.inline_response4225 import InlineResponse4225
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40355 import InlineResponse40355
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_utxos400_response import ListHDWalletXPubYPubZPubUTXOs400Response
+from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_utxos401_response import ListHDWalletXPubYPubZPubUTXOs401Response
+from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_utxos422_response import ListHDWalletXPubYPubZPubUTXOs422Response
+from cryptoapis.model.list_hd_wallet_x_pub_y_pub_z_pub_utxos403_response import ListHDWalletXPubYPubZPubUTXOs403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -487,16 +487,16 @@ import time
 import cryptoapis
 from cryptoapis.api import hd_wallets_api
 from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub_r import SyncHDWalletXPubYPubZPubR
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40146 import InlineResponse40146
+from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub401_response import SyncHDWalletXPubYPubZPub401Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
 from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub_rb import SyncHDWalletXPubYPubZPubRB
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response4221 import InlineResponse4221
-from cryptoapis.model.inline_response40346 import InlineResponse40346
-from cryptoapis.model.inline_response4095 import InlineResponse4095
-from cryptoapis.model.inline_response40046 import InlineResponse40046
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub422_response import SyncHDWalletXPubYPubZPub422Response
+from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub409_response import SyncHDWalletXPubYPubZPub409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub403_response import SyncHDWalletXPubYPubZPub403Response
+from cryptoapis.model.sync_hd_wallet_x_pub_y_pub_z_pub400_response import SyncHDWalletXPubYPubZPub400Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.

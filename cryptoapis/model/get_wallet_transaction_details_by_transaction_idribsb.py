@@ -31,10 +31,10 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.get_wallet_transaction_details_by_transaction_idribsb_vin import GetWalletTransactionDetailsByTransactionIDRIBSBVin
-    from cryptoapis.model.get_wallet_transaction_details_by_transaction_idribsb_vout import GetWalletTransactionDetailsByTransactionIDRIBSBVout
-    globals()['GetWalletTransactionDetailsByTransactionIDRIBSBVin'] = GetWalletTransactionDetailsByTransactionIDRIBSBVin
-    globals()['GetWalletTransactionDetailsByTransactionIDRIBSBVout'] = GetWalletTransactionDetailsByTransactionIDRIBSBVout
+    from cryptoapis.model.get_wallet_transaction_details_by_transaction_idribsb_vin_inner import GetWalletTransactionDetailsByTransactionIDRIBSBVinInner
+    from cryptoapis.model.get_wallet_transaction_details_by_transaction_idribsb_vout_inner import GetWalletTransactionDetailsByTransactionIDRIBSBVoutInner
+    globals()['GetWalletTransactionDetailsByTransactionIDRIBSBVinInner'] = GetWalletTransactionDetailsByTransactionIDRIBSBVinInner
+    globals()['GetWalletTransactionDetailsByTransactionIDRIBSBVoutInner'] = GetWalletTransactionDetailsByTransactionIDRIBSBVoutInner
 
 
 class GetWalletTransactionDetailsByTransactionIDRIBSB(ModelNormal):
@@ -94,8 +94,8 @@ class GetWalletTransactionDetailsByTransactionIDRIBSB(ModelNormal):
             'size': (int,),  # noqa: E501
             'v_size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
-            'vin': ([GetWalletTransactionDetailsByTransactionIDRIBSBVin],),  # noqa: E501
-            'vout': ([GetWalletTransactionDetailsByTransactionIDRIBSBVout],),  # noqa: E501
+            'vin': ([GetWalletTransactionDetailsByTransactionIDRIBSBVinInner],),  # noqa: E501
+            'vout': ([GetWalletTransactionDetailsByTransactionIDRIBSBVoutInner],),  # noqa: E501
         }
 
     @cached_property
@@ -127,8 +127,8 @@ class GetWalletTransactionDetailsByTransactionIDRIBSB(ModelNormal):
             size (int): Represents the total size of this transaction.
             v_size (int): Represents the virtual size of this transaction.
             version (int): Represents the transaction version number.
-            vin ([GetWalletTransactionDetailsByTransactionIDRIBSBVin]): Object Array representation of transaction inputs
-            vout ([GetWalletTransactionDetailsByTransactionIDRIBSBVout]): Represents the transaction outputs.
+            vin ([GetWalletTransactionDetailsByTransactionIDRIBSBVinInner]): Object Array representation of transaction inputs
+            vout ([GetWalletTransactionDetailsByTransactionIDRIBSBVoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -226,8 +226,8 @@ class GetWalletTransactionDetailsByTransactionIDRIBSB(ModelNormal):
             size (int): Represents the total size of this transaction.
             v_size (int): Represents the virtual size of this transaction.
             version (int): Represents the transaction version number.
-            vin ([GetWalletTransactionDetailsByTransactionIDRIBSBVin]): Object Array representation of transaction inputs
-            vout ([GetWalletTransactionDetailsByTransactionIDRIBSBVout]): Represents the transaction outputs.
+            vin ([GetWalletTransactionDetailsByTransactionIDRIBSBVinInner]): Object Array representation of transaction inputs
+            vout ([GetWalletTransactionDetailsByTransactionIDRIBSBVoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

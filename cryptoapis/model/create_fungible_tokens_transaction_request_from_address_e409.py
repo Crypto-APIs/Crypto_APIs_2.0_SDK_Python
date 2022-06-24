@@ -31,12 +31,12 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+    from cryptoapis.model.banned_ip_address_details_inner import BannedIpAddressDetailsInner
     from cryptoapis.model.invalid_data import InvalidData
     from cryptoapis.model.wallet_as_a_service_address_balance_not_enough import WalletAsAServiceAddressBalanceNotEnough
     from cryptoapis.model.wallet_as_a_service_token_not_supported import WalletAsAServiceTokenNotSupported
     from cryptoapis.model.wallet_as_a_service_wallet_balance_not_enough import WalletAsAServiceWalletBalanceNotEnough
-    globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
+    globals()['BannedIpAddressDetailsInner'] = BannedIpAddressDetailsInner
     globals()['InvalidData'] = InvalidData
     globals()['WalletAsAServiceAddressBalanceNotEnough'] = WalletAsAServiceAddressBalanceNotEnough
     globals()['WalletAsAServiceTokenNotSupported'] = WalletAsAServiceTokenNotSupported
@@ -96,7 +96,7 @@ class CreateFungibleTokensTransactionRequestFromAddressE409(ModelComposed):
         """
         lazy_import()
         return {
-            'details': ([BannedIpAddressDetails],),  # noqa: E501
+            'details': ([BannedIpAddressDetailsInner],),  # noqa: E501
             'code': (str,),  # noqa: E501
             'message': (str,),  # noqa: E501
         }
@@ -151,7 +151,7 @@ class CreateFungibleTokensTransactionRequestFromAddressE409(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            details ([BannedIpAddressDetails]): [optional]  # noqa: E501
+            details ([BannedIpAddressDetailsInner]): [optional]  # noqa: E501
             code (str): Specifies an error code, e.g. error 404.. [optional]  # noqa: E501
             message (str): Specifies the message of the error, i.e. why the error was returned, e.g. error 404 stands for “not found”.. [optional]  # noqa: E501
         """
@@ -257,7 +257,7 @@ class CreateFungibleTokensTransactionRequestFromAddressE409(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            details ([BannedIpAddressDetails]): [optional]  # noqa: E501
+            details ([BannedIpAddressDetailsInner]): [optional]  # noqa: E501
             code (str): Specifies an error code, e.g. error 404.. [optional]  # noqa: E501
             message (str): Specifies the message of the error, i.e. why the error was returned, e.g. error 404 stands for “not found”.. [optional]  # noqa: E501
         """

@@ -32,13 +32,13 @@ from cryptoapis.exceptions import ApiAttributeError
 
 def lazy_import():
     from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback_ri_fee import GetTransactionDetailsByTransactionIDFromCallbackRIFee
-    from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback_ri_recipients import GetTransactionDetailsByTransactionIDFromCallbackRIRecipients
-    from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback_ri_senders import GetTransactionDetailsByTransactionIDFromCallbackRISenders
+    from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback_ri_recipients_inner import GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner
+    from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback_ri_senders_inner import GetTransactionDetailsByTransactionIDFromCallbackRISendersInner
     from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback_ribs import GetTransactionDetailsByTransactionIDFromCallbackRIBS
     globals()['GetTransactionDetailsByTransactionIDFromCallbackRIBS'] = GetTransactionDetailsByTransactionIDFromCallbackRIBS
     globals()['GetTransactionDetailsByTransactionIDFromCallbackRIFee'] = GetTransactionDetailsByTransactionIDFromCallbackRIFee
-    globals()['GetTransactionDetailsByTransactionIDFromCallbackRIRecipients'] = GetTransactionDetailsByTransactionIDFromCallbackRIRecipients
-    globals()['GetTransactionDetailsByTransactionIDFromCallbackRISenders'] = GetTransactionDetailsByTransactionIDFromCallbackRISenders
+    globals()['GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner'] = GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner
+    globals()['GetTransactionDetailsByTransactionIDFromCallbackRISendersInner'] = GetTransactionDetailsByTransactionIDFromCallbackRISendersInner
 
 
 class GetTransactionDetailsByTransactionIDFromCallbackRI(ModelNormal):
@@ -97,8 +97,8 @@ class GetTransactionDetailsByTransactionIDFromCallbackRI(ModelNormal):
             'index': (int,),  # noqa: E501
             'mined_in_block_hash': (str,),  # noqa: E501
             'mined_in_block_height': (int,),  # noqa: E501
-            'recipients': ([GetTransactionDetailsByTransactionIDFromCallbackRIRecipients],),  # noqa: E501
-            'senders': ([GetTransactionDetailsByTransactionIDFromCallbackRISenders],),  # noqa: E501
+            'recipients': ([GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner],),  # noqa: E501
+            'senders': ([GetTransactionDetailsByTransactionIDFromCallbackRISendersInner],),  # noqa: E501
             'timestamp': (int,),  # noqa: E501
             'transaction_hash': (str,),  # noqa: E501
             'fee': (GetTransactionDetailsByTransactionIDFromCallbackRIFee,),  # noqa: E501
@@ -138,8 +138,8 @@ class GetTransactionDetailsByTransactionIDFromCallbackRI(ModelNormal):
             index (int): Represents the index position of the transaction in the specific block.
             mined_in_block_hash (str): Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
             mined_in_block_height (int): Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
-            recipients ([GetTransactionDetailsByTransactionIDFromCallbackRIRecipients]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-            senders ([GetTransactionDetailsByTransactionIDFromCallbackRISenders]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            recipients ([GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            senders ([GetTransactionDetailsByTransactionIDFromCallbackRISendersInner]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_hash (str): Represents the same as transactionId for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols hash is different from transactionId for SegWit transactions.
             fee (GetTransactionDetailsByTransactionIDFromCallbackRIFee):
@@ -245,8 +245,8 @@ class GetTransactionDetailsByTransactionIDFromCallbackRI(ModelNormal):
             index (int): Represents the index position of the transaction in the specific block.
             mined_in_block_hash (str): Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
             mined_in_block_height (int): Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
-            recipients ([GetTransactionDetailsByTransactionIDFromCallbackRIRecipients]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-            senders ([GetTransactionDetailsByTransactionIDFromCallbackRISenders]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            recipients ([GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            senders ([GetTransactionDetailsByTransactionIDFromCallbackRISendersInner]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_hash (str): Represents the same as transactionId for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols hash is different from transactionId for SegWit transactions.
             fee (GetTransactionDetailsByTransactionIDFromCallbackRIFee):

@@ -40,8 +40,8 @@ def lazy_import():
     from cryptoapis.model.decode_raw_transaction_hex_rise2 import DecodeRawTransactionHexRISE2
     from cryptoapis.model.decode_raw_transaction_hex_risl import DecodeRawTransactionHexRISL
     from cryptoapis.model.decode_raw_transaction_hex_risz import DecodeRawTransactionHexRISZ
-    from cryptoapis.model.decode_raw_transaction_hex_risz_vin import DecodeRawTransactionHexRISZVin
-    from cryptoapis.model.decode_raw_transaction_hex_risz_vout import DecodeRawTransactionHexRISZVout
+    from cryptoapis.model.decode_raw_transaction_hex_risz_vin_inner import DecodeRawTransactionHexRISZVinInner
+    from cryptoapis.model.decode_raw_transaction_hex_risz_vout_inner import DecodeRawTransactionHexRISZVoutInner
     globals()['DecodeRawTransactionHexRISB'] = DecodeRawTransactionHexRISB
     globals()['DecodeRawTransactionHexRISB2'] = DecodeRawTransactionHexRISB2
     globals()['DecodeRawTransactionHexRISB22'] = DecodeRawTransactionHexRISB22
@@ -51,8 +51,8 @@ def lazy_import():
     globals()['DecodeRawTransactionHexRISE2'] = DecodeRawTransactionHexRISE2
     globals()['DecodeRawTransactionHexRISL'] = DecodeRawTransactionHexRISL
     globals()['DecodeRawTransactionHexRISZ'] = DecodeRawTransactionHexRISZ
-    globals()['DecodeRawTransactionHexRISZVin'] = DecodeRawTransactionHexRISZVin
-    globals()['DecodeRawTransactionHexRISZVout'] = DecodeRawTransactionHexRISZVout
+    globals()['DecodeRawTransactionHexRISZVinInner'] = DecodeRawTransactionHexRISZVinInner
+    globals()['DecodeRawTransactionHexRISZVoutInner'] = DecodeRawTransactionHexRISZVoutInner
 
 
 class DecodeRawTransactionHexRIS(ModelComposed):
@@ -124,8 +124,8 @@ class DecodeRawTransactionHexRIS(ModelComposed):
             'transaction_hash': (str,),  # noqa: E501
             'v_size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
-            'vin': ([DecodeRawTransactionHexRISZVin],),  # noqa: E501
-            'vout': ([DecodeRawTransactionHexRISZVout],),  # noqa: E501
+            'vin': ([DecodeRawTransactionHexRISZVinInner],),  # noqa: E501
+            'vout': ([DecodeRawTransactionHexRISZVoutInner],),  # noqa: E501
             'gas_limit': (str,),  # noqa: E501
             'nonce': (int,),  # noqa: E501
             'recipient': (str,),  # noqa: E501
@@ -229,8 +229,8 @@ class DecodeRawTransactionHexRIS(ModelComposed):
             transaction_hash (str): Represents the same as transactionId for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols hash is different from transactionId for SegWit transactions.. [optional]  # noqa: E501
             v_size (int): Represents the virtual size of this transaction.. [optional]  # noqa: E501
             version (int): Represents the transaction version number.. [optional]  # noqa: E501
-            vin ([DecodeRawTransactionHexRISZVin]): Represents the Inputs of the transaction. [optional]  # noqa: E501
-            vout ([DecodeRawTransactionHexRISZVout]): Represents the Inputs of the transaction. [optional]  # noqa: E501
+            vin ([DecodeRawTransactionHexRISZVinInner]): Represents the Inputs of the transaction. [optional]  # noqa: E501
+            vout ([DecodeRawTransactionHexRISZVoutInner]): Represents the Inputs of the transaction. [optional]  # noqa: E501
             gas_limit (str): Represents the amount of gas used by this specific transaction alone.. [optional]  # noqa: E501
             nonce (int): Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.. [optional]  # noqa: E501
             recipient (str): The address which receives this transaction. In UTXO-based protocols like Bitcoin there could be several senders while in account-based protocols like Ethereum there is always only one recipient.. [optional]  # noqa: E501
@@ -360,8 +360,8 @@ class DecodeRawTransactionHexRIS(ModelComposed):
             transaction_hash (str): Represents the same as transactionId for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols hash is different from transactionId for SegWit transactions.. [optional]  # noqa: E501
             v_size (int): Represents the virtual size of this transaction.. [optional]  # noqa: E501
             version (int): Represents the transaction version number.. [optional]  # noqa: E501
-            vin ([DecodeRawTransactionHexRISZVin]): Represents the Inputs of the transaction. [optional]  # noqa: E501
-            vout ([DecodeRawTransactionHexRISZVout]): Represents the Inputs of the transaction. [optional]  # noqa: E501
+            vin ([DecodeRawTransactionHexRISZVinInner]): Represents the Inputs of the transaction. [optional]  # noqa: E501
+            vout ([DecodeRawTransactionHexRISZVoutInner]): Represents the Inputs of the transaction. [optional]  # noqa: E501
             gas_limit (str): Represents the amount of gas used by this specific transaction alone.. [optional]  # noqa: E501
             nonce (int): Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.. [optional]  # noqa: E501
             recipient (str): The address which receives this transaction. In UTXO-based protocols like Bitcoin there could be several senders while in account-based protocols like Ethereum there is always only one recipient.. [optional]  # noqa: E501

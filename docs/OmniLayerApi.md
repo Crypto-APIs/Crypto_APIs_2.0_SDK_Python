@@ -29,17 +29,17 @@ Through this endpoint customers can obtain details about an Omni transaction by 
 import time
 import cryptoapis
 from cryptoapis.api import omni_layer_api
-from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.get_omni_transaction_details_by_transaction_id_txid_r import GetOmniTransactionDetailsByTransactionIDTxidR
-from cryptoapis.model.inline_response40033 import InlineResponse40033
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response404 import InlineResponse404
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40133 import InlineResponse40133
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40333 import InlineResponse40333
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_transaction_details_by_transaction_id404_response import GetTransactionDetailsByTransactionID404Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_omni_transaction_details_by_transaction_id_txid401_response import GetOmniTransactionDetailsByTransactionIDTxid401Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_omni_transaction_details_by_transaction_id_txid400_response import GetOmniTransactionDetailsByTransactionIDTxid400Response
+from cryptoapis.model.get_omni_transaction_details_by_transaction_id_txid403_response import GetOmniTransactionDetailsByTransactionIDTxid403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -141,17 +141,17 @@ Through this endpoint customers can obtain information on unconfirmed Omni trans
 import time
 import cryptoapis
 from cryptoapis.api import omni_layer_api
-from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.get_unconfirmed_omni_transaction_by_transaction_id_txid400_response import GetUnconfirmedOmniTransactionByTransactionIDTxid400Response
 from cryptoapis.model.get_unconfirmed_omni_transaction_by_transaction_id_txid_r import GetUnconfirmedOmniTransactionByTransactionIDTxidR
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response404 import InlineResponse404
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40020 import InlineResponse40020
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40120 import InlineResponse40120
-from cryptoapis.model.inline_response40320 import InlineResponse40320
+from cryptoapis.model.get_unconfirmed_omni_transaction_by_transaction_id_txid401_response import GetUnconfirmedOmniTransactionByTransactionIDTxid401Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_transaction_details_by_transaction_id404_response import GetTransactionDetailsByTransactionID404Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_unconfirmed_omni_transaction_by_transaction_id_txid403_response import GetUnconfirmedOmniTransactionByTransactionIDTxid403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -253,16 +253,16 @@ Through this endpoint the customer can receive basic information about a given O
 import time
 import cryptoapis
 from cryptoapis.api import omni_layer_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response4031 import InlineResponse4031
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.list_omni_tokens_by_address401_response import ListOmniTokensByAddress401Response
+from cryptoapis.model.list_omni_tokens_by_address400_response import ListOmniTokensByAddress400Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.list_omni_tokens_by_address_r import ListOmniTokensByAddressR
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response4001 import InlineResponse4001
-from cryptoapis.model.inline_response4011 import InlineResponse4011
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_omni_tokens_by_address403_response import ListOmniTokensByAddress403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -363,16 +363,16 @@ This endpoint will list Omni transactions by an attribute `address`. The transac
 import time
 import cryptoapis
 from cryptoapis.api import omni_layer_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response4035 import InlineResponse4035
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response4005 import InlineResponse4005
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response4015 import InlineResponse4015
-from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.list_omni_transactions_by_address403_response import ListOmniTransactionsByAddress403Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.list_omni_transactions_by_address_r import ListOmniTransactionsByAddressR
+from cryptoapis.model.list_omni_transactions_by_address400_response import ListOmniTransactionsByAddress400Response
+from cryptoapis.model.list_omni_transactions_by_address401_response import ListOmniTransactionsByAddress401Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -477,16 +477,16 @@ This endpoint will list Omni transactions by an attribute `transactionHash`. The
 import time
 import cryptoapis
 from cryptoapis.api import omni_layer_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40147 import InlineResponse40147
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40347 import InlineResponse40347
+from cryptoapis.model.list_omni_transactions_by_block_hash400_response import ListOmniTransactionsByBlockHash400Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_omni_transactions_by_block_hash401_response import ListOmniTransactionsByBlockHash401Response
 from cryptoapis.model.list_omni_transactions_by_block_hash_r import ListOmniTransactionsByBlockHashR
-from cryptoapis.model.inline_response40047 import InlineResponse40047
+from cryptoapis.model.list_omni_transactions_by_block_hash403_response import ListOmniTransactionsByBlockHash403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -591,15 +591,15 @@ This endpoint will list Omni transactions by an attribute `blockHeight`. The tra
 import time
 import cryptoapis
 from cryptoapis.api import omni_layer_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40041 import InlineResponse40041
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40141 import InlineResponse40141
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40341 import InlineResponse40341
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.list_omni_transactions_by_block_height400_response import ListOmniTransactionsByBlockHeight400Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_omni_transactions_by_block_height401_response import ListOmniTransactionsByBlockHeight401Response
+from cryptoapis.model.list_omni_transactions_by_block_height403_response import ListOmniTransactionsByBlockHeight403Response
 from cryptoapis.model.list_omni_transactions_by_block_height_r import ListOmniTransactionsByBlockHeightR
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -705,16 +705,16 @@ This endpoint will list unconfirmed Omni transactions by an attribute `address`.
 import time
 import cryptoapis
 from cryptoapis.api import omni_layer_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40012 import InlineResponse40012
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40112 import InlineResponse40112
+from cryptoapis.model.list_unconfirmed_omni_transactions_by_address401_response import ListUnconfirmedOmniTransactionsByAddress401Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.list_unconfirmed_omni_transactions_by_address_r import ListUnconfirmedOmniTransactionsByAddressR
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40312 import InlineResponse40312
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_unconfirmed_omni_transactions_by_address403_response import ListUnconfirmedOmniTransactionsByAddress403Response
+from cryptoapis.model.list_unconfirmed_omni_transactions_by_address400_response import ListUnconfirmedOmniTransactionsByAddress400Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -819,16 +819,16 @@ This endpoint will list unconfirmed Omni transactions by an attribute `propertyI
 import time
 import cryptoapis
 from cryptoapis.api import omni_layer_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40329 import InlineResponse40329
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.list_unconfirmed_omni_transactions_by_property_id400_response import ListUnconfirmedOmniTransactionsByPropertyID400Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.list_unconfirmed_omni_transactions_by_property_id401_response import ListUnconfirmedOmniTransactionsByPropertyID401Response
+from cryptoapis.model.list_unconfirmed_omni_transactions_by_property_id403_response import ListUnconfirmedOmniTransactionsByPropertyID403Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
 from cryptoapis.model.list_unconfirmed_omni_transactions_by_property_idr import ListUnconfirmedOmniTransactionsByPropertyIDR
-from cryptoapis.model.inline_response40029 import InlineResponse40029
-from cryptoapis.model.inline_response40129 import InlineResponse40129
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.

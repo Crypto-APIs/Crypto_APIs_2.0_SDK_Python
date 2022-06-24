@@ -22,18 +22,18 @@ from cryptoapis.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from cryptoapis.model.generate_deposit_address400_response import GenerateDepositAddress400Response
+from cryptoapis.model.generate_deposit_address401_response import GenerateDepositAddress401Response
+from cryptoapis.model.generate_deposit_address403_response import GenerateDepositAddress403Response
 from cryptoapis.model.generate_deposit_address_r import GenerateDepositAddressR
 from cryptoapis.model.generate_deposit_address_rb import GenerateDepositAddressRB
-from cryptoapis.model.inline_response4008 import InlineResponse4008
-from cryptoapis.model.inline_response4018 import InlineResponse4018
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response4038 import InlineResponse4038
-from cryptoapis.model.inline_response4041 import InlineResponse4041
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
 
 
 class GeneratingApi(object):

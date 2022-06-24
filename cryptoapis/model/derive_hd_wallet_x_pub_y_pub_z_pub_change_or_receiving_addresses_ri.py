@@ -31,8 +31,8 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.derive_hd_wallet_x_pub_y_pub_z_pub_change_or_receiving_addresses_ri_addresses import DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses
-    globals()['DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses'] = DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses
+    from cryptoapis.model.derive_hd_wallet_x_pub_y_pub_z_pub_change_or_receiving_addresses_ri_addresses_inner import DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner
+    globals()['DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner'] = DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner
 
 
 class DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI(ModelNormal):
@@ -88,7 +88,7 @@ class DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI(ModelNormal):
         """
         lazy_import()
         return {
-            'addresses': ([DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses],),  # noqa: E501
+            'addresses': ([DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner],),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI(ModelNormal):
         """DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI - a model defined in OpenAPI
 
         Args:
-            addresses ([DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses]): Represents the address details.
+            addresses ([DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner]): Represents the address details.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI(ModelNormal):
         """DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI - a model defined in OpenAPI
 
         Args:
-            addresses ([DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses]): Represents the address details.
+            addresses ([DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner]): Represents the address details.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

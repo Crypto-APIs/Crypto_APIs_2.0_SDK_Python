@@ -31,14 +31,14 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_idri_recipients import GetXRPRippleTransactionDetailsByTransactionIDRIRecipients
-    from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_idri_senders import GetXRPRippleTransactionDetailsByTransactionIDRISenders
+    from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_idri_recipients_inner import GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner
+    from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_idri_senders_inner import GetXRPRippleTransactionDetailsByTransactionIDRISendersInner
     from cryptoapis.model.list_xrp_ripple_transactions_by_address_ri_fee import ListXRPRippleTransactionsByAddressRIFee
     from cryptoapis.model.list_xrp_ripple_transactions_by_address_ri_offer import ListXRPRippleTransactionsByAddressRIOffer
     from cryptoapis.model.list_xrp_ripple_transactions_by_address_ri_receive import ListXRPRippleTransactionsByAddressRIReceive
     from cryptoapis.model.list_xrp_ripple_transactions_by_address_ri_value import ListXRPRippleTransactionsByAddressRIValue
-    globals()['GetXRPRippleTransactionDetailsByTransactionIDRIRecipients'] = GetXRPRippleTransactionDetailsByTransactionIDRIRecipients
-    globals()['GetXRPRippleTransactionDetailsByTransactionIDRISenders'] = GetXRPRippleTransactionDetailsByTransactionIDRISenders
+    globals()['GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner'] = GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner
+    globals()['GetXRPRippleTransactionDetailsByTransactionIDRISendersInner'] = GetXRPRippleTransactionDetailsByTransactionIDRISendersInner
     globals()['ListXRPRippleTransactionsByAddressRIFee'] = ListXRPRippleTransactionsByAddressRIFee
     globals()['ListXRPRippleTransactionsByAddressRIOffer'] = ListXRPRippleTransactionsByAddressRIOffer
     globals()['ListXRPRippleTransactionsByAddressRIReceive'] = ListXRPRippleTransactionsByAddressRIReceive
@@ -101,8 +101,8 @@ class ListXRPRippleTransactionsByAddressRI(ModelNormal):
             'index': (int,),  # noqa: E501
             'mined_in_block_hash': (str,),  # noqa: E501
             'mined_in_block_height': (int,),  # noqa: E501
-            'recipients': ([GetXRPRippleTransactionDetailsByTransactionIDRIRecipients],),  # noqa: E501
-            'senders': ([GetXRPRippleTransactionDetailsByTransactionIDRISenders],),  # noqa: E501
+            'recipients': ([GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner],),  # noqa: E501
+            'senders': ([GetXRPRippleTransactionDetailsByTransactionIDRISendersInner],),  # noqa: E501
             'sequence': (int,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'timestamp': (int,),  # noqa: E501
@@ -152,8 +152,8 @@ class ListXRPRippleTransactionsByAddressRI(ModelNormal):
             index (int): Represents the index position of the transaction in the block.
             mined_in_block_hash (str): Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
             mined_in_block_height (int): Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
-            recipients ([GetXRPRippleTransactionDetailsByTransactionIDRIRecipients]): Represents an object of addresses that receive the transactions.
-            senders ([GetXRPRippleTransactionDetailsByTransactionIDRISenders]): Represents an object of addresses that provide the funds.
+            recipients ([GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner]): Represents an object of addresses that receive the transactions.
+            senders ([GetXRPRippleTransactionDetailsByTransactionIDRISendersInner]): Represents an object of addresses that provide the funds.
             sequence (int): Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
             status (str): Defines the status of the transaction.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
@@ -268,8 +268,8 @@ class ListXRPRippleTransactionsByAddressRI(ModelNormal):
             index (int): Represents the index position of the transaction in the block.
             mined_in_block_hash (str): Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
             mined_in_block_height (int): Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
-            recipients ([GetXRPRippleTransactionDetailsByTransactionIDRIRecipients]): Represents an object of addresses that receive the transactions.
-            senders ([GetXRPRippleTransactionDetailsByTransactionIDRISenders]): Represents an object of addresses that provide the funds.
+            recipients ([GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner]): Represents an object of addresses that receive the transactions.
+            senders ([GetXRPRippleTransactionDetailsByTransactionIDRISendersInner]): Represents an object of addresses that provide the funds.
             sequence (int): Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
             status (str): Defines the status of the transaction.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.

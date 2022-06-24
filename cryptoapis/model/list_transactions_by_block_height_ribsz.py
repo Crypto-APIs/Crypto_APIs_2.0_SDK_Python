@@ -31,16 +31,16 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_spend import GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
-    from cryptoapis.model.list_transactions_by_block_height_ribsz_vin import ListTransactionsByBlockHeightRIBSZVin
-    from cryptoapis.model.list_transactions_by_block_height_ribsz_vout import ListTransactionsByBlockHeightRIBSZVout
-    from cryptoapis.model.list_transactions_by_block_height_ribszv_join_split import ListTransactionsByBlockHeightRIBSZVJoinSplit
-    from cryptoapis.model.list_transactions_by_block_height_ribszv_shielded_output import ListTransactionsByBlockHeightRIBSZVShieldedOutput
-    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
-    globals()['ListTransactionsByBlockHeightRIBSZVJoinSplit'] = ListTransactionsByBlockHeightRIBSZVJoinSplit
-    globals()['ListTransactionsByBlockHeightRIBSZVShieldedOutput'] = ListTransactionsByBlockHeightRIBSZVShieldedOutput
-    globals()['ListTransactionsByBlockHeightRIBSZVin'] = ListTransactionsByBlockHeightRIBSZVin
-    globals()['ListTransactionsByBlockHeightRIBSZVout'] = ListTransactionsByBlockHeightRIBSZVout
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_spend_inner import GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner
+    from cryptoapis.model.list_transactions_by_block_height_ribsz_vin_inner import ListTransactionsByBlockHeightRIBSZVinInner
+    from cryptoapis.model.list_transactions_by_block_height_ribsz_vout_inner import ListTransactionsByBlockHeightRIBSZVoutInner
+    from cryptoapis.model.list_transactions_by_block_height_ribszv_join_split_inner import ListTransactionsByBlockHeightRIBSZVJoinSplitInner
+    from cryptoapis.model.list_transactions_by_block_height_ribszv_shielded_output_inner import ListTransactionsByBlockHeightRIBSZVShieldedOutputInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner
+    globals()['ListTransactionsByBlockHeightRIBSZVJoinSplitInner'] = ListTransactionsByBlockHeightRIBSZVJoinSplitInner
+    globals()['ListTransactionsByBlockHeightRIBSZVShieldedOutputInner'] = ListTransactionsByBlockHeightRIBSZVShieldedOutputInner
+    globals()['ListTransactionsByBlockHeightRIBSZVinInner'] = ListTransactionsByBlockHeightRIBSZVinInner
+    globals()['ListTransactionsByBlockHeightRIBSZVoutInner'] = ListTransactionsByBlockHeightRIBSZVoutInner
 
 
 class ListTransactionsByBlockHeightRIBSZ(ModelNormal):
@@ -103,14 +103,14 @@ class ListTransactionsByBlockHeightRIBSZ(ModelNormal):
             'locktime': (int,),  # noqa: E501
             'overwintered': (bool,),  # noqa: E501
             'size': (int,),  # noqa: E501
-            'v_join_split': ([ListTransactionsByBlockHeightRIBSZVJoinSplit],),  # noqa: E501
-            'v_shielded_output': ([ListTransactionsByBlockHeightRIBSZVShieldedOutput],),  # noqa: E501
-            'v_shielded_spend': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend],),  # noqa: E501
+            'v_join_split': ([ListTransactionsByBlockHeightRIBSZVJoinSplitInner],),  # noqa: E501
+            'v_shielded_output': ([ListTransactionsByBlockHeightRIBSZVShieldedOutputInner],),  # noqa: E501
+            'v_shielded_spend': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner],),  # noqa: E501
             'value_balance': (str,),  # noqa: E501
             'version': (int,),  # noqa: E501
             'version_group_id': (str,),  # noqa: E501
-            'vin': ([ListTransactionsByBlockHeightRIBSZVin],),  # noqa: E501
-            'vout': ([ListTransactionsByBlockHeightRIBSZVout],),  # noqa: E501
+            'vin': ([ListTransactionsByBlockHeightRIBSZVinInner],),  # noqa: E501
+            'vout': ([ListTransactionsByBlockHeightRIBSZVoutInner],),  # noqa: E501
         }
 
     @cached_property
@@ -154,14 +154,14 @@ class ListTransactionsByBlockHeightRIBSZ(ModelNormal):
             locktime (int): Represents the time at which a particular transaction can be added to the blockchain.
             overwintered (bool): \"Overwinter\" is the network upgrade for the Zcash blockchain.
             size (int): Represents the total size of this transaction.
-            v_join_split ([ListTransactionsByBlockHeightRIBSZVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
-            v_shielded_output ([ListTransactionsByBlockHeightRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions
-            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions
+            v_join_split ([ListTransactionsByBlockHeightRIBSZVJoinSplitInner]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
+            v_shielded_output ([ListTransactionsByBlockHeightRIBSZVShieldedOutputInner]): Object Array representation of transaction output descriptions
+            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner]): Object Array representation of transaction spend descriptions
             value_balance (str): Defines the transaction value balance.
             version (int): Represents the transaction version number.
             version_group_id (str): Represents the transaction version group ID.
-            vin ([ListTransactionsByBlockHeightRIBSZVin]): Object Array representation of transaction inputs
-            vout ([ListTransactionsByBlockHeightRIBSZVout]): Object Array representation of transaction outputs
+            vin ([ListTransactionsByBlockHeightRIBSZVinInner]): Object Array representation of transaction inputs
+            vout ([ListTransactionsByBlockHeightRIBSZVoutInner]): Object Array representation of transaction outputs
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -271,14 +271,14 @@ class ListTransactionsByBlockHeightRIBSZ(ModelNormal):
             locktime (int): Represents the time at which a particular transaction can be added to the blockchain.
             overwintered (bool): \"Overwinter\" is the network upgrade for the Zcash blockchain.
             size (int): Represents the total size of this transaction.
-            v_join_split ([ListTransactionsByBlockHeightRIBSZVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
-            v_shielded_output ([ListTransactionsByBlockHeightRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions
-            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions
+            v_join_split ([ListTransactionsByBlockHeightRIBSZVJoinSplitInner]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
+            v_shielded_output ([ListTransactionsByBlockHeightRIBSZVShieldedOutputInner]): Object Array representation of transaction output descriptions
+            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner]): Object Array representation of transaction spend descriptions
             value_balance (str): Defines the transaction value balance.
             version (int): Represents the transaction version number.
             version_group_id (str): Represents the transaction version group ID.
-            vin ([ListTransactionsByBlockHeightRIBSZVin]): Object Array representation of transaction inputs
-            vout ([ListTransactionsByBlockHeightRIBSZVout]): Object Array representation of transaction outputs
+            vin ([ListTransactionsByBlockHeightRIBSZVinInner]): Object Array representation of transaction inputs
+            vout ([ListTransactionsByBlockHeightRIBSZVoutInner]): Object Array representation of transaction outputs
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

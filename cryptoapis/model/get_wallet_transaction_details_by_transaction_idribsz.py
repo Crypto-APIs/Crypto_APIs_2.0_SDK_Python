@@ -31,16 +31,16 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_join_split import GetTransactionDetailsByTransactionIDRIBSZVJoinSplit
-    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_output import GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput
-    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_spend import GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
-    from cryptoapis.model.get_wallet_transaction_details_by_transaction_idribsz_vin import GetWalletTransactionDetailsByTransactionIDRIBSZVin
-    from cryptoapis.model.list_transactions_by_block_height_ribsz_vout import ListTransactionsByBlockHeightRIBSZVout
-    globals()['GetTransactionDetailsByTransactionIDRIBSZVJoinSplit'] = GetTransactionDetailsByTransactionIDRIBSZVJoinSplit
-    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput
-    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
-    globals()['GetWalletTransactionDetailsByTransactionIDRIBSZVin'] = GetWalletTransactionDetailsByTransactionIDRIBSZVin
-    globals()['ListTransactionsByBlockHeightRIBSZVout'] = ListTransactionsByBlockHeightRIBSZVout
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_join_split_inner import GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_output_inner import GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_spend_inner import GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner
+    from cryptoapis.model.get_wallet_transaction_details_by_transaction_idribsz_vin_inner import GetWalletTransactionDetailsByTransactionIDRIBSZVinInner
+    from cryptoapis.model.list_transactions_by_block_height_ribsz_vout_inner import ListTransactionsByBlockHeightRIBSZVoutInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner'] = GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner
+    globals()['GetWalletTransactionDetailsByTransactionIDRIBSZVinInner'] = GetWalletTransactionDetailsByTransactionIDRIBSZVinInner
+    globals()['ListTransactionsByBlockHeightRIBSZVoutInner'] = ListTransactionsByBlockHeightRIBSZVoutInner
 
 
 class GetWalletTransactionDetailsByTransactionIDRIBSZ(ModelNormal):
@@ -106,11 +106,11 @@ class GetWalletTransactionDetailsByTransactionIDRIBSZ(ModelNormal):
             'value_balance': (str,),  # noqa: E501
             'version': (int,),  # noqa: E501
             'version_group_id': (str,),  # noqa: E501
-            'vin': ([GetWalletTransactionDetailsByTransactionIDRIBSZVin],),  # noqa: E501
-            'vout': ([ListTransactionsByBlockHeightRIBSZVout],),  # noqa: E501
-            'v_join_split': ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplit],),  # noqa: E501
-            'v_shielded_output': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput],),  # noqa: E501
-            'v_shielded_spend': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend],),  # noqa: E501
+            'vin': ([GetWalletTransactionDetailsByTransactionIDRIBSZVinInner],),  # noqa: E501
+            'vout': ([ListTransactionsByBlockHeightRIBSZVoutInner],),  # noqa: E501
+            'v_join_split': ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner],),  # noqa: E501
+            'v_shielded_output': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner],),  # noqa: E501
+            'v_shielded_spend': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner],),  # noqa: E501
         }
 
     @cached_property
@@ -157,8 +157,8 @@ class GetWalletTransactionDetailsByTransactionIDRIBSZ(ModelNormal):
             value_balance (str): String representation of the transaction value balance
             version (int): Represents the transaction version number.
             version_group_id (str): Represents the transaction version group ID.
-            vin ([GetWalletTransactionDetailsByTransactionIDRIBSZVin]): Object Array representation of transaction inputs
-            vout ([ListTransactionsByBlockHeightRIBSZVout]): Object Array representation of transaction outputs
+            vin ([GetWalletTransactionDetailsByTransactionIDRIBSZVinInner]): Object Array representation of transaction inputs
+            vout ([ListTransactionsByBlockHeightRIBSZVoutInner]): Object Array representation of transaction outputs
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -191,9 +191,9 @@ class GetWalletTransactionDetailsByTransactionIDRIBSZ(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            v_join_split ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.. [optional]  # noqa: E501
-            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions. [optional]  # noqa: E501
-            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions. [optional]  # noqa: E501
+            v_join_split ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.. [optional]  # noqa: E501
+            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner]): Object Array representation of transaction output descriptions. [optional]  # noqa: E501
+            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner]): Object Array representation of transaction spend descriptions. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -271,8 +271,8 @@ class GetWalletTransactionDetailsByTransactionIDRIBSZ(ModelNormal):
             value_balance (str): String representation of the transaction value balance
             version (int): Represents the transaction version number.
             version_group_id (str): Represents the transaction version group ID.
-            vin ([GetWalletTransactionDetailsByTransactionIDRIBSZVin]): Object Array representation of transaction inputs
-            vout ([ListTransactionsByBlockHeightRIBSZVout]): Object Array representation of transaction outputs
+            vin ([GetWalletTransactionDetailsByTransactionIDRIBSZVinInner]): Object Array representation of transaction inputs
+            vout ([ListTransactionsByBlockHeightRIBSZVoutInner]): Object Array representation of transaction outputs
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -305,9 +305,9 @@ class GetWalletTransactionDetailsByTransactionIDRIBSZ(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            v_join_split ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.. [optional]  # noqa: E501
-            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions. [optional]  # noqa: E501
-            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions. [optional]  # noqa: E501
+            v_join_split ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.. [optional]  # noqa: E501
+            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner]): Object Array representation of transaction output descriptions. [optional]  # noqa: E501
+            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner]): Object Array representation of transaction spend descriptions. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

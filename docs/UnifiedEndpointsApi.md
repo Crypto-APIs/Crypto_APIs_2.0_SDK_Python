@@ -40,17 +40,17 @@ Through this endpoint, customers can estimate the approximate fee per kilobyte n
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response40168 import InlineResponse40168
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
 from cryptoapis.model.estimate_transaction_smart_fee_r import EstimateTransactionSmartFeeR
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40368 import InlineResponse40368
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response501 import InlineResponse501
-from cryptoapis.model.inline_response40068 import InlineResponse40068
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.estimate_transaction_smart_fee403_response import EstimateTransactionSmartFee403Response
+from cryptoapis.model.estimate_transaction_smart_fee400_response import EstimateTransactionSmartFee400Response
+from cryptoapis.model.estimate_transaction_smart_fee401_response import EstimateTransactionSmartFee401Response
+from cryptoapis.model.estimate_transaction_smart_fee501_response import EstimateTransactionSmartFee501Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -155,16 +155,16 @@ Through this endpoint the customer can receive basic information about a given a
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.get_address_details_r import GetAddressDetailsR
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response400 import InlineResponse400
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response403 import InlineResponse403
-from cryptoapis.model.inline_response401 import InlineResponse401
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details401_response import GetAddressDetails401Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_address_details400_response import GetAddressDetails400Response
+from cryptoapis.model.get_address_details403_response import GetAddressDetails403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -266,16 +266,16 @@ Through this endpoint customers can obtain basic information about a given mined
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response4042 import InlineResponse4042
-from cryptoapis.model.inline_response40031 import InlineResponse40031
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40131 import InlineResponse40131
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40331 import InlineResponse40331
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_block_details_by_block_hash400_response import GetBlockDetailsByBlockHash400Response
+from cryptoapis.model.get_block_details_by_block_hash403_response import GetBlockDetailsByBlockHash403Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_block_details_by_block_hash401_response import GetBlockDetailsByBlockHash401Response
+from cryptoapis.model.list_transactions_by_block_height404_response import ListTransactionsByBlockHeight404Response
 from cryptoapis.model.get_block_details_by_block_hash_r import GetBlockDetailsByBlockHashR
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -379,17 +379,17 @@ Through this endpoint customers can obtain basic information about a given mined
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40127 import InlineResponse40127
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response4042 import InlineResponse4042
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40327 import InlineResponse40327
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_block_details_by_block_height401_response import GetBlockDetailsByBlockHeight401Response
 from cryptoapis.model.get_block_details_by_block_height_r import GetBlockDetailsByBlockHeightR
-from cryptoapis.model.inline_response40027 import InlineResponse40027
+from cryptoapis.model.get_block_details_by_block_height403_response import GetBlockDetailsByBlockHeight403Response
+from cryptoapis.model.list_transactions_by_block_height404_response import ListTransactionsByBlockHeight404Response
+from cryptoapis.model.get_block_details_by_block_height400_response import GetBlockDetailsByBlockHeight400Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -493,16 +493,16 @@ import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
 from cryptoapis.model.get_fee_recommendations_r import GetFeeRecommendationsR
-from cryptoapis.model.inline_response40157 import InlineResponse40157
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response4041 import InlineResponse4041
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40357 import InlineResponse40357
-from cryptoapis.model.inline_response40057 import InlineResponse40057
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_fee_recommendations400_response import GetFeeRecommendations400Response
+from cryptoapis.model.get_fee_recommendations401_response import GetFeeRecommendations401Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
+from cryptoapis.model.get_fee_recommendations403_response import GetFeeRecommendations403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -603,17 +603,17 @@ Through this endpoint customers can fetch the last mined block in a specific blo
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response4042 import InlineResponse4042
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40040 import InlineResponse40040
+from cryptoapis.model.get_last_mined_block403_response import GetLastMinedBlock403Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_last_mined_block400_response import GetLastMinedBlock400Response
 from cryptoapis.model.get_last_mined_block_r import GetLastMinedBlockR
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40140 import InlineResponse40140
-from cryptoapis.model.inline_response40340 import InlineResponse40340
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_last_mined_block401_response import GetLastMinedBlock401Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_transactions_by_block_height404_response import ListTransactionsByBlockHeight404Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -714,16 +714,16 @@ Through this endpoint customers can get information about the next available non
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response40158 import InlineResponse40158
 from cryptoapis.model.get_next_available_nonce_r import GetNextAvailableNonceR
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40358 import InlineResponse40358
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40058 import InlineResponse40058
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_next_available_nonce400_response import GetNextAvailableNonce400Response
+from cryptoapis.model.get_next_available_nonce401_response import GetNextAvailableNonce401Response
+from cryptoapis.model.get_next_available_nonce403_response import GetNextAvailableNonce403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -825,17 +825,17 @@ Through this endpoint customers can get information on a transaction in its raw 
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response40065 import InlineResponse40065
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response404 import InlineResponse404
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40165 import InlineResponse40165
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40365 import InlineResponse40365
+from cryptoapis.model.get_raw_transaction_data403_response import GetRawTransactionData403Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_transaction_details_by_transaction_id404_response import GetTransactionDetailsByTransactionID404Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_raw_transaction_data400_response import GetRawTransactionData400Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_raw_transaction_data_r import GetRawTransactionDataR
+from cryptoapis.model.get_raw_transaction_data401_response import GetRawTransactionData401Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -938,17 +938,17 @@ Through this endpoint customers can obtain details about a transaction by the tr
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response404 import InlineResponse404
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response4034 import InlineResponse4034
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response4004 import InlineResponse4004
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_transaction_details_by_transaction_id404_response import GetTransactionDetailsByTransactionID404Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_transaction_details_by_transaction_idr import GetTransactionDetailsByTransactionIDR
-from cryptoapis.model.inline_response4014 import InlineResponse4014
+from cryptoapis.model.get_transaction_details_by_transaction_id401_response import GetTransactionDetailsByTransactionID401Response
+from cryptoapis.model.get_transaction_details_by_transaction_id400_response import GetTransactionDetailsByTransactionID400Response
+from cryptoapis.model.get_transaction_details_by_transaction_id403_response import GetTransactionDetailsByTransactionID403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1051,16 +1051,16 @@ Through this endpoint customers can list all **unconfirmed**  transactions for a
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response429 import InlineResponse429
 from cryptoapis.model.list_all_unconfirmed_transactions_r import ListAllUnconfirmedTransactionsR
-from cryptoapis.model.inline_response40117 import InlineResponse40117
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40317 import InlineResponse40317
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40017 import InlineResponse40017
+from cryptoapis.model.list_all_unconfirmed_transactions400_response import ListAllUnconfirmedTransactions400Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_all_unconfirmed_transactions401_response import ListAllUnconfirmedTransactions401Response
+from cryptoapis.model.list_all_unconfirmed_transactions403_response import ListAllUnconfirmedTransactions403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1164,16 +1164,16 @@ Through this endpoint customers can obtain a list with **confirmed** token trans
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40062 import InlineResponse40062
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40162 import InlineResponse40162
-from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.list_confirmed_tokens_transfers_by_address_and_time_range401_response import ListConfirmedTokensTransfersByAddressAndTimeRange401Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.list_confirmed_tokens_transfers_by_address_and_time_range_r import ListConfirmedTokensTransfersByAddressAndTimeRangeR
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40362 import InlineResponse40362
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.list_confirmed_tokens_transfers_by_address_and_time_range400_response import ListConfirmedTokensTransfersByAddressAndTimeRange400Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_confirmed_tokens_transfers_by_address_and_time_range403_response import ListConfirmedTokensTransfersByAddressAndTimeRange403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1283,16 +1283,16 @@ This endpoint will list transactions by an attribute `address`. The transactions
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40010 import InlineResponse40010
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40110 import InlineResponse40110
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.list_confirmed_transactions_by_address403_response import ListConfirmedTransactionsByAddress403Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.list_confirmed_transactions_by_address400_response import ListConfirmedTransactionsByAddress400Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_confirmed_transactions_by_address401_response import ListConfirmedTransactionsByAddress401Response
 from cryptoapis.model.list_confirmed_transactions_by_address_r import ListConfirmedTransactionsByAddressR
-from cryptoapis.model.inline_response40310 import InlineResponse40310
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1398,16 +1398,16 @@ This endpoint will list confirmed transactions by the attribute `address` and th
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40061 import InlineResponse40061
-from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.list_confirmed_transactions_by_address_and_time_range401_response import ListConfirmedTransactionsByAddressAndTimeRange401Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.list_confirmed_transactions_by_address_and_time_range403_response import ListConfirmedTransactionsByAddressAndTimeRange403Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.list_confirmed_transactions_by_address_and_time_range_r import ListConfirmedTransactionsByAddressAndTimeRangeR
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40161 import InlineResponse40161
-from cryptoapis.model.inline_response40361 import InlineResponse40361
+from cryptoapis.model.list_confirmed_transactions_by_address_and_time_range400_response import ListConfirmedTransactionsByAddressAndTimeRange400Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1517,16 +1517,16 @@ Through this endpoint customers can list internal transactions by the `address` 
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40063 import InlineResponse40063
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40163 import InlineResponse40163
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.list_internal_transactions_by_address_and_time_range403_response import ListInternalTransactionsByAddressAndTimeRange403Response
+from cryptoapis.model.list_internal_transactions_by_address_and_time_range400_response import ListInternalTransactionsByAddressAndTimeRange400Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.list_internal_transactions_by_address_and_time_range_r import ListInternalTransactionsByAddressAndTimeRangeR
-from cryptoapis.model.inline_response40363 import InlineResponse40363
+from cryptoapis.model.list_internal_transactions_by_address_and_time_range401_response import ListInternalTransactionsByAddressAndTimeRange401Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1636,17 +1636,17 @@ Through this endpoint customers can list **up to 50** from the latest blocks tha
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response40045 import InlineResponse40045
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response40145 import InlineResponse40145
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response4041 import InlineResponse4041
-from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.list_latest_mined_blocks_r import ListLatestMinedBlocksR
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40345 import InlineResponse40345
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
+from cryptoapis.model.list_latest_mined_blocks403_response import ListLatestMinedBlocks403Response
+from cryptoapis.model.list_latest_mined_blocks401_response import ListLatestMinedBlocks401Response
+from cryptoapis.model.list_latest_mined_blocks400_response import ListLatestMinedBlocks400Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1749,16 +1749,16 @@ This endpoint will list transactions by an attribute `transactionHash`. The tran
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response40118 import InlineResponse40118
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40318 import InlineResponse40318
-from cryptoapis.model.inline_response500 import InlineResponse500
+from cryptoapis.model.list_transactions_by_block_hash403_response import ListTransactionsByBlockHash403Response
+from cryptoapis.model.list_transactions_by_block_hash400_response import ListTransactionsByBlockHash400Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.list_transactions_by_block_hash_r import ListTransactionsByBlockHashR
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40018 import InlineResponse40018
+from cryptoapis.model.list_transactions_by_block_hash401_response import ListTransactionsByBlockHash401Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1864,17 +1864,17 @@ This endpoint will list transactions by an attribute `blockHeight`. The transact
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response40025 import InlineResponse40025
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40125 import InlineResponse40125
-from cryptoapis.model.inline_response4042 import InlineResponse4042
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40325 import InlineResponse40325
+from cryptoapis.model.list_transactions_by_block_height403_response import ListTransactionsByBlockHeight403Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.list_transactions_by_block_height401_response import ListTransactionsByBlockHeight401Response
+from cryptoapis.model.list_transactions_by_block_height400_response import ListTransactionsByBlockHeight400Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.list_transactions_by_block_height_r import ListTransactionsByBlockHeightR
+from cryptoapis.model.list_transactions_by_block_height404_response import ListTransactionsByBlockHeight404Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1981,16 +1981,16 @@ Through this endpoint customers can list transactions by `address` that are **un
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response40015 import InlineResponse40015
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response40115 import InlineResponse40115
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40315 import InlineResponse40315
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.list_unconfirmed_transactions_by_address401_response import ListUnconfirmedTransactionsByAddress401Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_unconfirmed_transactions_by_address403_response import ListUnconfirmedTransactionsByAddress403Response
 from cryptoapis.model.list_unconfirmed_transactions_by_address_r import ListUnconfirmedTransactionsByAddressR
+from cryptoapis.model.list_unconfirmed_transactions_by_address400_response import ListUnconfirmedTransactionsByAddress400Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -2096,16 +2096,16 @@ Through this endpoint customers can list their transactions' unspent outputs by 
 import time
 import cryptoapis
 from cryptoapis.api import unified_endpoints_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40359 import InlineResponse40359
-from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.list_unspent_transaction_outputs_by_address403_response import ListUnspentTransactionOutputsByAddress403Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
 from cryptoapis.model.list_unspent_transaction_outputs_by_address_r import ListUnspentTransactionOutputsByAddressR
-from cryptoapis.model.inline_response40059 import InlineResponse40059
-from cryptoapis.model.inline_response40159 import InlineResponse40159
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_unspent_transaction_outputs_by_address401_response import ListUnspentTransactionOutputsByAddress401Response
+from cryptoapis.model.list_unspent_transaction_outputs_by_address400_response import ListUnspentTransactionOutputsByAddress400Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.

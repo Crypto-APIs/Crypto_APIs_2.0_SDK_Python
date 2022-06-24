@@ -14,12 +14,12 @@ import unittest
 
 import cryptoapis
 from cryptoapis.model.banned_ip_address import BannedIpAddress
-from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+from cryptoapis.model.banned_ip_address_details_inner import BannedIpAddressDetailsInner
 from cryptoapis.model.endpoint_not_allowed_for_api_key import EndpointNotAllowedForApiKey
 from cryptoapis.model.endpoint_not_allowed_for_plan import EndpointNotAllowedForPlan
 from cryptoapis.model.feature_mainnets_not_allowed_for_plan import FeatureMainnetsNotAllowedForPlan
 globals()['BannedIpAddress'] = BannedIpAddress
-globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
+globals()['BannedIpAddressDetailsInner'] = BannedIpAddressDetailsInner
 globals()['EndpointNotAllowedForApiKey'] = EndpointNotAllowedForApiKey
 globals()['EndpointNotAllowedForPlan'] = EndpointNotAllowedForPlan
 globals()['FeatureMainnetsNotAllowedForPlan'] = FeatureMainnetsNotAllowedForPlan

@@ -31,10 +31,10 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.get_transaction_details_by_transaction_idribsd_vout import GetTransactionDetailsByTransactionIDRIBSDVout
-    from cryptoapis.model.list_all_unconfirmed_transactions_ribsd_vin import ListAllUnconfirmedTransactionsRIBSDVin
-    globals()['GetTransactionDetailsByTransactionIDRIBSDVout'] = GetTransactionDetailsByTransactionIDRIBSDVout
-    globals()['ListAllUnconfirmedTransactionsRIBSDVin'] = ListAllUnconfirmedTransactionsRIBSDVin
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsd_vout_inner import GetTransactionDetailsByTransactionIDRIBSDVoutInner
+    from cryptoapis.model.list_all_unconfirmed_transactions_ribsd_vin_inner import ListAllUnconfirmedTransactionsRIBSDVinInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSDVoutInner'] = GetTransactionDetailsByTransactionIDRIBSDVoutInner
+    globals()['ListAllUnconfirmedTransactionsRIBSDVinInner'] = ListAllUnconfirmedTransactionsRIBSDVinInner
 
 
 class ListAllUnconfirmedTransactionsRIBSD(ModelNormal):
@@ -93,8 +93,8 @@ class ListAllUnconfirmedTransactionsRIBSD(ModelNormal):
             'locktime': (int,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
-            'vin': ([ListAllUnconfirmedTransactionsRIBSDVin],),  # noqa: E501
-            'vout': ([GetTransactionDetailsByTransactionIDRIBSDVout],),  # noqa: E501
+            'vin': ([ListAllUnconfirmedTransactionsRIBSDVinInner],),  # noqa: E501
+            'vout': ([GetTransactionDetailsByTransactionIDRIBSDVoutInner],),  # noqa: E501
         }
 
     @cached_property
@@ -124,8 +124,8 @@ class ListAllUnconfirmedTransactionsRIBSD(ModelNormal):
             locktime (int): Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid.
             size (int): Represents the total size of this transaction.
             version (int): Defines the version of the transaction.
-            vin ([ListAllUnconfirmedTransactionsRIBSDVin]): Represents the transaction inputs.
-            vout ([GetTransactionDetailsByTransactionIDRIBSDVout]): Represents the transaction outputs.
+            vin ([ListAllUnconfirmedTransactionsRIBSDVinInner]): Represents the transaction inputs.
+            vout ([GetTransactionDetailsByTransactionIDRIBSDVoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -221,8 +221,8 @@ class ListAllUnconfirmedTransactionsRIBSD(ModelNormal):
             locktime (int): Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid.
             size (int): Represents the total size of this transaction.
             version (int): Defines the version of the transaction.
-            vin ([ListAllUnconfirmedTransactionsRIBSDVin]): Represents the transaction inputs.
-            vout ([GetTransactionDetailsByTransactionIDRIBSDVout]): Represents the transaction outputs.
+            vin ([ListAllUnconfirmedTransactionsRIBSDVinInner]): Represents the transaction inputs.
+            vout ([GetTransactionDetailsByTransactionIDRIBSDVoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

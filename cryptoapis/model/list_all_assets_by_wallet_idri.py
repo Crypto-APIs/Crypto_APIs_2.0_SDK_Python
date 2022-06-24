@@ -31,12 +31,12 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.list_all_assets_from_all_wallets_ri_coins import ListAllAssetsFromAllWalletsRICoins
-    from cryptoapis.model.list_all_assets_from_all_wallets_ri_fungible_tokens import ListAllAssetsFromAllWalletsRIFungibleTokens
-    from cryptoapis.model.list_all_assets_from_all_wallets_ri_non_fungible_tokens import ListAllAssetsFromAllWalletsRINonFungibleTokens
-    globals()['ListAllAssetsFromAllWalletsRICoins'] = ListAllAssetsFromAllWalletsRICoins
-    globals()['ListAllAssetsFromAllWalletsRIFungibleTokens'] = ListAllAssetsFromAllWalletsRIFungibleTokens
-    globals()['ListAllAssetsFromAllWalletsRINonFungibleTokens'] = ListAllAssetsFromAllWalletsRINonFungibleTokens
+    from cryptoapis.model.list_all_assets_from_all_wallets_ri_coins_inner import ListAllAssetsFromAllWalletsRICoinsInner
+    from cryptoapis.model.list_all_assets_from_all_wallets_ri_fungible_tokens_inner import ListAllAssetsFromAllWalletsRIFungibleTokensInner
+    from cryptoapis.model.list_all_assets_from_all_wallets_ri_non_fungible_tokens_inner import ListAllAssetsFromAllWalletsRINonFungibleTokensInner
+    globals()['ListAllAssetsFromAllWalletsRICoinsInner'] = ListAllAssetsFromAllWalletsRICoinsInner
+    globals()['ListAllAssetsFromAllWalletsRIFungibleTokensInner'] = ListAllAssetsFromAllWalletsRIFungibleTokensInner
+    globals()['ListAllAssetsFromAllWalletsRINonFungibleTokensInner'] = ListAllAssetsFromAllWalletsRINonFungibleTokensInner
 
 
 class ListAllAssetsByWalletIDRI(ModelNormal):
@@ -92,9 +92,9 @@ class ListAllAssetsByWalletIDRI(ModelNormal):
         """
         lazy_import()
         return {
-            'coins': ([ListAllAssetsFromAllWalletsRICoins],),  # noqa: E501
-            'fungible_tokens': ([ListAllAssetsFromAllWalletsRIFungibleTokens],),  # noqa: E501
-            'non_fungible_tokens': ([ListAllAssetsFromAllWalletsRINonFungibleTokens],),  # noqa: E501
+            'coins': ([ListAllAssetsFromAllWalletsRICoinsInner],),  # noqa: E501
+            'fungible_tokens': ([ListAllAssetsFromAllWalletsRIFungibleTokensInner],),  # noqa: E501
+            'non_fungible_tokens': ([ListAllAssetsFromAllWalletsRINonFungibleTokensInner],),  # noqa: E501
             'wallet_id': (str,),  # noqa: E501
             'wallet_name': (str,),  # noqa: E501
         }
@@ -123,9 +123,9 @@ class ListAllAssetsByWalletIDRI(ModelNormal):
         """ListAllAssetsByWalletIDRI - a model defined in OpenAPI
 
         Args:
-            coins ([ListAllAssetsFromAllWalletsRICoins]):
-            fungible_tokens ([ListAllAssetsFromAllWalletsRIFungibleTokens]): Represents fungible tokens'es detailed information
-            non_fungible_tokens ([ListAllAssetsFromAllWalletsRINonFungibleTokens]): Represents non-fungible tokens'es detailed information.
+            coins ([ListAllAssetsFromAllWalletsRICoinsInner]):
+            fungible_tokens ([ListAllAssetsFromAllWalletsRIFungibleTokensInner]): Represents fungible tokens'es detailed information
+            non_fungible_tokens ([ListAllAssetsFromAllWalletsRINonFungibleTokensInner]): Represents non-fungible tokens'es detailed information.
             wallet_id (str): Defines the unique ID of the Wallet.
             wallet_name (str): Represents the name of the wallet.
 
@@ -220,9 +220,9 @@ class ListAllAssetsByWalletIDRI(ModelNormal):
         """ListAllAssetsByWalletIDRI - a model defined in OpenAPI
 
         Args:
-            coins ([ListAllAssetsFromAllWalletsRICoins]):
-            fungible_tokens ([ListAllAssetsFromAllWalletsRIFungibleTokens]): Represents fungible tokens'es detailed information
-            non_fungible_tokens ([ListAllAssetsFromAllWalletsRINonFungibleTokens]): Represents non-fungible tokens'es detailed information.
+            coins ([ListAllAssetsFromAllWalletsRICoinsInner]):
+            fungible_tokens ([ListAllAssetsFromAllWalletsRIFungibleTokensInner]): Represents fungible tokens'es detailed information
+            non_fungible_tokens ([ListAllAssetsFromAllWalletsRINonFungibleTokensInner]): Represents non-fungible tokens'es detailed information.
             wallet_id (str): Defines the unique ID of the Wallet.
             wallet_name (str): Represents the name of the wallet.
 

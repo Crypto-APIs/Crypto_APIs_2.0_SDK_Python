@@ -32,13 +32,13 @@ from cryptoapis.exceptions import ApiAttributeError
 
 def lazy_import():
     from cryptoapis.model.get_wallet_transaction_details_by_transaction_idri_fee import GetWalletTransactionDetailsByTransactionIDRIFee
-    from cryptoapis.model.get_wallet_transaction_details_by_transaction_idri_recipients import GetWalletTransactionDetailsByTransactionIDRIRecipients
-    from cryptoapis.model.get_wallet_transaction_details_by_transaction_idri_senders import GetWalletTransactionDetailsByTransactionIDRISenders
+    from cryptoapis.model.get_wallet_transaction_details_by_transaction_idri_recipients_inner import GetWalletTransactionDetailsByTransactionIDRIRecipientsInner
+    from cryptoapis.model.get_wallet_transaction_details_by_transaction_idri_senders_inner import GetWalletTransactionDetailsByTransactionIDRISendersInner
     from cryptoapis.model.get_wallet_transaction_details_by_transaction_idribs import GetWalletTransactionDetailsByTransactionIDRIBS
     globals()['GetWalletTransactionDetailsByTransactionIDRIBS'] = GetWalletTransactionDetailsByTransactionIDRIBS
     globals()['GetWalletTransactionDetailsByTransactionIDRIFee'] = GetWalletTransactionDetailsByTransactionIDRIFee
-    globals()['GetWalletTransactionDetailsByTransactionIDRIRecipients'] = GetWalletTransactionDetailsByTransactionIDRIRecipients
-    globals()['GetWalletTransactionDetailsByTransactionIDRISenders'] = GetWalletTransactionDetailsByTransactionIDRISenders
+    globals()['GetWalletTransactionDetailsByTransactionIDRIRecipientsInner'] = GetWalletTransactionDetailsByTransactionIDRIRecipientsInner
+    globals()['GetWalletTransactionDetailsByTransactionIDRISendersInner'] = GetWalletTransactionDetailsByTransactionIDRISendersInner
 
 
 class GetWalletTransactionDetailsByTransactionIDRI(ModelNormal):
@@ -96,8 +96,8 @@ class GetWalletTransactionDetailsByTransactionIDRI(ModelNormal):
         return {
             'index': (int,),  # noqa: E501
             'is_confirmed': (bool,),  # noqa: E501
-            'recipients': ([GetWalletTransactionDetailsByTransactionIDRIRecipients],),  # noqa: E501
-            'senders': ([GetWalletTransactionDetailsByTransactionIDRISenders],),  # noqa: E501
+            'recipients': ([GetWalletTransactionDetailsByTransactionIDRIRecipientsInner],),  # noqa: E501
+            'senders': ([GetWalletTransactionDetailsByTransactionIDRISendersInner],),  # noqa: E501
             'timestamp': (int,),  # noqa: E501
             'transaction_hash': (str,),  # noqa: E501
             'transaction_id': (str,),  # noqa: E501
@@ -139,8 +139,8 @@ class GetWalletTransactionDetailsByTransactionIDRI(ModelNormal):
         Args:
             index (int): Represents the index position of the transaction in the specific block.
             is_confirmed (bool): Represents the state of the transaction whether it is confirmed or not confirmed.
-            recipients ([GetWalletTransactionDetailsByTransactionIDRIRecipients]): Object Array representation of transaction receivers
-            senders ([GetWalletTransactionDetailsByTransactionIDRISenders]): Object Array representation of transaction senders
+            recipients ([GetWalletTransactionDetailsByTransactionIDRIRecipientsInner]): Object Array representation of transaction receivers
+            senders ([GetWalletTransactionDetailsByTransactionIDRISendersInner]): Object Array representation of transaction senders
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_hash (str): Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.
             transaction_id (str): Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
@@ -246,8 +246,8 @@ class GetWalletTransactionDetailsByTransactionIDRI(ModelNormal):
         Args:
             index (int): Represents the index position of the transaction in the specific block.
             is_confirmed (bool): Represents the state of the transaction whether it is confirmed or not confirmed.
-            recipients ([GetWalletTransactionDetailsByTransactionIDRIRecipients]): Object Array representation of transaction receivers
-            senders ([GetWalletTransactionDetailsByTransactionIDRISenders]): Object Array representation of transaction senders
+            recipients ([GetWalletTransactionDetailsByTransactionIDRIRecipientsInner]): Object Array representation of transaction receivers
+            senders ([GetWalletTransactionDetailsByTransactionIDRISendersInner]): Object Array representation of transaction senders
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_hash (str): Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.
             transaction_id (str): Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.

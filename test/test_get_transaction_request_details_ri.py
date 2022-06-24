@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.get_transaction_request_details_ri_recipients import GetTransactionRequestDetailsRIRecipients
-globals()['GetTransactionRequestDetailsRIRecipients'] = GetTransactionRequestDetailsRIRecipients
+from cryptoapis.model.get_transaction_request_details_ri_recipients_inner import GetTransactionRequestDetailsRIRecipientsInner
+globals()['GetTransactionRequestDetailsRIRecipientsInner'] = GetTransactionRequestDetailsRIRecipientsInner
 from cryptoapis.model.get_transaction_request_details_ri import GetTransactionRequestDetailsRI
 
 

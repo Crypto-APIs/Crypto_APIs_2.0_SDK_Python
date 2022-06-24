@@ -32,18 +32,18 @@ from cryptoapis.exceptions import ApiAttributeError
 
 def lazy_import():
     from cryptoapis.model.list_wallet_transactions_ri_fee import ListWalletTransactionsRIFee
-    from cryptoapis.model.list_wallet_transactions_ri_fungible_tokens import ListWalletTransactionsRIFungibleTokens
-    from cryptoapis.model.list_wallet_transactions_ri_internal_transactions import ListWalletTransactionsRIInternalTransactions
-    from cryptoapis.model.list_wallet_transactions_ri_non_fungible_tokens import ListWalletTransactionsRINonFungibleTokens
-    from cryptoapis.model.list_wallet_transactions_ri_recipients import ListWalletTransactionsRIRecipients
-    from cryptoapis.model.list_wallet_transactions_ri_senders import ListWalletTransactionsRISenders
+    from cryptoapis.model.list_wallet_transactions_ri_fungible_tokens_inner import ListWalletTransactionsRIFungibleTokensInner
+    from cryptoapis.model.list_wallet_transactions_ri_internal_transactions_inner import ListWalletTransactionsRIInternalTransactionsInner
+    from cryptoapis.model.list_wallet_transactions_ri_non_fungible_tokens_inner import ListWalletTransactionsRINonFungibleTokensInner
+    from cryptoapis.model.list_wallet_transactions_ri_recipients_inner import ListWalletTransactionsRIRecipientsInner
+    from cryptoapis.model.list_wallet_transactions_ri_senders_inner import ListWalletTransactionsRISendersInner
     from cryptoapis.model.list_wallet_transactions_ri_value import ListWalletTransactionsRIValue
     globals()['ListWalletTransactionsRIFee'] = ListWalletTransactionsRIFee
-    globals()['ListWalletTransactionsRIFungibleTokens'] = ListWalletTransactionsRIFungibleTokens
-    globals()['ListWalletTransactionsRIInternalTransactions'] = ListWalletTransactionsRIInternalTransactions
-    globals()['ListWalletTransactionsRINonFungibleTokens'] = ListWalletTransactionsRINonFungibleTokens
-    globals()['ListWalletTransactionsRIRecipients'] = ListWalletTransactionsRIRecipients
-    globals()['ListWalletTransactionsRISenders'] = ListWalletTransactionsRISenders
+    globals()['ListWalletTransactionsRIFungibleTokensInner'] = ListWalletTransactionsRIFungibleTokensInner
+    globals()['ListWalletTransactionsRIInternalTransactionsInner'] = ListWalletTransactionsRIInternalTransactionsInner
+    globals()['ListWalletTransactionsRINonFungibleTokensInner'] = ListWalletTransactionsRINonFungibleTokensInner
+    globals()['ListWalletTransactionsRIRecipientsInner'] = ListWalletTransactionsRIRecipientsInner
+    globals()['ListWalletTransactionsRISendersInner'] = ListWalletTransactionsRISendersInner
     globals()['ListWalletTransactionsRIValue'] = ListWalletTransactionsRIValue
 
 
@@ -102,15 +102,15 @@ class ListWalletTransactionsRI(ModelNormal):
         return {
             'direction': (str,),  # noqa: E501
             'fee': (ListWalletTransactionsRIFee,),  # noqa: E501
-            'recipients': ([ListWalletTransactionsRIRecipients],),  # noqa: E501
-            'senders': ([ListWalletTransactionsRISenders],),  # noqa: E501
+            'recipients': ([ListWalletTransactionsRIRecipientsInner],),  # noqa: E501
+            'senders': ([ListWalletTransactionsRISendersInner],),  # noqa: E501
             'status': (str,),  # noqa: E501
             'timestamp': (int,),  # noqa: E501
             'transaction_id': (str,),  # noqa: E501
             'value': (ListWalletTransactionsRIValue,),  # noqa: E501
-            'fungible_tokens': ([ListWalletTransactionsRIFungibleTokens],),  # noqa: E501
-            'internal_transactions': ([ListWalletTransactionsRIInternalTransactions],),  # noqa: E501
-            'non_fungible_tokens': ([ListWalletTransactionsRINonFungibleTokens],),  # noqa: E501
+            'fungible_tokens': ([ListWalletTransactionsRIFungibleTokensInner],),  # noqa: E501
+            'internal_transactions': ([ListWalletTransactionsRIInternalTransactionsInner],),  # noqa: E501
+            'non_fungible_tokens': ([ListWalletTransactionsRINonFungibleTokensInner],),  # noqa: E501
         }
 
     @cached_property
@@ -145,8 +145,8 @@ class ListWalletTransactionsRI(ModelNormal):
         Args:
             direction (str): Defines the direction of the transaction, e.g. incoming.
             fee (ListWalletTransactionsRIFee):
-            recipients ([ListWalletTransactionsRIRecipients]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-            senders ([ListWalletTransactionsRISenders]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            recipients ([ListWalletTransactionsRIRecipientsInner]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            senders ([ListWalletTransactionsRISendersInner]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             status (str): Defines the status of the transaction, if it is confirmed or unconfirmed.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_id (str): Represents the unique TD of the transaction.
@@ -183,9 +183,9 @@ class ListWalletTransactionsRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fungible_tokens ([ListWalletTransactionsRIFungibleTokens]): Represents fungible tokens'es detailed information. [optional]  # noqa: E501
-            internal_transactions ([ListWalletTransactionsRIInternalTransactions]): [optional]  # noqa: E501
-            non_fungible_tokens ([ListWalletTransactionsRINonFungibleTokens]): Represents non-fungible tokens'es detailed information.. [optional]  # noqa: E501
+            fungible_tokens ([ListWalletTransactionsRIFungibleTokensInner]): Represents fungible tokens'es detailed information. [optional]  # noqa: E501
+            internal_transactions ([ListWalletTransactionsRIInternalTransactionsInner]): [optional]  # noqa: E501
+            non_fungible_tokens ([ListWalletTransactionsRINonFungibleTokensInner]): Represents non-fungible tokens'es detailed information.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -251,8 +251,8 @@ class ListWalletTransactionsRI(ModelNormal):
         Args:
             direction (str): Defines the direction of the transaction, e.g. incoming.
             fee (ListWalletTransactionsRIFee):
-            recipients ([ListWalletTransactionsRIRecipients]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-            senders ([ListWalletTransactionsRISenders]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            recipients ([ListWalletTransactionsRIRecipientsInner]): Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
+            senders ([ListWalletTransactionsRISendersInner]): Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
             status (str): Defines the status of the transaction, if it is confirmed or unconfirmed.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_id (str): Represents the unique TD of the transaction.
@@ -289,9 +289,9 @@ class ListWalletTransactionsRI(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fungible_tokens ([ListWalletTransactionsRIFungibleTokens]): Represents fungible tokens'es detailed information. [optional]  # noqa: E501
-            internal_transactions ([ListWalletTransactionsRIInternalTransactions]): [optional]  # noqa: E501
-            non_fungible_tokens ([ListWalletTransactionsRINonFungibleTokens]): Represents non-fungible tokens'es detailed information.. [optional]  # noqa: E501
+            fungible_tokens ([ListWalletTransactionsRIFungibleTokensInner]): Represents fungible tokens'es detailed information. [optional]  # noqa: E501
+            internal_transactions ([ListWalletTransactionsRIInternalTransactionsInner]): [optional]  # noqa: E501
+            non_fungible_tokens ([ListWalletTransactionsRINonFungibleTokensInner]): Represents non-fungible tokens'es detailed information.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

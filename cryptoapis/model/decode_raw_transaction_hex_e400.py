@@ -31,14 +31,14 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+    from cryptoapis.model.banned_ip_address_details_inner import BannedIpAddressDetailsInner
     from cryptoapis.model.invalid_blockchain import InvalidBlockchain
     from cryptoapis.model.invalid_network import InvalidNetwork
     from cryptoapis.model.invalid_pagination import InvalidPagination
     from cryptoapis.model.invalid_transaction_hex import InvalidTransactionHex
     from cryptoapis.model.limit_greater_than_allowed import LimitGreaterThanAllowed
     from cryptoapis.model.uri_not_found import UriNotFound
-    globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
+    globals()['BannedIpAddressDetailsInner'] = BannedIpAddressDetailsInner
     globals()['InvalidBlockchain'] = InvalidBlockchain
     globals()['InvalidNetwork'] = InvalidNetwork
     globals()['InvalidPagination'] = InvalidPagination
@@ -100,7 +100,7 @@ class DecodeRawTransactionHexE400(ModelComposed):
         """
         lazy_import()
         return {
-            'details': ([BannedIpAddressDetails],),  # noqa: E501
+            'details': ([BannedIpAddressDetailsInner],),  # noqa: E501
             'code': (str,),  # noqa: E501
             'message': (str,),  # noqa: E501
         }
@@ -155,7 +155,7 @@ class DecodeRawTransactionHexE400(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            details ([BannedIpAddressDetails]): [optional]  # noqa: E501
+            details ([BannedIpAddressDetailsInner]): [optional]  # noqa: E501
             code (str): Specifies an error code, e.g. error 404.. [optional]  # noqa: E501
             message (str): Specifies the message of the error, i.e. why the error was returned, e.g. error 404 stands for “not found”.. [optional]  # noqa: E501
         """
@@ -261,7 +261,7 @@ class DecodeRawTransactionHexE400(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            details ([BannedIpAddressDetails]): [optional]  # noqa: E501
+            details ([BannedIpAddressDetailsInner]): [optional]  # noqa: E501
             code (str): Specifies an error code, e.g. error 404.. [optional]  # noqa: E501
             message (str): Specifies the message of the error, i.e. why the error was returned, e.g. error 404 stands for “not found”.. [optional]  # noqa: E501
         """

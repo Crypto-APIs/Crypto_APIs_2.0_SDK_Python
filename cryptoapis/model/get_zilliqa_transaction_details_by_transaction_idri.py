@@ -32,11 +32,11 @@ from cryptoapis.exceptions import ApiAttributeError
 
 def lazy_import():
     from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_idri_fee import GetZilliqaTransactionDetailsByTransactionIDRIFee
-    from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_idri_recipients import GetZilliqaTransactionDetailsByTransactionIDRIRecipients
-    from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_idri_senders import GetZilliqaTransactionDetailsByTransactionIDRISenders
+    from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_idri_recipients_inner import GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner
+    from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_idri_senders_inner import GetZilliqaTransactionDetailsByTransactionIDRISendersInner
     globals()['GetZilliqaTransactionDetailsByTransactionIDRIFee'] = GetZilliqaTransactionDetailsByTransactionIDRIFee
-    globals()['GetZilliqaTransactionDetailsByTransactionIDRIRecipients'] = GetZilliqaTransactionDetailsByTransactionIDRIRecipients
-    globals()['GetZilliqaTransactionDetailsByTransactionIDRISenders'] = GetZilliqaTransactionDetailsByTransactionIDRISenders
+    globals()['GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner'] = GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner
+    globals()['GetZilliqaTransactionDetailsByTransactionIDRISendersInner'] = GetZilliqaTransactionDetailsByTransactionIDRISendersInner
 
 
 class GetZilliqaTransactionDetailsByTransactionIDRI(ModelNormal):
@@ -99,8 +99,8 @@ class GetZilliqaTransactionDetailsByTransactionIDRI(ModelNormal):
             'mined_in_block_hash': (str,),  # noqa: E501
             'mined_in_block_height': (int,),  # noqa: E501
             'nonce': (int,),  # noqa: E501
-            'recipients': ([GetZilliqaTransactionDetailsByTransactionIDRIRecipients],),  # noqa: E501
-            'senders': ([GetZilliqaTransactionDetailsByTransactionIDRISenders],),  # noqa: E501
+            'recipients': ([GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner],),  # noqa: E501
+            'senders': ([GetZilliqaTransactionDetailsByTransactionIDRISendersInner],),  # noqa: E501
             'timestamp': (int,),  # noqa: E501
             'transaction_index': (int,),  # noqa: E501
             'transaction_status': (str,),  # noqa: E501
@@ -144,8 +144,8 @@ class GetZilliqaTransactionDetailsByTransactionIDRI(ModelNormal):
             mined_in_block_hash (str): Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
             mined_in_block_height (int): Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
             nonce (int): Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.
-            recipients ([GetZilliqaTransactionDetailsByTransactionIDRIRecipients]): Represents an object of addresses that receive the transactions.
-            senders ([GetZilliqaTransactionDetailsByTransactionIDRISenders]): Represents an object of addresses that provide the funds.
+            recipients ([GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner]): Represents an object of addresses that receive the transactions.
+            senders ([GetZilliqaTransactionDetailsByTransactionIDRISendersInner]): Represents an object of addresses that provide the funds.
             timestamp (int): Defines the exact date/time when this block was mined in Unix Timestamp.
             transaction_index (int): Defines the numeric representation of the transaction index.
             transaction_status (str): Defines the status of the transaction, whether it is e.g. pending or complete.
@@ -255,8 +255,8 @@ class GetZilliqaTransactionDetailsByTransactionIDRI(ModelNormal):
             mined_in_block_hash (str): Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
             mined_in_block_height (int): Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
             nonce (int): Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.
-            recipients ([GetZilliqaTransactionDetailsByTransactionIDRIRecipients]): Represents an object of addresses that receive the transactions.
-            senders ([GetZilliqaTransactionDetailsByTransactionIDRISenders]): Represents an object of addresses that provide the funds.
+            recipients ([GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner]): Represents an object of addresses that receive the transactions.
+            senders ([GetZilliqaTransactionDetailsByTransactionIDRISendersInner]): Represents an object of addresses that provide the funds.
             timestamp (int): Defines the exact date/time when this block was mined in Unix Timestamp.
             transaction_index (int): Defines the numeric representation of the transaction index.
             transaction_status (str): Defines the status of the transaction, whether it is e.g. pending or complete.

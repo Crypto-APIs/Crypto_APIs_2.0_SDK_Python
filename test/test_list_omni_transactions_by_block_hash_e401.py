@@ -13,10 +13,10 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+from cryptoapis.model.banned_ip_address_details_inner import BannedIpAddressDetailsInner
 from cryptoapis.model.invalid_api_key import InvalidApiKey
 from cryptoapis.model.missing_api_key import MissingApiKey
-globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
+globals()['BannedIpAddressDetailsInner'] = BannedIpAddressDetailsInner
 globals()['InvalidApiKey'] = InvalidApiKey
 globals()['MissingApiKey'] = MissingApiKey
 from cryptoapis.model.list_omni_transactions_by_block_hash_e401 import ListOmniTransactionsByBlockHashE401

@@ -31,12 +31,12 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.list_omni_transactions_by_address_ri_recipients import ListOmniTransactionsByAddressRIRecipients
+    from cryptoapis.model.list_omni_transactions_by_address_ri_recipients_inner import ListOmniTransactionsByAddressRIRecipientsInner
     from cryptoapis.model.list_unconfirmed_omni_transactions_by_address_ri_fee import ListUnconfirmedOmniTransactionsByAddressRIFee
-    from cryptoapis.model.list_unconfirmed_omni_transactions_by_address_ri_senders import ListUnconfirmedOmniTransactionsByAddressRISenders
-    globals()['ListOmniTransactionsByAddressRIRecipients'] = ListOmniTransactionsByAddressRIRecipients
+    from cryptoapis.model.list_unconfirmed_omni_transactions_by_address_ri_senders_inner import ListUnconfirmedOmniTransactionsByAddressRISendersInner
+    globals()['ListOmniTransactionsByAddressRIRecipientsInner'] = ListOmniTransactionsByAddressRIRecipientsInner
     globals()['ListUnconfirmedOmniTransactionsByAddressRIFee'] = ListUnconfirmedOmniTransactionsByAddressRIFee
-    globals()['ListUnconfirmedOmniTransactionsByAddressRISenders'] = ListUnconfirmedOmniTransactionsByAddressRISenders
+    globals()['ListUnconfirmedOmniTransactionsByAddressRISendersInner'] = ListUnconfirmedOmniTransactionsByAddressRISendersInner
 
 
 class ListUnconfirmedOmniTransactionsByAddressRI(ModelNormal):
@@ -96,8 +96,8 @@ class ListUnconfirmedOmniTransactionsByAddressRI(ModelNormal):
             'divisible': (bool,),  # noqa: E501
             'mined': (bool,),  # noqa: E501
             'property_id': (int,),  # noqa: E501
-            'recipients': ([ListOmniTransactionsByAddressRIRecipients],),  # noqa: E501
-            'senders': ([ListUnconfirmedOmniTransactionsByAddressRISenders],),  # noqa: E501
+            'recipients': ([ListOmniTransactionsByAddressRIRecipientsInner],),  # noqa: E501
+            'senders': ([ListUnconfirmedOmniTransactionsByAddressRISendersInner],),  # noqa: E501
             'sent': (bool,),  # noqa: E501
             'timestamp': (int,),  # noqa: E501
             'transaction_id': (str,),  # noqa: E501
@@ -143,8 +143,8 @@ class ListUnconfirmedOmniTransactionsByAddressRI(ModelNormal):
             divisible (bool): Defines whether the attribute can be divisible or not, as boolean. E.g., if it is \"true\", the attribute is divisible.
             mined (bool): Defines whether the transaction has been mined or not, as boolean. E.g. if set to \"true\", it means the transaction is mined.
             property_id (int): Represents the identifier of the tokens to send.
-            recipients ([ListOmniTransactionsByAddressRIRecipients]): Represents an object of addresses that receive the transactions.
-            senders ([ListUnconfirmedOmniTransactionsByAddressRISenders]): Represents an object of addresses that provide the funds.
+            recipients ([ListOmniTransactionsByAddressRIRecipientsInner]): Represents an object of addresses that receive the transactions.
+            senders ([ListUnconfirmedOmniTransactionsByAddressRISendersInner]): Represents an object of addresses that provide the funds.
             sent (bool): Defines whether the transaction has been sent or not, as boolean. E.g. if set to \"true\", it means the transaction is sent.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_id (str): Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
@@ -256,8 +256,8 @@ class ListUnconfirmedOmniTransactionsByAddressRI(ModelNormal):
             divisible (bool): Defines whether the attribute can be divisible or not, as boolean. E.g., if it is \"true\", the attribute is divisible.
             mined (bool): Defines whether the transaction has been mined or not, as boolean. E.g. if set to \"true\", it means the transaction is mined.
             property_id (int): Represents the identifier of the tokens to send.
-            recipients ([ListOmniTransactionsByAddressRIRecipients]): Represents an object of addresses that receive the transactions.
-            senders ([ListUnconfirmedOmniTransactionsByAddressRISenders]): Represents an object of addresses that provide the funds.
+            recipients ([ListOmniTransactionsByAddressRIRecipientsInner]): Represents an object of addresses that receive the transactions.
+            senders ([ListUnconfirmedOmniTransactionsByAddressRISendersInner]): Represents an object of addresses that provide the funds.
             sent (bool): Defines whether the transaction has been sent or not, as boolean. E.g. if set to \"true\", it means the transaction is sent.
             timestamp (int): Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
             transaction_id (str): Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.

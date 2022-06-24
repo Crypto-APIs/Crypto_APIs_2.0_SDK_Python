@@ -13,10 +13,10 @@ import sys
 import unittest
 
 import cryptoapis
-from cryptoapis.model.banned_ip_address_details import BannedIpAddressDetails
+from cryptoapis.model.banned_ip_address_details_inner import BannedIpAddressDetailsInner
 from cryptoapis.model.could_not_calculate_rate_for_pair import CouldNotCalculateRateForPair
 from cryptoapis.model.invalid_request_body_structure import InvalidRequestBodyStructure
-globals()['BannedIpAddressDetails'] = BannedIpAddressDetails
+globals()['BannedIpAddressDetailsInner'] = BannedIpAddressDetailsInner
 globals()['CouldNotCalculateRateForPair'] = CouldNotCalculateRateForPair
 globals()['InvalidRequestBodyStructure'] = InvalidRequestBodyStructure
 from cryptoapis.model.get_exchange_rate_by_asset_symbols_e422 import GetExchangeRateByAssetSymbolsE422

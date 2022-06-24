@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **mined_in_block_height** | **int** | Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block. | 
 **position_in_block** | **int** | Represents the index position of the transaction in the specific block. | 
 **property_id** | **int** | Represents the identifier of the tokens to send. | 
-**recipients** | [**[ListOmniTransactionsByBlockHeightRIRecipients]**](ListOmniTransactionsByBlockHeightRIRecipients.md) | Represents an object of addresses that receive the transactions. | 
-**senders** | [**[ListOmniTransactionsByBlockHeightRISenders]**](ListOmniTransactionsByBlockHeightRISenders.md) | Represents an object of addresses that provide the funds. | 
+**recipients** | [**[ListOmniTransactionsByBlockHeightRIRecipientsInner]**](ListOmniTransactionsByBlockHeightRIRecipientsInner.md) | Represents an object of addresses that receive the transactions. | 
+**senders** | [**[ListOmniTransactionsByBlockHeightRISendersInner]**](ListOmniTransactionsByBlockHeightRISendersInner.md) | Represents an object of addresses that provide the funds. | 
 **timestamp** | **int** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 
 **transaction_id** | **str** | Represents the unique identifier of a transaction, i.e. it could be &#x60;transactionId&#x60; in UTXO-based protocols like Bitcoin, and transaction &#x60;hash&#x60; in Ethereum blockchain. | 
 **type** | **str** | Defines the type of the transaction as a string. | 

@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **size** | **int** | Represents the total size of this transaction. | 
 **v_size** | **int** | Represents the virtual size of this transaction. | 
 **version** | **int** | Represents the transaction&#39;s version number. | 
-**vin** | [**[ListUnconfirmedTransactionsByAddressRIBSLVin]**](ListUnconfirmedTransactionsByAddressRIBSLVin.md) | Represents the transaction inputs. | 
-**vout** | [**[ListUnconfirmedTransactionsByAddressRIBSLVout]**](ListUnconfirmedTransactionsByAddressRIBSLVout.md) | Represents the transaction outputs. | 
+**vin** | [**[ListUnconfirmedTransactionsByAddressRIBSLVinInner]**](ListUnconfirmedTransactionsByAddressRIBSLVinInner.md) | Represents the transaction inputs. | 
+**vout** | [**[ListUnconfirmedTransactionsByAddressRIBSLVoutInner]**](ListUnconfirmedTransactionsByAddressRIBSLVoutInner.md) | Represents the transaction outputs. | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -31,10 +31,10 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.get_transaction_details_by_transaction_idribsl_vin import GetTransactionDetailsByTransactionIDRIBSLVin
-    from cryptoapis.model.get_transaction_details_by_transaction_idribsl_vout import GetTransactionDetailsByTransactionIDRIBSLVout
-    globals()['GetTransactionDetailsByTransactionIDRIBSLVin'] = GetTransactionDetailsByTransactionIDRIBSLVin
-    globals()['GetTransactionDetailsByTransactionIDRIBSLVout'] = GetTransactionDetailsByTransactionIDRIBSLVout
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsl_vin_inner import GetTransactionDetailsByTransactionIDRIBSLVinInner
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsl_vout_inner import GetTransactionDetailsByTransactionIDRIBSLVoutInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSLVinInner'] = GetTransactionDetailsByTransactionIDRIBSLVinInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSLVoutInner'] = GetTransactionDetailsByTransactionIDRIBSLVoutInner
 
 
 class GetTransactionDetailsByTransactionIDRIBSL(ModelNormal):
@@ -94,8 +94,8 @@ class GetTransactionDetailsByTransactionIDRIBSL(ModelNormal):
             'size': (int,),  # noqa: E501
             'v_size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
-            'vin': ([GetTransactionDetailsByTransactionIDRIBSLVin],),  # noqa: E501
-            'vout': ([GetTransactionDetailsByTransactionIDRIBSLVout],),  # noqa: E501
+            'vin': ([GetTransactionDetailsByTransactionIDRIBSLVinInner],),  # noqa: E501
+            'vout': ([GetTransactionDetailsByTransactionIDRIBSLVoutInner],),  # noqa: E501
         }
 
     @cached_property
@@ -127,8 +127,8 @@ class GetTransactionDetailsByTransactionIDRIBSL(ModelNormal):
             size (int): Represents the total size of this transaction.
             v_size (int): Represents the virtual size of this transaction.
             version (int): Represents transaction version number.
-            vin ([GetTransactionDetailsByTransactionIDRIBSLVin]): Represents the transaction inputs.
-            vout ([GetTransactionDetailsByTransactionIDRIBSLVout]): Represents the transaction outputs.
+            vin ([GetTransactionDetailsByTransactionIDRIBSLVinInner]): Represents the transaction inputs.
+            vout ([GetTransactionDetailsByTransactionIDRIBSLVoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -226,8 +226,8 @@ class GetTransactionDetailsByTransactionIDRIBSL(ModelNormal):
             size (int): Represents the total size of this transaction.
             v_size (int): Represents the virtual size of this transaction.
             version (int): Represents transaction version number.
-            vin ([GetTransactionDetailsByTransactionIDRIBSLVin]): Represents the transaction inputs.
-            vout ([GetTransactionDetailsByTransactionIDRIBSLVout]): Represents the transaction outputs.
+            vin ([GetTransactionDetailsByTransactionIDRIBSLVinInner]): Represents the transaction inputs.
+            vout ([GetTransactionDetailsByTransactionIDRIBSLVoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -5,8 +5,8 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_address_details_from_callback**](CallbackDataApi.md#get_address_details_from_callback) | **GET** /blockchain-events/{blockchain}/{network}/addresses/{address} | Get Address Details From Callback
-[**get_block_details_by_block_hash_from_callback**](CallbackDataApi.md#get_block_details_by_block_hash_from_callback) | **GET** /blockcain-events/{blockchain}/{network}/blocks/hash/{blockHash} | Get Block Details By Block Hash From Callback
-[**get_block_details_by_block_height_from_callback**](CallbackDataApi.md#get_block_details_by_block_height_from_callback) | **GET** /blockcain-events/{blockchain}/{network}/blocks/height/{blockHeight} | Get Block Details By Block Height From Callback
+[**get_block_details_by_block_hash_from_callback**](CallbackDataApi.md#get_block_details_by_block_hash_from_callback) | **GET** /blockchain-events/{blockchain}/{network}/blocks/hash/{blockHash} | Get Block Details By Block Hash From Callback
+[**get_block_details_by_block_height_from_callback**](CallbackDataApi.md#get_block_details_by_block_height_from_callback) | **GET** /blockchain-events/{blockchain}/{network}/blocks/height/{blockHeight} | Get Block Details By Block Height From Callback
 [**get_transaction_details_by_transaction_id_from_callback**](CallbackDataApi.md#get_transaction_details_by_transaction_id_from_callback) | **GET** /blockchain-events/{blockchain}/{network}/transactions/{transactionId} | Get Transaction Details By Transaction ID From Callback
 
 
@@ -25,17 +25,17 @@ This endpoint creates a shortcut to obtain information from Blockchain data by g
 import time
 import cryptoapis
 from cryptoapis.api import callback_data_api
-from cryptoapis.model.inline_response4044 import InlineResponse4044
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40083 import InlineResponse40083
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40183 import InlineResponse40183
-from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.get_address_details_from_callback400_response import GetAddressDetailsFromCallback400Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_address_details_from_callback_r import GetAddressDetailsFromCallbackR
-from cryptoapis.model.inline_response40383 import InlineResponse40383
+from cryptoapis.model.get_address_details_from_callback404_response import GetAddressDetailsFromCallback404Response
+from cryptoapis.model.get_address_details_from_callback403_response import GetAddressDetailsFromCallback403Response
+from cryptoapis.model.get_address_details_from_callback401_response import GetAddressDetailsFromCallback401Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -138,16 +138,16 @@ This endpoint creates a shortcut to obtain information from Blockchain data by g
 import time
 import cryptoapis
 from cryptoapis.api import callback_data_api
-from cryptoapis.model.inline_response40085 import InlineResponse40085
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response4042 import InlineResponse4042
-from cryptoapis.model.inline_response40185 import InlineResponse40185
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40385 import InlineResponse40385
+from cryptoapis.model.get_block_details_by_block_hash_from_callback401_response import GetBlockDetailsByBlockHashFromCallback401Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_block_details_by_block_hash_from_callback400_response import GetBlockDetailsByBlockHashFromCallback400Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_block_details_by_block_hash_from_callback403_response import GetBlockDetailsByBlockHashFromCallback403Response
+from cryptoapis.model.list_transactions_by_block_height404_response import ListTransactionsByBlockHeight404Response
 from cryptoapis.model.get_block_details_by_block_hash_from_callback_r import GetBlockDetailsByBlockHashFromCallbackR
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -251,16 +251,16 @@ This endpoint creates a shortcut to obtain information from Blockchain data by g
 import time
 import cryptoapis
 from cryptoapis.api import callback_data_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response40186 import InlineResponse40186
-from cryptoapis.model.inline_response4042 import InlineResponse4042
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40386 import InlineResponse40386
-from cryptoapis.model.inline_response40086 import InlineResponse40086
+from cryptoapis.model.get_block_details_by_block_height_from_callback401_response import GetBlockDetailsByBlockHeightFromCallback401Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_block_details_by_block_height_from_callback400_response import GetBlockDetailsByBlockHeightFromCallback400Response
+from cryptoapis.model.get_block_details_by_block_height_from_callback403_response import GetBlockDetailsByBlockHeightFromCallback403Response
+from cryptoapis.model.list_transactions_by_block_height404_response import ListTransactionsByBlockHeight404Response
 from cryptoapis.model.get_block_details_by_block_height_from_callback_r import GetBlockDetailsByBlockHeightFromCallbackR
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
@@ -364,17 +364,17 @@ This endpoint creates a shortcut to obtain information from Blockchain data by g
 import time
 import cryptoapis
 from cryptoapis.api import callback_data_api
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40084 import InlineResponse40084
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback_r import GetTransactionDetailsByTransactionIDFromCallbackR
-from cryptoapis.model.inline_response40184 import InlineResponse40184
-from cryptoapis.model.inline_response4041 import InlineResponse4041
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40384 import InlineResponse40384
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback401_response import GetTransactionDetailsByTransactionIDFromCallback401Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
+from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback403_response import GetTransactionDetailsByTransactionIDFromCallback403Response
+from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback400_response import GetTransactionDetailsByTransactionIDFromCallback400Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.

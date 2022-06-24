@@ -22,16 +22,16 @@ This endpoint will return a list of supported assets. The asset could be a crypt
 import time
 import cryptoapis
 from cryptoapis.api import metadata_api
-from cryptoapis.model.inline_response403105 import InlineResponse403105
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response409 import InlineResponse409
-from cryptoapis.model.inline_response402 import InlineResponse402
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.list_supported_assets_r import ListSupportedAssetsR
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response400105 import InlineResponse400105
-from cryptoapis.model.inline_response401105 import InlineResponse401105
+from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.list_supported_assets401_response import ListSupportedAssets401Response
+from cryptoapis.model.list_supported_assets400_response import ListSupportedAssets400Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.list_supported_assets403_response import ListSupportedAssets403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.

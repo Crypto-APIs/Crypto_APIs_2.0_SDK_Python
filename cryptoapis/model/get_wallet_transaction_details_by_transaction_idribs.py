@@ -32,9 +32,9 @@ from cryptoapis.exceptions import ApiAttributeError
 
 def lazy_import():
     from cryptoapis.model.get_transaction_details_by_transaction_idribsbsc_gas_price import GetTransactionDetailsByTransactionIDRIBSBSCGasPrice
-    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_join_split import GetTransactionDetailsByTransactionIDRIBSZVJoinSplit
-    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_output import GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput
-    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_spend import GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_join_split_inner import GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_output_inner import GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner
+    from cryptoapis.model.get_transaction_details_by_transaction_idribszv_shielded_spend_inner import GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner
     from cryptoapis.model.get_wallet_transaction_details_by_transaction_idribsb import GetWalletTransactionDetailsByTransactionIDRIBSB
     from cryptoapis.model.get_wallet_transaction_details_by_transaction_idribsbc import GetWalletTransactionDetailsByTransactionIDRIBSBC
     from cryptoapis.model.get_wallet_transaction_details_by_transaction_idribsbsc import GetWalletTransactionDetailsByTransactionIDRIBSBSC
@@ -44,12 +44,12 @@ def lazy_import():
     from cryptoapis.model.get_wallet_transaction_details_by_transaction_idribsec import GetWalletTransactionDetailsByTransactionIDRIBSEC
     from cryptoapis.model.get_wallet_transaction_details_by_transaction_idribsl import GetWalletTransactionDetailsByTransactionIDRIBSL
     from cryptoapis.model.get_wallet_transaction_details_by_transaction_idribsz import GetWalletTransactionDetailsByTransactionIDRIBSZ
-    from cryptoapis.model.get_wallet_transaction_details_by_transaction_idribsz_vin import GetWalletTransactionDetailsByTransactionIDRIBSZVin
-    from cryptoapis.model.list_transactions_by_block_height_ribsz_vout import ListTransactionsByBlockHeightRIBSZVout
+    from cryptoapis.model.get_wallet_transaction_details_by_transaction_idribsz_vin_inner import GetWalletTransactionDetailsByTransactionIDRIBSZVinInner
+    from cryptoapis.model.list_transactions_by_block_height_ribsz_vout_inner import ListTransactionsByBlockHeightRIBSZVoutInner
     globals()['GetTransactionDetailsByTransactionIDRIBSBSCGasPrice'] = GetTransactionDetailsByTransactionIDRIBSBSCGasPrice
-    globals()['GetTransactionDetailsByTransactionIDRIBSZVJoinSplit'] = GetTransactionDetailsByTransactionIDRIBSZVJoinSplit
-    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput
-    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner'] = GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner'] = GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner
     globals()['GetWalletTransactionDetailsByTransactionIDRIBSB'] = GetWalletTransactionDetailsByTransactionIDRIBSB
     globals()['GetWalletTransactionDetailsByTransactionIDRIBSBC'] = GetWalletTransactionDetailsByTransactionIDRIBSBC
     globals()['GetWalletTransactionDetailsByTransactionIDRIBSBSC'] = GetWalletTransactionDetailsByTransactionIDRIBSBSC
@@ -59,8 +59,8 @@ def lazy_import():
     globals()['GetWalletTransactionDetailsByTransactionIDRIBSEC'] = GetWalletTransactionDetailsByTransactionIDRIBSEC
     globals()['GetWalletTransactionDetailsByTransactionIDRIBSL'] = GetWalletTransactionDetailsByTransactionIDRIBSL
     globals()['GetWalletTransactionDetailsByTransactionIDRIBSZ'] = GetWalletTransactionDetailsByTransactionIDRIBSZ
-    globals()['GetWalletTransactionDetailsByTransactionIDRIBSZVin'] = GetWalletTransactionDetailsByTransactionIDRIBSZVin
-    globals()['ListTransactionsByBlockHeightRIBSZVout'] = ListTransactionsByBlockHeightRIBSZVout
+    globals()['GetWalletTransactionDetailsByTransactionIDRIBSZVinInner'] = GetWalletTransactionDetailsByTransactionIDRIBSZVinInner
+    globals()['ListTransactionsByBlockHeightRIBSZVoutInner'] = ListTransactionsByBlockHeightRIBSZVoutInner
 
 
 class GetWalletTransactionDetailsByTransactionIDRIBS(ModelComposed):
@@ -116,15 +116,15 @@ class GetWalletTransactionDetailsByTransactionIDRIBS(ModelComposed):
         """
         lazy_import()
         return {
-            'v_join_split': ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplit],),  # noqa: E501
-            'v_shielded_output': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput],),  # noqa: E501
-            'v_shielded_spend': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend],),  # noqa: E501
+            'v_join_split': ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner],),  # noqa: E501
+            'v_shielded_output': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner],),  # noqa: E501
+            'v_shielded_spend': ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner],),  # noqa: E501
             'locktime': (int,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'v_size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
-            'vin': ([GetWalletTransactionDetailsByTransactionIDRIBSZVin],),  # noqa: E501
-            'vout': ([ListTransactionsByBlockHeightRIBSZVout],),  # noqa: E501
+            'vin': ([GetWalletTransactionDetailsByTransactionIDRIBSZVinInner],),  # noqa: E501
+            'vout': ([ListTransactionsByBlockHeightRIBSZVoutInner],),  # noqa: E501
             'contract': (str,),  # noqa: E501
             'gas_limit': (str,),  # noqa: E501
             'gas_price': (GetTransactionDetailsByTransactionIDRIBSBSCGasPrice,),  # noqa: E501
@@ -211,15 +211,15 @@ class GetWalletTransactionDetailsByTransactionIDRIBS(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            v_join_split ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.. [optional]  # noqa: E501
-            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions. [optional]  # noqa: E501
-            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions. [optional]  # noqa: E501
+            v_join_split ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.. [optional]  # noqa: E501
+            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner]): Object Array representation of transaction output descriptions. [optional]  # noqa: E501
+            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner]): Object Array representation of transaction spend descriptions. [optional]  # noqa: E501
             locktime (int): Represents the time at which a particular transaction can be added to the blockchain.. [optional]  # noqa: E501
             size (int): Represents the total size of this transaction.. [optional]  # noqa: E501
             v_size (int): Represents the virtual size of this transaction.. [optional]  # noqa: E501
             version (int): Represents the transaction version number.. [optional]  # noqa: E501
-            vin ([GetWalletTransactionDetailsByTransactionIDRIBSZVin]): Object Array representation of transaction inputs. [optional]  # noqa: E501
-            vout ([ListTransactionsByBlockHeightRIBSZVout]): Object Array representation of transaction outputs. [optional]  # noqa: E501
+            vin ([GetWalletTransactionDetailsByTransactionIDRIBSZVinInner]): Object Array representation of transaction inputs. [optional]  # noqa: E501
+            vout ([ListTransactionsByBlockHeightRIBSZVoutInner]): Object Array representation of transaction outputs. [optional]  # noqa: E501
             contract (str): Represents the specific transaction contract. [optional]  # noqa: E501
             gas_limit (str): Represents the amount of gas used by this specific transaction alone.. [optional]  # noqa: E501
             gas_price (GetTransactionDetailsByTransactionIDRIBSBSCGasPrice): [optional]  # noqa: E501
@@ -337,15 +337,15 @@ class GetWalletTransactionDetailsByTransactionIDRIBS(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            v_join_split ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplit]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.. [optional]  # noqa: E501
-            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput]): Object Array representation of transaction output descriptions. [optional]  # noqa: E501
-            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend]): Object Array representation of transaction spend descriptions. [optional]  # noqa: E501
+            v_join_split ([GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner]): Represents a sequence of JoinSplit descriptions using BCTV14 proofs.. [optional]  # noqa: E501
+            v_shielded_output ([GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner]): Object Array representation of transaction output descriptions. [optional]  # noqa: E501
+            v_shielded_spend ([GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner]): Object Array representation of transaction spend descriptions. [optional]  # noqa: E501
             locktime (int): Represents the time at which a particular transaction can be added to the blockchain.. [optional]  # noqa: E501
             size (int): Represents the total size of this transaction.. [optional]  # noqa: E501
             v_size (int): Represents the virtual size of this transaction.. [optional]  # noqa: E501
             version (int): Represents the transaction version number.. [optional]  # noqa: E501
-            vin ([GetWalletTransactionDetailsByTransactionIDRIBSZVin]): Object Array representation of transaction inputs. [optional]  # noqa: E501
-            vout ([ListTransactionsByBlockHeightRIBSZVout]): Object Array representation of transaction outputs. [optional]  # noqa: E501
+            vin ([GetWalletTransactionDetailsByTransactionIDRIBSZVinInner]): Object Array representation of transaction inputs. [optional]  # noqa: E501
+            vout ([ListTransactionsByBlockHeightRIBSZVoutInner]): Object Array representation of transaction outputs. [optional]  # noqa: E501
             contract (str): Represents the specific transaction contract. [optional]  # noqa: E501
             gas_limit (str): Represents the amount of gas used by this specific transaction alone.. [optional]  # noqa: E501
             gas_price (GetTransactionDetailsByTransactionIDRIBSBSCGasPrice): [optional]  # noqa: E501

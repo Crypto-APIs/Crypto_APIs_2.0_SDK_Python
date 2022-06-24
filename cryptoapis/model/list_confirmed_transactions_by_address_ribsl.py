@@ -31,10 +31,10 @@ from cryptoapis.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cryptoapis.model.get_transaction_details_by_transaction_idribsl_vout import GetTransactionDetailsByTransactionIDRIBSLVout
-    from cryptoapis.model.list_confirmed_transactions_by_address_ribsl_vin import ListConfirmedTransactionsByAddressRIBSLVin
-    globals()['GetTransactionDetailsByTransactionIDRIBSLVout'] = GetTransactionDetailsByTransactionIDRIBSLVout
-    globals()['ListConfirmedTransactionsByAddressRIBSLVin'] = ListConfirmedTransactionsByAddressRIBSLVin
+    from cryptoapis.model.get_transaction_details_by_transaction_idribsl_vout_inner import GetTransactionDetailsByTransactionIDRIBSLVoutInner
+    from cryptoapis.model.list_confirmed_transactions_by_address_ribsl_vin_inner import ListConfirmedTransactionsByAddressRIBSLVinInner
+    globals()['GetTransactionDetailsByTransactionIDRIBSLVoutInner'] = GetTransactionDetailsByTransactionIDRIBSLVoutInner
+    globals()['ListConfirmedTransactionsByAddressRIBSLVinInner'] = ListConfirmedTransactionsByAddressRIBSLVinInner
 
 
 class ListConfirmedTransactionsByAddressRIBSL(ModelNormal):
@@ -94,8 +94,8 @@ class ListConfirmedTransactionsByAddressRIBSL(ModelNormal):
             'size': (int,),  # noqa: E501
             'v_size': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
-            'vin': ([ListConfirmedTransactionsByAddressRIBSLVin],),  # noqa: E501
-            'vout': ([GetTransactionDetailsByTransactionIDRIBSLVout],),  # noqa: E501
+            'vin': ([ListConfirmedTransactionsByAddressRIBSLVinInner],),  # noqa: E501
+            'vout': ([GetTransactionDetailsByTransactionIDRIBSLVoutInner],),  # noqa: E501
         }
 
     @cached_property
@@ -127,8 +127,8 @@ class ListConfirmedTransactionsByAddressRIBSL(ModelNormal):
             size (int): Represents the total size of this transaction.
             v_size (int): Represents the virtual size of this transaction.
             version (int): Represents the transaction's version number.
-            vin ([ListConfirmedTransactionsByAddressRIBSLVin]): Represents the transaction inputs.
-            vout ([GetTransactionDetailsByTransactionIDRIBSLVout]): Represents the transaction outputs.
+            vin ([ListConfirmedTransactionsByAddressRIBSLVinInner]): Represents the transaction inputs.
+            vout ([GetTransactionDetailsByTransactionIDRIBSLVoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -226,8 +226,8 @@ class ListConfirmedTransactionsByAddressRIBSL(ModelNormal):
             size (int): Represents the total size of this transaction.
             v_size (int): Represents the virtual size of this transaction.
             version (int): Represents the transaction's version number.
-            vin ([ListConfirmedTransactionsByAddressRIBSLVin]): Represents the transaction inputs.
-            vout ([GetTransactionDetailsByTransactionIDRIBSLVout]): Represents the transaction outputs.
+            vin ([ListConfirmedTransactionsByAddressRIBSLVinInner]): Represents the transaction inputs.
+            vout ([GetTransactionDetailsByTransactionIDRIBSLVoutInner]): Represents the transaction outputs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

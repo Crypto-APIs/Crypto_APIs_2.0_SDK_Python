@@ -25,17 +25,17 @@ Through this endpoint customers can create a new transaction from address for **
 import time
 import cryptoapis
 from cryptoapis.api import transactions_api
-from cryptoapis.model.inline_response4093 import InlineResponse4093
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40126 import InlineResponse40126
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.create_coins_transaction_from_address_for_whole_amount400_response import CreateCoinsTransactionFromAddressForWholeAmount400Response
+from cryptoapis.model.create_coins_transaction_from_address_for_whole_amount403_response import CreateCoinsTransactionFromAddressForWholeAmount403Response
+from cryptoapis.model.create_coins_transaction_from_address_for_whole_amount401_response import CreateCoinsTransactionFromAddressForWholeAmount401Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.create_coins_transaction_from_address_for_whole_amount_r import CreateCoinsTransactionFromAddressForWholeAmountR
-from cryptoapis.model.inline_response40326 import InlineResponse40326
 from cryptoapis.model.create_coins_transaction_from_address_for_whole_amount_rb import CreateCoinsTransactionFromAddressForWholeAmountRB
-from cryptoapis.model.inline_response40026 import InlineResponse40026
+from cryptoapis.model.create_coins_transaction_from_address_for_whole_amount409_response import CreateCoinsTransactionFromAddressForWholeAmount409Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -153,16 +153,16 @@ import time
 import cryptoapis
 from cryptoapis.api import transactions_api
 from cryptoapis.model.create_coins_transaction_request_from_address_r import CreateCoinsTransactionRequestFromAddressR
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response40021 import InlineResponse40021
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response40121 import InlineResponse40121
-from cryptoapis.model.inline_response4092 import InlineResponse4092
-from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.create_coins_transaction_request_from_address400_response import CreateCoinsTransactionRequestFromAddress400Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.create_coins_transaction_request_from_address409_response import CreateCoinsTransactionRequestFromAddress409Response
+from cryptoapis.model.create_coins_transaction_request_from_address403_response import CreateCoinsTransactionRequestFromAddress403Response
+from cryptoapis.model.create_coins_transaction_request_from_address401_response import CreateCoinsTransactionRequestFromAddress401Response
 from cryptoapis.model.create_coins_transaction_request_from_address_rb import CreateCoinsTransactionRequestFromAddressRB
-from cryptoapis.model.inline_response40321 import InlineResponse40321
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -280,17 +280,17 @@ Through this endpoint users can create a new transaction request from the entire
 import time
 import cryptoapis
 from cryptoapis.api import transactions_api
-from cryptoapis.model.inline_response429 import InlineResponse429
+from cryptoapis.model.create_coins_transaction_request_from_wallet400_response import CreateCoinsTransactionRequestFromWallet400Response
 from cryptoapis.model.create_coins_transaction_request_from_wallet_rb import CreateCoinsTransactionRequestFromWalletRB
-from cryptoapis.model.inline_response40013 import InlineResponse40013
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response4091 import InlineResponse4091
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response40113 import InlineResponse40113
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.create_coins_transaction_request_from_wallet401_response import CreateCoinsTransactionRequestFromWallet401Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.create_coins_transaction_request_from_wallet_r import CreateCoinsTransactionRequestFromWalletR
-from cryptoapis.model.inline_response40313 import InlineResponse40313
+from cryptoapis.model.create_coins_transaction_request_from_wallet409_response import CreateCoinsTransactionRequestFromWallet409Response
+from cryptoapis.model.create_coins_transaction_request_from_wallet403_response import CreateCoinsTransactionRequestFromWallet403Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -326,7 +326,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
                 note="yourAdditionalInformationhere",
                 prepare_strategy="minimize-dust",
                 recipients=[
-                    CreateCoinsTransactionRequestFromWalletRBDataItemRecipients(
+                    CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner(
                         address="2MtzNEqm2D9jcbPJ5mW7Z3AUNwqt3afZH66",
                         amount="0.125",
                     ),
@@ -410,16 +410,16 @@ Through this endpoint users can make a single token transaction.    {note}To hav
 import time
 import cryptoapis
 from cryptoapis.api import transactions_api
-from cryptoapis.model.inline_response4094 import InlineResponse4094
-from cryptoapis.model.inline_response429 import InlineResponse429
-from cryptoapis.model.inline_response40137 import InlineResponse40137
 from cryptoapis.model.create_fungible_tokens_transaction_request_from_address_r import CreateFungibleTokensTransactionRequestFromAddressR
-from cryptoapis.model.inline_response422 import InlineResponse422
-from cryptoapis.model.inline_response402 import InlineResponse402
-from cryptoapis.model.inline_response500 import InlineResponse500
-from cryptoapis.model.inline_response415 import InlineResponse415
-from cryptoapis.model.inline_response40337 import InlineResponse40337
-from cryptoapis.model.inline_response40037 import InlineResponse40037
+from cryptoapis.model.create_fungible_tokens_transaction_request_from_address403_response import CreateFungibleTokensTransactionRequestFromAddress403Response
+from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.create_fungible_tokens_transaction_request_from_address400_response import CreateFungibleTokensTransactionRequestFromAddress400Response
+from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
+from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
+from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.create_fungible_tokens_transaction_request_from_address401_response import CreateFungibleTokensTransactionRequestFromAddress401Response
+from cryptoapis.model.create_fungible_tokens_transaction_request_from_address409_response import CreateFungibleTokensTransactionRequestFromAddress409Response
+from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.create_fungible_tokens_transaction_request_from_address_rb import CreateFungibleTokensTransactionRequestFromAddressRB
 from pprint import pprint
 # Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
