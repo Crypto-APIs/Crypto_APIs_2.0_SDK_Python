@@ -1,6 +1,6 @@
 # cryptoapis.GeneratingApi
 
-All URIs are relative to *https://rest.cryptoapis.io/v2*
+All URIs are relative to *https://rest.cryptoapis.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,23 +22,23 @@ Through this endpoint customers can generate a new Receiving/Deposit Addresses i
 import time
 import cryptoapis
 from cryptoapis.api import generating_api
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.generate_deposit_address_r import GenerateDepositAddressR
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
 from cryptoapis.model.generate_deposit_address403_response import GenerateDepositAddress403Response
 from cryptoapis.model.generate_deposit_address_rb import GenerateDepositAddressRB
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
 from cryptoapis.model.generate_deposit_address401_response import GenerateDepositAddress401Response
 from cryptoapis.model.generate_deposit_address400_response import GenerateDepositAddress400Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters

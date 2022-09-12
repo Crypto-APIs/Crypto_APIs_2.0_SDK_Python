@@ -1,6 +1,6 @@
 # cryptoapis.InternalApi
 
-All URIs are relative to *https://rest.cryptoapis.io/v2*
+All URIs are relative to *https://rest.cryptoapis.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,22 +24,22 @@ Through this endpoint customers can obtain detailed information about a specific
 import time
 import cryptoapis
 from cryptoapis.api import internal_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
 from cryptoapis.model.get_internal_transaction_by_transaction_hash_and_operation_id400_response import GetInternalTransactionByTransactionHashAndOperationId400Response
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.get_internal_transaction_by_transaction_hash_and_operation_id403_response import GetInternalTransactionByTransactionHashAndOperationId403Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.get_internal_transaction_by_transaction_hash_and_operation_id401_response import GetInternalTransactionByTransactionHashAndOperationId401Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_internal_transaction_by_transaction_hash_and_operation_id404_response import GetInternalTransactionByTransactionHashAndOperationId404Response
 from cryptoapis.model.get_internal_transaction_by_transaction_hash_and_operation_id_r import GetInternalTransactionByTransactionHashAndOperationIdR
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -139,21 +139,21 @@ Through this endpoint customers can list internal transactions along with their 
 import time
 import cryptoapis
 from cryptoapis.api import internal_api
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.list_internal_transaction_details_by_transaction_hash401_response import ListInternalTransactionDetailsByTransactionHash401Response
 from cryptoapis.model.list_internal_transaction_details_by_transaction_hash403_response import ListInternalTransactionDetailsByTransactionHash403Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.list_internal_transaction_details_by_transaction_hash400_response import ListInternalTransactionDetailsByTransactionHash400Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
 from cryptoapis.model.list_internal_transaction_details_by_transaction_hash_r import ListInternalTransactionDetailsByTransactionHashR
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -254,21 +254,21 @@ Through this endpoint customers can list internal transactions by the `address` 
 import time
 import cryptoapis
 from cryptoapis.api import internal_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.list_internal_transactions_by_address403_response import ListInternalTransactionsByAddress403Response
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
 from cryptoapis.model.list_internal_transactions_by_address400_response import ListInternalTransactionsByAddress400Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.list_internal_transactions_by_address_r import ListInternalTransactionsByAddressR
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
 from cryptoapis.model.list_internal_transactions_by_address401_response import ListInternalTransactionsByAddress401Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters

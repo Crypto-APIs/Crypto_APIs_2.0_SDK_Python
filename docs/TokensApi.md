@@ -1,6 +1,6 @@
 # cryptoapis.TokensApi
 
-All URIs are relative to *https://rest.cryptoapis.io/v2*
+All URIs are relative to *https://rest.cryptoapis.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,21 +26,21 @@ Though this endpoint customers can obtain information about token details. This 
 import time
 import cryptoapis
 from cryptoapis.api import tokens_api
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.get_token_details_by_contract_address400_response import GetTokenDetailsByContractAddress400Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_token_details_by_contract_address403_response import GetTokenDetailsByContractAddress403Response
 from cryptoapis.model.get_token_details_by_contract_address401_response import GetTokenDetailsByContractAddress401Response
 from cryptoapis.model.get_token_details_by_contract_address_r import GetTokenDetailsByContractAddressR
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -136,21 +136,21 @@ Through this endpoint customers can obtain a list with **confirmed** token trans
 import time
 import cryptoapis
 from cryptoapis.api import tokens_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
 from cryptoapis.model.list_confirmed_tokens_transfers_by_address_r import ListConfirmedTokensTransfersByAddressR
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.list_confirmed_tokens_transfers_by_address400_response import ListConfirmedTokensTransfersByAddress400Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.list_confirmed_tokens_transfers_by_address403_response import ListConfirmedTokensTransfersByAddress403Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
 from cryptoapis.model.list_confirmed_tokens_transfers_by_address401_response import ListConfirmedTokensTransfersByAddress401Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -251,21 +251,21 @@ Through this endpoint customers can obtain token data by providing an attribute 
 import time
 import cryptoapis
 from cryptoapis.api import tokens_api
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.list_tokens_by_address_r import ListTokensByAddressR
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
 from cryptoapis.model.list_tokens_by_address403_response import ListTokensByAddress403Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.list_tokens_by_address401_response import ListTokensByAddress401Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
 from cryptoapis.model.list_tokens_by_address400_response import ListTokensByAddress400Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -366,21 +366,21 @@ Through this endpoint customers can obtain a list with token transfers by the `t
 import time
 import cryptoapis
 from cryptoapis.api import tokens_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
 from cryptoapis.model.list_tokens_transfers_by_transaction_hash403_response import ListTokensTransfersByTransactionHash403Response
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.list_tokens_transfers_by_transaction_hash400_response import ListTokensTransfersByTransactionHash400Response
 from cryptoapis.model.list_tokens_transfers_by_transaction_hash_r import ListTokensTransfersByTransactionHashR
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
 from cryptoapis.model.list_tokens_transfers_by_transaction_hash401_response import ListTokensTransfersByTransactionHash401Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -481,21 +481,21 @@ Through this endpoint customers can obtain a list with **unconfirmed** token tra
 import time
 import cryptoapis
 from cryptoapis.api import tokens_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.list_unconfirmed_tokens_transfers_by_address400_response import ListUnconfirmedTokensTransfersByAddress400Response
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.list_unconfirmed_tokens_transfers_by_address403_response import ListUnconfirmedTokensTransfersByAddress403Response
 from cryptoapis.model.list_unconfirmed_tokens_transfers_by_address_r import ListUnconfirmedTokensTransfersByAddressR
 from cryptoapis.model.list_unconfirmed_tokens_transfers_by_address401_response import ListUnconfirmedTokensTransfersByAddress401Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters

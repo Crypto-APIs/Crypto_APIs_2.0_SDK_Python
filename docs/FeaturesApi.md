@@ -1,10 +1,11 @@
 # cryptoapis.FeaturesApi
 
-All URIs are relative to *https://rest.cryptoapis.io/v2*
+All URIs are relative to *https://rest.cryptoapis.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**broadcast_locally_signed_transaction**](FeaturesApi.md#broadcast_locally_signed_transaction) | **POST** /blockchain-tools/{blockchain}/{network}/transactions/broadcast | Broadcast Locally Signed Transaction
+[**convert_bitcoin_cash_address**](FeaturesApi.md#convert_bitcoin_cash_address) | **POST** /blockchain-tools/{blockchain}/{network}/address/convert | Convert Bitcoin Cash Address
 [**decode_raw_transaction_hex**](FeaturesApi.md#decode_raw_transaction_hex) | **POST** /blockchain-tools/{blockchain}/{network}/decode-raw-transaction | Decode Raw Transaction Hex
 [**decode_x_address**](FeaturesApi.md#decode_x_address) | **GET** /blockchain-tools/{blockchain}/{network}/decode-x-address/{xAddress} | Decode X-Address
 [**derive_hd_wallet__x_pub_y_pub_z_pub_change_or_receiving_addresses**](FeaturesApi.md#derive_hd_wallet__x_pub_y_pub_z_pub_change_or_receiving_addresses) | **GET** /blockchain-tools/{blockchain}/{network}/hd/{extendedPublicKey}/addresses/derive-address | Derive HD Wallet (xPub, yPub, zPub) Change Or Receiving Addresses
@@ -30,23 +31,23 @@ Through this endpoint customers can broadcast transactions that have been alread
 import time
 import cryptoapis
 from cryptoapis.api import features_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
 from cryptoapis.model.broadcast_locally_signed_transaction_r import BroadcastLocallySignedTransactionR
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.broadcast_locally_signed_transaction400_response import BroadcastLocallySignedTransaction400Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.broadcast_locally_signed_transaction_rb import BroadcastLocallySignedTransactionRB
 from cryptoapis.model.broadcast_locally_signed_transaction401_response import BroadcastLocallySignedTransaction401Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
 from cryptoapis.model.broadcast_locally_signed_transaction403_response import BroadcastLocallySignedTransaction403Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
 from cryptoapis.model.broadcast_locally_signed_transaction409_response import BroadcastLocallySignedTransaction409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -138,6 +139,124 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **convert_bitcoin_cash_address**
+> ConvertBitcoinCashAddressR convert_bitcoin_cash_address(network)
+
+Convert Bitcoin Cash Address
+
+Through this endpoint customers will be able to convert addresses for the BCH (Bitcoin Cash) protocol from BCH legacy to cash address and vice versa.
+
+### Example
+
+* Api Key Authentication (ApiKey):
+
+```python
+import time
+import cryptoapis
+from cryptoapis.api import features_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
+from cryptoapis.model.convert_bitcoin_cash_address_r import ConvertBitcoinCashAddressR
+from cryptoapis.model.convert_bitcoin_cash_address_rb import ConvertBitcoinCashAddressRB
+from cryptoapis.model.convert_bitcoin_cash_address401_response import ConvertBitcoinCashAddress401Response
+from cryptoapis.model.convert_bitcoin_cash_address400_response import ConvertBitcoinCashAddress400Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address403_response import ConvertBitcoinCashAddress403Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from pprint import pprint
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cryptoapis.Configuration(
+    host = "https://rest.cryptoapis.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with cryptoapis.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = features_api.FeaturesApi(api_client)
+    network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    convert_bitcoin_cash_address_rb = ConvertBitcoinCashAddressRB(
+        context="yourExampleString",
+        data=ConvertBitcoinCashAddressRBData(
+            item=ConvertBitcoinCashAddressRBDataItem(
+                address="bchtest:qpcgz3zt5zp5dj7vd9ms24xquamncvhnxvlz97eee8",
+            ),
+        ),
+    ) # ConvertBitcoinCashAddressRB |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Convert Bitcoin Cash Address
+        api_response = api_instance.convert_bitcoin_cash_address(network)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling FeaturesApi->convert_bitcoin_cash_address: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Convert Bitcoin Cash Address
+        api_response = api_instance.convert_bitcoin_cash_address(network, context=context, convert_bitcoin_cash_address_rb=convert_bitcoin_cash_address_rb)
+        pprint(api_response)
+    except cryptoapis.ApiException as e:
+        print("Exception when calling FeaturesApi->convert_bitcoin_cash_address: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
+ **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | defaults to "bitcoin-cash"
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **convert_bitcoin_cash_address_rb** | [**ConvertBitcoinCashAddressRB**](ConvertBitcoinCashAddressRB.md)|  | [optional]
+
+### Return type
+
+[**ConvertBitcoinCashAddressR**](ConvertBitcoinCashAddressR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | The request has been successful. |  -  |
+**400** | 400 |  -  |
+**401** | 401 |  -  |
+**402** | You have insufficient credits. Please upgrade your plan from your Dashboard or contact our team via email. |  -  |
+**403** | 403 |  -  |
+**409** | The data provided seems to be invalid. |  -  |
+**415** | The selected Media Type is unavailable. The Content-Type header should be &#39;application/json&#39;. |  -  |
+**422** | Your request body for POST requests must have a structure of { data: { item: [...properties] } } |  -  |
+**429** | The request limit has been reached. There can be maximum {requests} requests per {seconds} second(s) made. Please contact our team via email if you need more or upgrade your plan. |  -  |
+**500** | An unexpected server error has occurred, we are working to fix this. Please try again later and in case it occurs again please report it to our team via email. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **decode_raw_transaction_hex**
 > DecodeRawTransactionHexR decode_raw_transaction_hex(blockchain, network)
 
@@ -153,22 +272,22 @@ Through this endpoint customers can decode a raw transaction hex and see the dec
 import time
 import cryptoapis
 from cryptoapis.api import features_api
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.decode_raw_transaction_hex401_response import DecodeRawTransactionHex401Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.decode_raw_transaction_hex400_response import DecodeRawTransactionHex400Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
 from cryptoapis.model.decode_raw_transaction_hex403_response import DecodeRawTransactionHex403Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
 from cryptoapis.model.decode_raw_transaction_hex_r import DecodeRawTransactionHexR
 from cryptoapis.model.decode_raw_transaction_hex_rb import DecodeRawTransactionHexRB
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -272,21 +391,21 @@ Through this endpoint, customers can decode an encoded XRP address with tag, by 
 import time
 import cryptoapis
 from cryptoapis.api import features_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.decode_x_address400_response import DecodeXAddress400Response
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
 from cryptoapis.model.decode_x_address403_response import DecodeXAddress403Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.decode_x_address_r import DecodeXAddressR
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.decode_x_address401_response import DecodeXAddress401Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -382,21 +501,21 @@ Through this endpoint, customers can derive up to 10 addresses - both change and
 import time
 import cryptoapis
 from cryptoapis.api import features_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.derive_hd_wallet_x_pub_y_pub_z_pub_change_or_receiving_addresses400_response import DeriveHDWalletXPubYPubZPubChangeOrReceivingAddresses400Response
 from cryptoapis.model.derive_hd_wallet_x_pub_y_pub_z_pub_change_or_receiving_addresses403_response import DeriveHDWalletXPubYPubZPubChangeOrReceivingAddresses403Response
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.derive_hd_wallet_x_pub_y_pub_z_pub_change_or_receiving_addresses_r import DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesR
 from cryptoapis.model.derive_hd_wallet_x_pub_y_pub_z_pub_change_or_receiving_addresses401_response import DeriveHDWalletXPubYPubZPubChangeOrReceivingAddresses401Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -501,21 +620,21 @@ Through this endpoint, customers can encode an encoded XRP address with tag, by 
 import time
 import cryptoapis
 from cryptoapis.api import features_api
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.encode_x_address403_response import EncodeXAddress403Response
 from cryptoapis.model.encode_x_address401_response import EncodeXAddress401Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
 from cryptoapis.model.encode_x_address400_response import EncodeXAddress400Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.encode_x_address_r import EncodeXAddressR
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -613,23 +732,23 @@ This endpoint helps customer in estimating the gas limit needed for a transactio
 import time
 import cryptoapis
 from cryptoapis.api import features_api
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.estimate_gas_limit403_response import EstimateGasLimit403Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.estimate_gas_limit401_response import EstimateGasLimit401Response
 from cryptoapis.model.estimate_gas_limit_rb import EstimateGasLimitRB
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
 from cryptoapis.model.estimate_gas_limit_r import EstimateGasLimitR
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
 from cryptoapis.model.estimate_gas_limit400_response import EstimateGasLimit400Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -737,22 +856,22 @@ This endpoint helps customer in estimating the Contract Gas Limit needed for a t
 import time
 import cryptoapis
 from cryptoapis.api import features_api
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.estimate_token_gas_limit401_response import EstimateTokenGasLimit401Response
 from cryptoapis.model.estimate_token_gas_limit_rb import EstimateTokenGasLimitRB
 from cryptoapis.model.estimate_token_gas_limit400_response import EstimateTokenGasLimit400Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
 from cryptoapis.model.estimate_token_gas_limit_r import EstimateTokenGasLimitR
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.estimate_token_gas_limit403_response import EstimateTokenGasLimit403Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -861,21 +980,21 @@ import time
 import cryptoapis
 from cryptoapis.api import features_api
 from cryptoapis.model.get_eip1559_fee_recommendations_r import GetEIP1559FeeRecommendationsR
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
 from cryptoapis.model.get_eip1559_fee_recommendations403_response import GetEIP1559FeeRecommendations403Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.get_eip1559_fee_recommendations401_response import GetEIP1559FeeRecommendations401Response
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
 from cryptoapis.model.get_eip1559_fee_recommendations400_response import GetEIP1559FeeRecommendations400Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -970,22 +1089,22 @@ This endpoint checks user public addresses whether they are valid or not.
 import time
 import cryptoapis
 from cryptoapis.api import features_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
 from cryptoapis.model.validate_address_rb import ValidateAddressRB
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.validate_address_r import ValidateAddressR
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.validate_address403_response import ValidateAddress403Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
 from cryptoapis.model.validate_address401_response import ValidateAddress401Response
 from cryptoapis.model.validate_address400_response import ValidateAddress400Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters

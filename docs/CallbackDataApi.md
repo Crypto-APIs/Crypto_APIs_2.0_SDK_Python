@@ -1,6 +1,6 @@
 # cryptoapis.CallbackDataApi
 
-All URIs are relative to *https://rest.cryptoapis.io/v2*
+All URIs are relative to *https://rest.cryptoapis.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,22 +25,22 @@ This endpoint creates a shortcut to obtain information from Blockchain data by g
 import time
 import cryptoapis
 from cryptoapis.api import callback_data_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.get_address_details_from_callback400_response import GetAddressDetailsFromCallback400Response
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_address_details_from_callback_r import GetAddressDetailsFromCallbackR
 from cryptoapis.model.get_address_details_from_callback404_response import GetAddressDetailsFromCallback404Response
 from cryptoapis.model.get_address_details_from_callback403_response import GetAddressDetailsFromCallback403Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
 from cryptoapis.model.get_address_details_from_callback401_response import GetAddressDetailsFromCallback401Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -138,22 +138,22 @@ This endpoint creates a shortcut to obtain information from Blockchain data by g
 import time
 import cryptoapis
 from cryptoapis.api import callback_data_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.get_block_details_by_block_hash_from_callback401_response import GetBlockDetailsByBlockHashFromCallback401Response
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
 from cryptoapis.model.get_block_details_by_block_hash_from_callback400_response import GetBlockDetailsByBlockHashFromCallback400Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_block_details_by_block_hash_from_callback403_response import GetBlockDetailsByBlockHashFromCallback403Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
 from cryptoapis.model.list_transactions_by_block_height404_response import ListTransactionsByBlockHeight404Response
 from cryptoapis.model.get_block_details_by_block_hash_from_callback_r import GetBlockDetailsByBlockHashFromCallbackR
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -251,22 +251,22 @@ This endpoint creates a shortcut to obtain information from Blockchain data by g
 import time
 import cryptoapis
 from cryptoapis.api import callback_data_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.get_block_details_by_block_height_from_callback401_response import GetBlockDetailsByBlockHeightFromCallback401Response
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_block_details_by_block_height_from_callback400_response import GetBlockDetailsByBlockHeightFromCallback400Response
 from cryptoapis.model.get_block_details_by_block_height_from_callback403_response import GetBlockDetailsByBlockHeightFromCallback403Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
 from cryptoapis.model.list_transactions_by_block_height404_response import ListTransactionsByBlockHeight404Response
 from cryptoapis.model.get_block_details_by_block_height_from_callback_r import GetBlockDetailsByBlockHeightFromCallbackR
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -286,7 +286,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = callback_data_api.CallbackDataApi(api_client)
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    block_height = "blockHeight_example" # str | Numeric representation of the block height
+    block_height = "673852" # str | Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
     context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
- **block_height** | **str**| Numeric representation of the block height |
+ **block_height** | **str**| Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \&quot;Genesis block\&quot;. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
 
 ### Return type
@@ -364,22 +364,22 @@ This endpoint creates a shortcut to obtain information from Blockchain data by g
 import time
 import cryptoapis
 from cryptoapis.api import callback_data_api
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback_r import GetTransactionDetailsByTransactionIDFromCallbackR
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
 from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback401_response import GetTransactionDetailsByTransactionIDFromCallback401Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
 from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback403_response import GetTransactionDetailsByTransactionIDFromCallback403Response
 from cryptoapis.model.get_transaction_details_by_transaction_id_from_callback400_response import GetTransactionDetailsByTransactionIDFromCallback400Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -399,7 +399,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     api_instance = callback_data_api.CallbackDataApi(api_client)
     blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    transaction_id = "8888f6c8168ff69aaf6438ab185c690e8c76c63e5f9c472c1c86f08406ea74f2" # str | String identifier of the transaction
+    transaction_id = "8888f6c8168ff69aaf6438ab185c690e8c76c63e5f9c472c1c86f08406ea74f2" # str | Represents the unique identifier of a transaction, i.e. it could be transactionId in UTXO-based protocols like Bitcoin, and transaction hash in Ethereum blockchain.
     context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     # example passing only required values which don't have defaults set
@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
  **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
- **transaction_id** | **str**| String identifier of the transaction |
+ **transaction_id** | **str**| Represents the unique identifier of a transaction, i.e. it could be transactionId in UTXO-based protocols like Bitcoin, and transaction hash in Ethereum blockchain. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
 
 ### Return type

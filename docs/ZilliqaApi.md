@@ -1,6 +1,6 @@
 # cryptoapis.ZilliqaApi
 
-All URIs are relative to *https://rest.cryptoapis.io/v2*
+All URIs are relative to *https://rest.cryptoapis.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,22 +29,22 @@ Through this endpoint users can obtain information on the latest block that has 
 import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.get_latest_mined_zilliqa_block400_response import GetLatestMinedZilliqaBlock400Response
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_latest_mined_zilliqa_block_r import GetLatestMinedZilliqaBlockR
 from cryptoapis.model.get_latest_mined_zilliqa_block401_response import GetLatestMinedZilliqaBlock401Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
 from cryptoapis.model.get_latest_mined_zilliqa_block403_response import GetLatestMinedZilliqaBlock403Response
 from cryptoapis.model.list_transactions_by_block_height404_response import ListTransactionsByBlockHeight404Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -137,21 +137,21 @@ Through this endpoint customers can obtain information address details from the 
 import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.get_zilliqa_address_details_r import GetZilliqaAddressDetailsR
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.get_zilliqa_address_details401_response import GetZilliqaAddressDetails401Response
 from cryptoapis.model.get_zilliqa_address_details403_response import GetZilliqaAddressDetails403Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
 from cryptoapis.model.get_zilliqa_address_details400_response import GetZilliqaAddressDetails400Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -245,22 +245,22 @@ Through this endpoint customers can obtain block details from the Zilliqa blockc
 import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
 from cryptoapis.model.get_zilliqa_block_details_by_block_hash401_response import GetZilliqaBlockDetailsByBlockHash401Response
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.get_zilliqa_block_details_by_block_hash403_response import GetZilliqaBlockDetailsByBlockHash403Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
 from cryptoapis.model.get_zilliqa_block_details_by_block_hash400_response import GetZilliqaBlockDetailsByBlockHash400Response
 from cryptoapis.model.get_zilliqa_block_details_by_block_hash_r import GetZilliqaBlockDetailsByBlockHashR
 from cryptoapis.model.list_transactions_by_block_height404_response import ListTransactionsByBlockHeight404Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -355,22 +355,22 @@ Through this endpoint customers can obtain block details from the Zilliqa blockc
 import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.get_zilliqa_block_details_by_block_height401_response import GetZilliqaBlockDetailsByBlockHeight401Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_zilliqa_block_details_by_block_height_r import GetZilliqaBlockDetailsByBlockHeightR
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
 from cryptoapis.model.get_zilliqa_block_details_by_block_height400_response import GetZilliqaBlockDetailsByBlockHeight400Response
 from cryptoapis.model.get_zilliqa_block_details_by_block_height403_response import GetZilliqaBlockDetailsByBlockHeight403Response
 from cryptoapis.model.list_transactions_by_block_height404_response import ListTransactionsByBlockHeight404Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -465,22 +465,22 @@ Through this endpoint customers can obtain transaction details on the Zilliqa bl
 import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_idr import GetZilliqaTransactionDetailsByTransactionIDR
 from cryptoapis.model.get_transaction_details_by_transaction_id404_response import GetTransactionDetailsByTransactionID404Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_id400_response import GetZilliqaTransactionDetailsByTransactionID400Response
 from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_id401_response import GetZilliqaTransactionDetailsByTransactionID401Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
 from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_id403_response import GetZilliqaTransactionDetailsByTransactionID403Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -575,21 +575,21 @@ Through this endpoint customers can list transactions on the Zilliqa blockchain 
 import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.list_zilliqa_transactions_by_address_r import ListZilliqaTransactionsByAddressR
 from cryptoapis.model.list_zilliqa_transactions_by_address403_response import ListZilliqaTransactionsByAddress403Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.list_zilliqa_transactions_by_address400_response import ListZilliqaTransactionsByAddress400Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
 from cryptoapis.model.list_zilliqa_transactions_by_address401_response import ListZilliqaTransactionsByAddress401Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -687,21 +687,21 @@ Through this endpoint customers can list transactions on the Zilliqa blockchain 
 import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.list_zilliqa_transactions_by_block_hash403_response import ListZilliqaTransactionsByBlockHash403Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
 from cryptoapis.model.list_zilliqa_transactions_by_block_hash401_response import ListZilliqaTransactionsByBlockHash401Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.list_zilliqa_transactions_by_block_hash400_response import ListZilliqaTransactionsByBlockHash400Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
 from cryptoapis.model.list_zilliqa_transactions_by_block_hash_r import ListZilliqaTransactionsByBlockHashR
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -799,21 +799,21 @@ Through this endpoint customers can list transactions on the Zilliqa blockchain 
 import time
 import cryptoapis
 from cryptoapis.api import zilliqa_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
 from cryptoapis.model.list_zilliqa_transactions_by_block_height401_response import ListZilliqaTransactionsByBlockHeight401Response
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details422_response import GetAddressDetails422Response
+from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
 from cryptoapis.model.list_zilliqa_transactions_by_block_height_r import ListZilliqaTransactionsByBlockHeightR
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
 from cryptoapis.model.list_zilliqa_transactions_by_block_height403_response import ListZilliqaTransactionsByBlockHeight403Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
 from cryptoapis.model.list_zilliqa_transactions_by_block_height400_response import ListZilliqaTransactionsByBlockHeight400Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters

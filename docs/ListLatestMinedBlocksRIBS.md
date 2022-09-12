@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**total_coins** | [**ListLatestMinedBlocksRIBSXTotalCoins**](ListLatestMinedBlocksRIBSXTotalCoins.md) |  | [optional] 
 **bits** | **str** | Represents a specific sub-unit of Zcash. Bits have two-decimal precision | [optional] 
 **chainwork** | **str** | Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes. | [optional] 
 **difficulty** | **str** | Represents a mathematical value of how hard it is to find a valid hash for this block. | [optional] 
@@ -25,6 +26,7 @@ Name | Type | Description | Notes
 **ds_difficulty** | **str** | Defines how difficult it is to mine the dsBlocks. | [optional] 
 **ds_leader** | **str** | Represents a part of the DS Committee which leads the consensus protocol for the epoch. | [optional] 
 **micro_blocks** | **[str]** |  | [optional] 
+**total_fees** | [**ListLatestMinedBlocksRIBSXTotalFees**](ListLatestMinedBlocksRIBSXTotalFees.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

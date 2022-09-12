@@ -1,6 +1,6 @@
 # cryptoapis.ExchangeRatesApi
 
-All URIs are relative to *https://rest.cryptoapis.io/v2*
+All URIs are relative to *https://rest.cryptoapis.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,21 +23,21 @@ Through this endpoint customers can obtain exchange rates by asset symbols. The 
 import time
 import cryptoapis
 from cryptoapis.api import exchange_rates_api
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
 from cryptoapis.model.get_exchange_rate_by_asset_symbols401_response import GetExchangeRateByAssetSymbols401Response
 from cryptoapis.model.get_exchange_rate_by_asset_symbols422_response import GetExchangeRateByAssetSymbols422Response
 from cryptoapis.model.get_exchange_rate_by_asset_symbols403_response import GetExchangeRateByAssetSymbols403Response
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
 from cryptoapis.model.get_exchange_rate_by_asset_symbols400_response import GetExchangeRateByAssetSymbols400Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_exchange_rate_by_asset_symbols_r import GetExchangeRateByAssetSymbolsR
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -58,7 +58,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     from_asset_symbol = "btc" # str | Defines the base asset symbol to get a rate for.
     to_asset_symbol = "usd" # str | Defines the relation asset symbol in which the base asset rate will be displayed.
     context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    calculation_timestamp = 1635514425 # int | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. (optional)
+    calculation_timestamp = 1635514425 # int | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. Oldest possible timestamp is 30 days. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
  **from_asset_symbol** | **str**| Defines the base asset symbol to get a rate for. |
  **to_asset_symbol** | **str**| Defines the relation asset symbol in which the base asset rate will be displayed. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **calculation_timestamp** | **int**| Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. | [optional]
+ **calculation_timestamp** | **int**| Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. Oldest possible timestamp is 30 days. | [optional]
 
 ### Return type
 
@@ -134,21 +134,21 @@ Through this endpoint customers can obtain exchange rates by asset IDs. The proc
 import time
 import cryptoapis
 from cryptoapis.api import exchange_rates_api
-from cryptoapis.model.get_address_details402_response import GetAddressDetails402Response
+from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
+from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
 from cryptoapis.model.get_exchange_rate_by_assets_ids401_response import GetExchangeRateByAssetsIDs401Response
-from cryptoapis.model.get_address_details500_response import GetAddressDetails500Response
-from cryptoapis.model.get_address_details415_response import GetAddressDetails415Response
-from cryptoapis.model.get_address_details409_response import GetAddressDetails409Response
-from cryptoapis.model.get_address_details429_response import GetAddressDetails429Response
 from cryptoapis.model.get_exchange_rate_by_assets_ids_r import GetExchangeRateByAssetsIDsR
+from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
+from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
 from cryptoapis.model.get_exchange_rate_by_assets_ids403_response import GetExchangeRateByAssetsIDs403Response
 from cryptoapis.model.get_exchange_rate_by_assets_ids400_response import GetExchangeRateByAssetsIDs400Response
 from cryptoapis.model.get_exchange_rate_by_assets_ids422_response import GetExchangeRateByAssetsIDs422Response
+from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
 from pprint import pprint
-# Defining the host is optional and defaults to https://rest.cryptoapis.io/v2
+# Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
-    host = "https://rest.cryptoapis.io/v2"
+    host = "https://rest.cryptoapis.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -169,7 +169,7 @@ with cryptoapis.ApiClient(configuration) as api_client:
     from_asset_id = "5b1ea92e584bf50020130612" # str | Defines the base asset Reference ID to get a rate for.
     to_asset_id = "5b1ea92e584bf50020130615" # str | Defines the relation asset Reference ID in which the base asset rate will be displayed.
     context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    calculation_timestamp = 1618577849 # int | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. (optional)
+    calculation_timestamp = 1618577849 # int | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. Oldest possible timestamp is 30 days. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
  **from_asset_id** | **str**| Defines the base asset Reference ID to get a rate for. |
  **to_asset_id** | **str**| Defines the relation asset Reference ID in which the base asset rate will be displayed. |
  **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **calculation_timestamp** | **int**| Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. | [optional]
+ **calculation_timestamp** | **int**| Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. Oldest possible timestamp is 30 days. | [optional]
 
 ### Return type
 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **size** | **int** | Represents the total size of this transaction. | 
 **version** | **int** | Represents transaction version number. | 
 **vin** | [**[GetTransactionDetailsByTransactionIDRIBSBCVinInner]**](GetTransactionDetailsByTransactionIDRIBSBCVinInner.md) | Represents the transaction inputs. | 
-**vout** | [**[GetTransactionDetailsByTransactionIDRIBSBCVoutInner]**](GetTransactionDetailsByTransactionIDRIBSBCVoutInner.md) | Represents the transaction outputs. | 
+**vout** | [**[GetTransactionDetailsByTransactionIDFromCallbackRIBSBCVoutInner]**](GetTransactionDetailsByTransactionIDFromCallbackRIBSBCVoutInner.md) | Represents the transaction outputs. | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **vout** | [**[ListTransactionsByBlockHeightRIBSZVoutInner]**](ListTransactionsByBlockHeightRIBSZVoutInner.md) | Object Array representation of transaction outputs | [optional] 
 **contract** | **str** | Represents the specific transaction contract | [optional] 
 **gas_limit** | **str** | Represents the amount of gas used by this specific transaction alone. | [optional] 
-**gas_price** | [**GetTransactionDetailsByTransactionIDRIBSBSCGasPrice**](GetTransactionDetailsByTransactionIDRIBSBSCGasPrice.md) |  | [optional] 
+**gas_price** | [**GetWalletTransactionDetailsByTransactionIDRIBSPGasPrice**](GetWalletTransactionDetailsByTransactionIDRIBSPGasPrice.md) |  | [optional] 
 **gas_used** | **str** | Defines the unit of the gas price amount, e.g. BTC, ETH, XRP. | [optional] 
 **input_data** | **str** | Represents additional information that is required for the transaction. | [optional] 
 **nonce** | **int** | Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender&#39;s address. | [optional] 
@@ -27,6 +27,13 @@ Name | Type | Description | Notes
 **overwintered** | **bool** | \&quot;Overwinter\&quot; is the network upgrade for the Zcash blockchain. | [optional] 
 **value_balance** | **str** | String representation of the transaction value balance | [optional] 
 **version_group_id** | **str** | Represents the transaction version group ID. | [optional] 
+**amount** | **str** | String representation of the amount value | [optional] 
+**bandwidth_used** | **str** | Numeric representation of the transaction used bandwidth | [optional] 
+**energy_used** | **str** | String representation of the transaction used energy | [optional] 
+**has_internal_transactions** | **bool** |  | [optional] 
+**has_token_transfers** | **bool** |  | [optional] 
+**input** | **str** | Numeric representation of the transaction input | [optional] 
+**status** | **str** | String representation of the transaction status | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

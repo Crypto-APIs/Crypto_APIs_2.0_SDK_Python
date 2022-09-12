@@ -26,7 +26,6 @@ from cryptoapis.api.hd_wallets_api import HDWalletsApi
 from cryptoapis.api.informative_api import InformativeApi
 from cryptoapis.api.manage_subscriptions_api import ManageSubscriptionsApi
 from cryptoapis.api.metadata_api import MetadataApi
-from cryptoapis.api.omni_layer_api import OmniLayerApi
 from cryptoapis.api.tokens_api import TokensApi
 from cryptoapis.api.transactions_api import TransactionsApi
 from cryptoapis.api.unified_endpoints_api import UnifiedEndpointsApi

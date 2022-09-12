@@ -28,6 +28,9 @@ Name | Type | Description | Notes
 **micro_blocks** | **[str]** |  | [optional] 
 **total_coins** | [**GetLatestMinedXRPRippleBlockRITotalCoins**](GetLatestMinedXRPRippleBlockRITotalCoins.md) |  | [optional] 
 **total_fees** | [**GetLatestMinedXRPRippleBlockRITotalFees**](GetLatestMinedXRPRippleBlockRITotalFees.md) |  | [optional] 
+**bandwidth_used** | **str** | Represents the bandwidth used for the transaction. | [optional] 
+**burned_trx** | **str** | Represents the block burned TRX. | [optional] 
+**energy_used** | **str** | Representats the used energy for the transaction. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
