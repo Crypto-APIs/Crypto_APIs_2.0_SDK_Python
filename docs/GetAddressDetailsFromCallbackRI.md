@@ -11,8 +11,24 @@ Name | Type | Description | Notes
 **total_received** | [**GetAddressDetailsFromCallbackRITotalReceived**](GetAddressDetailsFromCallbackRITotalReceived.md) |  | 
 **total_spent** | [**GetAddressDetailsFromCallbackRITotalSpent**](GetAddressDetailsFromCallbackRITotalSpent.md) |  | 
 **sequence** | **int** | Defines the transaction input&#39;s sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.get_address_details_from_callback_ri import GetAddressDetailsFromCallbackRI
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetAddressDetailsFromCallbackRI from a JSON string
+get_address_details_from_callback_ri_instance = GetAddressDetailsFromCallbackRI.from_json(json)
+# print the JSON string representation of the object
+print GetAddressDetailsFromCallbackRI.to_json()
+
+# convert the object into a dict
+get_address_details_from_callback_ri_dict = get_address_details_from_callback_ri_instance.to_dict()
+# create an instance of GetAddressDetailsFromCallbackRI from a dict
+get_address_details_from_callback_ri_form_dict = get_address_details_from_callback_ri.from_dict(get_address_details_from_callback_ri_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

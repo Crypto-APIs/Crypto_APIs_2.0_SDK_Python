@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **get_latest_mined_zilliqa_block**
-> GetLatestMinedZilliqaBlockR get_latest_mined_zilliqa_block()
+> GetLatestMinedZilliqaBlockR get_latest_mined_zilliqa_block(network, context=context)
 
 Get Latest Mined Zilliqa Block
 
@@ -24,23 +24,14 @@ Through this endpoint users can obtain information on the latest block that has 
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import zilliqa_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.get_latest_mined_zilliqa_block400_response import GetLatestMinedZilliqaBlock400Response
-from cryptoapis.model.get_latest_mined_zilliqa_block_r import GetLatestMinedZilliqaBlockR
-from cryptoapis.model.get_latest_mined_zilliqa_block401_response import GetLatestMinedZilliqaBlock401Response
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.get_latest_mined_zilliqa_block403_response import GetLatestMinedZilliqaBlock403Response
-from cryptoapis.model.list_transactions_by_block_height404_response import ListTransactionsByBlockHeight404Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.get_latest_mined_zilliqa_block_r import GetLatestMinedZilliqaBlockR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -53,7 +44,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -61,24 +52,16 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = zilliqa_api.ZilliqaApi(api_client)
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    api_instance = cryptoapis.ZilliqaApi(api_client)
+    network = 'mainnet' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Latest Mined Zilliqa Block
-        api_response = api_instance.get_latest_mined_zilliqa_block()
+        api_response = api_instance.get_latest_mined_zilliqa_block(network, context=context)
+        print("The response of ZilliqaApi->get_latest_mined_zilliqa_block:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling ZilliqaApi->get_latest_mined_zilliqa_block: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get Latest Mined Zilliqa Block
-        api_response = api_instance.get_latest_mined_zilliqa_block(context=context)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling ZilliqaApi->get_latest_mined_zilliqa_block: %s\n" % e)
 ```
 
@@ -87,8 +70,8 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | defaults to "mainnet"
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
 
 ### Return type
 
@@ -103,9 +86,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
@@ -123,7 +104,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_zilliqa_address_details**
-> GetZilliqaAddressDetailsR get_zilliqa_address_details(address)
+> GetZilliqaAddressDetailsR get_zilliqa_address_details(network, address, context=context)
 
 Get Zilliqa Address Details
 
@@ -132,22 +113,14 @@ Through this endpoint customers can obtain information address details from the 
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import zilliqa_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.get_zilliqa_address_details_r import GetZilliqaAddressDetailsR
-from cryptoapis.model.get_zilliqa_address_details401_response import GetZilliqaAddressDetails401Response
-from cryptoapis.model.get_zilliqa_address_details403_response import GetZilliqaAddressDetails403Response
-from cryptoapis.model.get_zilliqa_address_details400_response import GetZilliqaAddressDetails400Response
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.get_zilliqa_address_details_r import GetZilliqaAddressDetailsR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -160,7 +133,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -168,25 +141,17 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = zilliqa_api.ZilliqaApi(api_client)
-    address = "zil17v9gs6ctn9pq6wka8k668umdlaj88nrfej7rnm" # str | Defines the specific transaction's address.
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    api_instance = cryptoapis.ZilliqaApi(api_client)
+    network = 'mainnet' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    address = 'zil17v9gs6ctn9pq6wka8k668umdlaj88nrfej7rnm' # str | Defines the specific transaction's address.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Zilliqa Address Details
-        api_response = api_instance.get_zilliqa_address_details(address)
+        api_response = api_instance.get_zilliqa_address_details(network, address, context=context)
+        print("The response of ZilliqaApi->get_zilliqa_address_details:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling ZilliqaApi->get_zilliqa_address_details: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get Zilliqa Address Details
-        api_response = api_instance.get_zilliqa_address_details(address, context=context)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling ZilliqaApi->get_zilliqa_address_details: %s\n" % e)
 ```
 
@@ -195,9 +160,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **address** | **str**| Defines the specific transaction&#39;s address. |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | defaults to "mainnet"
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
+ **address** | **str**| Defines the specific transaction&#39;s address. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
 
 ### Return type
 
@@ -212,9 +177,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
@@ -231,7 +194,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_zilliqa_block_details_by_block_hash**
-> GetZilliqaBlockDetailsByBlockHashR get_zilliqa_block_details_by_block_hash(block_hash)
+> GetZilliqaBlockDetailsByBlockHashR get_zilliqa_block_details_by_block_hash(network, block_hash, context=context)
 
 Get Zilliqa Block Details By Block Hash
 
@@ -240,23 +203,14 @@ Through this endpoint customers can obtain block details from the Zilliqa blockc
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import zilliqa_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.get_zilliqa_block_details_by_block_hash401_response import GetZilliqaBlockDetailsByBlockHash401Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.get_zilliqa_block_details_by_block_hash403_response import GetZilliqaBlockDetailsByBlockHash403Response
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.get_zilliqa_block_details_by_block_hash400_response import GetZilliqaBlockDetailsByBlockHash400Response
-from cryptoapis.model.get_zilliqa_block_details_by_block_hash_r import GetZilliqaBlockDetailsByBlockHashR
-from cryptoapis.model.list_transactions_by_block_height404_response import ListTransactionsByBlockHeight404Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.get_zilliqa_block_details_by_block_hash_r import GetZilliqaBlockDetailsByBlockHashR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -269,7 +223,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -277,25 +231,17 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = zilliqa_api.ZilliqaApi(api_client)
-    block_hash = "0xf679d0b5387f0b0b3c3c1f368305512b23860888ba4415063d464a09b8bb6205" # str | Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    api_instance = cryptoapis.ZilliqaApi(api_client)
+    network = 'mainnet' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    block_hash = '0xf679d0b5387f0b0b3c3c1f368305512b23860888ba4415063d464a09b8bb6205' # str | Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Zilliqa Block Details By Block Hash
-        api_response = api_instance.get_zilliqa_block_details_by_block_hash(block_hash)
+        api_response = api_instance.get_zilliqa_block_details_by_block_hash(network, block_hash, context=context)
+        print("The response of ZilliqaApi->get_zilliqa_block_details_by_block_hash:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling ZilliqaApi->get_zilliqa_block_details_by_block_hash: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get Zilliqa Block Details By Block Hash
-        api_response = api_instance.get_zilliqa_block_details_by_block_hash(block_hash, context=context)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling ZilliqaApi->get_zilliqa_block_details_by_block_hash: %s\n" % e)
 ```
 
@@ -304,9 +250,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **block_hash** | **str**| Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | defaults to "mainnet"
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
+ **block_hash** | **str**| Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
 
 ### Return type
 
@@ -321,9 +267,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
@@ -341,7 +285,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_zilliqa_block_details_by_block_height**
-> GetZilliqaBlockDetailsByBlockHeightR get_zilliqa_block_details_by_block_height(block_height)
+> GetZilliqaBlockDetailsByBlockHeightR get_zilliqa_block_details_by_block_height(network, block_height, context=context)
 
 Get Zilliqa Block Details By Block Height
 
@@ -350,23 +294,14 @@ Through this endpoint customers can obtain block details from the Zilliqa blockc
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import zilliqa_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.get_zilliqa_block_details_by_block_height401_response import GetZilliqaBlockDetailsByBlockHeight401Response
-from cryptoapis.model.get_zilliqa_block_details_by_block_height_r import GetZilliqaBlockDetailsByBlockHeightR
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.get_zilliqa_block_details_by_block_height400_response import GetZilliqaBlockDetailsByBlockHeight400Response
-from cryptoapis.model.get_zilliqa_block_details_by_block_height403_response import GetZilliqaBlockDetailsByBlockHeight403Response
-from cryptoapis.model.list_transactions_by_block_height404_response import ListTransactionsByBlockHeight404Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.get_zilliqa_block_details_by_block_height_r import GetZilliqaBlockDetailsByBlockHeightR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -379,7 +314,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -387,25 +322,17 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = zilliqa_api.ZilliqaApi(api_client)
+    api_instance = cryptoapis.ZilliqaApi(api_client)
+    network = 'mainnet' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     block_height = 1244298 # int | Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Zilliqa Block Details By Block Height
-        api_response = api_instance.get_zilliqa_block_details_by_block_height(block_height)
+        api_response = api_instance.get_zilliqa_block_details_by_block_height(network, block_height, context=context)
+        print("The response of ZilliqaApi->get_zilliqa_block_details_by_block_height:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling ZilliqaApi->get_zilliqa_block_details_by_block_height: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get Zilliqa Block Details By Block Height
-        api_response = api_instance.get_zilliqa_block_details_by_block_height(block_height, context=context)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling ZilliqaApi->get_zilliqa_block_details_by_block_height: %s\n" % e)
 ```
 
@@ -414,9 +341,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **block_height** | **int**| Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \&quot;Genesis block\&quot;. |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | defaults to "mainnet"
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
+ **block_height** | **int**| Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \&quot;Genesis block\&quot;. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
 
 ### Return type
 
@@ -431,9 +358,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
@@ -451,7 +376,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_zilliqa_transaction_details_by_transaction_id**
-> GetZilliqaTransactionDetailsByTransactionIDR get_zilliqa_transaction_details_by_transaction_id(transaction_hash)
+> GetZilliqaTransactionDetailsByTransactionIDR get_zilliqa_transaction_details_by_transaction_id(network, transaction_hash, context=context)
 
 Get Zilliqa Transaction Details by Transaction ID
 
@@ -460,23 +385,14 @@ Through this endpoint customers can obtain transaction details on the Zilliqa bl
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import zilliqa_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_idr import GetZilliqaTransactionDetailsByTransactionIDR
-from cryptoapis.model.get_transaction_details_by_transaction_id404_response import GetTransactionDetailsByTransactionID404Response
-from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_id400_response import GetZilliqaTransactionDetailsByTransactionID400Response
-from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_id401_response import GetZilliqaTransactionDetailsByTransactionID401Response
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.get_zilliqa_transaction_details_by_transaction_id403_response import GetZilliqaTransactionDetailsByTransactionID403Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.get_zilliqa_transaction_details_by_transaction_idr import GetZilliqaTransactionDetailsByTransactionIDR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -489,7 +405,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -497,25 +413,17 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = zilliqa_api.ZilliqaApi(api_client)
-    transaction_hash = "0xe649afbe2849c70a7a8b3087bee2c7b2fa0b6b77ab658b4fff390a1d06f0a8bc" # str | String identifier of the transaction
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    api_instance = cryptoapis.ZilliqaApi(api_client)
+    network = 'mainnet' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    transaction_hash = '0xe649afbe2849c70a7a8b3087bee2c7b2fa0b6b77ab658b4fff390a1d06f0a8bc' # str | String identifier of the transaction
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Zilliqa Transaction Details by Transaction ID
-        api_response = api_instance.get_zilliqa_transaction_details_by_transaction_id(transaction_hash)
+        api_response = api_instance.get_zilliqa_transaction_details_by_transaction_id(network, transaction_hash, context=context)
+        print("The response of ZilliqaApi->get_zilliqa_transaction_details_by_transaction_id:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling ZilliqaApi->get_zilliqa_transaction_details_by_transaction_id: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get Zilliqa Transaction Details by Transaction ID
-        api_response = api_instance.get_zilliqa_transaction_details_by_transaction_id(transaction_hash, context=context)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling ZilliqaApi->get_zilliqa_transaction_details_by_transaction_id: %s\n" % e)
 ```
 
@@ -524,9 +432,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **transaction_hash** | **str**| String identifier of the transaction |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | defaults to "mainnet"
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
+ **transaction_hash** | **str**| String identifier of the transaction | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
 
 ### Return type
 
@@ -541,9 +449,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
@@ -561,7 +467,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_zilliqa_transactions_by_address**
-> ListZilliqaTransactionsByAddressR list_zilliqa_transactions_by_address(address)
+> ListZilliqaTransactionsByAddressR list_zilliqa_transactions_by_address(network, address, context=context, limit=limit, offset=offset)
 
 List Zilliqa Transactions by Address
 
@@ -570,22 +476,14 @@ Through this endpoint customers can list transactions on the Zilliqa blockchain 
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import zilliqa_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.list_zilliqa_transactions_by_address_r import ListZilliqaTransactionsByAddressR
-from cryptoapis.model.list_zilliqa_transactions_by_address403_response import ListZilliqaTransactionsByAddress403Response
-from cryptoapis.model.list_zilliqa_transactions_by_address400_response import ListZilliqaTransactionsByAddress400Response
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.list_zilliqa_transactions_by_address401_response import ListZilliqaTransactionsByAddress401Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.list_zilliqa_transactions_by_address_r import ListZilliqaTransactionsByAddressR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -598,7 +496,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -606,27 +504,19 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = zilliqa_api.ZilliqaApi(api_client)
-    address = "zil17v9gs6ctn9pq6wka8k668umdlaj88nrfej7rnm" # str | Defines the specific address of the sender.
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    api_instance = cryptoapis.ZilliqaApi(api_client)
+    network = 'mainnet' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    address = 'zil17v9gs6ctn9pq6wka8k668umdlaj88nrfej7rnm' # str | Defines the specific address of the sender.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
 
-    # example passing only required values which don't have defaults set
     try:
         # List Zilliqa Transactions by Address
-        api_response = api_instance.list_zilliqa_transactions_by_address(address)
+        api_response = api_instance.list_zilliqa_transactions_by_address(network, address, context=context, limit=limit, offset=offset)
+        print("The response of ZilliqaApi->list_zilliqa_transactions_by_address:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling ZilliqaApi->list_zilliqa_transactions_by_address: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # List Zilliqa Transactions by Address
-        api_response = api_instance.list_zilliqa_transactions_by_address(address, context=context, limit=limit, offset=offset)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling ZilliqaApi->list_zilliqa_transactions_by_address: %s\n" % e)
 ```
 
@@ -635,11 +525,11 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **address** | **str**| Defines the specific address of the sender. |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | defaults to "mainnet"
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] if omitted the server will use the default value of 50
- **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] if omitted the server will use the default value of 0
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
+ **address** | **str**| Defines the specific address of the sender. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
+ **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] [default to 50]
+ **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] [default to 0]
 
 ### Return type
 
@@ -654,9 +544,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
@@ -673,7 +561,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_zilliqa_transactions_by_block_hash**
-> ListZilliqaTransactionsByBlockHashR list_zilliqa_transactions_by_block_hash(block_hash)
+> ListZilliqaTransactionsByBlockHashR list_zilliqa_transactions_by_block_hash(network, block_hash, context=context, limit=limit, offset=offset)
 
 List Zilliqa Transactions By Block Hash
 
@@ -682,22 +570,14 @@ Through this endpoint customers can list transactions on the Zilliqa blockchain 
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import zilliqa_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.list_zilliqa_transactions_by_block_hash403_response import ListZilliqaTransactionsByBlockHash403Response
-from cryptoapis.model.list_zilliqa_transactions_by_block_hash401_response import ListZilliqaTransactionsByBlockHash401Response
-from cryptoapis.model.list_zilliqa_transactions_by_block_hash400_response import ListZilliqaTransactionsByBlockHash400Response
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.list_zilliqa_transactions_by_block_hash_r import ListZilliqaTransactionsByBlockHashR
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.list_zilliqa_transactions_by_block_hash_r import ListZilliqaTransactionsByBlockHashR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -710,7 +590,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -718,27 +598,19 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = zilliqa_api.ZilliqaApi(api_client)
-    block_hash = "0x3160ca05ac12f60023de6b6987596eccbf084629f1a92b59534c5c021bf27041" # str | Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    api_instance = cryptoapis.ZilliqaApi(api_client)
+    network = 'mainnet' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    block_hash = '0x3160ca05ac12f60023de6b6987596eccbf084629f1a92b59534c5c021bf27041' # str | Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
 
-    # example passing only required values which don't have defaults set
     try:
         # List Zilliqa Transactions By Block Hash
-        api_response = api_instance.list_zilliqa_transactions_by_block_hash(block_hash)
+        api_response = api_instance.list_zilliqa_transactions_by_block_hash(network, block_hash, context=context, limit=limit, offset=offset)
+        print("The response of ZilliqaApi->list_zilliqa_transactions_by_block_hash:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling ZilliqaApi->list_zilliqa_transactions_by_block_hash: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # List Zilliqa Transactions By Block Hash
-        api_response = api_instance.list_zilliqa_transactions_by_block_hash(block_hash, context=context, limit=limit, offset=offset)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling ZilliqaApi->list_zilliqa_transactions_by_block_hash: %s\n" % e)
 ```
 
@@ -747,11 +619,11 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **block_hash** | **str**| Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | defaults to "mainnet"
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] if omitted the server will use the default value of 50
- **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] if omitted the server will use the default value of 0
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
+ **block_hash** | **str**| Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
+ **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] [default to 50]
+ **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] [default to 0]
 
 ### Return type
 
@@ -766,9 +638,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
@@ -785,7 +655,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_zilliqa_transactions_by_block_height**
-> ListZilliqaTransactionsByBlockHeightR list_zilliqa_transactions_by_block_height(block_height)
+> ListZilliqaTransactionsByBlockHeightR list_zilliqa_transactions_by_block_height(network, block_height, context=context, limit=limit, offset=offset)
 
 List Zilliqa Transactions By Block Height
 
@@ -794,22 +664,14 @@ Through this endpoint customers can list transactions on the Zilliqa blockchain 
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import zilliqa_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.list_zilliqa_transactions_by_block_height401_response import ListZilliqaTransactionsByBlockHeight401Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.list_zilliqa_transactions_by_block_height_r import ListZilliqaTransactionsByBlockHeightR
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.list_zilliqa_transactions_by_block_height403_response import ListZilliqaTransactionsByBlockHeight403Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.list_zilliqa_transactions_by_block_height400_response import ListZilliqaTransactionsByBlockHeight400Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.list_zilliqa_transactions_by_block_height_r import ListZilliqaTransactionsByBlockHeightR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -822,7 +684,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -830,27 +692,19 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = zilliqa_api.ZilliqaApi(api_client)
+    api_instance = cryptoapis.ZilliqaApi(api_client)
+    network = 'mainnet' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     block_height = 1250392 # int | Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
 
-    # example passing only required values which don't have defaults set
     try:
         # List Zilliqa Transactions By Block Height
-        api_response = api_instance.list_zilliqa_transactions_by_block_height(block_height)
+        api_response = api_instance.list_zilliqa_transactions_by_block_height(network, block_height, context=context, limit=limit, offset=offset)
+        print("The response of ZilliqaApi->list_zilliqa_transactions_by_block_height:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling ZilliqaApi->list_zilliqa_transactions_by_block_height: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # List Zilliqa Transactions By Block Height
-        api_response = api_instance.list_zilliqa_transactions_by_block_height(block_height, context=context, limit=limit, offset=offset)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling ZilliqaApi->list_zilliqa_transactions_by_block_height: %s\n" % e)
 ```
 
@@ -859,11 +713,11 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **block_height** | **int**| Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \&quot;Genesis block\&quot;. |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | defaults to "mainnet"
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] if omitted the server will use the default value of 50
- **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] if omitted the server will use the default value of 0
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
+ **block_height** | **int**| Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \&quot;Genesis block\&quot;. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
+ **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] [default to 50]
+ **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] [default to 0]
 
 ### Return type
 
@@ -878,9 +732,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request was successfully executed. |  -  |

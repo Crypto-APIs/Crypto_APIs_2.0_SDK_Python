@@ -15,8 +15,24 @@ Name | Type | Description | Notes
 **version** | **int** | Represents the version of the specific block on the blockchain. | 
 **version_hex** | **str** | Is the hexadecimal string representation of the block&#39;s version. | 
 **weight** | **int** | Represents a measurement to compare the size of different transactions to each other in proportion to the block size limit. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.list_latest_mined_blocks_ribsl import ListLatestMinedBlocksRIBSL
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ListLatestMinedBlocksRIBSL from a JSON string
+list_latest_mined_blocks_ribsl_instance = ListLatestMinedBlocksRIBSL.from_json(json)
+# print the JSON string representation of the object
+print ListLatestMinedBlocksRIBSL.to_json()
+
+# convert the object into a dict
+list_latest_mined_blocks_ribsl_dict = list_latest_mined_blocks_ribsl_instance.to_dict()
+# create an instance of ListLatestMinedBlocksRIBSL from a dict
+list_latest_mined_blocks_ribsl_form_dict = list_latest_mined_blocks_ribsl.from_dict(list_latest_mined_blocks_ribsl_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

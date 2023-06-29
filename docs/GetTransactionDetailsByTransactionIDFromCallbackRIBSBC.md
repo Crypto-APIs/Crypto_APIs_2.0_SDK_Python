@@ -8,10 +8,26 @@ Name | Type | Description | Notes
 **locktime** | **int** | Represents the time at which a particular transaction can be added to the blockchain. | 
 **size** | **int** | Represents the total size of this transaction. | 
 **version** | **int** | Represents transaction version number. | 
-**vin** | [**[GetTransactionDetailsByTransactionIDRIBSBCVinInner]**](GetTransactionDetailsByTransactionIDRIBSBCVinInner.md) | Represents the transaction inputs. | 
-**vout** | [**[GetTransactionDetailsByTransactionIDFromCallbackRIBSBCVoutInner]**](GetTransactionDetailsByTransactionIDFromCallbackRIBSBCVoutInner.md) | Represents the transaction outputs. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**vin** | [**List[GetTransactionDetailsByTransactionIDRIBSBCVinInner]**](GetTransactionDetailsByTransactionIDRIBSBCVinInner.md) | Represents the transaction inputs. | 
+**vout** | [**List[GetTransactionDetailsByTransactionIDFromCallbackRIBSBCVoutInner]**](GetTransactionDetailsByTransactionIDFromCallbackRIBSBCVoutInner.md) | Represents the transaction outputs. | 
 
+## Example
+
+```python
+from cryptoapis.models.get_transaction_details_by_transaction_id_from_callback_ribsbc import GetTransactionDetailsByTransactionIDFromCallbackRIBSBC
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetTransactionDetailsByTransactionIDFromCallbackRIBSBC from a JSON string
+get_transaction_details_by_transaction_id_from_callback_ribsbc_instance = GetTransactionDetailsByTransactionIDFromCallbackRIBSBC.from_json(json)
+# print the JSON string representation of the object
+print GetTransactionDetailsByTransactionIDFromCallbackRIBSBC.to_json()
+
+# convert the object into a dict
+get_transaction_details_by_transaction_id_from_callback_ribsbc_dict = get_transaction_details_by_transaction_id_from_callback_ribsbc_instance.to_dict()
+# create an instance of GetTransactionDetailsByTransactionIDFromCallbackRIBSBC from a dict
+get_transaction_details_by_transaction_id_from_callback_ribsbc_form_dict = get_transaction_details_by_transaction_id_from_callback_ribsbc.from_dict(get_transaction_details_by_transaction_id_from_callback_ribsbc_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

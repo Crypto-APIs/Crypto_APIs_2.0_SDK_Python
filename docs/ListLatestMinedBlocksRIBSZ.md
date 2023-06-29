@@ -1,19 +1,35 @@
 # ListLatestMinedBlocksRIBSZ
 
-Zilliqa
+Zcash
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**bits** | **str** | Represents a specific sub-unit of Zcash. Bits have two-decimal precision | 
+**chainwork** | **str** | Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes. | 
 **difficulty** | **str** | Represents a mathematical value of how hard it is to find a valid hash for this block. | 
-**ds_block** | **int** | Represents the Directory Service block which contains metadata about the miners who participate in the consensus protocol. | 
-**ds_difficulty** | **str** | Defines how difficult it is to mine the dsBlocks. | 
-**ds_leader** | **str** | Represents a part of the DS Committee which leads the consensus protocol for the epoch. | 
-**gas_limit** | **int** | Represents the maximum amount of gas allowed in the block in order to determine how many transactions it can fit. | 
-**gas_used** | **int** | Defines how much of the gas for the block has been used. | 
-**micro_blocks** | **[str]** |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**merkle_root** | **str** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
+**nonce** | **str** | Represents a random value that can be adjusted to satisfy the proof of work | 
+**size** | **int** | Represents the total size of the block in Bytes. | 
+**version** | **int** | Represents the transaction version number. | 
 
+## Example
+
+```python
+from cryptoapis.models.list_latest_mined_blocks_ribsz import ListLatestMinedBlocksRIBSZ
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ListLatestMinedBlocksRIBSZ from a JSON string
+list_latest_mined_blocks_ribsz_instance = ListLatestMinedBlocksRIBSZ.from_json(json)
+# print the JSON string representation of the object
+print ListLatestMinedBlocksRIBSZ.to_json()
+
+# convert the object into a dict
+list_latest_mined_blocks_ribsz_dict = list_latest_mined_blocks_ribsz_instance.to_dict()
+# create an instance of ListLatestMinedBlocksRIBSZ from a dict
+list_latest_mined_blocks_ribsz_form_dict = list_latest_mined_blocks_ribsz.from_dict(list_latest_mined_blocks_ribsz_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

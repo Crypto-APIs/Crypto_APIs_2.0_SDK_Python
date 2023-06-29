@@ -12,8 +12,24 @@ Name | Type | Description | Notes
 **event_type** | **str** | Defines the type of the specific event available for the customer to subscribe to for callback notification. | 
 **is_active** | **bool** | Defines whether the subscription is active or not. Set as boolean. | 
 **reference_id** | **str** | Represents a unique ID used to reference the specific callback subscription. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.new_confirmed_internal_transactions_and_each_confirmation_ri import NewConfirmedInternalTransactionsAndEachConfirmationRI
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of NewConfirmedInternalTransactionsAndEachConfirmationRI from a JSON string
+new_confirmed_internal_transactions_and_each_confirmation_ri_instance = NewConfirmedInternalTransactionsAndEachConfirmationRI.from_json(json)
+# print the JSON string representation of the object
+print NewConfirmedInternalTransactionsAndEachConfirmationRI.to_json()
+
+# convert the object into a dict
+new_confirmed_internal_transactions_and_each_confirmation_ri_dict = new_confirmed_internal_transactions_and_each_confirmation_ri_instance.to_dict()
+# create an instance of NewConfirmedInternalTransactionsAndEachConfirmationRI from a dict
+new_confirmed_internal_transactions_and_each_confirmation_ri_form_dict = new_confirmed_internal_transactions_and_each_confirmation_ri.from_dict(new_confirmed_internal_transactions_and_each_confirmation_ri_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **get_internal_transaction_by_transaction_hash_and_operation_id**
-> GetInternalTransactionByTransactionHashAndOperationIdR get_internal_transaction_by_transaction_hash_and_operation_id(blockchain, network, operation_id, transaction_hash)
+> GetInternalTransactionByTransactionHashAndOperationIdR get_internal_transaction_by_transaction_hash_and_operation_id(blockchain, network, operation_id, transaction_hash, context=context)
 
 Get Internal Transaction by Transaction Hash and Operation Id
 
@@ -19,23 +19,14 @@ Through this endpoint customers can obtain detailed information about a specific
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import internal_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.get_internal_transaction_by_transaction_hash_and_operation_id400_response import GetInternalTransactionByTransactionHashAndOperationId400Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.get_internal_transaction_by_transaction_hash_and_operation_id403_response import GetInternalTransactionByTransactionHashAndOperationId403Response
-from cryptoapis.model.get_internal_transaction_by_transaction_hash_and_operation_id401_response import GetInternalTransactionByTransactionHashAndOperationId401Response
-from cryptoapis.model.get_internal_transaction_by_transaction_hash_and_operation_id404_response import GetInternalTransactionByTransactionHashAndOperationId404Response
-from cryptoapis.model.get_internal_transaction_by_transaction_hash_and_operation_id_r import GetInternalTransactionByTransactionHashAndOperationIdR
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.get_internal_transaction_by_transaction_hash_and_operation_id_r import GetInternalTransactionByTransactionHashAndOperationIdR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -48,7 +39,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -56,28 +47,19 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = internal_api.InternalApi(api_client)
-    blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-    network = "mainnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    operation_id = "call_4" # str | Represents the unique internal transaction ID in regards to the parent transaction (type trace address).
-    transaction_hash = "0x92bb77e16444e0417c8b50dfab68e89c7ad27d4140a766c3bbd4d0ac195f12fc" # str | String identifier of the parent transaction of the internal transaction represented in CryptoAPIs.
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    api_instance = cryptoapis.InternalApi(api_client)
+    blockchain = 'ethereum' # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network = 'goerli' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"goerli\" are test networks.
+    operation_id = 'call_4' # str | Represents the unique internal transaction ID in regards to the parent transaction (type trace address).
+    transaction_hash = '0xbc8245ba5cccb524d91256224689ac0f16678321a266bab8197ad7daab4c9e16' # str | String identifier of the parent transaction of the internal transaction represented in CryptoAPIs.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get Internal Transaction by Transaction Hash and Operation Id
-        api_response = api_instance.get_internal_transaction_by_transaction_hash_and_operation_id(blockchain, network, operation_id, transaction_hash)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling InternalApi->get_internal_transaction_by_transaction_hash_and_operation_id: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get Internal Transaction by Transaction Hash and Operation Id
         api_response = api_instance.get_internal_transaction_by_transaction_hash_and_operation_id(blockchain, network, operation_id, transaction_hash, context=context)
+        print("The response of InternalApi->get_internal_transaction_by_transaction_hash_and_operation_id:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling InternalApi->get_internal_transaction_by_transaction_hash_and_operation_id: %s\n" % e)
 ```
 
@@ -86,11 +68,11 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
- **operation_id** | **str**| Represents the unique internal transaction ID in regards to the parent transaction (type trace address). |
- **transaction_hash** | **str**| String identifier of the parent transaction of the internal transaction represented in CryptoAPIs. |
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;goerli\&quot; are test networks. | 
+ **operation_id** | **str**| Represents the unique internal transaction ID in regards to the parent transaction (type trace address). | 
+ **transaction_hash** | **str**| String identifier of the parent transaction of the internal transaction represented in CryptoAPIs. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
 
 ### Return type
 
@@ -105,9 +87,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
@@ -125,7 +105,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_internal_transaction_details_by_transaction_hash**
-> ListInternalTransactionDetailsByTransactionHashR list_internal_transaction_details_by_transaction_hash(blockchain, network, transaction_hash)
+> ListInternalTransactionDetailsByTransactionHashR list_internal_transaction_details_by_transaction_hash(blockchain, network, transaction_hash, context=context, limit=limit, offset=offset)
 
 List Internal Transaction Details by Transaction Hash
 
@@ -134,22 +114,14 @@ Through this endpoint customers can list internal transactions along with their 
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import internal_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.list_internal_transaction_details_by_transaction_hash401_response import ListInternalTransactionDetailsByTransactionHash401Response
-from cryptoapis.model.list_internal_transaction_details_by_transaction_hash403_response import ListInternalTransactionDetailsByTransactionHash403Response
-from cryptoapis.model.list_internal_transaction_details_by_transaction_hash400_response import ListInternalTransactionDetailsByTransactionHash400Response
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.list_internal_transaction_details_by_transaction_hash_r import ListInternalTransactionDetailsByTransactionHashR
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.list_internal_transaction_details_by_transaction_hash_r import ListInternalTransactionDetailsByTransactionHashR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -162,7 +134,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -170,29 +142,20 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = internal_api.InternalApi(api_client)
-    blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-    network = "mainnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    transaction_hash = "0x5d4ea0471b70de09fa3d6a4bc32f703ec44483bffa4d6169fa0a36c6a1dc108a" # str | String identifier of the parent transaction of the internal transaction represented in CryptoAPIs.
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    api_instance = cryptoapis.InternalApi(api_client)
+    blockchain = 'ethereum' # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network = 'goerli' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"goerli\" are test networks.
+    transaction_hash = '0xbc8245ba5cccb524d91256224689ac0f16678321a266bab8197ad7daab4c9e16' # str | String identifier of the parent transaction of the internal transaction represented in CryptoAPIs.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List Internal Transaction Details by Transaction Hash
-        api_response = api_instance.list_internal_transaction_details_by_transaction_hash(blockchain, network, transaction_hash)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling InternalApi->list_internal_transaction_details_by_transaction_hash: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List Internal Transaction Details by Transaction Hash
         api_response = api_instance.list_internal_transaction_details_by_transaction_hash(blockchain, network, transaction_hash, context=context, limit=limit, offset=offset)
+        print("The response of InternalApi->list_internal_transaction_details_by_transaction_hash:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling InternalApi->list_internal_transaction_details_by_transaction_hash: %s\n" % e)
 ```
 
@@ -201,12 +164,12 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
- **transaction_hash** | **str**| String identifier of the parent transaction of the internal transaction represented in CryptoAPIs. |
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] if omitted the server will use the default value of 50
- **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] if omitted the server will use the default value of 0
+ **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;goerli\&quot; are test networks. | 
+ **transaction_hash** | **str**| String identifier of the parent transaction of the internal transaction represented in CryptoAPIs. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
+ **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] [default to 50]
+ **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] [default to 0]
 
 ### Return type
 
@@ -221,9 +184,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been sussessful. |  -  |
@@ -240,7 +201,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_internal_transactions_by_address**
-> ListInternalTransactionsByAddressR list_internal_transactions_by_address(blockchain, network, address)
+> ListInternalTransactionsByAddressR list_internal_transactions_by_address(blockchain, network, address, context=context, limit=limit, offset=offset)
 
 List Internal Transactions By Address
 
@@ -249,22 +210,14 @@ Through this endpoint customers can list internal transactions by the `address` 
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import internal_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.list_internal_transactions_by_address403_response import ListInternalTransactionsByAddress403Response
-from cryptoapis.model.list_internal_transactions_by_address400_response import ListInternalTransactionsByAddress400Response
-from cryptoapis.model.list_internal_transactions_by_address_r import ListInternalTransactionsByAddressR
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.list_internal_transactions_by_address401_response import ListInternalTransactionsByAddress401Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.list_internal_transactions_by_address_r import ListInternalTransactionsByAddressR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -277,7 +230,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -285,29 +238,20 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = internal_api.InternalApi(api_client)
-    blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-    network = "ropsten" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    address = "0xc8fe2ceac93ad50e496b497357ae5385192dd28d" # str | String identifier of the address document represented in CryptoAPIs
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    api_instance = cryptoapis.InternalApi(api_client)
+    blockchain = 'ethereum' # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network = 'goerli' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"goerli\" are test networks.
+    address = '0x3d0b25fe09e2cd92f06ba776391a122519936e90' # str | String identifier of the address document represented in CryptoAPIs
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List Internal Transactions By Address
-        api_response = api_instance.list_internal_transactions_by_address(blockchain, network, address)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling InternalApi->list_internal_transactions_by_address: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List Internal Transactions By Address
         api_response = api_instance.list_internal_transactions_by_address(blockchain, network, address, context=context, limit=limit, offset=offset)
+        print("The response of InternalApi->list_internal_transactions_by_address:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling InternalApi->list_internal_transactions_by_address: %s\n" % e)
 ```
 
@@ -316,12 +260,12 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
- **address** | **str**| String identifier of the address document represented in CryptoAPIs |
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] if omitted the server will use the default value of 50
- **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] if omitted the server will use the default value of 0
+ **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;goerli\&quot; are test networks. | 
+ **address** | **str**| String identifier of the address document represented in CryptoAPIs | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
+ **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] [default to 50]
+ **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] [default to 0]
 
 ### Return type
 
@@ -336,9 +280,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |

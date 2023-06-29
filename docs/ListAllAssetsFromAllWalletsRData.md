@@ -7,9 +7,25 @@ Name | Type | Description | Notes
 **limit** | **int** | Defines how many items should be returned in the response per page basis. | 
 **offset** | **int** | The starting index of the response items, i.e. where the response should start listing the returned items. | 
 **total** | **int** | Defines the total number of items returned in the response. | 
-**items** | [**[ListAllAssetsFromAllWalletsRI]**](ListAllAssetsFromAllWalletsRI.md) |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**items** | [**List[ListAllAssetsFromAllWalletsRI]**](ListAllAssetsFromAllWalletsRI.md) |  | 
 
+## Example
+
+```python
+from cryptoapis.models.list_all_assets_from_all_wallets_r_data import ListAllAssetsFromAllWalletsRData
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ListAllAssetsFromAllWalletsRData from a JSON string
+list_all_assets_from_all_wallets_r_data_instance = ListAllAssetsFromAllWalletsRData.from_json(json)
+# print the JSON string representation of the object
+print ListAllAssetsFromAllWalletsRData.to_json()
+
+# convert the object into a dict
+list_all_assets_from_all_wallets_r_data_dict = list_all_assets_from_all_wallets_r_data_instance.to_dict()
+# create an instance of ListAllAssetsFromAllWalletsRData from a dict
+list_all_assets_from_all_wallets_r_data_form_dict = list_all_assets_from_all_wallets_r_data.from_dict(list_all_assets_from_all_wallets_r_data_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

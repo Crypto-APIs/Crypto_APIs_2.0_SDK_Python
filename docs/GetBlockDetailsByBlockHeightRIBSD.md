@@ -14,8 +14,24 @@ Name | Type | Description | Notes
 **stripped_size** | **int** | Defines the numeric representation of the block size excluding the witness data. | 
 **version** | **int** | Represents the version of the specific block on the blockchain. | 
 **weight** | **int** | Represents a measurement to compare the size of different transactions to each other in proportion to the block size limi | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.get_block_details_by_block_height_ribsd import GetBlockDetailsByBlockHeightRIBSD
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetBlockDetailsByBlockHeightRIBSD from a JSON string
+get_block_details_by_block_height_ribsd_instance = GetBlockDetailsByBlockHeightRIBSD.from_json(json)
+# print the JSON string representation of the object
+print GetBlockDetailsByBlockHeightRIBSD.to_json()
+
+# convert the object into a dict
+get_block_details_by_block_height_ribsd_dict = get_block_details_by_block_height_ribsd_instance.to_dict()
+# create an instance of GetBlockDetailsByBlockHeightRIBSD from a dict
+get_block_details_by_block_height_ribsd_form_dict = get_block_details_by_block_height_ribsd.from_dict(get_block_details_by_block_height_ribsd_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

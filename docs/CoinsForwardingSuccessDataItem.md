@@ -15,8 +15,24 @@ Name | Type | Description | Notes
 **spent_fees_unit** | **str** | Represents the unit of the fee spent for the coins to be forwarded, e.g. BTC. | 
 **trigger_transaction_id** | **str** | Defines the unique Transaction ID that triggered the coin forwarding. | 
 **forwarding_transaction_id** | **str** | Defines the unique Transaction ID that forwarded the coins. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.coins_forwarding_success_data_item import CoinsForwardingSuccessDataItem
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of CoinsForwardingSuccessDataItem from a JSON string
+coins_forwarding_success_data_item_instance = CoinsForwardingSuccessDataItem.from_json(json)
+# print the JSON string representation of the object
+print CoinsForwardingSuccessDataItem.to_json()
+
+# convert the object into a dict
+coins_forwarding_success_data_item_dict = coins_forwarding_success_data_item_instance.to_dict()
+# create an instance of CoinsForwardingSuccessDataItem from a dict
+coins_forwarding_success_data_item_form_dict = coins_forwarding_success_data_item.from_dict(coins_forwarding_success_data_item_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

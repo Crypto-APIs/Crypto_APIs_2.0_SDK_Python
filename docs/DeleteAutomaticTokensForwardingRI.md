@@ -14,8 +14,24 @@ Name | Type | Description | Notes
 **reference_id** | **str** | Represents a unique ID used to reference the specific callback subscription. | 
 **to_address** | **str** | Represents the hash of the address the tokens are forwarded to. | 
 **token_data** | [**DeleteAutomaticTokensForwardingRITS**](DeleteAutomaticTokensForwardingRITS.md) |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.delete_automatic_tokens_forwarding_ri import DeleteAutomaticTokensForwardingRI
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of DeleteAutomaticTokensForwardingRI from a JSON string
+delete_automatic_tokens_forwarding_ri_instance = DeleteAutomaticTokensForwardingRI.from_json(json)
+# print the JSON string representation of the object
+print DeleteAutomaticTokensForwardingRI.to_json()
+
+# convert the object into a dict
+delete_automatic_tokens_forwarding_ri_dict = delete_automatic_tokens_forwarding_ri_instance.to_dict()
+# create an instance of DeleteAutomaticTokensForwardingRI from a dict
+delete_automatic_tokens_forwarding_ri_form_dict = delete_automatic_tokens_forwarding_ri.from_dict(delete_automatic_tokens_forwarding_ri_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

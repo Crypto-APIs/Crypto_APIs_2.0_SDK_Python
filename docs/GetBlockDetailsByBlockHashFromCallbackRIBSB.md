@@ -15,8 +15,24 @@ Name | Type | Description | Notes
 **version** | **int** | Represents the version of the specific block on the blockchain. | 
 **version_hex** | **str** | Is the hexadecimal string representation of the block&#39;s version. | 
 **weight** | **int** | Represents a measurement to compare the size of different transactions to each other in proportion to the block size limit. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.get_block_details_by_block_hash_from_callback_ribsb import GetBlockDetailsByBlockHashFromCallbackRIBSB
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetBlockDetailsByBlockHashFromCallbackRIBSB from a JSON string
+get_block_details_by_block_hash_from_callback_ribsb_instance = GetBlockDetailsByBlockHashFromCallbackRIBSB.from_json(json)
+# print the JSON string representation of the object
+print GetBlockDetailsByBlockHashFromCallbackRIBSB.to_json()
+
+# convert the object into a dict
+get_block_details_by_block_hash_from_callback_ribsb_dict = get_block_details_by_block_hash_from_callback_ribsb_instance.to_dict()
+# create an instance of GetBlockDetailsByBlockHashFromCallbackRIBSB from a dict
+get_block_details_by_block_hash_from_callback_ribsb_form_dict = get_block_details_by_block_hash_from_callback_ribsb.from_dict(get_block_details_by_block_hash_from_callback_ribsb_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

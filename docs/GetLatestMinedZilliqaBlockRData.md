@@ -5,8 +5,24 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **item** | [**GetLatestMinedZilliqaBlockRI**](GetLatestMinedZilliqaBlockRI.md) |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.get_latest_mined_zilliqa_block_r_data import GetLatestMinedZilliqaBlockRData
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetLatestMinedZilliqaBlockRData from a JSON string
+get_latest_mined_zilliqa_block_r_data_instance = GetLatestMinedZilliqaBlockRData.from_json(json)
+# print the JSON string representation of the object
+print GetLatestMinedZilliqaBlockRData.to_json()
+
+# convert the object into a dict
+get_latest_mined_zilliqa_block_r_data_dict = get_latest_mined_zilliqa_block_r_data_instance.to_dict()
+# create an instance of GetLatestMinedZilliqaBlockRData from a dict
+get_latest_mined_zilliqa_block_r_data_form_dict = get_latest_mined_zilliqa_block_r_data.from_dict(get_latest_mined_zilliqa_block_r_data_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

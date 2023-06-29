@@ -14,8 +14,24 @@ Name | Type | Description | Notes
 **amount** | **str** | Defines the amount of coins sent with the confirmed transaction. | 
 **unit** | **str** | Defines the unit of the transaction, e.g. Gwei. | 
 **direction** | **str** | Defines whether the transaction is \&quot;incoming\&quot; or \&quot;outgoing\&quot;. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.address_internal_transaction_confirmed_data_item import AddressInternalTransactionConfirmedDataItem
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of AddressInternalTransactionConfirmedDataItem from a JSON string
+address_internal_transaction_confirmed_data_item_instance = AddressInternalTransactionConfirmedDataItem.from_json(json)
+# print the JSON string representation of the object
+print AddressInternalTransactionConfirmedDataItem.to_json()
+
+# convert the object into a dict
+address_internal_transaction_confirmed_data_item_dict = address_internal_transaction_confirmed_data_item_instance.to_dict()
+# create an instance of AddressInternalTransactionConfirmedDataItem from a dict
+address_internal_transaction_confirmed_data_item_form_dict = address_internal_transaction_confirmed_data_item.from_dict(address_internal_transaction_confirmed_data_item_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

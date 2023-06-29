@@ -8,8 +8,24 @@ Name | Type | Description | Notes
 **asm** | **str** | The asm strands for assembly, which is the symbolic representation of the Bitcoin&#39;s Script language op-codes. | 
 **hex** | **str** | Represents the hex of the public key of the address. | 
 **type** | **str** | Represents the script type of the reference transaction identifier. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.get_transaction_details_by_transaction_idribsl_vin_inner_script_sig import GetTransactionDetailsByTransactionIDRIBSLVinInnerScriptSig
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetTransactionDetailsByTransactionIDRIBSLVinInnerScriptSig from a JSON string
+get_transaction_details_by_transaction_idribsl_vin_inner_script_sig_instance = GetTransactionDetailsByTransactionIDRIBSLVinInnerScriptSig.from_json(json)
+# print the JSON string representation of the object
+print GetTransactionDetailsByTransactionIDRIBSLVinInnerScriptSig.to_json()
+
+# convert the object into a dict
+get_transaction_details_by_transaction_idribsl_vin_inner_script_sig_dict = get_transaction_details_by_transaction_idribsl_vin_inner_script_sig_instance.to_dict()
+# create an instance of GetTransactionDetailsByTransactionIDRIBSLVinInnerScriptSig from a dict
+get_transaction_details_by_transaction_idribsl_vin_inner_script_sig_form_dict = get_transaction_details_by_transaction_idribsl_vin_inner_script_sig.from_dict(get_transaction_details_by_transaction_idribsl_vin_inner_script_sig_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

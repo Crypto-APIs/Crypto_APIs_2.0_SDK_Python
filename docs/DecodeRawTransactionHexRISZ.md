@@ -13,10 +13,26 @@ Name | Type | Description | Notes
 **value_balance** | **str** | Defines the transaction value balance. | 
 **version** | **int** | Represents the transaction version number. | 
 **version_group_id** | **str** | Represents the transaction version group ID | 
-**vin** | [**[DecodeRawTransactionHexRISZVinInner]**](DecodeRawTransactionHexRISZVinInner.md) | Represents the Inputs of the transaction | 
-**vout** | [**[DecodeRawTransactionHexRISZVoutInner]**](DecodeRawTransactionHexRISZVoutInner.md) | Represents the Inputs of the transaction | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**vin** | [**List[DecodeRawTransactionHexRISZVinInner]**](DecodeRawTransactionHexRISZVinInner.md) | Represents the Inputs of the transaction | 
+**vout** | [**List[DecodeRawTransactionHexRISZVoutInner]**](DecodeRawTransactionHexRISZVoutInner.md) | Represents the Inputs of the transaction | 
 
+## Example
+
+```python
+from cryptoapis.models.decode_raw_transaction_hex_risz import DecodeRawTransactionHexRISZ
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of DecodeRawTransactionHexRISZ from a JSON string
+decode_raw_transaction_hex_risz_instance = DecodeRawTransactionHexRISZ.from_json(json)
+# print the JSON string representation of the object
+print DecodeRawTransactionHexRISZ.to_json()
+
+# convert the object into a dict
+decode_raw_transaction_hex_risz_dict = decode_raw_transaction_hex_risz_instance.to_dict()
+# create an instance of DecodeRawTransactionHexRISZ from a dict
+decode_raw_transaction_hex_risz_form_dict = decode_raw_transaction_hex_risz.from_dict(decode_raw_transaction_hex_risz_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_asset_details_by_asset_id**
-> GetAssetDetailsByAssetIDR get_asset_details_by_asset_id(asset_id)
+> GetAssetDetailsByAssetIDR get_asset_details_by_asset_id(asset_id, context=context)
 
 Get Asset Details By Asset ID
 
@@ -18,22 +18,14 @@ Through this endpoint users can obtain information on assets by `assetId`.    Th
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import assets_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.get_asset_details_by_asset_idr import GetAssetDetailsByAssetIDR
-from cryptoapis.model.get_asset_details_by_asset_id401_response import GetAssetDetailsByAssetID401Response
-from cryptoapis.model.get_asset_details_by_asset_id400_response import GetAssetDetailsByAssetID400Response
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.get_asset_details_by_asset_id403_response import GetAssetDetailsByAssetID403Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.get_asset_details_by_asset_idr import GetAssetDetailsByAssetIDR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -46,7 +38,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -54,25 +46,16 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = assets_api.AssetsApi(api_client)
-    asset_id = "5b1ea92e584bf50020130612" # str | Defines the unique ID of the specific asset.
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    api_instance = cryptoapis.AssetsApi(api_client)
+    asset_id = '5b1ea92e584bf50020130612' # str | Defines the unique ID of the specific asset.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get Asset Details By Asset ID
-        api_response = api_instance.get_asset_details_by_asset_id(asset_id)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling AssetsApi->get_asset_details_by_asset_id: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get Asset Details By Asset ID
         api_response = api_instance.get_asset_details_by_asset_id(asset_id, context=context)
+        print("The response of AssetsApi->get_asset_details_by_asset_id:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling AssetsApi->get_asset_details_by_asset_id: %s\n" % e)
 ```
 
@@ -81,8 +64,8 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **asset_id** | **str**| Defines the unique ID of the specific asset. |
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **asset_id** | **str**| Defines the unique ID of the specific asset. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
 
 ### Return type
 
@@ -97,9 +80,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
@@ -116,7 +97,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_asset_details_by_asset_symbol**
-> GetAssetDetailsByAssetSymbolR get_asset_details_by_asset_symbol(asset_symbol)
+> GetAssetDetailsByAssetSymbolR get_asset_details_by_asset_symbol(asset_symbol, context=context)
 
 Get Asset Details By Asset Symbol
 
@@ -125,22 +106,14 @@ Through this endpoint users can obtain information on assets by asset symbol.   
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import assets_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.get_asset_details_by_asset_symbol403_response import GetAssetDetailsByAssetSymbol403Response
-from cryptoapis.model.get_asset_details_by_asset_symbol401_response import GetAssetDetailsByAssetSymbol401Response
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.get_asset_details_by_asset_symbol400_response import GetAssetDetailsByAssetSymbol400Response
-from cryptoapis.model.get_asset_details_by_asset_symbol_r import GetAssetDetailsByAssetSymbolR
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.get_asset_details_by_asset_symbol_r import GetAssetDetailsByAssetSymbolR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -153,7 +126,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -161,25 +134,16 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = assets_api.AssetsApi(api_client)
-    asset_symbol = "BTC" # str | Specifies the asset's unique symbol in the Crypto APIs listings.
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    api_instance = cryptoapis.AssetsApi(api_client)
+    asset_symbol = 'BTC' # str | Specifies the asset's unique symbol in the Crypto APIs listings.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get Asset Details By Asset Symbol
-        api_response = api_instance.get_asset_details_by_asset_symbol(asset_symbol)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling AssetsApi->get_asset_details_by_asset_symbol: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get Asset Details By Asset Symbol
         api_response = api_instance.get_asset_details_by_asset_symbol(asset_symbol, context=context)
+        print("The response of AssetsApi->get_asset_details_by_asset_symbol:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling AssetsApi->get_asset_details_by_asset_symbol: %s\n" % e)
 ```
 
@@ -188,8 +152,8 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **asset_symbol** | **str**| Specifies the asset&#39;s unique symbol in the Crypto APIs listings. |
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **asset_symbol** | **str**| Specifies the asset&#39;s unique symbol in the Crypto APIs listings. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
 
 ### Return type
 
@@ -204,9 +168,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |

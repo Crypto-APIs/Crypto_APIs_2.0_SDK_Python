@@ -9,10 +9,26 @@ Name | Type | Description | Notes
 **size** | **int** | Represents the total size of this transaction. | 
 **v_size** | **int** | Represents the virtual size of this transaction. | 
 **version** | **int** | Represents transaction version number. | 
-**vin** | [**[ListTransactionsByBlockHeightRIBSLVinInner]**](ListTransactionsByBlockHeightRIBSLVinInner.md) | Represents the transaction inputs. | 
-**vout** | [**[ListTransactionsByBlockHeightRIBSLVoutInner]**](ListTransactionsByBlockHeightRIBSLVoutInner.md) | Represents the transaction outputs. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**vin** | [**List[ListTransactionsByBlockHeightRIBSLVinInner]**](ListTransactionsByBlockHeightRIBSLVinInner.md) | Represents the transaction inputs. | 
+**vout** | [**List[ListTransactionsByBlockHashRIBSLVoutInner]**](ListTransactionsByBlockHashRIBSLVoutInner.md) | Represents the transaction outputs. | 
 
+## Example
+
+```python
+from cryptoapis.models.list_transactions_by_block_height_ribsl import ListTransactionsByBlockHeightRIBSL
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ListTransactionsByBlockHeightRIBSL from a JSON string
+list_transactions_by_block_height_ribsl_instance = ListTransactionsByBlockHeightRIBSL.from_json(json)
+# print the JSON string representation of the object
+print ListTransactionsByBlockHeightRIBSL.to_json()
+
+# convert the object into a dict
+list_transactions_by_block_height_ribsl_dict = list_transactions_by_block_height_ribsl_instance.to_dict()
+# create an instance of ListTransactionsByBlockHeightRIBSL from a dict
+list_transactions_by_block_height_ribsl_form_dict = list_transactions_by_block_height_ribsl.from_dict(list_transactions_by_block_height_ribsl_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

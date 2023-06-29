@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **list_supported_assets**
-> ListSupportedAssetsR list_supported_assets()
+> ListSupportedAssetsR list_supported_assets(context=context, asset_type=asset_type, limit=limit, offset=offset)
 
 List Supported Assets
 
@@ -17,22 +17,14 @@ This endpoint will return a list of supported assets. The asset could be a crypt
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import metadata_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.list_supported_assets_r import ListSupportedAssetsR
-from cryptoapis.model.list_supported_assets401_response import ListSupportedAssets401Response
-from cryptoapis.model.list_supported_assets400_response import ListSupportedAssets400Response
-from cryptoapis.model.list_supported_assets403_response import ListSupportedAssets403Response
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.list_supported_assets_r import ListSupportedAssetsR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -45,7 +37,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -53,19 +45,18 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = metadata_api.MetadataApi(api_client)
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    asset_type = "crypto" # str | Defines the type of the supported asset. This could be either \"crypto\" or \"fiat\". (optional)
-    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    api_instance = cryptoapis.MetadataApi(api_client)
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    asset_type = 'crypto' # str | Defines the type of the supported asset. This could be either \"crypto\" or \"fiat\". (optional)
+    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List Supported Assets
         api_response = api_instance.list_supported_assets(context=context, asset_type=asset_type, limit=limit, offset=offset)
+        print("The response of MetadataApi->list_supported_assets:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling MetadataApi->list_supported_assets: %s\n" % e)
 ```
 
@@ -74,10 +65,10 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **asset_type** | **str**| Defines the type of the supported asset. This could be either \&quot;crypto\&quot; or \&quot;fiat\&quot;. | [optional]
- **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] if omitted the server will use the default value of 50
- **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] if omitted the server will use the default value of 0
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
+ **asset_type** | **str**| Defines the type of the supported asset. This could be either \&quot;crypto\&quot; or \&quot;fiat\&quot;. | [optional] 
+ **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] [default to 50]
+ **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] [default to 0]
 
 ### Return type
 
@@ -92,9 +83,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |

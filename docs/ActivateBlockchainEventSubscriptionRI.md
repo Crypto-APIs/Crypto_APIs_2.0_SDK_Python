@@ -15,8 +15,24 @@ Name | Type | Description | Notes
 **network** | **str** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
 **reference_id** | **str** | Represents a unique ID used to reference the specific callback subscription. | 
 **transaction_id** | **str** | Represents the unique identification string that defines the transaction. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.activate_blockchain_event_subscription_ri import ActivateBlockchainEventSubscriptionRI
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ActivateBlockchainEventSubscriptionRI from a JSON string
+activate_blockchain_event_subscription_ri_instance = ActivateBlockchainEventSubscriptionRI.from_json(json)
+# print the JSON string representation of the object
+print ActivateBlockchainEventSubscriptionRI.to_json()
+
+# convert the object into a dict
+activate_blockchain_event_subscription_ri_dict = activate_blockchain_event_subscription_ri_instance.to_dict()
+# create an instance of ActivateBlockchainEventSubscriptionRI from a dict
+activate_blockchain_event_subscription_ri_form_dict = activate_blockchain_event_subscription_ri.from_dict(activate_blockchain_event_subscription_ri_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

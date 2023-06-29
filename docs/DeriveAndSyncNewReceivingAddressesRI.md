@@ -6,11 +6,27 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address** | **str** | Represents the public address, which is a compressed and shortened form of a public key. | 
 **address_format** | **str** | Represents the format of the address. | 
+**address_type** | **str** | Defines the address type. | 
 **derivation_type** | **str** | Represents the derivation type | 
 **index** | **str** | Represents the output index. It refers to the UTXO sequence in the transaction outputs (vout). | 
-**address_type** | **str** | Defines the address type. | defaults to "change"
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.derive_and_sync_new_receiving_addresses_ri import DeriveAndSyncNewReceivingAddressesRI
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of DeriveAndSyncNewReceivingAddressesRI from a JSON string
+derive_and_sync_new_receiving_addresses_ri_instance = DeriveAndSyncNewReceivingAddressesRI.from_json(json)
+# print the JSON string representation of the object
+print DeriveAndSyncNewReceivingAddressesRI.to_json()
+
+# convert the object into a dict
+derive_and_sync_new_receiving_addresses_ri_dict = derive_and_sync_new_receiving_addresses_ri_instance.to_dict()
+# create an instance of DeriveAndSyncNewReceivingAddressesRI from a dict
+derive_and_sync_new_receiving_addresses_ri_form_dict = derive_and_sync_new_receiving_addresses_ri.from_dict(derive_and_sync_new_receiving_addresses_ri_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

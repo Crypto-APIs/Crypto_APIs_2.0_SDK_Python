@@ -5,13 +5,29 @@ Object representation of the script
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**addresses** | **[str]** |  | 
+**addresses** | **List[str]** |  | 
 **asm** | **str** | Represents the assembly of the script public key of the address. | 
 **hex** | **str** | Represents the hex of the script public key of the address. | 
-**type** | **str** | Represents the script type. | 
 **req_sigs** | **int** | Represents the required signatures. | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**type** | **str** | Represents the script type. | 
 
+## Example
+
+```python
+from cryptoapis.models.list_unconfirmed_transactions_by_address_ribsb_vout_inner_script_pub_key import ListUnconfirmedTransactionsByAddressRIBSBVoutInnerScriptPubKey
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ListUnconfirmedTransactionsByAddressRIBSBVoutInnerScriptPubKey from a JSON string
+list_unconfirmed_transactions_by_address_ribsb_vout_inner_script_pub_key_instance = ListUnconfirmedTransactionsByAddressRIBSBVoutInnerScriptPubKey.from_json(json)
+# print the JSON string representation of the object
+print ListUnconfirmedTransactionsByAddressRIBSBVoutInnerScriptPubKey.to_json()
+
+# convert the object into a dict
+list_unconfirmed_transactions_by_address_ribsb_vout_inner_script_pub_key_dict = list_unconfirmed_transactions_by_address_ribsb_vout_inner_script_pub_key_instance.to_dict()
+# create an instance of ListUnconfirmedTransactionsByAddressRIBSBVoutInnerScriptPubKey from a dict
+list_unconfirmed_transactions_by_address_ribsb_vout_inner_script_pub_key_form_dict = list_unconfirmed_transactions_by_address_ribsb_vout_inner_script_pub_key.from_dict(list_unconfirmed_transactions_by_address_ribsb_vout_inner_script_pub_key_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

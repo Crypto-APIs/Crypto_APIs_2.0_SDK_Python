@@ -9,10 +9,26 @@ Name | Type | Description | Notes
 **size** | **int** | Represents the total size of this transaction. | 
 **v_size** | **int** | Represents the virtual size of this transaction. | 
 **version** | **int** | Represents the transaction&#39;s version number. | 
-**vin** | [**[ListConfirmedTransactionsByAddressRIBSLVinInner]**](ListConfirmedTransactionsByAddressRIBSLVinInner.md) | Represents the transaction inputs. | 
-**vout** | [**[GetTransactionDetailsByTransactionIDRIBSLVoutInner]**](GetTransactionDetailsByTransactionIDRIBSLVoutInner.md) | Represents the transaction outputs. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**vin** | [**List[ListConfirmedTransactionsByAddressRIBSLVinInner]**](ListConfirmedTransactionsByAddressRIBSLVinInner.md) | Represents the transaction inputs. | 
+**vout** | [**List[GetTransactionDetailsByTransactionIDRIBSLVoutInner]**](GetTransactionDetailsByTransactionIDRIBSLVoutInner.md) | Represents the transaction outputs. | 
 
+## Example
+
+```python
+from cryptoapis.models.list_confirmed_transactions_by_address_and_time_range_ribsl import ListConfirmedTransactionsByAddressAndTimeRangeRIBSL
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ListConfirmedTransactionsByAddressAndTimeRangeRIBSL from a JSON string
+list_confirmed_transactions_by_address_and_time_range_ribsl_instance = ListConfirmedTransactionsByAddressAndTimeRangeRIBSL.from_json(json)
+# print the JSON string representation of the object
+print ListConfirmedTransactionsByAddressAndTimeRangeRIBSL.to_json()
+
+# convert the object into a dict
+list_confirmed_transactions_by_address_and_time_range_ribsl_dict = list_confirmed_transactions_by_address_and_time_range_ribsl_instance.to_dict()
+# create an instance of ListConfirmedTransactionsByAddressAndTimeRangeRIBSL from a dict
+list_confirmed_transactions_by_address_and_time_range_ribsl_form_dict = list_confirmed_transactions_by_address_and_time_range_ribsl.from_dict(list_confirmed_transactions_by_address_and_time_range_ribsl_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

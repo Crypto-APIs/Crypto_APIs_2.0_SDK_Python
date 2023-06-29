@@ -12,8 +12,24 @@ Name | Type | Description | Notes
 **total_coins** | [**GetXRPRippleBlockDetailsByBlockHeightRITotalCoins**](GetXRPRippleBlockDetailsByBlockHeightRITotalCoins.md) |  | 
 **total_fees** | [**GetXRPRippleBlockDetailsByBlockHeightRITotalFees**](GetXRPRippleBlockDetailsByBlockHeightRITotalFees.md) |  | 
 **transactions_count** | **int** | Represents the total number of all transactions as part of this block. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.get_xrp_ripple_block_details_by_block_height_ri import GetXRPRippleBlockDetailsByBlockHeightRI
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetXRPRippleBlockDetailsByBlockHeightRI from a JSON string
+get_xrp_ripple_block_details_by_block_height_ri_instance = GetXRPRippleBlockDetailsByBlockHeightRI.from_json(json)
+# print the JSON string representation of the object
+print GetXRPRippleBlockDetailsByBlockHeightRI.to_json()
+
+# convert the object into a dict
+get_xrp_ripple_block_details_by_block_height_ri_dict = get_xrp_ripple_block_details_by_block_height_ri_instance.to_dict()
+# create an instance of GetXRPRippleBlockDetailsByBlockHeightRI from a dict
+get_xrp_ripple_block_details_by_block_height_ri_form_dict = get_xrp_ripple_block_details_by_block_height_ri.from_dict(get_xrp_ripple_block_details_by_block_height_ri_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

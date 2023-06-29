@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **get_token_details_by_contract_address**
-> GetTokenDetailsByContractAddressR get_token_details_by_contract_address(network, contract_address)
+> GetTokenDetailsByContractAddressR get_token_details_by_contract_address(blockchain, network, contract_address, context=context)
 
 Get Token Details by Contract Address
 
@@ -21,22 +21,14 @@ Though this endpoint customers can obtain information about token details. This 
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import tokens_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.get_token_details_by_contract_address400_response import GetTokenDetailsByContractAddress400Response
-from cryptoapis.model.get_token_details_by_contract_address403_response import GetTokenDetailsByContractAddress403Response
-from cryptoapis.model.get_token_details_by_contract_address401_response import GetTokenDetailsByContractAddress401Response
-from cryptoapis.model.get_token_details_by_contract_address_r import GetTokenDetailsByContractAddressR
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.get_token_details_by_contract_address_r import GetTokenDetailsByContractAddressR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -49,7 +41,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -57,26 +49,18 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tokens_api.TokensApi(api_client)
-    network = "ropsten" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    contract_address = "0x7495fede000c8a3b77eeae09cf70fa94cd2d53f5" # str | Defines the specific address of the contract.
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    api_instance = cryptoapis.TokensApi(api_client)
+    blockchain = 'ethereum' # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network = 'goerli' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"goerli\" are test networks.
+    contract_address = '0x534bD102153EF199abAe8296a2FaE4599fC44Cdc' # str | Defines the specific address of the contract.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Token Details by Contract Address
-        api_response = api_instance.get_token_details_by_contract_address(network, contract_address)
+        api_response = api_instance.get_token_details_by_contract_address(blockchain, network, contract_address, context=context)
+        print("The response of TokensApi->get_token_details_by_contract_address:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling TokensApi->get_token_details_by_contract_address: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get Token Details by Contract Address
-        api_response = api_instance.get_token_details_by_contract_address(network, contract_address, context=context)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling TokensApi->get_token_details_by_contract_address: %s\n" % e)
 ```
 
@@ -85,10 +69,10 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
- **contract_address** | **str**| Defines the specific address of the contract. |
- **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | defaults to "ethereum"
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;goerli\&quot; are test networks. | 
+ **contract_address** | **str**| Defines the specific address of the contract. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
 
 ### Return type
 
@@ -103,9 +87,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
@@ -122,7 +104,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_confirmed_tokens_transfers_by_address**
-> ListConfirmedTokensTransfersByAddressR list_confirmed_tokens_transfers_by_address(blockchain, network, address)
+> ListConfirmedTokensTransfersByAddressR list_confirmed_tokens_transfers_by_address(blockchain, network, address, context=context, limit=limit, offset=offset)
 
 List Confirmed Tokens Transfers By Address
 
@@ -131,22 +113,14 @@ Through this endpoint customers can obtain a list with **confirmed** token trans
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import tokens_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.list_confirmed_tokens_transfers_by_address_r import ListConfirmedTokensTransfersByAddressR
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.list_confirmed_tokens_transfers_by_address400_response import ListConfirmedTokensTransfersByAddress400Response
-from cryptoapis.model.list_confirmed_tokens_transfers_by_address403_response import ListConfirmedTokensTransfersByAddress403Response
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.list_confirmed_tokens_transfers_by_address401_response import ListConfirmedTokensTransfersByAddress401Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.list_confirmed_tokens_transfers_by_address_r import ListConfirmedTokensTransfersByAddressR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -159,7 +133,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -167,29 +141,20 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tokens_api.TokensApi(api_client)
-    blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Ethereum Classic, etc.
-    network = "ropsten" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    address = "0x033ef6db9fbd0ee60e2931906b987fe0280471a0" # str | Represents the public address, which is a compressed and shortened form of a public key.
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    api_instance = cryptoapis.TokensApi(api_client)
+    blockchain = 'ethereum' # str | Represents the specific blockchain protocol name, e.g. Ethereum, Ethereum Classic, etc.
+    network = 'goerli' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"goerli\" are test networks.
+    address = '0x0902a667d6a3f287835e0a4593cae4167384abc6' # str | Represents the public address, which is a compressed and shortened form of a public key.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List Confirmed Tokens Transfers By Address
-        api_response = api_instance.list_confirmed_tokens_transfers_by_address(blockchain, network, address)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling TokensApi->list_confirmed_tokens_transfers_by_address: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List Confirmed Tokens Transfers By Address
         api_response = api_instance.list_confirmed_tokens_transfers_by_address(blockchain, network, address, context=context, limit=limit, offset=offset)
+        print("The response of TokensApi->list_confirmed_tokens_transfers_by_address:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling TokensApi->list_confirmed_tokens_transfers_by_address: %s\n" % e)
 ```
 
@@ -198,12 +163,12 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Ethereum Classic, etc. |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
- **address** | **str**| Represents the public address, which is a compressed and shortened form of a public key. |
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] if omitted the server will use the default value of 50
- **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] if omitted the server will use the default value of 0
+ **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Ethereum Classic, etc. | 
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;goerli\&quot; are test networks. | 
+ **address** | **str**| Represents the public address, which is a compressed and shortened form of a public key. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
+ **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] [default to 50]
+ **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] [default to 0]
 
 ### Return type
 
@@ -218,9 +183,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
@@ -237,7 +200,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_tokens_by_address**
-> ListTokensByAddressR list_tokens_by_address(blockchain, network, address)
+> ListTokensByAddressR list_tokens_by_address(blockchain, network, address, context=context, limit=limit, offset=offset)
 
 List Tokens By Address
 
@@ -246,22 +209,14 @@ Through this endpoint customers can obtain token data by providing an attribute 
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import tokens_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.list_tokens_by_address_r import ListTokensByAddressR
-from cryptoapis.model.list_tokens_by_address403_response import ListTokensByAddress403Response
-from cryptoapis.model.list_tokens_by_address401_response import ListTokensByAddress401Response
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.list_tokens_by_address400_response import ListTokensByAddress400Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.list_tokens_by_address_r import ListTokensByAddressR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -274,7 +229,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -282,29 +237,20 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tokens_api.TokensApi(api_client)
-    blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Ethereum Classic, etc.
-    network = "ropsten" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    address = "0x033ef6db9fbd0ee60e2931906b987fe0280471a0" # str | Represents the public address, which is a compressed and shortened form of a public key.
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    api_instance = cryptoapis.TokensApi(api_client)
+    blockchain = 'ethereum' # str | Represents the specific blockchain protocol name, e.g. Ethereum, Ethereum Classic, etc.
+    network = 'goerli' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"goerli\" are test networks.
+    address = '0x6890303Cfca4f2571c3A5A5982b44c0Ca82b124A' # str | Represents the public address, which is a compressed and shortened form of a public key.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List Tokens By Address
-        api_response = api_instance.list_tokens_by_address(blockchain, network, address)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling TokensApi->list_tokens_by_address: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List Tokens By Address
         api_response = api_instance.list_tokens_by_address(blockchain, network, address, context=context, limit=limit, offset=offset)
+        print("The response of TokensApi->list_tokens_by_address:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling TokensApi->list_tokens_by_address: %s\n" % e)
 ```
 
@@ -313,12 +259,12 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Ethereum Classic, etc. |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
- **address** | **str**| Represents the public address, which is a compressed and shortened form of a public key. |
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] if omitted the server will use the default value of 50
- **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] if omitted the server will use the default value of 0
+ **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Ethereum Classic, etc. | 
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;goerli\&quot; are test networks. | 
+ **address** | **str**| Represents the public address, which is a compressed and shortened form of a public key. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
+ **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] [default to 50]
+ **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] [default to 0]
 
 ### Return type
 
@@ -333,9 +279,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
@@ -352,7 +296,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_tokens_transfers_by_transaction_hash**
-> ListTokensTransfersByTransactionHashR list_tokens_transfers_by_transaction_hash(blockchain, network, transaction_hash)
+> ListTokensTransfersByTransactionHashR list_tokens_transfers_by_transaction_hash(blockchain, network, transaction_hash, context=context, limit=limit, offset=offset)
 
 List Tokens Transfers By Transaction Hash
 
@@ -361,22 +305,14 @@ Through this endpoint customers can obtain a list with token transfers by the `t
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import tokens_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.list_tokens_transfers_by_transaction_hash403_response import ListTokensTransfersByTransactionHash403Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.list_tokens_transfers_by_transaction_hash400_response import ListTokensTransfersByTransactionHash400Response
-from cryptoapis.model.list_tokens_transfers_by_transaction_hash_r import ListTokensTransfersByTransactionHashR
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.list_tokens_transfers_by_transaction_hash401_response import ListTokensTransfersByTransactionHash401Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.list_tokens_transfers_by_transaction_hash_r import ListTokensTransfersByTransactionHashR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -389,7 +325,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -397,29 +333,20 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tokens_api.TokensApi(api_client)
-    blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Ethereum Classic, etc.
-    network = "ropsten" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    transaction_hash = "0xbe38781783b1b9d480219255ff98e20335a39e13979a66112efa33f05fde0a33" # str | Represents the hash of the transaction, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    api_instance = cryptoapis.TokensApi(api_client)
+    blockchain = 'ethereum' # str | Represents the specific blockchain protocol name, e.g. Ethereum, Ethereum Classic, etc.
+    network = 'goerli' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"goerli\" are test networks.
+    transaction_hash = '0xbc8245ba5cccb524d91256224689ac0f16678321a266bab8197ad7daab4c9e16' # str | Represents the hash of the transaction, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List Tokens Transfers By Transaction Hash
-        api_response = api_instance.list_tokens_transfers_by_transaction_hash(blockchain, network, transaction_hash)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling TokensApi->list_tokens_transfers_by_transaction_hash: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List Tokens Transfers By Transaction Hash
         api_response = api_instance.list_tokens_transfers_by_transaction_hash(blockchain, network, transaction_hash, context=context, limit=limit, offset=offset)
+        print("The response of TokensApi->list_tokens_transfers_by_transaction_hash:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling TokensApi->list_tokens_transfers_by_transaction_hash: %s\n" % e)
 ```
 
@@ -428,12 +355,12 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Ethereum Classic, etc. |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
- **transaction_hash** | **str**| Represents the hash of the transaction, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. |
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] if omitted the server will use the default value of 50
- **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] if omitted the server will use the default value of 0
+ **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Ethereum Classic, etc. | 
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;goerli\&quot; are test networks. | 
+ **transaction_hash** | **str**| Represents the hash of the transaction, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
+ **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] [default to 50]
+ **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] [default to 0]
 
 ### Return type
 
@@ -448,9 +375,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
@@ -467,7 +392,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_unconfirmed_tokens_transfers_by_address**
-> ListUnconfirmedTokensTransfersByAddressR list_unconfirmed_tokens_transfers_by_address(blockchain, network, address)
+> ListUnconfirmedTokensTransfersByAddressR list_unconfirmed_tokens_transfers_by_address(blockchain, network, address, context=context, limit=limit, offset=offset)
 
 List Unconfirmed Tokens Transfers By Address
 
@@ -476,22 +401,14 @@ Through this endpoint customers can obtain a list with **unconfirmed** token tra
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import tokens_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.list_unconfirmed_tokens_transfers_by_address400_response import ListUnconfirmedTokensTransfersByAddress400Response
-from cryptoapis.model.list_unconfirmed_tokens_transfers_by_address403_response import ListUnconfirmedTokensTransfersByAddress403Response
-from cryptoapis.model.list_unconfirmed_tokens_transfers_by_address_r import ListUnconfirmedTokensTransfersByAddressR
-from cryptoapis.model.list_unconfirmed_tokens_transfers_by_address401_response import ListUnconfirmedTokensTransfersByAddress401Response
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.list_unconfirmed_tokens_transfers_by_address_r import ListUnconfirmedTokensTransfersByAddressR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -504,7 +421,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -512,29 +429,20 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tokens_api.TokensApi(api_client)
-    blockchain = "ethereum" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Ethereum Classic, etc.
-    network = "ropsten" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    address = "0x033ef6db9fbd0ee60e2931906b987fe0280471a0" # str | Represents the public address, which is a compressed and shortened form of a public key.
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    api_instance = cryptoapis.TokensApi(api_client)
+    blockchain = 'ethereum' # str | Represents the specific blockchain protocol name, e.g. Ethereum, Ethereum Classic, etc.
+    network = 'goerli' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"goerli\" are test networks.
+    address = '0x0902a667d6a3f287835e0a4593cae4167384abc6' # str | Represents the public address, which is a compressed and shortened form of a public key.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List Unconfirmed Tokens Transfers By Address
-        api_response = api_instance.list_unconfirmed_tokens_transfers_by_address(blockchain, network, address)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling TokensApi->list_unconfirmed_tokens_transfers_by_address: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List Unconfirmed Tokens Transfers By Address
         api_response = api_instance.list_unconfirmed_tokens_transfers_by_address(blockchain, network, address, context=context, limit=limit, offset=offset)
+        print("The response of TokensApi->list_unconfirmed_tokens_transfers_by_address:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling TokensApi->list_unconfirmed_tokens_transfers_by_address: %s\n" % e)
 ```
 
@@ -543,12 +451,12 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Ethereum Classic, etc. |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
- **address** | **str**| Represents the public address, which is a compressed and shortened form of a public key. |
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] if omitted the server will use the default value of 50
- **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] if omitted the server will use the default value of 0
+ **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Ethereum Classic, etc. | 
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;goerli\&quot; are test networks. | 
+ **address** | **str**| Represents the public address, which is a compressed and shortened form of a public key. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
+ **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] [default to 50]
+ **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] [default to 0]
 
 ### Return type
 
@@ -563,9 +471,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |

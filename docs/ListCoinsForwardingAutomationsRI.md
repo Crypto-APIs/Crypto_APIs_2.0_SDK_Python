@@ -12,8 +12,24 @@ Name | Type | Description | Notes
 **minimum_transfer_amount** | **str** | Represents the minimum transfer amount of the currency in the &#x60;fromAddress&#x60; that can be allowed for an automatic forwarding. | 
 **reference_id** | **str** | Represents a unique ID used to reference the specific forwarding automation. | 
 **to_address** | **str** | Represents the hash of the address the currency is forwarded to. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.list_coins_forwarding_automations_ri import ListCoinsForwardingAutomationsRI
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ListCoinsForwardingAutomationsRI from a JSON string
+list_coins_forwarding_automations_ri_instance = ListCoinsForwardingAutomationsRI.from_json(json)
+# print the JSON string representation of the object
+print ListCoinsForwardingAutomationsRI.to_json()
+
+# convert the object into a dict
+list_coins_forwarding_automations_ri_dict = list_coins_forwarding_automations_ri_instance.to_dict()
+# create an instance of ListCoinsForwardingAutomationsRI from a dict
+list_coins_forwarding_automations_ri_form_dict = list_coins_forwarding_automations_ri.from_dict(list_coins_forwarding_automations_ri_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

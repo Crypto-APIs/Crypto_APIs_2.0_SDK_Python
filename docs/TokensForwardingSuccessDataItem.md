@@ -15,8 +15,24 @@ Name | Type | Description | Notes
 **forwarding_transaction_id** | **str** | Defines the unique Transaction ID that forwarded the tokens. | 
 **token_type** | **str** | Defines the type of token sent with the transaction, e.g. ERC 20. | 
 **token** | [**TokensForwardingSuccessToken**](TokensForwardingSuccessToken.md) |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.tokens_forwarding_success_data_item import TokensForwardingSuccessDataItem
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of TokensForwardingSuccessDataItem from a JSON string
+tokens_forwarding_success_data_item_instance = TokensForwardingSuccessDataItem.from_json(json)
+# print the JSON string representation of the object
+print TokensForwardingSuccessDataItem.to_json()
+
+# convert the object into a dict
+tokens_forwarding_success_data_item_dict = tokens_forwarding_success_data_item_instance.to_dict()
+# create an instance of TokensForwardingSuccessDataItem from a dict
+tokens_forwarding_success_data_item_form_dict = tokens_forwarding_success_data_item.from_dict(tokens_forwarding_success_data_item_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

@@ -9,8 +9,24 @@ Name | Type | Description | Notes
 **burned_trx** | **str** | Represents the block burned TRX. | 
 **energy_used** | **str** | Representats the used energy for the transaction. | 
 **size** | **int** | Represents the total size of the block in Bytes. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.get_block_details_by_block_height_from_callback_ribst import GetBlockDetailsByBlockHeightFromCallbackRIBST
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetBlockDetailsByBlockHeightFromCallbackRIBST from a JSON string
+get_block_details_by_block_height_from_callback_ribst_instance = GetBlockDetailsByBlockHeightFromCallbackRIBST.from_json(json)
+# print the JSON string representation of the object
+print GetBlockDetailsByBlockHeightFromCallbackRIBST.to_json()
+
+# convert the object into a dict
+get_block_details_by_block_height_from_callback_ribst_dict = get_block_details_by_block_height_from_callback_ribst_instance.to_dict()
+# create an instance of GetBlockDetailsByBlockHeightFromCallbackRIBST from a dict
+get_block_details_by_block_height_from_callback_ribst_form_dict = get_block_details_by_block_height_from_callback_ribst.from_dict(get_block_details_by_block_height_from_callback_ribst_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

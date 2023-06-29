@@ -12,8 +12,24 @@ Name | Type | Description | Notes
 **trigger_transaction_id** | **str** | Defines the unique Transaction ID that triggered the coin forwarding. | 
 **error_code** | **str** | Represents the error code received for the failed coin forwarding. | 
 **error_message** | **str** | Represents the error message received for the failed coin forwarding. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.coins_forwarding_fail_data_item import CoinsForwardingFailDataItem
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of CoinsForwardingFailDataItem from a JSON string
+coins_forwarding_fail_data_item_instance = CoinsForwardingFailDataItem.from_json(json)
+# print the JSON string representation of the object
+print CoinsForwardingFailDataItem.to_json()
+
+# convert the object into a dict
+coins_forwarding_fail_data_item_dict = coins_forwarding_fail_data_item_instance.to_dict()
+# create an instance of CoinsForwardingFailDataItem from a dict
+coins_forwarding_fail_data_item_form_dict = coins_forwarding_fail_data_item.from_dict(coins_forwarding_fail_data_item_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

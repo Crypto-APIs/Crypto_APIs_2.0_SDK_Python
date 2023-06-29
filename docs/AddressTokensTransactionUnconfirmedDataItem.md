@@ -13,8 +13,24 @@ Name | Type | Description | Notes
 **token** | [**AddressTokensTransactionUnconfirmedToken**](AddressTokensTransactionUnconfirmedToken.md) |  | 
 **direction** | **str** | Defines whether the transaction is \&quot;incoming\&quot; or \&quot;outgoing\&quot;. | 
 **first_seen_in_mempool_timestamp** | **int** | Defines the exact time the transaction has been first accepted into the mempool to await confirmation as timestamp. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.address_tokens_transaction_unconfirmed_data_item import AddressTokensTransactionUnconfirmedDataItem
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of AddressTokensTransactionUnconfirmedDataItem from a JSON string
+address_tokens_transaction_unconfirmed_data_item_instance = AddressTokensTransactionUnconfirmedDataItem.from_json(json)
+# print the JSON string representation of the object
+print AddressTokensTransactionUnconfirmedDataItem.to_json()
+
+# convert the object into a dict
+address_tokens_transaction_unconfirmed_data_item_dict = address_tokens_transaction_unconfirmed_data_item_instance.to_dict()
+# create an instance of AddressTokensTransactionUnconfirmedDataItem from a dict
+address_tokens_transaction_unconfirmed_data_item_form_dict = address_tokens_transaction_unconfirmed_data_item.from_dict(address_tokens_transaction_unconfirmed_data_item_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

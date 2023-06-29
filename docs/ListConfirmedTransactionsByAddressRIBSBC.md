@@ -8,10 +8,26 @@ Name | Type | Description | Notes
 **locktime** | **int** | Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid. | 
 **size** | **int** | Represents the total size of this transaction. | 
 **version** | **int** | Represents the transaction&#39;s version number. | 
-**vin** | [**[ListConfirmedTransactionsByAddressRIBSBCVinInner]**](ListConfirmedTransactionsByAddressRIBSBCVinInner.md) | Represents the transaction inputs. | 
-**vout** | [**[GetTransactionDetailsByTransactionIDRIBSBCVoutInner]**](GetTransactionDetailsByTransactionIDRIBSBCVoutInner.md) | Represents the transaction outputs. | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**vin** | [**List[ListConfirmedTransactionsByAddressRIBSBCVinInner]**](ListConfirmedTransactionsByAddressRIBSBCVinInner.md) | Represents the transaction inputs. | 
+**vout** | [**List[GetTransactionDetailsByTransactionIDRIBSBCVoutInner]**](GetTransactionDetailsByTransactionIDRIBSBCVoutInner.md) | Represents the transaction outputs. | [optional] 
 
+## Example
+
+```python
+from cryptoapis.models.list_confirmed_transactions_by_address_ribsbc import ListConfirmedTransactionsByAddressRIBSBC
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ListConfirmedTransactionsByAddressRIBSBC from a JSON string
+list_confirmed_transactions_by_address_ribsbc_instance = ListConfirmedTransactionsByAddressRIBSBC.from_json(json)
+# print the JSON string representation of the object
+print ListConfirmedTransactionsByAddressRIBSBC.to_json()
+
+# convert the object into a dict
+list_confirmed_transactions_by_address_ribsbc_dict = list_confirmed_transactions_by_address_ribsbc_instance.to_dict()
+# create an instance of ListConfirmedTransactionsByAddressRIBSBC from a dict
+list_confirmed_transactions_by_address_ribsbc_form_dict = list_confirmed_transactions_by_address_ribsbc.from_dict(list_confirmed_transactions_by_address_ribsbc_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

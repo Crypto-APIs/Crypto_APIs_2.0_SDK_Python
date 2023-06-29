@@ -5,7 +5,7 @@ Ethereum Classic
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**difficulty** | **str** | Represents a mathematical value of how hard it is to find a valid hash for this block. | 
+**difficulty** | **str** | String representation of the block difficulty | [optional] 
 **extra_data** | **str** | Represents any data that can be included by the miner in the block. | 
 **gas_limit** | **str** | Defines the total gas limit of all transactions in the block. | 
 **gas_used** | **str** | Represents the total amount of gas used by all transactions in this block. | 
@@ -14,9 +14,25 @@ Name | Type | Description | Notes
 **sha3_uncles** | **str** | Defines the combined hash of all uncles for a given parent. | 
 **size** | **int** | Represents the total size of the block in Bytes. | 
 **total_difficulty** | **str** | Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block. | 
-**uncles** | **[str]** |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**uncles** | **List[str]** |  | 
 
+## Example
+
+```python
+from cryptoapis.models.get_last_mined_block_ribsec import GetLastMinedBlockRIBSEC
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetLastMinedBlockRIBSEC from a JSON string
+get_last_mined_block_ribsec_instance = GetLastMinedBlockRIBSEC.from_json(json)
+# print the JSON string representation of the object
+print GetLastMinedBlockRIBSEC.to_json()
+
+# convert the object into a dict
+get_last_mined_block_ribsec_dict = get_last_mined_block_ribsec_instance.to_dict()
+# create an instance of GetLastMinedBlockRIBSEC from a dict
+get_last_mined_block_ribsec_form_dict = get_last_mined_block_ribsec.from_dict(get_last_mined_block_ribsec_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

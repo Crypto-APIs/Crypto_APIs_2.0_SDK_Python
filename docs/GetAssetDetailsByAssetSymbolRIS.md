@@ -5,16 +5,32 @@ Represents a specific asset's data depending on its type (whether it is \"crypto
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_1_hour_price_change_in_percentage** | **str** | Represents the percentage of the asset&#39;s current price against the its price from 1 hour ago. | [optional] 
-**_1_week_price_change_in_percentage** | **str** | Represents the percentage of the asset&#39;s current price against the its price from 1 week ago. | [optional] 
-**_24_hours_price_change_in_percentage** | **str** | Represents the percentage of the asset&#39;s current price against the its price from 24 hours ago. | [optional] 
-**_24_hours_trading_volume** | **str** | Represents the trading volume of the asset for the time frame of 24 hours. | [optional] 
-**asset_type** | **str** | Defines the type of the supported asset. This could be either \&quot;crypto\&quot; or \&quot;fiat\&quot;. | [optional] 
-**circulating_supply** | **str** | Represents the amount of the asset that is circulating on the market and in public hands. | [optional] 
-**market_cap_in_usd** | **str** | Defines the total market value of the asset&#39;s circulating supply in USD. | [optional] 
-**max_supply** | **str** | Represents the maximum amount of all coins of a specific asset that will ever exist in its lifetime. | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**var_1_hour_price_change_in_percentage** | **str** | Represents the percentage of the asset&#39;s current price against the its price from 1 hour ago. | 
+**var_1_week_price_change_in_percentage** | **str** | Represents the percentage of the asset&#39;s current price against the its price from 1 week ago. | 
+**var_24_hours_price_change_in_percentage** | **str** | Represents the percentage of the asset&#39;s current price against the its price from 24 hours ago. | 
+**var_24_hours_trading_volume** | **str** | Represents the trading volume of the asset for the time frame of 24 hours. | 
+**asset_type** | **str** | Defines the type of the supported asset. This could be either \&quot;crypto\&quot; or \&quot;fiat\&quot;. | 
+**circulating_supply** | **str** | Represents the amount of the asset that is circulating on the market and in public hands. | 
+**market_cap_in_usd** | **str** | Defines the total market value of the asset&#39;s circulating supply in USD. | 
+**max_supply** | **str** | Represents the maximum amount of all coins of a specific asset that will ever exist in its lifetime. | 
 
+## Example
+
+```python
+from cryptoapis.models.get_asset_details_by_asset_symbol_ris import GetAssetDetailsByAssetSymbolRIS
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetAssetDetailsByAssetSymbolRIS from a JSON string
+get_asset_details_by_asset_symbol_ris_instance = GetAssetDetailsByAssetSymbolRIS.from_json(json)
+# print the JSON string representation of the object
+print GetAssetDetailsByAssetSymbolRIS.to_json()
+
+# convert the object into a dict
+get_asset_details_by_asset_symbol_ris_dict = get_asset_details_by_asset_symbol_ris_instance.to_dict()
+# create an instance of GetAssetDetailsByAssetSymbolRIS from a dict
+get_asset_details_by_asset_symbol_ris_form_dict = get_asset_details_by_asset_symbol_ris.from_dict(get_asset_details_by_asset_symbol_ris_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

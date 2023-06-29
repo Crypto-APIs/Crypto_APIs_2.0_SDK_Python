@@ -11,8 +11,24 @@ Name | Type | Description | Notes
 **is_active** | **bool** | Defines whether the subscription is active or not. Set as boolean. | 
 **reference_id** | **str** | Represents a unique ID used to reference the specific callback subscription. | 
 **transaction_id** | **str** | Represents the unique identification string that defines the transaction. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.mined_transaction_ri import MinedTransactionRI
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of MinedTransactionRI from a JSON string
+mined_transaction_ri_instance = MinedTransactionRI.from_json(json)
+# print the JSON string representation of the object
+print MinedTransactionRI.to_json()
+
+# convert the object into a dict
+mined_transaction_ri_dict = mined_transaction_ri_instance.to_dict()
+# create an instance of MinedTransactionRI from a dict
+mined_transaction_ri_form_dict = mined_transaction_ri.from_dict(mined_transaction_ri_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

@@ -16,8 +16,24 @@ Name | Type | Description | Notes
 **senders** | **str** | Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
 **transaction_status** | **str** | Represents the status of this transaction. | 
 **txid** | **str** | Represents the unique identifier of a transaction, i.e. it could be transactionId in UTXO-based protocols like Bitcoin, and transaction hash in Ethereum blockchain. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.get_transaction_details_by_transaction_id_from_callback_ribsp import GetTransactionDetailsByTransactionIDFromCallbackRIBSP
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetTransactionDetailsByTransactionIDFromCallbackRIBSP from a JSON string
+get_transaction_details_by_transaction_id_from_callback_ribsp_instance = GetTransactionDetailsByTransactionIDFromCallbackRIBSP.from_json(json)
+# print the JSON string representation of the object
+print GetTransactionDetailsByTransactionIDFromCallbackRIBSP.to_json()
+
+# convert the object into a dict
+get_transaction_details_by_transaction_id_from_callback_ribsp_dict = get_transaction_details_by_transaction_id_from_callback_ribsp_instance.to_dict()
+# create an instance of GetTransactionDetailsByTransactionIDFromCallbackRIBSP from a dict
+get_transaction_details_by_transaction_id_from_callback_ribsp_form_dict = get_transaction_details_by_transaction_id_from_callback_ribsp.from_dict(get_transaction_details_by_transaction_id_from_callback_ribsp_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

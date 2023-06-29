@@ -8,16 +8,32 @@ Name | Type | Description | Notes
 **mined_in_block_height** | **int** | Defines the block height in which this transaction was confirmed/mined. | 
 **recipient_address** | **str** | Defines the address to which the recipient receives the transferred tokens. | 
 **sender_address** | **str** | Defines the address from which the sender transfers tokens. | 
-**token_decimals** | **int** | Defines the decimals of the token, i.e. the number of digits that come after the decimal coma of the token. | 
-**token_name** | **str** | Defines the token&#39;s name as a string. | 
-**token_symbol** | **str** | Defines the token symbol by which the token contract is known. It is usually 3-4 characters in length. | 
+**token_decimals** | **int** | Defines the decimals of the token, i.e. the number of digits that come after the decimal coma of the token. | [optional] 
+**token_name** | **str** | Defines the token&#39;s name as a string. | [optional] 
+**token_symbol** | **str** | Defines the token symbol by which the token contract is known. It is usually 3-4 characters in length. | [optional] 
 **token_type** | **str** | Defines the specific token type. | 
 **tokens_amount** | **str** | Defines the token amount of the transfer. | 
 **transaction_hash** | **str** | Represents the hash of the transaction, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | 
 **transaction_timestamp** | **int** | Defines the specific time/date when the transaction was created in Unix Timestamp. | 
 **transaction_fee** | [**ListTokensTransfersByTransactionHashRITransactionFee**](ListTokensTransfersByTransactionHashRITransactionFee.md) |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.list_tokens_transfers_by_transaction_hash_ri import ListTokensTransfersByTransactionHashRI
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ListTokensTransfersByTransactionHashRI from a JSON string
+list_tokens_transfers_by_transaction_hash_ri_instance = ListTokensTransfersByTransactionHashRI.from_json(json)
+# print the JSON string representation of the object
+print ListTokensTransfersByTransactionHashRI.to_json()
+
+# convert the object into a dict
+list_tokens_transfers_by_transaction_hash_ri_dict = list_tokens_transfers_by_transaction_hash_ri_instance.to_dict()
+# create an instance of ListTokensTransfersByTransactionHashRI from a dict
+list_tokens_transfers_by_transaction_hash_ri_form_dict = list_tokens_transfers_by_transaction_hash_ri.from_dict(list_tokens_transfers_by_transaction_hash_ri_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

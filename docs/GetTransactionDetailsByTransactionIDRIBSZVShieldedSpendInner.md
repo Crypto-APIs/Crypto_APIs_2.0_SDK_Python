@@ -10,8 +10,24 @@ Name | Type | Description | Notes
 **proof** | **str** | Represents the proof. | 
 **rk** | **str** | Represents the randomized validating key for spendAuthSig. | 
 **spend_auth_sig** | **str** | Used to prove knowledge of the spending key authorizing spending of an input note. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.get_transaction_details_by_transaction_idribszv_shielded_spend_inner import GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner from a JSON string
+get_transaction_details_by_transaction_idribszv_shielded_spend_inner_instance = GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner.from_json(json)
+# print the JSON string representation of the object
+print GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner.to_json()
+
+# convert the object into a dict
+get_transaction_details_by_transaction_idribszv_shielded_spend_inner_dict = get_transaction_details_by_transaction_idribszv_shielded_spend_inner_instance.to_dict()
+# create an instance of GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner from a dict
+get_transaction_details_by_transaction_idribszv_shielded_spend_inner_form_dict = get_transaction_details_by_transaction_idribszv_shielded_spend_inner.from_dict(get_transaction_details_by_transaction_idribszv_shielded_spend_inner_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

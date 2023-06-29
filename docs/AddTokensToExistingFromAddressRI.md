@@ -14,8 +14,24 @@ Name | Type | Description | Notes
 **reference_id** | **str** | Represents a unique ID used to reference the specific callback subscription. | 
 **to_address** | **str** | Represents the hash of the address the tokens are forwarded to. | 
 **token_data** | [**AddTokensToExistingFromAddressRITS**](AddTokensToExistingFromAddressRITS.md) |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.add_tokens_to_existing_from_address_ri import AddTokensToExistingFromAddressRI
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of AddTokensToExistingFromAddressRI from a JSON string
+add_tokens_to_existing_from_address_ri_instance = AddTokensToExistingFromAddressRI.from_json(json)
+# print the JSON string representation of the object
+print AddTokensToExistingFromAddressRI.to_json()
+
+# convert the object into a dict
+add_tokens_to_existing_from_address_ri_dict = add_tokens_to_existing_from_address_ri_instance.to_dict()
+# create an instance of AddTokensToExistingFromAddressRI from a dict
+add_tokens_to_existing_from_address_ri_form_dict = add_tokens_to_existing_from_address_ri.from_dict(add_tokens_to_existing_from_address_ri_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **activate_blockchain_event_subscription**
-> ActivateBlockchainEventSubscriptionR activate_blockchain_event_subscription(reference_id)
+> ActivateBlockchainEventSubscriptionR activate_blockchain_event_subscription(reference_id, context=context, activate_blockchain_event_subscription_rb=activate_blockchain_event_subscription_rb)
 
 Activate Blockchain Event Subscription
 
@@ -20,24 +20,15 @@ Through this endpoint customers can reactivate an event subscription (callback) 
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import manage_subscriptions_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.activate_blockchain_event_subscription400_response import ActivateBlockchainEventSubscription400Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.activate_blockchain_event_subscription403_response import ActivateBlockchainEventSubscription403Response
-from cryptoapis.model.activate_blockchain_event_subscription401_response import ActivateBlockchainEventSubscription401Response
-from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
-from cryptoapis.model.activate_blockchain_event_subscription_rb import ActivateBlockchainEventSubscriptionRB
-from cryptoapis.model.activate_blockchain_event_subscription_r import ActivateBlockchainEventSubscriptionR
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.activate_blockchain_event_subscription_r import ActivateBlockchainEventSubscriptionR
+from cryptoapis.models.activate_blockchain_event_subscription_rb import ActivateBlockchainEventSubscriptionRB
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -50,7 +41,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -58,31 +49,17 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = manage_subscriptions_api.ManageSubscriptionsApi(api_client)
-    reference_id = "bc243c86-0902-4386-b30d-e6b30fa1f2aa" # str | Represents a unique ID used to reference the specific callback subscription.
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    activate_blockchain_event_subscription_rb = ActivateBlockchainEventSubscriptionRB(
-        context="yourExampleString",
-        data=ActivateBlockchainEventSubscriptionRBData(
-            item={},
-        ),
-    ) # ActivateBlockchainEventSubscriptionRB |  (optional)
+    api_instance = cryptoapis.ManageSubscriptionsApi(api_client)
+    reference_id = 'bc243c86-0902-4386-b30d-e6b30fa1f2aa' # str | Represents a unique ID used to reference the specific callback subscription.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    activate_blockchain_event_subscription_rb = cryptoapis.ActivateBlockchainEventSubscriptionRB() # ActivateBlockchainEventSubscriptionRB |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Activate Blockchain Event Subscription
-        api_response = api_instance.activate_blockchain_event_subscription(reference_id)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling ManageSubscriptionsApi->activate_blockchain_event_subscription: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Activate Blockchain Event Subscription
         api_response = api_instance.activate_blockchain_event_subscription(reference_id, context=context, activate_blockchain_event_subscription_rb=activate_blockchain_event_subscription_rb)
+        print("The response of ManageSubscriptionsApi->activate_blockchain_event_subscription:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling ManageSubscriptionsApi->activate_blockchain_event_subscription: %s\n" % e)
 ```
 
@@ -91,9 +68,9 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reference_id** | **str**| Represents a unique ID used to reference the specific callback subscription. |
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **activate_blockchain_event_subscription_rb** | [**ActivateBlockchainEventSubscriptionRB**](ActivateBlockchainEventSubscriptionRB.md)|  | [optional]
+ **reference_id** | **str**| Represents a unique ID used to reference the specific callback subscription. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
+ **activate_blockchain_event_subscription_rb** | [**ActivateBlockchainEventSubscriptionRB**](ActivateBlockchainEventSubscriptionRB.md)|  | [optional] 
 
 ### Return type
 
@@ -108,9 +85,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | The resource has been successfully created. |  -  |
@@ -128,7 +103,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_blockchain_event_subscription**
-> DeleteBlockchainEventSubscriptionR delete_blockchain_event_subscription(blockchain, network, reference_id)
+> DeleteBlockchainEventSubscriptionR delete_blockchain_event_subscription(blockchain, network, reference_id, context=context)
 
 Delete Blockchain Event Subscription
 
@@ -137,23 +112,14 @@ Through this endpoint the customer can delete blockchain event subscriptions the
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import manage_subscriptions_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.delete_blockchain_event_subscription403_response import DeleteBlockchainEventSubscription403Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.delete_blockchain_event_subscription400_response import DeleteBlockchainEventSubscription400Response
-from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
-from cryptoapis.model.delete_blockchain_event_subscription401_response import DeleteBlockchainEventSubscription401Response
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.delete_blockchain_event_subscription_r import DeleteBlockchainEventSubscriptionR
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.delete_blockchain_event_subscription_r import DeleteBlockchainEventSubscriptionR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -166,7 +132,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -174,27 +140,18 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = manage_subscriptions_api.ManageSubscriptionsApi(api_client)
-    blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-    network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    reference_id = "d3fd6a0e-f2b6-4bb5-9fd3-7944bcec9e9f" # str | Represents a unique ID used to reference the specific callback subscription.
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    api_instance = cryptoapis.ManageSubscriptionsApi(api_client)
+    blockchain = 'bitcoin' # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network = 'testnet' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    reference_id = 'd3fd6a0e-f2b6-4bb5-9fd3-7944bcec9e9f' # str | Represents a unique ID used to reference the specific callback subscription.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete Blockchain Event Subscription
-        api_response = api_instance.delete_blockchain_event_subscription(blockchain, network, reference_id)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling ManageSubscriptionsApi->delete_blockchain_event_subscription: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Delete Blockchain Event Subscription
         api_response = api_instance.delete_blockchain_event_subscription(blockchain, network, reference_id, context=context)
+        print("The response of ManageSubscriptionsApi->delete_blockchain_event_subscription:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling ManageSubscriptionsApi->delete_blockchain_event_subscription: %s\n" % e)
 ```
 
@@ -203,10 +160,10 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
- **reference_id** | **str**| Represents a unique ID used to reference the specific callback subscription. |
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
+ **reference_id** | **str**| Represents a unique ID used to reference the specific callback subscription. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
 
 ### Return type
 
@@ -221,9 +178,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The delete request has been successful. |  -  |
@@ -241,7 +196,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_blockchain_event_subscription_details_by_reference_id**
-> GetBlockchainEventSubscriptionDetailsByReferenceIDR get_blockchain_event_subscription_details_by_reference_id(reference_id)
+> GetBlockchainEventSubscriptionDetailsByReferenceIDR get_blockchain_event_subscription_details_by_reference_id(reference_id, context=context)
 
 Get Blockchain Event Subscription Details By Reference ID
 
@@ -250,23 +205,14 @@ Through this endpoint the customer can get detailed information for a callback s
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import manage_subscriptions_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.get_blockchain_event_subscription_details_by_reference_id403_response import GetBlockchainEventSubscriptionDetailsByReferenceID403Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.get_xrp_ripple_transaction_details_by_transaction_id404_response import GetXRPRippleTransactionDetailsByTransactionID404Response
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.get_blockchain_event_subscription_details_by_reference_id400_response import GetBlockchainEventSubscriptionDetailsByReferenceID400Response
-from cryptoapis.model.get_blockchain_event_subscription_details_by_reference_id401_response import GetBlockchainEventSubscriptionDetailsByReferenceID401Response
-from cryptoapis.model.get_blockchain_event_subscription_details_by_reference_idr import GetBlockchainEventSubscriptionDetailsByReferenceIDR
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.get_blockchain_event_subscription_details_by_reference_idr import GetBlockchainEventSubscriptionDetailsByReferenceIDR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -279,7 +225,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -287,25 +233,16 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = manage_subscriptions_api.ManageSubscriptionsApi(api_client)
-    reference_id = "bc243c86-0902-4386-b30d-e6b30fa1f2aa" # str | Represents a unique ID used to reference the specific callback subscription.
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    api_instance = cryptoapis.ManageSubscriptionsApi(api_client)
+    reference_id = 'bc243c86-0902-4386-b30d-e6b30fa1f2aa' # str | Represents a unique ID used to reference the specific callback subscription.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get Blockchain Event Subscription Details By Reference ID
-        api_response = api_instance.get_blockchain_event_subscription_details_by_reference_id(reference_id)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling ManageSubscriptionsApi->get_blockchain_event_subscription_details_by_reference_id: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get Blockchain Event Subscription Details By Reference ID
         api_response = api_instance.get_blockchain_event_subscription_details_by_reference_id(reference_id, context=context)
+        print("The response of ManageSubscriptionsApi->get_blockchain_event_subscription_details_by_reference_id:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling ManageSubscriptionsApi->get_blockchain_event_subscription_details_by_reference_id: %s\n" % e)
 ```
 
@@ -314,8 +251,8 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reference_id** | **str**| Represents a unique ID used to reference the specific callback subscription. |
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
+ **reference_id** | **str**| Represents a unique ID used to reference the specific callback subscription. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
 
 ### Return type
 
@@ -330,9 +267,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |
@@ -350,7 +285,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_blockchain_events_subscriptions**
-> ListBlockchainEventsSubscriptionsR list_blockchain_events_subscriptions(blockchain, network)
+> ListBlockchainEventsSubscriptionsR list_blockchain_events_subscriptions(blockchain, network, context=context, limit=limit, offset=offset)
 
 List Blockchain Events Subscriptions
 
@@ -359,22 +294,14 @@ Through this endpoint the customer can obtain a list of their callback subscript
 ### Example
 
 * Api Key Authentication (ApiKey):
-
 ```python
 import time
+import os
 import cryptoapis
-from cryptoapis.api import manage_subscriptions_api
-from cryptoapis.model.convert_bitcoin_cash_address429_response import ConvertBitcoinCashAddress429Response
-from cryptoapis.model.convert_bitcoin_cash_address500_response import ConvertBitcoinCashAddress500Response
-from cryptoapis.model.convert_bitcoin_cash_address422_response import ConvertBitcoinCashAddress422Response
-from cryptoapis.model.list_blockchain_events_subscriptions401_response import ListBlockchainEventsSubscriptions401Response
-from cryptoapis.model.list_blockchain_events_subscriptions400_response import ListBlockchainEventsSubscriptions400Response
-from cryptoapis.model.list_blockchain_events_subscriptions_r import ListBlockchainEventsSubscriptionsR
-from cryptoapis.model.convert_bitcoin_cash_address402_response import ConvertBitcoinCashAddress402Response
-from cryptoapis.model.convert_bitcoin_cash_address409_response import ConvertBitcoinCashAddress409Response
-from cryptoapis.model.list_blockchain_events_subscriptions403_response import ListBlockchainEventsSubscriptions403Response
-from cryptoapis.model.convert_bitcoin_cash_address415_response import ConvertBitcoinCashAddress415Response
+from cryptoapis.models.list_blockchain_events_subscriptions_r import ListBlockchainEventsSubscriptionsR
+from cryptoapis.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://rest.cryptoapis.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cryptoapis.Configuration(
@@ -387,7 +314,7 @@ configuration = cryptoapis.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -395,28 +322,19 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with cryptoapis.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = manage_subscriptions_api.ManageSubscriptionsApi(api_client)
-    blockchain = "bitcoin" # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
-    network = "testnet" # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context = "yourExampleString" # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) if omitted the server will use the default value of 50
-    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) if omitted the server will use the default value of 0
+    api_instance = cryptoapis.ManageSubscriptionsApi(api_client)
+    blockchain = 'bitcoin' # str | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network = 'testnet' # str | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    context = 'yourExampleString' # str | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    limit = 50 # int | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
+    offset = 0 # int | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List Blockchain Events Subscriptions
-        api_response = api_instance.list_blockchain_events_subscriptions(blockchain, network)
-        pprint(api_response)
-    except cryptoapis.ApiException as e:
-        print("Exception when calling ManageSubscriptionsApi->list_blockchain_events_subscriptions: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List Blockchain Events Subscriptions
         api_response = api_instance.list_blockchain_events_subscriptions(blockchain, network, context=context, limit=limit, offset=offset)
+        print("The response of ManageSubscriptionsApi->list_blockchain_events_subscriptions:\n")
         pprint(api_response)
-    except cryptoapis.ApiException as e:
+    except Exception as e:
         print("Exception when calling ManageSubscriptionsApi->list_blockchain_events_subscriptions: %s\n" % e)
 ```
 
@@ -425,11 +343,11 @@ with cryptoapis.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. |
- **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. |
- **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional]
- **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] if omitted the server will use the default value of 50
- **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] if omitted the server will use the default value of 0
+ **blockchain** | **str**| Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
+ **network** | **str**| Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
+ **context** | **str**| In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
+ **limit** | **int**| Defines how many items should be returned in the response per page basis. | [optional] [default to 50]
+ **offset** | **int**| The starting index of the response items, i.e. where the response should start listing the returned items. | [optional] [default to 0]
 
 ### Return type
 
@@ -444,9 +362,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The request has been successful. |  -  |

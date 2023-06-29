@@ -9,8 +9,24 @@ Name | Type | Description | Notes
 **created_timestamp** | **int** | Defines the specific time/date when the subscription was created in Unix Timestamp. | 
 **is_active** | **bool** | Defines whether the subscription is active or not. Set as boolean. | 
 **reference_id** | **str** | Represents a unique ID used to reference the specific callback subscription. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.new_block_ri import NewBlockRI
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of NewBlockRI from a JSON string
+new_block_ri_instance = NewBlockRI.from_json(json)
+# print the JSON string representation of the object
+print NewBlockRI.to_json()
+
+# convert the object into a dict
+new_block_ri_dict = new_block_ri_instance.to_dict()
+# create an instance of NewBlockRI from a dict
+new_block_ri_form_dict = new_block_ri.from_dict(new_block_ri_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

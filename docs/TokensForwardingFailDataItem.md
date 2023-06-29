@@ -12,8 +12,24 @@ Name | Type | Description | Notes
 **trigger_transaction_id** | **str** | Defines the unique Transaction ID that triggered the token forwarding. | 
 **error_code** | **str** | Represents the error code received for the failed token forwarding. | 
 **error_message** | **str** | Represents the error message received for the failed token forwarding. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.tokens_forwarding_fail_data_item import TokensForwardingFailDataItem
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of TokensForwardingFailDataItem from a JSON string
+tokens_forwarding_fail_data_item_instance = TokensForwardingFailDataItem.from_json(json)
+# print the JSON string representation of the object
+print TokensForwardingFailDataItem.to_json()
+
+# convert the object into a dict
+tokens_forwarding_fail_data_item_dict = tokens_forwarding_fail_data_item_instance.to_dict()
+# create an instance of TokensForwardingFailDataItem from a dict
+tokens_forwarding_fail_data_item_form_dict = tokens_forwarding_fail_data_item.from_dict(tokens_forwarding_fail_data_item_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

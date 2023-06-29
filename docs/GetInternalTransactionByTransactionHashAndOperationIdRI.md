@@ -12,8 +12,24 @@ Name | Type | Description | Notes
 **recipient** | **str** | Represents the recipient address with the respective amount. | 
 **sender** | **str** | Represents the sender address with the respective amount. | 
 **timestamp** | **int** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.get_internal_transaction_by_transaction_hash_and_operation_id_ri import GetInternalTransactionByTransactionHashAndOperationIdRI
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetInternalTransactionByTransactionHashAndOperationIdRI from a JSON string
+get_internal_transaction_by_transaction_hash_and_operation_id_ri_instance = GetInternalTransactionByTransactionHashAndOperationIdRI.from_json(json)
+# print the JSON string representation of the object
+print GetInternalTransactionByTransactionHashAndOperationIdRI.to_json()
+
+# convert the object into a dict
+get_internal_transaction_by_transaction_hash_and_operation_id_ri_dict = get_internal_transaction_by_transaction_hash_and_operation_id_ri_instance.to_dict()
+# create an instance of GetInternalTransactionByTransactionHashAndOperationIdRI from a dict
+get_internal_transaction_by_transaction_hash_and_operation_id_ri_form_dict = get_internal_transaction_by_transaction_hash_and_operation_id_ri.from_dict(get_internal_transaction_by_transaction_hash_and_operation_id_ri_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

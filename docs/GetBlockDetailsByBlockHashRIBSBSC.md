@@ -11,11 +11,27 @@ Name | Type | Description | Notes
 **gas_used** | **str** | Represents the total amount of gas used by all transactions in this block. | 
 **mined_in_seconds** | **int** | Specifies the amount of time required for the block to be mined in seconds. | 
 **nonce** | **str** | Represents a random value that can be adjusted to satisfy the Proof of Work. | 
-**sha3_uncles** | **str** | Defines the combined hash of all uncles for a given paren | 
+**sha3_uncles** | **str** | Defines the combined hash of all uncles for a given parent. | 
 **size** | **int** | Represents the total size of the block in Bytes. | 
 **total_difficulty** | **str** | Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from cryptoapis.models.get_block_details_by_block_hash_ribsbsc import GetBlockDetailsByBlockHashRIBSBSC
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetBlockDetailsByBlockHashRIBSBSC from a JSON string
+get_block_details_by_block_hash_ribsbsc_instance = GetBlockDetailsByBlockHashRIBSBSC.from_json(json)
+# print the JSON string representation of the object
+print GetBlockDetailsByBlockHashRIBSBSC.to_json()
+
+# convert the object into a dict
+get_block_details_by_block_hash_ribsbsc_dict = get_block_details_by_block_hash_ribsbsc_instance.to_dict()
+# create an instance of GetBlockDetailsByBlockHashRIBSBSC from a dict
+get_block_details_by_block_hash_ribsbsc_form_dict = get_block_details_by_block_hash_ribsbsc.from_dict(get_block_details_by_block_hash_ribsbsc_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 
